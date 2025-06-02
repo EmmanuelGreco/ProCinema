@@ -265,13 +265,13 @@ int main() {
 
             break;
         case 0:
-            system("clear");
+            system("cls");
             cout << "Gracias por usar ProCinema!" << endl << endl;
             exit(1);
             break;
         }
         system("pause");
-        system("clear");
+        system("cls");
 
 
     }

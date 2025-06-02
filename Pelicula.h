@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "Fecha.h"
 
 class Pelicula {
     private:
