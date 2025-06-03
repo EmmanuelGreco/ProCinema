@@ -1,6 +1,7 @@
 #pragma once
 
 
+
 class Sala {
     private:
         int _idSala;

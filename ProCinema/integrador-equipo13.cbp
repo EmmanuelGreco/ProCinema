@@ -35,11 +35,11 @@
 		<Unit filename="Menu.cpp" />
 		<Unit filename="Modelo/Fecha.h" />
 		<Unit filename="Modelo/Funcion.h" />
+		<Unit filename="Modelo/Hora.h" />
 		<Unit filename="Modelo/Membresia.h" />
 		<Unit filename="Modelo/Pelicula.h" />
 		<Unit filename="Modelo/Sala.h" />
 		<Unit filename="Modelo/Venta.h" />
-		<Unit filename="Modelo/prueba.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

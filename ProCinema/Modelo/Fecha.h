@@ -1,11 +1,12 @@
 #pragma once
 #include "Hora.h"
 
+
 class Fecha{
     private:
-        int _dia,
-        int _mes,
-        int _anio,
+        int _dia;
+        int _mes;
+        int _anio;
         Hora _hora;
 
     public:
