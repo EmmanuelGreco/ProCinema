@@ -10,7 +10,7 @@ private:
     int _anio;
     Hora _hora;
 
-    bool validarFecha(int dia, int mes, int anio);
+    bool validarFecha();
     void AgregarDia();
     void RestarDia();
 
@@ -30,8 +30,8 @@ public:
     void setAnio(int anio);
     void setHora(Hora hora);
 
-    void AgregarDias(int cant);
     //1: fecha 2: fecha y hora 3: hora
     std::string toString(int opcion);
+    void cargar(int opcion);
 };
 

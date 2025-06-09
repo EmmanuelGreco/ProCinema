@@ -4,8 +4,6 @@
 class Manager {
 public:
     void cargarPelicula();
-    void mostrarCantidadRegistros();
-    void listarTodos();
-    void listarContratados();
-    void buscarPuestoExp();
+    void listarPeliculas();
+    void modificarPelicula();
 };

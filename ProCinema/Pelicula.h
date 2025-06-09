@@ -37,5 +37,5 @@ class Pelicula {
         void setFechaEstreno(Fecha fechaEstreno);
         void setEstado(bool estado);
 
-        std::string toCSV();
+        std::string mostrar();
 };

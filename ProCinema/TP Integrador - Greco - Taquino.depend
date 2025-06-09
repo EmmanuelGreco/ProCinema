@@ -26,21 +26,21 @@
 1749436100 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06 - tp integrador\código\tp integrador - greco - taquino\hora.cpp
 	"Hora.h"
 
-1749437315 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\fecha.cpp
+1749500391 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\fecha.cpp
 	"Hora.h"
 	"Fecha.h"
-	<cstring>
+	<iostream>
 
 1749436084 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\hora.h
 
-1749437337 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\fecha.h
+1749500387 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\fecha.h
 	"Hora.h"
 	<string>
 
 1749436100 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\hora.cpp
 	"Hora.h"
 
-1749486576 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\main.cpp
+1749500838 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\main.cpp
 	<iostream>
 	<locale.h>
 	"Menu.h"
@@ -59,12 +59,12 @@
 	"Pelicula.h"
 	"Archivos.h"
 
-1749486567 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\pelicula.cpp
+1749500657 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\pelicula.cpp
 	<cstring>
 	"Fecha.h"
 	"Pelicula.h"
 
-1749486396 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\pelicula.h
+1749499234 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\pelicula.h
 	<cstring>
 	"Fecha.h"
 
@@ -72,7 +72,7 @@
 	<string>
 	"Pelicula.h"
 
-1749486518 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\manager.cpp
+1749500880 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\manager.cpp
 	<iostream>
 	<string>
 	"Manager.h"
@@ -80,6 +80,6 @@
 	"Archivos.h"
 	"Fecha.h"
 
-1749484785 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\manager.h
+1749497951 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\manager.h
 	<string>
 

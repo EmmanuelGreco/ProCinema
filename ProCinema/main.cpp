@@ -11,31 +11,9 @@ using namespace std;
 
 int main() {
     setlocale(LC_ALL, "Spanish");
-    Fecha fecha(14, 8, 2003, 22, 45);
-    //cout << fecha.toString(2) << endl; //el toString(*2*) significa que imprime tanto la fecha como la hora. 1 es fecha, 3 es hora.
-
-    //Pelicula peli(1,"Cars","Accion","Pedro","Perez",2,fecha,1);
-    //Pelicula peli(2,"Shrek","Terror","Carlos","Rodriguez",2,fecha,1);
-
-//    Archivos ArPel("peliculas.dat");
-//    ArPel.Guardar(peli);
-//    cout << ArPel.getUltimoId();
-//
-//    for(int i = 0; i < ArPel.CantidadRegistros(); i++) {
-//        Pelicula registro = ArPel.Leer(i);
-//        cout << registro.getApellidoDirector() << endl;
-//    }
-
     Manager manager;
-    //manager.cargarPelicula();
-    //cin.ignore();
-    //manager.cargarPelicula();
-    system("cls");
-    manager.listarTodos();
-    system("pause");
-
-
     Menu menu;
+
     while(true) {
         menu.principal();
         switch(menu.getOpcion()) {
@@ -87,7 +65,7 @@ int main() {
             menu.peliculas();
             switch(menu.getOpcion()) {
             case 1:
-                cout << "AGREGAR PELICULA" << endl;
+                manager.cargarPelicula();
                 break;
             case 2:
                 cout << "ELIMINAR PELICULA" << endl;
@@ -96,7 +74,7 @@ int main() {
                 cout << "MODIFICAR PELICULA" << endl;
                 break;
             case 4:
-                cout << "LISTAR PELICULAS" << endl;
+                manager.listarPeliculas();
                 break;
             case 5:
                 menu.BuscarPeliculasPor();

@@ -1,6 +1,6 @@
 #include "Hora.h"
 #include "Fecha.h"
-#include <cstring>
+#include <iostream>
 using namespace std;
 
 Fecha::Fecha() {
@@ -13,6 +13,7 @@ Fecha::Fecha(int dia, int mes, int anio) {
     setDia(dia);
     setMes(mes);
     setAnio(anio);
+    setHora(Hora(0,0));
 }
 Fecha::Fecha(int dia, int mes, int anio, Hora hora) {
     setDia(dia);
@@ -53,70 +54,25 @@ void Fecha::setHora(Hora hora) {
     _hora = hora;
 }
 
-bool Fecha::validarFecha(int dia, int mes, int anio) {
+bool Fecha::validarFecha() {
     bool valido = true;
 
-    if (anio < 0 || anio > 9999) valido = false;
-    if (mes < 1 || mes > 12) valido = false;
-    if (dia < 1) valido = false;
-    if (((mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) && dia > 31) ||
-            ((mes == 4 || mes == 6 || mes == 9 || mes == 11) && dia > 30) ||
-            (mes == 2 && dia > 28)) valido = false;
-    if (((anio % 4 == 0 && anio % 100 != 0) || anio % 400 == 0) &&
-            (mes == 2) &&
-            (dia == 29)) valido = true;
+    if (_anio < 0 || _anio > 9999) valido = false;
+    if (_mes < 1 || _mes > 12) valido = false;
+    if (_dia < 1) valido = false;
+    if (((_mes == 1 || _mes == 3 || _mes == 5 || _mes == 7 || _mes == 8 || _mes == 10 || _mes == 12) && _dia > 31) ||
+            ((_mes == 4 || _mes == 6 || _mes == 9 || _mes == 11) && _dia > 30) ||
+            (_mes == 2 && _dia > 28)) valido = false;
+    if (((_anio % 4 == 0 && _anio % 100 != 0) || _anio % 400 == 0) &&
+            (_mes == 2) &&
+            (_dia == 29)) valido = true;
+    if (_hora.getHora() < 0 && _hora.getHora() > 23) valido = false;
+    if (_hora.getMinuto() < 0 && _hora.getMinuto() > 59) valido = false;
 
     return valido;
 }
 
-void Fecha::AgregarDia() {
-    if (validarFecha(getDia()+1,getMes(),getAnio())) {
-        setDia(getDia() + 1);
-    } else if (validarFecha(1,getMes()+1,getAnio())) {
-        setDia(1);
-        setMes(getMes()+1);
-    } else if (validarFecha(1,1,getAnio()+1)) {
-        setDia(1);
-        setMes(1);
-        setAnio(getAnio()+1);
-    }
-}
 
-void Fecha::RestarDia() {
-    if (validarFecha(getDia()-1,getMes(),getAnio())) {
-        setDia(getDia() - 1);
-    } else if (validarFecha(31,getMes()-1,getAnio())) {
-        setDia(31);
-        setMes(getMes()-1);
-    } else if (validarFecha(30,getMes()-1,getAnio())) {
-        setDia(30);
-        setMes(getMes()-1);
-    } else if (validarFecha(29,getMes()-1,getAnio())) {
-        setDia(29);
-        setMes(getMes()-1);
-    } else if (validarFecha(28,getMes()-1,getAnio())) {
-        setDia(28);
-        setMes(getMes()-1);
-    } else if (validarFecha(31,12,getAnio()-1)) {
-        setDia(31);
-        setMes(12);
-        setAnio(getAnio()-1);
-    }
-}
-
-void Fecha::AgregarDias(int cant) {
-    if (cant > 0) {
-        for (int i = 0; i < cant; i++) {
-            AgregarDia();
-        }
-    } else if (cant < 0) {
-        for (int i = 0; i < (cant*-1); i++) {
-            RestarDia();
-        }
-    } else {
-        return;
-    }
-}
 
 //1: fecha 2: fecha y hora 3: hora
 string Fecha::toString(int opcion) {
@@ -137,4 +93,34 @@ string Fecha::toString(int opcion) {
         str += to_string(getHora().getMinuto());
     }
     return str;
+}
+
+void Fecha::cargar(int opcion) {
+    int dia = 1, mes = 1, anio = 1900;
+    if (opcion == 1 || opcion == 2) {
+        cout << "Ingrese el numero de dia: ";
+        cin >> dia;
+        cout << "Ingrese el numero de mes: ";
+        cin >> mes;
+        cout << "Ingrese el año: ";
+        cin >> anio;
+    }
+
+    int hora = 0, minuto = 0;
+    if(opcion == 2 || opcion == 3) {
+        cout << "Ingrese la hora: ";
+        cin >> hora;
+        cout << "Ingrese el minuto: ";
+        cin >> minuto;
+    }
+
+
+    if (Fecha(dia, mes, anio, Hora(hora, minuto)).validarFecha()) {
+        setDia(dia);
+        setMes(mes);
+        setAnio(anio);
+        setHora(Hora(hora, minuto));
+    } else {
+        cout << "Fecha de estreno inválida! Se debera modificar mas tarde" << endl;
+    }
 }

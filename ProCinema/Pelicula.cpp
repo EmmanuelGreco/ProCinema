@@ -54,6 +54,7 @@ bool Pelicula::getEstado() {
     return _estado;
 }
 
+
 void Pelicula::setIdPelicula(int idPelicula) {
     _idPelicula = idPelicula;
 }
@@ -79,7 +80,7 @@ void Pelicula::setEstado(bool estado) {
     _estado = estado;
 }
 
-std::string Pelicula::toCSV() {
+std::string Pelicula::mostrar() {
     return to_string(getIdPelicula()) + "," + getTitulo() + "," + getGenero() + "," + getNombreDirector() + ","
-    + getApellidoDirector() + "," + to_string(getClasificacion()) + "," + to_string(getEstado());
+           + getApellidoDirector() + "," + to_string(getClasificacion()) + "," + getFechaEstreno().toString(1) + "," + to_string(getEstado());
 }
