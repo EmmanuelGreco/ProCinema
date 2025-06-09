@@ -85,7 +85,7 @@ void Menu::peliculas() {
     cout << "---------------- ProCinema Manager ----------------" << endl;
     cout << "-------------------- Películas --------------------" << endl;
     cout << "1.  Agregar película" << endl;
-    cout << "2.  Eliminar película" << endl;
+    cout << "2.  Dar de baja / restaurar película" << endl;
     cout << "3.  Modificar una película" << endl;
     cout << "4.  Listar todas las películas en cartelera" << endl;
     cout << "5.  Buscar películas por..." << endl;
@@ -118,7 +118,7 @@ void Menu::funciones() {
     cout << "---------------- ProCinema Manager ----------------" << endl;
     cout << "-------------------- Funciones --------------------" << endl;
     cout << "1.  Agregar una función" << endl;
-    cout << "2.  Eliminar una función" << endl;
+    cout << "2.  Dar de baja / restaurar una función" << endl;
     cout << "3.  Modificar una función" << endl;
     cout << "4.  Listar funciones..." << endl;
     cout << "5.  Buscar funciones por..." << endl;
@@ -210,7 +210,7 @@ void Menu::configuracionSalas() {
     cout << "---------------- Configurar salas -----------------" << endl;
     cout << "1.  Listar salas activas" << endl;
     cout << "2.  Agregar una sala" << endl;
-    cout << "3.  Eliminar una sala" << endl;
+    cout << "3.  Dar de baja / restaurar una sala" << endl;
     cout << "4.  Modificar una sala" << endl;
     cout << "0.  Volver al menú principal... " << endl;
     cout << "---------------------------------------------------" << endl;
@@ -225,7 +225,7 @@ void Menu::configuracionMembresias() {
     cout << "-------------- Configurar membresías --------------" << endl;
     cout << "1.  Listar tipos de membresías activas" << endl;
     cout << "2.  Agregar un tipo de membresía" << endl;
-    cout << "3.  Eliminar un tipo de membresía" << endl;
+    cout << "3.  Dar de baja / restaurar un tipo de membresía" << endl;
     cout << "4.  Modificar un tipo de membresía" << endl;
     cout << "0.  Volver al menú principal... " << endl;
     cout << "---------------------------------------------------" << endl;

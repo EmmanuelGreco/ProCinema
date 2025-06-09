@@ -40,7 +40,7 @@
 1749436100 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\hora.cpp
 	"Hora.h"
 
-1749503624 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\main.cpp
+1749505394 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\main.cpp
 	<iostream>
 	<locale.h>
 	"Menu.h"
@@ -51,7 +51,7 @@
 
 1749435943 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\menu.h
 
-1749437835 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\menu.cpp
+1749505462 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\menu.cpp
 	<iostream>
 	"Menu.h"
 
@@ -72,7 +72,7 @@
 	<string>
 	"Pelicula.h"
 
-1749503749 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\manager.cpp
+1749505630 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\manager.cpp
 	<iostream>
 	<string>
 	"Manager.h"
@@ -80,6 +80,6 @@
 	"Archivos.h"
 	"Fecha.h"
 
-1749497951 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\manager.h
+1749505351 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\manager.h
 	<string>
 

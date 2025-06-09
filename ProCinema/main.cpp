@@ -68,7 +68,7 @@ int main() {
                 manager.cargarPelicula();
                 break;
             case 2:
-                cout << "ELIMINAR PELICULA" << endl;
+                manager.cambiarEstadoPelicula();
                 break;
             case 3:
                 manager.modificarPelicula();

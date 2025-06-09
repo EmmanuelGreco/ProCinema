@@ -115,6 +115,34 @@ void Manager::modificarPelicula() {
     }
 
     if(ArPel.Guardar(peli, pos)) cout << "Modificado correctamente!" << endl;
+}
+
+void Manager::cambiarEstadoPelicula() {
+    int id, pos;
+
+    cout << "Ingrese el Id de la pelicula a modificar: ";
+    cin >> id;
+    pos = ArPel.Buscar(id);
+    if (pos == -1) {
+        cout << "Id no encontrado!";
+        return;
+    }
+    Pelicula peli = ArPel.Leer(pos);
+    peli.mostrar();
+    cout << "Actualmente, esta pelicula se encuentra ";
+    if (peli.getEstado()) cout << "EN CARTELERA. ";
+    else cout << "FUERA DE CARTELERA. ";
+    cout << endl << "Desea modificar su estado? (Y-N): ";
+    char yn;
+    cin >> yn;
+    if (toupper(yn) == 'Y') {
+        peli.setEstado(!peli.getEstado());
+        ArPel.Guardar(peli, pos);
+        cout << "Modificado exitosamente!";
+    } else {
+        cout << "No se ha modificado!";
+    }
+    cout << endl;
 
 
 
