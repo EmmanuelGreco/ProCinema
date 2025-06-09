@@ -71,7 +71,7 @@ int main() {
                 cout << "ELIMINAR PELICULA" << endl;
                 break;
             case 3:
-                cout << "MODIFICAR PELICULA" << endl;
+                manager.modificarPelicula();
                 break;
             case 4:
                 manager.listarPeliculas();

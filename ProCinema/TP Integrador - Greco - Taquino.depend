@@ -26,7 +26,7 @@
 1749436100 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06 - tp integrador\código\tp integrador - greco - taquino\hora.cpp
 	"Hora.h"
 
-1749500391 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\fecha.cpp
+1749501031 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\fecha.cpp
 	"Hora.h"
 	"Fecha.h"
 	<iostream>
@@ -40,7 +40,7 @@
 1749436100 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\hora.cpp
 	"Hora.h"
 
-1749500838 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\main.cpp
+1749503624 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\main.cpp
 	<iostream>
 	<locale.h>
 	"Menu.h"
@@ -72,7 +72,7 @@
 	<string>
 	"Pelicula.h"
 
-1749500880 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\manager.cpp
+1749503749 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\manager.cpp
 	<iostream>
 	<string>
 	"Manager.h"

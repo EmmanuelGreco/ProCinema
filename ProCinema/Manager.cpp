@@ -63,14 +63,59 @@ void Manager::modificarPelicula() {
         return;
     }
     Pelicula peli = ArPel.Leer(pos);
-    cout << "1. " << peli.getIdPelicula() << endl;
-    cout << "2. " << peli.getTitulo() << endl;
-    cout << "3. " << peli.getGenero() << endl;
-    cout << "4. " << peli.getNombreDirector() << endl;
-    cout << "5. " << peli.getApellidoDirector() << endl;
-    cout << "6. " << peli.getClasificacion() << endl;
-    cout << "7. " << peli.getFechaEstreno().toString(2) << endl;
-    cout << "8. " << peli.getEstado() << endl;
+    cout << "1. " << peli.getTitulo() << endl;
+    cout << "2. " << peli.getGenero() << endl;
+    cout << "3. " << peli.getNombreDirector() << endl;
+    cout << "4. " << peli.getApellidoDirector() << endl;
+    cout << "5. " << peli.getClasificacion() << endl;
+    cout << "6. " << peli.getFechaEstreno().toString(1) << endl;
+    //cout << "0. Volver al menu " << endl;
+    cout << "Elija una opcion: ";
+    int input;
+    cin >> input;
+
+    int num;
+    string str;
+    switch(input) {
+    case 1:
+        cout << "Elija el nuevo titulo: ";
+        cin.ignore();
+        getline(cin, str);
+        peli.setTitulo(str);
+        break;
+    case 2:
+        cout << "Elija el nuevo genero: ";
+        cin.ignore();
+        getline(cin, str);
+        peli.setGenero(str);
+        break;
+    case 3:
+        cout << "Elija el nuevo nombre del director: ";
+        cin.ignore();
+        getline(cin, str);
+        peli.setNombreDirector(str);
+        break;
+    case 4:
+        cout << "Elija el nuevo apellido del director: ";
+        cin.ignore();
+        getline(cin, str);
+        peli.setApellidoDirector(str);
+        break;
+    case 5:
+        cout << "Elija la nueva clasificación: ";
+        cin >> num;
+        peli.setClasificacion(num);
+        break;
+    case 6:
+        cout << "Elija la nueva fecha de estreno: " << endl;
+        Fecha fechaEstreno;
+        fechaEstreno.cargar(1);
+        peli.setFechaEstreno(fechaEstreno);
+        break;
+    }
+
+    if(ArPel.Guardar(peli, pos)) cout << "Modificado correctamente!" << endl;
+
 
 
 
