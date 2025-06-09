@@ -36,4 +36,6 @@ class Pelicula {
         void setClasificacion(int clasificacion);
         void setFechaEstreno(Fecha fechaEstreno);
         void setEstado(bool estado);
+
+        std::string toCSV();
 };

@@ -7,26 +7,34 @@ using namespace std;
 #include "Fecha.h"
 #include "Pelicula.h"
 #include "Archivos.h"
+#include "Manager.h"
 
 int main() {
     setlocale(LC_ALL, "Spanish");
     Fecha fecha(14, 8, 2003, 22, 45);
-    cout << fecha.toString(2) << endl;
+    //cout << fecha.toString(2) << endl; //el toString(*2*) significa que imprime tanto la fecha como la hora. 1 es fecha, 3 es hora.
 
-    Pelicula peli(1,"Cars","Accion","Pedro","Perez",2,fecha,1);
+    //Pelicula peli(1,"Cars","Accion","Pedro","Perez",2,fecha,1);
+    //Pelicula peli(2,"Shrek","Terror","Carlos","Rodriguez",2,fecha,1);
 
-    Archivos ArPel("peliculas.dat");
-    ArPel.Guardar(peli);
+//    Archivos ArPel("peliculas.dat");
+//    ArPel.Guardar(peli);
+//    cout << ArPel.getUltimoId();
+//
+//    for(int i = 0; i < ArPel.CantidadRegistros(); i++) {
+//        Pelicula registro = ArPel.Leer(i);
+//        cout << registro.getApellidoDirector() << endl;
+//    }
 
-    for(int i = 0; i < ArPel.CantidadRegistros(); i++) {
-        Pelicula registro = ArPel.Leer(i);
-        cout << registro.getApellidoDirector() << endl;
-    }
-
-    //Archivos archivo;
-    //archivo.guardar(Pelicula)
-
+    Manager manager;
+    //manager.cargarPelicula();
+    //cin.ignore();
+    //manager.cargarPelicula();
+    system("cls");
+    manager.listarTodos();
     system("pause");
+
+
     Menu menu;
     while(true) {
         menu.principal();

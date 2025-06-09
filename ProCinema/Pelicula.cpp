@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Pelicula::Pelicula(){
+Pelicula::Pelicula() {
     setIdPelicula(-1);
     setTitulo("");
     setGenero("");
@@ -77,4 +77,9 @@ void Pelicula::setFechaEstreno(Fecha fechaEstreno) {
 }
 void Pelicula::setEstado(bool estado) {
     _estado = estado;
+}
+
+std::string Pelicula::toCSV() {
+    return to_string(getIdPelicula()) + "," + getTitulo() + "," + getGenero() + "," + getNombreDirector() + ","
+    + getApellidoDirector() + "," + to_string(getClasificacion()) + "," + to_string(getEstado());
 }

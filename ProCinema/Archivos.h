@@ -11,7 +11,9 @@ class Archivos{
         bool Guardar(Pelicula pelicula);
         bool Guardar(Pelicula pelicula, int posicion);
         int Buscar(int IdPelicula);
-        Pelicula Leer(int posicion);
         int CantidadRegistros();
-        void Leer(int cantidadRegistros, Pelicula *vector);
+        Pelicula Leer(int posicion);
+        int getUltimoId();
+        // Este metodo usa un vector, que no vimos en clase. No creo que necesitemos usar esta funcion tampoco.
+        //void Leer(int cantidadRegistros, Pelicula *vector);
 };

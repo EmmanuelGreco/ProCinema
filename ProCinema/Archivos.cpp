@@ -44,6 +44,17 @@ int Archivos::Buscar(int IdPelicula){
     return -1;
 }
 
+int Archivos::CantidadRegistros(){
+    FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
+    if(pArchivo == NULL){
+        return 0;
+    }
+    fseek(pArchivo, 0, SEEK_END);
+    int cantidadRegistros = ftell(pArchivo) / sizeof(Pelicula);
+    fclose(pArchivo);
+    return cantidadRegistros;
+}
+
 Pelicula Archivos::Leer(int posicion){
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
     if(pArchivo == NULL){
@@ -56,24 +67,22 @@ Pelicula Archivos::Leer(int posicion){
     return pelicula;
 }
 
-int Archivos::CantidadRegistros(){
-    FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
-    if(pArchivo == NULL){
-        return 0;
-    }
-    fseek(pArchivo, 0, SEEK_END);
-    int cantidadRegistros = ftell(pArchivo) / sizeof(Pelicula);
-    fclose(pArchivo);
-    return cantidadRegistros;
+int Archivos::getUltimoId() {
+    FILE *pArchivo;
+    Pelicula reg;
+    reg = Leer(CantidadRegistros()-1);
+    return reg.getIdPelicula();
 }
 
-void Archivos::Leer(int cantidadRegistros, Pelicula *vector){
-    FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
-    if(pArchivo == NULL){
-        return;
-    }
-    for(int i = 0; i < cantidadRegistros; i++){
-        fread(&vector[i], sizeof(Pelicula), 1, pArchivo);
-    }
-    fclose(pArchivo);
-}
+
+// Este metodo usa un vector, que no vimos en clase. No creo que necesitemos usar esta funcion tampoco.
+//void Archivos::Leer(int cantidadRegistros, Pelicula *vector){
+//    FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
+//    if(pArchivo == NULL){
+//        return;
+//    }
+//    for(int i = 0; i < cantidadRegistros; i++){
+//        fread(&vector[i], sizeof(Pelicula), 1, pArchivo);
+//    }
+//    fclose(pArchivo);
+//}
