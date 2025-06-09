@@ -4,13 +4,16 @@
 using namespace std;
 
 #include "Menu.h"
-
-
-bool validar_opcion(int opcion, int maximo); //no le asigné un minimo xq asumo que simepre va a ser 0, para volver atras o salir.
+#include "Hora.h"
+#include "Fecha.h"
 
 
 int main() {
     setlocale(LC_ALL, "Spanish");
+    Fecha fecha(14, 8, 2003, 22, 45);
+    cout << fecha.toString(2);
+
+    system("pause");
     Menu menu;
     while(true) {
         menu.principal();

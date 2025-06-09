@@ -23,7 +23,7 @@ void Menu::recibirOpcion(int maximo) {
     system("cls");
 }
 
-bool Menu::opcionValida(int input, int maximo) {
+bool Menu::opcionValida(int input, int maximo) {//no le asigné un minimo xq asumo que simepre va a ser 0, para volver atras o salir.
     if (cin.fail()) {
         cin.clear();                            // Limpiar el estado de error
         while (cin.get() != '\n');              // Este LOOP descarta caracteres, no hace nada dentro del ciclo
