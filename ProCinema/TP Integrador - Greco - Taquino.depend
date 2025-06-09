@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1749437266 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06 - tp integrador\código\tp integrador - greco - taquino\main.cpp
+	<iostream>
+	<locale.h>
+	"Menu.h"
+	"Hora.h"
+	"Fecha.h"
+
+1749435943 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06 - tp integrador\código\tp integrador - greco - taquino\menu.h
+
+1749435937 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06 - tp integrador\código\tp integrador - greco - taquino\menu.cpp
+	<iostream>
+	"Menu.h"
+
+1749437315 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06 - tp integrador\código\tp integrador - greco - taquino\fecha.cpp
+	"Hora.h"
+	"Fecha.h"
+	<cstring>
+
+1749436084 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06 - tp integrador\código\tp integrador - greco - taquino\hora.h
+
+1749437337 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06 - tp integrador\código\tp integrador - greco - taquino\fecha.h
+	"Hora.h"
+	<string>
+
+1749436100 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06 - tp integrador\código\tp integrador - greco - taquino\hora.cpp
+	"Hora.h"
+
