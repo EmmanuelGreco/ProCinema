@@ -4,14 +4,27 @@
 using namespace std;
 
 #include "Menu.h"
-#include "Hora.h"
 #include "Fecha.h"
-
+#include "Pelicula.h"
+#include "Archivos.h"
 
 int main() {
     setlocale(LC_ALL, "Spanish");
     Fecha fecha(14, 8, 2003, 22, 45);
-    cout << fecha.toString(2);
+    cout << fecha.toString(2) << endl;
+
+    Pelicula peli(1,"Cars","Accion","Pedro","Perez",2,fecha,1);
+
+    Archivos ArPel("peliculas.dat");
+    ArPel.Guardar(peli);
+
+    for(int i = 0; i < ArPel.CantidadRegistros(); i++) {
+        Pelicula registro = ArPel.Leer(i);
+        cout << registro.getApellidoDirector() << endl;
+    }
+
+    //Archivos archivo;
+    //archivo.guardar(Pelicula)
 
     system("pause");
     Menu menu;

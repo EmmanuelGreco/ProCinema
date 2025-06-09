@@ -1,5 +1,5 @@
 #pragma once
-#include <string>
+#include <cstring>
 #include "Fecha.h"
 
 class Pelicula {

@@ -26,3 +26,48 @@
 1749436100 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06 - tp integrador\código\tp integrador - greco - taquino\hora.cpp
 	"Hora.h"
 
+1749437315 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\fecha.cpp
+	"Hora.h"
+	"Fecha.h"
+	<cstring>
+
+1749436084 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\hora.h
+
+1749437337 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\fecha.h
+	"Hora.h"
+	<string>
+
+1749436100 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\hora.cpp
+	"Hora.h"
+
+1749442269 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\main.cpp
+	<iostream>
+	<locale.h>
+	"Menu.h"
+	"Fecha.h"
+	"Pelicula.h"
+	"Archivos.h"
+
+1749435943 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\menu.h
+
+1749437835 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\menu.cpp
+	<iostream>
+	"Menu.h"
+
+1749441845 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\archivos.cpp
+	"Pelicula.h"
+	"Archivos.h"
+
+1749442030 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\pelicula.cpp
+	<cstring>
+	"Fecha.h"
+	"Pelicula.h"
+
+1749440972 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\pelicula.h
+	<cstring>
+	"Fecha.h"
+
+1749441948 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\archivos.h
+	<string>
+	"Pelicula.h"
+
