@@ -1,4 +1,5 @@
 #pragma once
+#include <cstring>
 #include <string>
 
 
@@ -18,7 +19,7 @@ class Membresia {
         Membresia(int idMembresia, int tipoMembresia, int descuentoMembresia, std::string nombreMiembro, std::string apellidoMiembro,
                   int dniMiembro, std::string emailMiembro, bool estado);
 
-        int getidMembresia();
+        int getIdMembresia();
         int getTipoMembresia();
         int getDescuentoMembresia();
         std::string getNombreMiembro();
@@ -34,5 +35,7 @@ class Membresia {
         void setApellidoMiembro(std::string apellidoMiembro);
         void setDniMiembro(int dniMiembro);
         void setEmailMiembro(std::string emailMiembro);
-        bool setEstado(int estado);
+        void setEstado(bool estado);
+
+        std::string mostrar();
 };

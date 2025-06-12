@@ -69,9 +69,9 @@ Pelicula Archivos::Leer(int posicion){
 
 int Archivos::getUltimoId() {
     FILE *pArchivo;
-    Pelicula reg;
-    reg = Leer(CantidadRegistros()-1);
-    return reg.getIdPelicula();
+    Pelicula registro;
+    registro = Leer(CantidadRegistros()-1);
+    return registro.getIdPelicula();
 }
 
 
@@ -85,4 +85,4 @@ int Archivos::getUltimoId() {
 //        fread(&vector[i], sizeof(Pelicula), 1, pArchivo);
 //    }
 //    fclose(pArchivo);
-//}
+// }

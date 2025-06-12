@@ -28,7 +28,7 @@ void ManagerPelicula::cargarPelicula() {
     cout << "Ingrese el Nombre del Director: ";
     getline(cin, nombreDirector);
 
-    cout << "Ingrese el Genero del Director: ";
+    cout << "Ingrese el Apellido del Director: ";
     getline(cin, apellidoDirector);
 
     cout << "Ingrese la Clasificacion: ";
@@ -37,7 +37,8 @@ void ManagerPelicula::cargarPelicula() {
     cout << "Ingrese la Fecha de Estreno: " << endl;
     fechaEstreno.cargar(1);
 
-    if(archivoPeliculas.Guardar(Pelicula(idPelicula, titulo, genero, nombreDirector, apellidoDirector, clasificacion, fechaEstreno, estado))) {
+    if(archivoPeliculas.Guardar(Pelicula(idPelicula, titulo, genero, nombreDirector, apellidoDirector,
+                                         clasificacion, fechaEstreno, estado))) {
         cout << "Se guardo Exitosamente!" << endl;
     } else {
         cout << "Hubo un error inesperado, llame al de sistemas..." << endl;

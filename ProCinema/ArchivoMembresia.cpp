@@ -1,40 +1,40 @@
-#include "ArchivoSala.h"
-#include "Sala.h"
+#include "ArchivoMembresia.h"
+#include "Membresia.h"
 
-ArchivoSala::ArchivoSala(std::string nombreArchivo){
+ArchivoMembresia::ArchivoMembresia(std::string nombreArchivo){
     _nombreArchivo = nombreArchivo;
 }
 
-bool ArchivoSala::Guardar(Sala sala){
+bool ArchivoMembresia::Guardar(Membresia membresia){
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "ab");
     if(pArchivo == NULL){
         return false;
     }
-    bool ok = fwrite(&sala, sizeof(Sala), 1, pArchivo);
+    bool ok = fwrite(&membresia, sizeof(Membresia), 1, pArchivo);
     fclose(pArchivo);
     return ok;
 }
 
-bool ArchivoSala::Modificar(Sala sala, int posicion){
+bool ArchivoMembresia::Modificar(Membresia membresia, int posicion){
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb+");
     if(pArchivo == NULL){
         return false;
     }
-    fseek(pArchivo, sizeof(Sala) * posicion, SEEK_SET);
-    bool ok = fwrite(&sala, sizeof(Sala), 1, pArchivo);
+    fseek(pArchivo, sizeof(Membresia) * posicion, SEEK_SET);
+    bool ok = fwrite(&membresia, sizeof(Membresia), 1, pArchivo);
     fclose(pArchivo);
     return ok;
 }
 
-int ArchivoSala::Buscar(int IdSala){
+int ArchivoMembresia::Buscar(int IdMembresia){
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
     if(pArchivo == NULL){
         return -1;
     }
-    Sala sala;
+    Membresia membresia;
     int i = 0;
-    while(fread(&sala, sizeof(Sala), 1, pArchivo)){
-        if(sala.getIdSala() == IdSala){
+    while(fread(&membresia, sizeof(Membresia), 1, pArchivo)){
+        if(membresia.getIdMembresia() == IdMembresia){
             fclose(pArchivo);
             return i;
         }
@@ -44,45 +44,45 @@ int ArchivoSala::Buscar(int IdSala){
     return -1;
 }
 
-int ArchivoSala::CantidadRegistros(){
+int ArchivoMembresia::CantidadRegistros(){
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
     if(pArchivo == NULL){
         return 0;
     }
     fseek(pArchivo, 0, SEEK_END);
-    int cantidadRegistros = ftell(pArchivo) / sizeof(Sala);
+    int cantidadRegistros = ftell(pArchivo) / sizeof(Membresia);
     fclose(pArchivo);
     return cantidadRegistros;
 }
 
-Sala ArchivoSala::Leer(int posicion){
+Membresia ArchivoMembresia::Leer(int posicion){
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
     if(pArchivo == NULL){
-        return Sala();
+        return Membresia();
     }
-    Sala sala;
-    fseek(pArchivo, sizeof(Sala) * posicion, SEEK_SET);
-    fread(&sala, sizeof(Sala), 1, pArchivo);
+    Membresia membresia;
+    fseek(pArchivo, sizeof(Membresia) * posicion, SEEK_SET);
+    fread(&membresia, sizeof(Membresia), 1, pArchivo);
     fclose(pArchivo);
-    return sala;
+    return membresia;
 }
 
-int ArchivoSala::getUltimoId() {
+int ArchivoMembresia::getUltimoId() {
     FILE *pArchivo;
-    Sala registro;
+    Membresia registro;
     registro = Leer(CantidadRegistros()-1);
-    return registro.getIdSala();
+    return registro.getIdMembresia();
 }
 
 
 // Este metodo usa un vector, que no vimos en clase. No creo que necesitemos usar esta funcion tampoco.
-// void ArchivoSala::Leer(int cantidadRegistros, Sala *vector){
+// void ArchivoMembresia::Leer(int cantidadRegistros, Membresia *vector){
 //    FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
 //    if(pArchivo == NULL){
 //        return;
 //    }
 //    for(int i = 0; i < cantidadRegistros; i++){
-//        fread(&vector[i], sizeof(Sala), 1, pArchivo);
+//        fread(&vector[i], sizeof(Membresia), 1, pArchivo);
 //    }
 //    fclose(pArchivo);
 // }

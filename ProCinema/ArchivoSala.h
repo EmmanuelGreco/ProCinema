@@ -15,5 +15,5 @@ class ArchivoSala{
         Sala Leer(int posicion);
         int getUltimoId();
         // Este metodo usa un vector, que no vimos en clase. No creo que necesitemos usar esta funcion tampoco.
-        //void Leer(int cantidadRegistros, Pelicula *vector);
+        // void Leer(int cantidadRegistros, Sala *vector);
 };
