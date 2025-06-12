@@ -1,6 +1,7 @@
-#include <cstring>
 #include "Fecha.h"
 #include "Pelicula.h"
+#include <cstring>
+#include <string>
 
 using namespace std;
 
@@ -80,7 +81,9 @@ void Pelicula::setEstado(bool estado) {
     _estado = estado;
 }
 
+
 std::string Pelicula::mostrar() {
     return to_string(getIdPelicula()) + "," + getTitulo() + "," + getGenero() + "," + getNombreDirector() + ","
-           + getApellidoDirector() + "," + to_string(getClasificacion()) + "," + getFechaEstreno().toString(1) + "," + to_string(getEstado());
+           + getApellidoDirector() + "," + to_string(getClasificacion()) + ","
+           + getFechaEstreno().toString(1) + "," + to_string(getEstado());
 }

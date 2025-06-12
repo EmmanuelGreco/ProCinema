@@ -1,17 +1,19 @@
 #include <iostream>
 #include <locale.h>
-
-using namespace std;
-
 #include "Menu.h"
 #include "Fecha.h"
 #include "Pelicula.h"
+#include "Sala.h"
 #include "Archivos.h"
-#include "Manager.h"
+#include "ManagerPelicula.h"
+#include "ManagerSala.h"
+
+using namespace std;
 
 int main() {
     setlocale(LC_ALL, "Spanish");
-    Manager manager;
+    ManagerPelicula managerPelicula;
+    ManagerSala managerSala;
     Menu menu;
 
     while(true) {
@@ -65,16 +67,16 @@ int main() {
             menu.peliculas();
             switch(menu.getOpcion()) {
             case 1:
-                manager.cargarPelicula();
+                managerPelicula.cargarPelicula();
                 break;
             case 2:
-                manager.cambiarEstadoPelicula();
+                managerPelicula.cambiarEstadoPelicula();
                 break;
             case 3:
-                manager.modificarPelicula();
+                managerPelicula.modificarPelicula();
                 break;
             case 4:
-                manager.listarPeliculas();
+                managerPelicula.listarPeliculas();
                 break;
             case 5:
                 menu.BuscarPeliculasPor();
@@ -223,10 +225,10 @@ int main() {
                 menu.configuracionSalas();
                 switch(menu.getOpcion()) {
                 case 1:
-                    cout << "LISTAR SALAS" << endl;
+                    managerSala.listarSalas();
                     break;
                 case 2:
-                    cout << "AGREGAR SALA" << endl;
+                    managerSala.cargarSala();
                     break;
                 case 3:
                     cout << "ELIMINAR SALA" << endl;

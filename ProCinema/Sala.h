@@ -1,5 +1,6 @@
 #pragma once
-
+#include <cstring>
+#include <string>
 
 
 class Sala {
@@ -18,8 +19,10 @@ class Sala {
         int getButacasTotales();
         bool getEstado();
 
-        void setIdPelicula(int idSala);
+        void setIdSala(int idSala);
         void setTipoSala(int tipoSala);
         void setButacasTotales(int butacasTotales);
         void setEstado(bool estado);
+
+        std::string mostrar();
 };

@@ -1,7 +1,7 @@
 #include <iostream>
-using namespace std;
-
 #include "Menu.h"
+
+using namespace std;
 
 void Menu::setOpcion(int opcion) {
     _opcion = opcion;
@@ -20,7 +20,6 @@ void Menu::recibirOpcion(int maximo) {
         cin >> input;
     }
     setOpcion(input);
-    system("cls");
 }
 
 bool Menu::opcionValida(int input, int maximo) {//no le asigné un minimo xq asumo que simepre va a ser 0, para volver atras o salir.

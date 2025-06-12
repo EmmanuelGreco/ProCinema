@@ -32,6 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="ArchivoSala.cpp" />
+		<Unit filename="ArchivoSala.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="Archivos.cpp" />
 		<Unit filename="Archivos.h" />
 		<Unit filename="Fecha.cpp" />
@@ -39,13 +43,18 @@
 		<Unit filename="Funcion.h" />
 		<Unit filename="Hora.cpp" />
 		<Unit filename="Hora.h" />
-		<Unit filename="Manager.cpp" />
-		<Unit filename="Manager.h" />
+		<Unit filename="ManagerPelicula.cpp" />
+		<Unit filename="ManagerPelicula.h" />
+		<Unit filename="ManagerSala.cpp" />
+		<Unit filename="ManagerSala.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="Membresia.h" />
 		<Unit filename="Menu.cpp" />
 		<Unit filename="Menu.h" />
 		<Unit filename="Pelicula.cpp" />
 		<Unit filename="Pelicula.h" />
+		<Unit filename="Sala.cpp" />
 		<Unit filename="Sala.h" />
 		<Unit filename="Venta.h" />
 		<Unit filename="main.cpp" />

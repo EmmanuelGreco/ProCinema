@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-class Manager {
+class ManagerPelicula {
 public:
     void cargarPelicula();
     void listarPeliculas();

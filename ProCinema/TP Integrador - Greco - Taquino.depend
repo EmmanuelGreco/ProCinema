@@ -83,3 +83,100 @@
 1749505351 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\manager.h
 	<string>
 
+1749714441 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\archivos.cpp
+	"Archivos.h"
+	"Pelicula.h"
+
+1749712787 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\pelicula.h
+	<cstring>
+	<string>
+	"Fecha.h"
+
+1749505489 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\fecha.h
+	"Hora.h"
+	<string>
+
+1749505489 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\hora.h
+
+1749714337 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\archivos.h
+	<string>
+	"Pelicula.h"
+
+1749505489 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\fecha.cpp
+	"Hora.h"
+	"Fecha.h"
+	<iostream>
+
+1749505489 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\hora.cpp
+	"Hora.h"
+
+1749506697 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\manager.cpp
+	<iostream>
+	<string>
+	"Manager.h"
+	"Pelicula.h"
+	"Archivos.h"
+	"Fecha.h"
+
+1749506697 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\manager.h
+	<string>
+
+1749709521 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\menu.cpp
+	<iostream>
+	"Menu.h"
+
+1748983829 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\menu.h
+
+1749712787 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\pelicula.cpp
+	"Fecha.h"
+	"Pelicula.h"
+	<cstring>
+	<string>
+
+1749713017 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\main.cpp
+	<iostream>
+	<locale.h>
+	"Menu.h"
+	"Fecha.h"
+	"Pelicula.h"
+	"Sala.h"
+	"Archivos.h"
+	"ManagerPelicula.h"
+	"ManagerSala.h"
+
+1749708294 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerpelicula.h
+	<string>
+
+1749710305 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerpelicula.cpp
+	<iostream>
+	<string>
+	"ManagerPelicula.h"
+	"Pelicula.h"
+	"Archivos.h"
+	"Fecha.h"
+
+1749712769 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\sala.h
+	<cstring>
+	<string>
+
+1749713942 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managersala.cpp
+	<iostream>
+	"ManagerSala.h"
+	"Sala.h"
+	"Archivos.h"
+
+1749712066 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managersala.h
+
+1749712760 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\sala.cpp
+	"Sala.h"
+	<cstring>
+	<string>
+
+1749714691 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\archivosala.cpp
+	"ArchivoSala.h"
+	"Sala.h"
+
+1749714314 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\archivosala.h
+	<string>
+	"Sala.h"
+
