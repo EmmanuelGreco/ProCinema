@@ -1,6 +1,7 @@
 #pragma once
+#include <cstring>
+#include <string>
 #include "Fecha.h"
-
 
 class Funcion {
     private:
@@ -23,7 +24,7 @@ class Funcion {
         int getIdSala();
         int getButacasDisponibles();
         int getIdiomaFuncion();
-        Fecha fechaFuncion;
+        Fecha getFechaFuncion();
         float getImporteFuncion();
         bool getEstado();
 
@@ -35,4 +36,6 @@ class Funcion {
         void setFechaFuncion(Fecha fechaFuncion);
         void setImporteFuncion(float importeFuncion);
         void setEstado(bool estado);
+
+        std::string mostrar();
 };

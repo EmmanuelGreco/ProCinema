@@ -1,5 +1,10 @@
 #include "Hora.h"
 
+
+
+
+
+
 Hora::Hora() {
     setHora(0);
     setMinuto(0);

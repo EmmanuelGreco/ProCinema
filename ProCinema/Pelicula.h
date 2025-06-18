@@ -19,7 +19,6 @@ class Pelicula {
         Pelicula(int idPelicula, std::string titulo, std::string genero, std::string nombreDirector, std::string apellidoDirector,
                  int clasificacion, Fecha fechaEstreno, bool estado);
 
-
         int getIdPelicula();
         std::string getTitulo();
         std::string getGenero();

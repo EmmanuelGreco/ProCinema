@@ -32,6 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="ArchivoFuncion.cpp" />
+		<Unit filename="ArchivoFuncion.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="ArchivoMembresia.cpp" />
 		<Unit filename="ArchivoMembresia.h">
 			<Option target="&lt;{~None~}&gt;" />
@@ -44,9 +48,14 @@
 		</Unit>
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
+		<Unit filename="Funcion.cpp" />
 		<Unit filename="Funcion.h" />
 		<Unit filename="Hora.cpp" />
 		<Unit filename="Hora.h" />
+		<Unit filename="ManagerFuncion.cpp" />
+		<Unit filename="ManagerFuncion.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="ManagerMembresia.cpp" />
 		<Unit filename="ManagerMembresia.h">
 			<Option target="&lt;{~None~}&gt;" />

@@ -14,7 +14,7 @@ class Venta {
 
     public:
         Venta();
-        Pelicula(int idVenta, int idFuncion, int idMembresia, int cantidadEntradas, Fecha fechaVenta,
+        Venta(int idVenta, int idFuncion, int idMembresia, int cantidadEntradas, Fecha fechaVenta,
                  float importeTotal, bool estado);
 
         int getIdVenta();

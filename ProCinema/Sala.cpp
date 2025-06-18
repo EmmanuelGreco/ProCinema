@@ -2,6 +2,7 @@
 #include <cstring>
 #include <string>
 
+
 using namespace std;
 
 Sala::Sala() {
