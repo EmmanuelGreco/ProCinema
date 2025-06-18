@@ -133,7 +133,7 @@
 	<cstring>
 	<string>
 
-1750225217 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\main.cpp
+1750225295 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\main.cpp
 	<iostream>
 	<locale.h>
 	"Menu.h"
@@ -146,7 +146,7 @@
 
 1750223859 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerpelicula.h
 
-1750224623 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerpelicula.cpp
+1750226329 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerpelicula.cpp
 	<iostream>
 	<string>
 	"ManagerPelicula.h"
@@ -158,7 +158,7 @@
 	<cstring>
 	<string>
 
-1750224642 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managersala.cpp
+1750226329 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managersala.cpp
 	<iostream>
 	"ManagerSala.h"
 	"Sala.h"
@@ -191,7 +191,7 @@
 	<cstring>
 	<string>
 
-1749761712 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managermembresia.cpp
+1750226359 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managermembresia.cpp
 	<iostream>
 	<string>
 	"ManagerMembresia.h"

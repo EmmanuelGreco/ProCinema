@@ -252,10 +252,10 @@ int main() {
                     managerMembresia.cargarMembresia();
                     break;
                 case 3:
-                    cout << "ELIMINAR MEMBRESÍA" << endl;
+                    managerMembresia.cambiarEstadoMembresia();
                     break;
                 case 4:
-                    cout << "MODIFICAR MEMBRESÍA" << endl;
+                    managerMembresia.modificarMembresia();
                     break;
                 case 0:
                     cout << "VOLVER AL MENU PRINCIPAL" << endl;

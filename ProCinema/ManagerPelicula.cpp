@@ -56,7 +56,7 @@ void ManagerPelicula::listarPeliculas() {
 void ManagerPelicula::modificarPelicula() {
     int id, posicion;
 
-    cout << "Ingrese el Id de la Pelicula a modificar: ";
+    cout << "Ingrese el Id de la Pelicula a Modificar: ";
     cin >> id;
     posicion = archivoPeliculas.Buscar(id);
     if (posicion == -1) {
@@ -131,8 +131,8 @@ void ManagerPelicula::cambiarEstadoPelicula() {
     Pelicula pelicula = archivoPeliculas.Leer(posicion);
     pelicula.mostrar();
     cout << "Actualmente, esta Pelicula se encuentra ";
-    if (pelicula.getEstado()) cout << "EN CARTELERA. ";
-    else cout << "FUERA DE CARTELERA. ";
+    if (pelicula.getEstado()) cout << "EN CARTELERA.";
+    else cout << "FUERA DE CARTELERA.";
     cout << endl << "Desea modificar su estado? (Y-N): ";
     char yn;
     cin >> yn;

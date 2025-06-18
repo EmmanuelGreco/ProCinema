@@ -40,7 +40,7 @@ void ManagerSala::listarSalas() {
 void ManagerSala::modificarSala() {
     int id, posicion;
 
-    cout << "Ingrese el Id de la Sala a modificar: ";
+    cout << "Ingrese el Id de la Sala a Modificar: ";
     cin >> id;
     posicion = archivoSalas.Buscar(id);
     if (posicion == -1) {
@@ -85,8 +85,8 @@ void ManagerSala::cambiarEstadoSala() {
     Sala sala = archivoSalas.Leer(posicion);
     sala.mostrar();
     cout << "Actualmente, esta Sala se encuentra ";
-    if (sala.getEstado()) cout << "EN FUNCIONAMIENTO. ";
-    else cout << "FUERA DE SERVICIO. ";
+    if (sala.getEstado()) cout << "EN FUNCIONAMIENTO.";
+    else cout << "FUERA DE SERVICIO.";
     cout << endl << "Desea modificar su estado? (Y-N): ";
     char yn;
     cin >> yn;
