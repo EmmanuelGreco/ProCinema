@@ -36,3 +36,66 @@ void ManagerSala::listarSalas() {
         cout << archivoSalas.Leer(i).mostrar() << endl;
     }
 }
+
+void ManagerSala::modificarSala() {
+    int id, posicion;
+
+    cout << "Ingrese el Id de la Sala a modificar: ";
+    cin >> id;
+    posicion = archivoSalas.Buscar(id);
+    if (posicion == -1) {
+        cout << "Id NO encontrado!";
+        return;
+    }
+    Sala sala = archivoSalas.Leer(posicion);
+    cout << "1. " << sala.getTipoSala() << endl;
+    cout << "2. " << sala.getButacasTotales() << endl;
+    //cout << "0. Volver al menu " << endl;
+    cout << "Elija una opcion: ";
+    int opcion;
+    cin >> opcion;
+
+    int num;
+    switch(opcion) {
+    case 1:
+        cout << "Elija el nuevo Tipo de Sala: ";
+        cin >> num;
+        sala.setTipoSala(num);
+        break;
+    case 2:
+        cout << "Elija la nueva Cantidad de Butacas: ";
+        cin >> num;
+        sala.setButacasTotales(num);
+        break;
+    }
+
+    if(archivoSalas.Modificar(sala, posicion)) cout << "Modificado Exitosamente!" << endl;
+}
+
+void ManagerSala::cambiarEstadoSala() {
+    int id, posicion;
+
+    cout << "Ingrese el Id de la Sala a dar de baja: ";
+    cin >> id;
+    posicion = archivoSalas.Buscar(id);
+    if (posicion == -1) {
+        cout << "Id NO encontrado!";
+        return;
+    }
+    Sala sala = archivoSalas.Leer(posicion);
+    sala.mostrar();
+    cout << "Actualmente, esta Sala se encuentra ";
+    if (sala.getEstado()) cout << "EN FUNCIONAMIENTO. ";
+    else cout << "FUERA DE SERVICIO. ";
+    cout << endl << "Desea modificar su estado? (Y-N): ";
+    char yn;
+    cin >> yn;
+    if (toupper(yn) == 'Y') {
+        sala.setEstado(!sala.getEstado());
+        archivoSalas.Modificar(sala, posicion);
+        cout << "Modificado exitosamente!";
+    } else {
+        cout << "No se ha modificado!";
+    }
+    cout << endl;
+}

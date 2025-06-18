@@ -232,10 +232,10 @@ int main() {
                     managerSala.cargarSala();
                     break;
                 case 3:
-                    cout << "ELIMINAR SALA" << endl;
+                    managerSala.cambiarEstadoSala();
                     break;
                 case 4:
-                    cout << "MODIFICAR SALA" << endl;
+                    managerSala.modificarSala();
                     break;
                 case 0:
                     cout << "VOLVER AL MENU PRINCIPAL" << endl;

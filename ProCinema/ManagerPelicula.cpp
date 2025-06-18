@@ -121,11 +121,11 @@ void ManagerPelicula::modificarPelicula() {
 void ManagerPelicula::cambiarEstadoPelicula() {
     int id, posicion;
 
-    cout << "Ingrese el Id de la Pelicula a modificar: ";
+    cout << "Ingrese el Id de la Pelicula a dar de baja: ";
     cin >> id;
     posicion = archivoPeliculas.Buscar(id);
     if (posicion == -1) {
-        cout << "Id no encontrado!";
+        cout << "Id NO encontrado!";
         return;
     }
     Pelicula pelicula = archivoPeliculas.Leer(posicion);
@@ -144,8 +144,4 @@ void ManagerPelicula::cambiarEstadoPelicula() {
         cout << "No se ha modificado!";
     }
     cout << endl;
-
-
-
-
 }
