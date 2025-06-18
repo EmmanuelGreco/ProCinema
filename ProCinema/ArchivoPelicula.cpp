@@ -1,11 +1,11 @@
-#include "Archivos.h"
+#include "ArchivoPelicula.h"
 #include "Pelicula.h"
 
-Archivos::Archivos(std::string nombreArchivo){
+ArchivoPelicula::ArchivoPelicula(std::string nombreArchivo){
     _nombreArchivo = nombreArchivo;
 }
 
-bool Archivos::Guardar(Pelicula pelicula){
+bool ArchivoPelicula::Guardar(Pelicula pelicula){
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "ab");
     if(pArchivo == NULL){
         return false;
@@ -15,7 +15,7 @@ bool Archivos::Guardar(Pelicula pelicula){
     return ok;
 }
 
-bool Archivos::Modificar(Pelicula pelicula, int posicion){
+bool ArchivoPelicula::Modificar(Pelicula pelicula, int posicion){
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb+");
     if(pArchivo == NULL){
         return false;
@@ -26,7 +26,7 @@ bool Archivos::Modificar(Pelicula pelicula, int posicion){
     return ok;
 }
 
-int Archivos::Buscar(int IdPelicula){
+int ArchivoPelicula::Buscar(int IdPelicula){
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
     if(pArchivo == NULL){
         return -1;
@@ -44,7 +44,7 @@ int Archivos::Buscar(int IdPelicula){
     return -1;
 }
 
-int Archivos::CantidadRegistros(){
+int ArchivoPelicula::CantidadRegistros(){
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
     if(pArchivo == NULL){
         return 0;
@@ -55,7 +55,7 @@ int Archivos::CantidadRegistros(){
     return cantidadRegistros;
 }
 
-Pelicula Archivos::Leer(int posicion){
+Pelicula ArchivoPelicula::Leer(int posicion){
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
     if(pArchivo == NULL){
         return Pelicula();
@@ -67,7 +67,7 @@ Pelicula Archivos::Leer(int posicion){
     return pelicula;
 }
 
-int Archivos::getUltimoId() {
+int ArchivoPelicula::getUltimoId() {
     FILE *pArchivo;
     Pelicula registro;
     registro = Leer(CantidadRegistros()-1);
@@ -76,7 +76,7 @@ int Archivos::getUltimoId() {
 
 
 // Este metodo usa un vector, que no vimos en clase. No creo que necesitemos usar esta funcion tampoco.
-// void Archivos::Leer(int cantidadRegistros, Pelicula *vector){
+// void ArchivoPelicula::Leer(int cantidadRegistros, Pelicula *vector){
 //    FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
 //    if(pArchivo == NULL){
 //        return;

@@ -36,12 +36,12 @@
 		<Unit filename="ArchivoMembresia.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="ArchivoPelicula.cpp" />
+		<Unit filename="ArchivoPelicula.h" />
 		<Unit filename="ArchivoSala.cpp" />
 		<Unit filename="ArchivoSala.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="Archivos.cpp" />
-		<Unit filename="Archivos.h" />
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
 		<Unit filename="Funcion.h" />

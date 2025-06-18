@@ -18,11 +18,11 @@ void ManagerMembresia::cargarMembresia() {
 
     cout << "Id: " << idMembresia << endl;
 
-    cout << "Ingrese el Tipo de Membresia: ";
+    cout << "Ingrese el Tipo de Membresía: ";
     cin.ignore();
     cin >> tipoMembresia;
 
-    cout << "Ingrese el Descuento de la Membresia: ";
+    cout << "Ingrese el Descuento de la Membresía: ";
     cin >> descuentoMembresia;
 
     cout << "Ingrese el Nombre del Miembro: ";
@@ -58,7 +58,7 @@ void ManagerMembresia::listarMembresias() {
 void ManagerMembresia::modificarMembresia() {
     int id, posicion;
 
-    cout << "Ingrese el Id de la Membresia a Modificar: ";
+    cout << "Ingrese el Id de la Membresía a Modificar: ";
     cin >> id;
     posicion = archivoMembresias.Buscar(id);
     if (posicion == -1) {
@@ -73,7 +73,7 @@ void ManagerMembresia::modificarMembresia() {
     cout << "5. " << membresia.getDniMiembro() << endl;
     cout << "6. " << membresia.getEmailMiembro() << endl;
     //cout << "0. Volver al menu " << endl;
-    cout << "Elija una opcion: ";
+    cout << "Elija una opción: ";
     int opcion;
     cin >> opcion;
 
@@ -81,12 +81,12 @@ void ManagerMembresia::modificarMembresia() {
     string str;
     switch(opcion) {
     case 1:
-        cout << "Elija el Tipo de Membresia: ";
+        cout << "Elija el Tipo de Membresía: ";
         cin >> num;
         membresia.setTipoMembresia(num);
         break;
     case 2:
-        cout << "Elija el Descuento de Membresia: ";
+        cout << "Elija el Descuento de Membresía: ";
         cin >> num;
         membresia.setDescuentoMembresia(num);
         break;
@@ -121,7 +121,7 @@ void ManagerMembresia::modificarMembresia() {
 void ManagerMembresia::cambiarEstadoMembresia() {
     int id, posicion;
 
-    cout << "Ingrese el Id de la Membresia a dar de baja: ";
+    cout << "Ingrese el Id de la Membresía a Dar de baja / Restaurar: ";
     cin >> id;
     posicion = archivoMembresias.Buscar(id);
     if (posicion == -1) {
@@ -130,7 +130,7 @@ void ManagerMembresia::cambiarEstadoMembresia() {
     }
     Membresia membresia = archivoMembresias.Leer(posicion);
     membresia.mostrar();
-    cout << "Actualmente, esta Membresia se encuentra ";
+    cout << "Actualmente, esta Membresía se encuentra ";
     if (membresia.getEstado()) cout << "ACTIVA.";
     else cout << "PAUSADA.";
     cout << endl << "Desea modificar su estado? (Y-N): ";
@@ -139,9 +139,9 @@ void ManagerMembresia::cambiarEstadoMembresia() {
     if (toupper(yn) == 'Y') {
         membresia.setEstado(!membresia.getEstado());
         archivoMembresias.Modificar(membresia, posicion);
-        cout << "Modificado exitosamente!";
+        cout << "Modificado Exitosamente!";
     } else {
-        cout << "No se ha modificado!";
+        cout << "NO se ha modificado!";
     }
     cout << endl;
 }

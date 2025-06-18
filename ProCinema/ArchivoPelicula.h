@@ -2,12 +2,12 @@
 #include <string>
 #include "Pelicula.h"
 
-class Archivos{
+class ArchivoPelicula{
     private:
         std::string _nombreArchivo;
 
     public:
-        Archivos(std::string nombreArchivo);
+        ArchivoPelicula(std::string nombreArchivo);
         bool Guardar(Pelicula pelicula);
         bool Modificar(Pelicula pelicula, int posicion);
         int Buscar(int IdPelicula);

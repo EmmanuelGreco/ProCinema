@@ -15,7 +15,7 @@ void ManagerSala::cargarSala() {
 
     cout << "Id: " << idSala << endl;
 
-    cout << "Ingrese el tipo de Sala (1-standard, 2-premium, 3-3D, 4-4D, 5-IMAX): ";
+    cout << "Ingrese el tipo de Sala (1-Standard, 2-Premium, 3-3D, 4-4D, 5-IMAX): ";
     cin.ignore();
     cin >> tipoSala;
 
@@ -51,7 +51,7 @@ void ManagerSala::modificarSala() {
     cout << "1. " << sala.getTipoSala() << endl;
     cout << "2. " << sala.getButacasTotales() << endl;
     //cout << "0. Volver al menu " << endl;
-    cout << "Elija una opcion: ";
+    cout << "Elija una opción: ";
     int opcion;
     cin >> opcion;
 
@@ -75,7 +75,7 @@ void ManagerSala::modificarSala() {
 void ManagerSala::cambiarEstadoSala() {
     int id, posicion;
 
-    cout << "Ingrese el Id de la Sala a dar de baja: ";
+    cout << "Ingrese el Id de la Sala a Dar de baja / Restaurar: ";
     cin >> id;
     posicion = archivoSalas.Buscar(id);
     if (posicion == -1) {
@@ -93,9 +93,9 @@ void ManagerSala::cambiarEstadoSala() {
     if (toupper(yn) == 'Y') {
         sala.setEstado(!sala.getEstado());
         archivoSalas.Modificar(sala, posicion);
-        cout << "Modificado exitosamente!";
+        cout << "Modificado Exitosamente!";
     } else {
-        cout << "No se ha modificado!";
+        cout << "NO se ha modificado!";
     }
     cout << endl;
 }

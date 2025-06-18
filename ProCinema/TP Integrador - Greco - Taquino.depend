@@ -121,7 +121,7 @@
 1749506697 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\manager.h
 	<string>
 
-1749709521 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\menu.cpp
+1750227632 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\menu.cpp
 	<iostream>
 	"Menu.h"
 
@@ -133,7 +133,7 @@
 	<cstring>
 	<string>
 
-1750225295 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\main.cpp
+1750226434 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\main.cpp
 	<iostream>
 	<locale.h>
 	"Menu.h"
@@ -146,19 +146,19 @@
 
 1750223859 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerpelicula.h
 
-1750226329 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerpelicula.cpp
+1750227660 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerpelicula.cpp
 	<iostream>
 	<string>
 	"ManagerPelicula.h"
 	"Pelicula.h"
-	"Archivos.h"
+	"ArchivoPelicula.h"
 	"Fecha.h"
 
 1749712769 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\sala.h
 	<cstring>
 	<string>
 
-1750226329 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managersala.cpp
+1750227393 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managersala.cpp
 	<iostream>
 	"ManagerSala.h"
 	"Sala.h"
@@ -191,7 +191,7 @@
 	<cstring>
 	<string>
 
-1750226359 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managermembresia.cpp
+1750227393 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managermembresia.cpp
 	<iostream>
 	<string>
 	"ManagerMembresia.h"
@@ -204,4 +204,12 @@
 	<string>
 
 1749757294 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managermembresia.h
+
+1750227088 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\archivopelicula.cpp
+	"ArchivoPelicula.h"
+	"Pelicula.h"
+
+1750227104 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\archivopelicula.h
+	<string>
+	"Pelicula.h"
 

@@ -2,12 +2,12 @@
 #include <string>
 #include "ManagerPelicula.h"
 #include "Pelicula.h"
-#include "Archivos.h"
+#include "ArchivoPelicula.h"
 #include "Fecha.h"
 
 using namespace std;
 
-Archivos archivoPeliculas("peliculas.dat");
+ArchivoPelicula archivoPeliculas("peliculas.dat");
 
 
 void ManagerPelicula::cargarPelicula() {
@@ -18,11 +18,11 @@ void ManagerPelicula::cargarPelicula() {
 
     cout << "Id: " << idPelicula << endl;
 
-    cout << "Ingrese el Titulo: ";
+    cout << "Ingrese el Título: ";
     cin.ignore();
     getline(cin, titulo);
 
-    cout << "Ingrese el Genero: ";
+    cout << "Ingrese el Género: ";
     getline(cin, genero);
 
     cout << "Ingrese el Nombre del Director: ";
@@ -31,7 +31,7 @@ void ManagerPelicula::cargarPelicula() {
     cout << "Ingrese el Apellido del Director: ";
     getline(cin, apellidoDirector);
 
-    cout << "Ingrese la Clasificacion: ";
+    cout << "Ingrese la Clasificación: ";
     cin >> clasificacion;
 
     cout << "Ingrese la Fecha de Estreno: " << endl;
@@ -56,7 +56,7 @@ void ManagerPelicula::listarPeliculas() {
 void ManagerPelicula::modificarPelicula() {
     int id, posicion;
 
-    cout << "Ingrese el Id de la Pelicula a Modificar: ";
+    cout << "Ingrese el Id de la Película a Modificar: ";
     cin >> id;
     posicion = archivoPeliculas.Buscar(id);
     if (posicion == -1) {
@@ -71,7 +71,7 @@ void ManagerPelicula::modificarPelicula() {
     cout << "5. " << pelicula.getClasificacion() << endl;
     cout << "6. " << pelicula.getFechaEstreno().toString(1) << endl;
     //cout << "0. Volver al menu " << endl;
-    cout << "Elija una opcion: ";
+    cout << "Elija una opción: ";
     int opcion;
     cin >> opcion;
 
@@ -79,13 +79,13 @@ void ManagerPelicula::modificarPelicula() {
     string str;
     switch(opcion) {
     case 1:
-        cout << "Elija el nuevo Titulo: ";
+        cout << "Elija el nuevo Título: ";
         cin.ignore();
         getline(cin, str);
         pelicula.setTitulo(str);
         break;
     case 2:
-        cout << "Elija el nuevo Genero: ";
+        cout << "Elija el nuevo Género: ";
         cin.ignore();
         getline(cin, str);
         pelicula.setGenero(str);
@@ -121,7 +121,7 @@ void ManagerPelicula::modificarPelicula() {
 void ManagerPelicula::cambiarEstadoPelicula() {
     int id, posicion;
 
-    cout << "Ingrese el Id de la Pelicula a dar de baja: ";
+    cout << "Ingrese el Id de la Película a Dar de baja / Restaurar: ";
     cin >> id;
     posicion = archivoPeliculas.Buscar(id);
     if (posicion == -1) {
@@ -130,7 +130,7 @@ void ManagerPelicula::cambiarEstadoPelicula() {
     }
     Pelicula pelicula = archivoPeliculas.Leer(posicion);
     pelicula.mostrar();
-    cout << "Actualmente, esta Pelicula se encuentra ";
+    cout << "Actualmente, esta Película se encuentra ";
     if (pelicula.getEstado()) cout << "EN CARTELERA.";
     else cout << "FUERA DE CARTELERA.";
     cout << endl << "Desea modificar su estado? (Y-N): ";
@@ -139,9 +139,9 @@ void ManagerPelicula::cambiarEstadoPelicula() {
     if (toupper(yn) == 'Y') {
         pelicula.setEstado(!pelicula.getEstado());
         archivoPeliculas.Modificar(pelicula, posicion);
-        cout << "Modificado exitosamente!";
+        cout << "Modificado Exitosamente!";
     } else {
-        cout << "No se ha modificado!";
+        cout << "NO se ha modificado!";
     }
     cout << endl;
 }
