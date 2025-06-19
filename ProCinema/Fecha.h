@@ -1,6 +1,7 @@
 #pragma once
 #include "Hora.h"
 #include <string>
+#include <ctime>
 
 
 class Fecha {
@@ -33,5 +34,6 @@ public:
     //1: fecha 2: fecha y hora 3: hora
     std::string toString(int opcion);
     void cargar(int opcion);
+    void setFechaYHoraActual();
 };
 

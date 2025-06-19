@@ -46,6 +46,8 @@
 		<Unit filename="ArchivoSala.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="ArchivoVenta.cpp" />
+		<Unit filename="ArchivoVenta.h" />
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
 		<Unit filename="Funcion.cpp" />
@@ -66,6 +68,8 @@
 		<Unit filename="ManagerSala.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="ManagerVenta.cpp" />
+		<Unit filename="ManagerVenta.h" />
 		<Unit filename="Membresia.cpp" />
 		<Unit filename="Membresia.h" />
 		<Unit filename="Menu.cpp" />
@@ -74,6 +78,7 @@
 		<Unit filename="Pelicula.h" />
 		<Unit filename="Sala.cpp" />
 		<Unit filename="Sala.h" />
+		<Unit filename="Venta.cpp" />
 		<Unit filename="Venta.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>

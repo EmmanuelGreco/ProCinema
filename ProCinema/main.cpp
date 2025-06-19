@@ -1,13 +1,14 @@
 #include <iostream>
 #include <locale.h>
 #include "Menu.h"
-#include "Pelicula.h"
+//#include "Pelicula.h"
 #include "Sala.h"
 #include "Membresia.h"
 #include "ManagerPelicula.h"
 #include "ManagerFuncion.h"
 #include "ManagerSala.h"
 #include "ManagerMembresia.h"
+#include "ManagerVenta.h"
 
 using namespace std;
 
@@ -17,6 +18,7 @@ int main() {
     ManagerFuncion managerFuncion;
     ManagerSala managerSala;
     ManagerMembresia managerMembresia;
+    ManagerVenta managerVenta;
     Menu menu;
 
     while(true) {
@@ -27,10 +29,10 @@ int main() {
             menu.ventas();
             switch(menu.getOpcion()) {
             case 1:
-                cout << "REGISTRAR VENTA" << endl;
+                managerVenta.cargarVenta();
                 break;
             case 2:
-                cout << "LISTAR VENTAS" << endl;
+                managerVenta.listarVentas();
                 break;
             case 3:
                 menu.BuscarVentasPor();
@@ -56,7 +58,7 @@ int main() {
                 }
                 break;
             case 4:
-                cout << "CANCELAR VENTA" << endl;
+                managerVenta.cambiarEstadoVenta();
                 break;
             case 0:
                 cout << "VOLVER AL MENU PRINCIPAL" << endl;

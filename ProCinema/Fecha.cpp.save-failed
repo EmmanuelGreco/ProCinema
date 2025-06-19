@@ -135,7 +135,7 @@ void Fecha::setFechaYHoraActual() {
     int dia = localTime->tm_mday;
     int mes = localTime->tm_mon + 1;
     int anio = localTime->tm_year + 1900;
-    int hora = localTime->tm_hour;
+    int hora = local    Time->tm_hour;
     int minuto = localTime->tm_min;
 
     setDia(dia);
