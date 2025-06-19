@@ -82,6 +82,7 @@ void Venta::setEstado(bool estado) {
     _estado = estado;
 }
 
+
 std::string Venta::mostrar() {
     ostringstream redondeoImporteTotal;
     redondeoImporteTotal << fixed << setprecision(2) << getImporteTotal();

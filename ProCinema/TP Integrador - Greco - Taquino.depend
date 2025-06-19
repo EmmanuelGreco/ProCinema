@@ -262,7 +262,7 @@
 	<string>
 	"Funcion.h"
 
-1750294064 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\funcion.h
+1750365321 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\funcion.h
 	<cstring>
 	<string>
 	"Fecha.h"
@@ -299,7 +299,7 @@
 	<cstring>
 	<string>
 
-1750294064 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\funcion.cpp
+1750365328 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\funcion.cpp
 	"Fecha.h"
 	"Funcion.h"
 	<cstring>
@@ -366,12 +366,12 @@
 	<string>
 	"Venta.h"
 
-1750340064 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\venta.h
+1750365069 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\venta.h
 	<cstring>
 	<string>
 	"Fecha.h"
 
-1750343558 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\venta.cpp
+1750365069 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\venta.cpp
 	"Fecha.h"
 	"Venta.h"
 	<cstring>
@@ -385,9 +385,9 @@
 	"ArchivoPelicula.h"
 	"Pelicula.h"
 
-1750294851 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerventa.h
+1750365066 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerventa.h
 
-1750363584 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerventa.cpp
+1750367532 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerventa.cpp
 	<iostream>
 	<string>
 	"ManagerVenta.h"

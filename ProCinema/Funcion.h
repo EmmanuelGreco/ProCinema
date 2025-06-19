@@ -37,5 +37,8 @@ class Funcion {
         void setImporteFuncion(float importeFuncion);
         void setEstado(bool estado);
 
+        Funcion operator +=(int cantidadButacas);
+        Funcion operator -=(int cantidadButacas);
+
         std::string mostrar();
 };

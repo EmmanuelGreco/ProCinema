@@ -20,7 +20,7 @@ Funcion::Funcion() {
 
 
 Funcion::Funcion(int idFuncion, int idPelicula, int idSala, int butacasDisponibles, int idiomaFuncion,
-                   Fecha fechaFuncion, float importeFuncion, bool estado) {
+                 Fecha fechaFuncion, float importeFuncion, bool estado) {
     setIdFuncion(idFuncion);
     setIdPelicula(idPelicula);
     setIdSala(idSala);
@@ -83,11 +83,18 @@ void Funcion::setEstado(bool estado) {
     _estado = estado;
 }
 
+Funcion Funcion::operator +=(int cantidadButacas) {
+    setButacasDisponibles(getButacasDisponibles()+cantidadButacas);
+}
+Funcion Funcion::operator -=(int cantidadButacas) {
+    setButacasDisponibles(getButacasDisponibles()-cantidadButacas);
+}
+
 
 std::string Funcion::mostrar() {
     ostringstream redondeoImporteFuncion;
     redondeoImporteFuncion << fixed << setprecision(2) << getImporteFuncion();
     return to_string(getIdFuncion()) + "," + to_string(getIdPelicula()) + "," + to_string(getIdSala()) + ","
-            + to_string(getButacasDisponibles()) + "," + to_string(getIdiomaFuncion()) + "," + getFechaFuncion().toString(1) + ","
-            + redondeoImporteFuncion.str() + "," + to_string(getEstado());
+           + to_string(getButacasDisponibles()) + "," + to_string(getIdiomaFuncion()) + "," + getFechaFuncion().toString(1) + ","
+           + redondeoImporteFuncion.str() + "," + to_string(getEstado());
 }

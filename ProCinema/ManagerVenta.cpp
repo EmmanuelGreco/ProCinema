@@ -28,13 +28,13 @@ void ManagerVenta::cargarVenta() {
     int posicion;
     Membresia membresia;
 
-
+    ///automáticamente seteo id de venta, y fecha y hora.
     cout << "Id de venta: " << idVenta << endl;
-    //fecha se obtiene automaticamente
-    cout << "Fecha y hora: ";
+    cout << "Fecha y hora: ";                           //fecha se obtiene automaticamente
     fechaVenta.setFechaYHoraActual();
     cout << fechaVenta.toString(2) << endl;
 
+    ///se pide el id del miembro y se valida
     cout << "Ingrese el id de membresía (si el cliente no es miembro ingrese 0): ";
     cin >> idMembresia;
     if (idMembresia != 0) {
@@ -51,6 +51,7 @@ void ManagerVenta::cargarVenta() {
         cout << "Cliente no registrado." << endl;
     }
 
+    ///se pide el id de la funcion y se valida
     cout << endl << "Ingrese el id de función: ";
     cin >> idFuncion;
     posicion = archivoFunciones.Buscar(idFuncion);
@@ -58,31 +59,28 @@ void ManagerVenta::cargarVenta() {
         cout << "Id NO encontrado!" << endl;
         return;
     }
-
     Funcion funcion = archivoFunciones.Leer(posicion);
     idFuncion = funcion.getIdFuncion();
+
+    ///se muestra la pelicula y fecha correspondiente a esta función
     cout << "Película: " << archivoPeliculas.Leer(archivoPeliculas.Buscar(funcion.getIdPelicula())).getTitulo() << endl;
     cout << "Fecha de la función: " << funcion.getFechaFuncion().toString(1) << endl;
 
-
+    ///se muestra cantidad de butacas libres, y se pide ingresar la cantidad a comprar.
     cout << funcion.getButacasDisponibles() << " butacas disponibles." << endl;
     cout << "Ingrese la cantidad de entradas: ";
     cin >> cantidadEntradas;
+    ///si son demasiadas entradas para la capacidad, no se puede llevar a cabo.
     if(cantidadEntradas <= funcion.getButacasDisponibles()) {
-        funcion.setButacasDisponibles(funcion.getButacasDisponibles() - cantidadEntradas);
+        funcion -= cantidadEntradas;                                //funcion.setButacasDisponibles(funcion.getButacasDisponibles() - cantidadEntradas);
     } else {
         cout << "No hay suficientes butacas disponibles!" << endl;
         return;
     }
+    ///se calcula el total llamando a la función correspondiente.
+    importeTotal = calcularImporteTotal(cantidadEntradas, idFuncion, idMembresia);
 
-    //importe se obtiene de cantidadEntradas * funcion._importeFuncion;
-    importeTotal = funcion.getImporteFuncion() * cantidadEntradas;
-    if(idMembresia != 0) {
-        cout << "Subtotal: " << importeTotal << endl;
-        cout << "Descuento: " << membresia.getDescuentoMembresia() << "%" << endl;
-        importeTotal = (importeTotal * (100-membresia.getDescuentoMembresia())/ 100);
-    }
-    cout << "Total: " << importeTotal << endl;
+    ///si se guardó bien, notificarlo.
     if(archivoVentas.Guardar(Venta(idVenta, idFuncion, idMembresia, cantidadEntradas, fechaVenta, importeTotal, estado)) &&
             archivoFunciones.Modificar(funcion, posicion)) {
         cout << "Se guardo Exitosamente!" << endl;
@@ -101,86 +99,89 @@ void ManagerVenta::listarVentas() {
 }
 
 void ManagerVenta::modificarVenta() {
-    int id, posicionAModificar, posicion;
+    int idVenta, posicionAModificar;
     ArchivoVenta archivoVentas("ventas.dat");
+    Venta venta;
     ArchivoFuncion archivoFunciones("funciones.dat");
+    Funcion funcion;
     ArchivoMembresia archivoMembresias("membresias.dat");
+    Membresia membresia;
     ArchivoPelicula archivoPeliculas("peliculas.dat");
+    Pelicula pelicula;
 
     cout << "Ingrese el Id de la Venta a Modificar: ";
-    cin >> id;
-    posicionAModificar = archivoVentas.Buscar(id);
+    cin >> idVenta;
+    posicionAModificar = archivoVentas.Buscar(idVenta);
     if (posicionAModificar == -1) {
         cout << "Id no encontrado!" << endl;
         return;
     }
-    Venta venta = archivoVentas.Leer(posicionAModificar);
-    cout << "1. " << venta.getIdFuncion() << endl;
-    cout << "2. " << venta.getIdMembresia() << endl;
-    cout << "3. " << venta.getCantidadEntradas() << endl;
+    venta = archivoVentas.Leer(posicionAModificar);
+    cout << "1. Modificar id de función: " << venta.getIdFuncion() << endl;
+    cout << "2. Modificar id de miembro: " << venta.getIdMembresia() << endl;
+    cout << "3. Modificar cantidad de entradas: " << venta.getCantidadEntradas() << endl;
     cout << "Elija una opción: ";
     int opcion;
     cin >> opcion;
 
-    int entero, idFuncion, importeTotal;
-    float decimal;
-    Fecha fechaVenta;
-    Funcion funcion;
-    Membresia membresia;
+    int importeTotal, nuevoIdFuncion, posicionFuncion,
+        nuevoIdMembresia, posicionMembresia,
+        nuevaCantidad;
     switch(opcion) {
     case 1:
-        cout << "Elija el nuevo id de función: ";
-        cin >> entero;
-        posicion = archivoFunciones.Buscar(entero);
-        if (posicion == -1) {
+        cout << endl << "Ingrese el nuevo id de función: ";
+        cin >> nuevoIdFuncion;
+        posicionFuncion = archivoFunciones.Buscar(nuevoIdFuncion);
+        if (posicionFuncion == -1) {
+            cout << "Id NO encontrado!" << endl;
+            return;
+        }
+        funcion = archivoFunciones.Leer(archivoFunciones.Buscar(venta.getIdFuncion()));
+        funcion += venta.getCantidadEntradas();
+        archivoFunciones.Modificar(funcion, funcion.getIdFuncion());
+
+        funcion = archivoFunciones.Leer(archivoFunciones.Buscar(nuevoIdFuncion));
+        funcion -= venta.getCantidadEntradas();
+        archivoFunciones.Modificar(funcion, nuevoIdFuncion);
+
+        importeTotal = calcularImporteTotal(venta.getCantidadEntradas(), nuevoIdFuncion, venta.getIdMembresia());
+
+        venta.setIdFuncion(nuevoIdFuncion);
+        venta.setImporteTotal(importeTotal);
+        archivoVentas.Modificar(venta, posicionAModificar);
+        break;
+    case 2:
+        cout << endl << "Ingrese el nuevo id de mimebro: ";
+        cin >> nuevoIdMembresia;
+        posicionMembresia = archivoMembresias.Buscar(nuevoIdMembresia);
+        if (posicionMembresia == -1) {
+            cout << "Id NO encontrado!" << endl;
+            return;
+        }
+        importeTotal = calcularImporteTotal(venta.getCantidadEntradas(), venta.getIdFuncion(), nuevoIdMembresia);
+
+        venta.setIdMembresia(nuevoIdMembresia);
+        venta.setImporteTotal(importeTotal);
+        archivoVentas.Modificar(venta, posicionAModificar);
+        break;
+    case 3:
+        cout << endl << "Ingrese la nueva cantidad de entradas: ";
+        cin >> nuevaCantidad;
+        posicionFuncion = archivoFunciones.Buscar(venta.getIdFuncion());
+        if (posicionFuncion == -1) {
             cout << "Id NO encontrado!" << endl;
             return;
         }
 
-        funcion = archivoFunciones.Leer(posicion);
-        entero = funcion.getIdFuncion();
-        cout << "Película: " << archivoPeliculas.Leer(archivoPeliculas.Buscar(funcion.getIdPelicula())).getTitulo() << endl;
-        cout << "Fecha de la función: " << funcion.getFechaFuncion().toString(1) << endl;
-        venta.setIdFuncion(entero);
-        break;
-    case 2:
-        cout << "Elija el nuevo id de membresía: ";
-        cin >> entero;
-        if (entero != 0) {
-            posicion = archivoMembresias.Buscar(entero);
-            if (posicion == -1) {
-                cout << "Id NO encontrado!" << endl;
-                return;
-            }
-            membresia = archivoMembresias.Leer(posicion);
-            entero = membresia.getIdMembresia();
-            cout << "Registrando venta para " << membresia.getNombreMiembro() << " " << membresia.getApellidoMiembro() <<
-                 " - " << membresia.getNombreMembresia() << endl;
-        }
-        venta.setIdMembresia(entero);
-        break;
-    case 3:
         funcion = archivoFunciones.Leer(archivoFunciones.Buscar(venta.getIdFuncion()));
-        cout << "Elija la nueva cantidad de entradas: ";
-        cin >> entero;
-        if(entero <= funcion.getButacasDisponibles()) {
-            importeTotal = funcion.getImporteFuncion() * entero;
-            membresia = archivoMembresias.Leer(archivoMembresias.Buscar(venta.getIdMembresia()));
-            if(venta.getIdMembresia() != 0) {
-                cout << "Subtotal: " << importeTotal << endl;
-                cout << "Descuento: " << membresia.getDescuentoMembresia() << "%" << endl;
-                importeTotal = (importeTotal * (100-membresia.getDescuentoMembresia())/ 100);
-            }
-            cout << "Total: " << importeTotal << endl;
+        funcion -= nuevaCantidad - venta.getCantidadEntradas();
+        archivoFunciones.Modificar(funcion, funcion.getIdFuncion());
 
-            funcion.setButacasDisponibles(funcion.getButacasDisponibles() - entero);
-            venta.setCantidadEntradas(entero);
-            venta.setImporteTotal(importeTotal);
-        } else {
-            cout << "No hay suficientes butacas disponibles!" << endl;
-            return;
-        }
+        importeTotal = calcularImporteTotal(nuevaCantidad, venta.getIdFuncion(), venta.getIdMembresia());
 
+        venta.setCantidadEntradas(nuevaCantidad);
+        venta.setImporteTotal(importeTotal);
+        archivoVentas.Modificar(venta, posicionAModificar);
         break;
     }
 
@@ -221,4 +222,20 @@ void ManagerVenta::cambiarEstadoVenta() {
         cout << "NO se ha modificado!";
     }
     cout << endl;
+}
+
+int ManagerVenta::calcularImporteTotal(int cantidadEntradas, int idFuncion, int idMembresia) {
+    ArchivoFuncion archivoFunciones("funciones.dat");
+    Funcion funcion = archivoFunciones.Leer(archivoFunciones.Buscar(idFuncion));
+    ArchivoMembresia archivoMembresias("membresias.dat");
+    Membresia membresia = archivoMembresias.Leer(archivoMembresias.Buscar(idMembresia));
+
+    int importeTotal = funcion.getImporteFuncion() * cantidadEntradas;
+    if(idMembresia != 0) {
+        std::cout << "Subtotal: " << importeTotal << std::endl;
+        std::cout << "Descuento: " << membresia.getDescuentoMembresia() << "%" << std::endl;
+        importeTotal = (importeTotal * (100-membresia.getDescuentoMembresia())/ 100);
+    }
+    cout << "Total: " << importeTotal << endl;
+    return importeTotal;
 }

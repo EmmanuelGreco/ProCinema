@@ -7,4 +7,5 @@ public:
     void listarVentas();
     void modificarVenta();
     void cambiarEstadoVenta();
+    int calcularImporteTotal(int cantidadEntradas, int idFuncion, int idMembresia);
 };
