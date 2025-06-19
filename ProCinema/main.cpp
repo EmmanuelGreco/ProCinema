@@ -5,6 +5,7 @@
 #include "Sala.h"
 #include "Membresia.h"
 #include "ManagerPelicula.h"
+#include "ManagerFuncion.h"
 #include "ManagerSala.h"
 #include "ManagerMembresia.h"
 
@@ -13,6 +14,7 @@ using namespace std;
 int main() {
     setlocale(LC_ALL, "Spanish");
     ManagerPelicula managerPelicula;
+    ManagerFuncion managerFuncion;
     ManagerSala managerSala;
     ManagerMembresia managerMembresia;
     Menu menu;
@@ -117,7 +119,7 @@ int main() {
             menu.funciones();
             switch(menu.getOpcion()) {
             case 1:
-                cout << "AGREGAR FUNCION" << endl;
+                managerFuncion.cargarFuncion();
                 break;
             case 2:
                 cout << "ELIMINAR FUNCION" << endl;
@@ -129,7 +131,7 @@ int main() {
                 menu.ListarFuncionPor();
                 switch(menu.getOpcion()) {
                 case 1:
-                    cout << "TODAS LAS FUNCIONES" << endl;
+                    managerFuncion.listarFunciones();
                     break;
                 case 2:
                     cout << "FUNCIONES A LA VENTA" << endl;

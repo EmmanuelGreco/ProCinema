@@ -2,6 +2,8 @@
 #include "Funcion.h"
 #include <cstring>
 #include <string>
+#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -83,7 +85,9 @@ void Funcion::setEstado(bool estado) {
 
 
 std::string Funcion::mostrar() {
+    ostringstream redondeoImporteFuncion;
+    redondeoImporteFuncion << fixed << setprecision(2) << getImporteFuncion();
     return to_string(getIdFuncion()) + "," + to_string(getIdPelicula()) + "," + to_string(getIdSala()) + ","
             + to_string(getButacasDisponibles()) + "," + to_string(getIdiomaFuncion()) + "," + getFechaFuncion().toString(1) + ","
-            + to_string(getImporteFuncion()) + "," + to_string(getEstado());
+            + redondeoImporteFuncion.str() + "," + to_string(getEstado());
 }
