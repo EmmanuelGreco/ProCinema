@@ -32,9 +32,15 @@ int main() {
                 managerVenta.cargarVenta();
                 break;
             case 2:
-                managerVenta.listarVentas();
+                managerVenta.cambiarEstadoVenta();
                 break;
             case 3:
+                managerVenta.modificarVenta();
+                break;
+            case 4:
+                managerVenta.listarVentas();
+                break;
+            case 5:
                 menu.BuscarVentasPor();
                 switch(menu.getOpcion()) {
                 case 1:
@@ -56,9 +62,6 @@ int main() {
                     cout << "VOLVER AL MENU PRINCIPAL" << endl;
                     break;
                 }
-                break;
-            case 4:
-                managerVenta.cambiarEstadoVenta();
                 break;
             case 0:
                 cout << "VOLVER AL MENU PRINCIPAL" << endl;

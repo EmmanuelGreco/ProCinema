@@ -42,7 +42,7 @@
 1750294064 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\hora.cpp
 	"Hora.h"
 
-1750302290 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\main.cpp
+1750336966 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\main.cpp
 	<iostream>
 	<locale.h>
 	"Menu.h"
@@ -56,7 +56,7 @@
 
 1749435943 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\menu.h
 
-1750294064 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\menu.cpp
+1750338869 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\menu.cpp
 	<iostream>
 	"Menu.h"
 
@@ -267,7 +267,7 @@
 	<string>
 	"Fecha.h"
 
-1750294064 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\archivomembresia.cpp
+1750337622 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\archivomembresia.cpp
 	"ArchivoMembresia.h"
 	"Membresia.h"
 
@@ -366,8 +366,8 @@
 	<string>
 	"Venta.h"
 
-1750300200 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\venta.h
-	<string>
+1750340064 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\venta.h
+	<cstring>
 	<string>
 	"Fecha.h"
 
@@ -381,7 +381,7 @@
 
 1750294851 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerventa.h
 
-1750308279 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerventa.cpp
+1750338973 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerventa.cpp
 	<iostream>
 	<string>
 	"ManagerVenta.h"
@@ -392,4 +392,6 @@
 	"Funcion.h"
 	"ArchivoMembresia.h"
 	"Membresia.h"
+	"ArchivoPelicula.h"
+	"Pelicula.h"
 

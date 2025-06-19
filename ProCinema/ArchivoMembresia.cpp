@@ -71,6 +71,7 @@ int ArchivoMembresia::getUltimoId() {
     FILE *pArchivo;
     Membresia registro;
     registro = Leer(CantidadRegistros()-1);
+    if (registro.getIdMembresia() == -1) return 0;   //esto está hecho para que el ID 0 quede vacío al cargar el primer registro.
     return registro.getIdMembresia();
 }
 

@@ -1,5 +1,5 @@
 #pragma once
-#include <string>
+#include <cstring>
 #include <string>
 #include "Fecha.h"
 

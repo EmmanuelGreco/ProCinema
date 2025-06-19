@@ -5,6 +5,13 @@
 #include <sstream>
 #include <iomanip>
 
+#include "ArchivoFuncion.h"
+#include "Funcion.h"
+#include "ArchivoMembresia.h"
+#include "Membresia.h"
+#include "ArchivoPelicula.h"
+#include "Pelicula.h"
+
 using namespace std;
 
 Venta::Venta() {
@@ -78,7 +85,26 @@ void Venta::setEstado(bool estado) {
 std::string Venta::mostrar() {
     ostringstream redondeoImporteTotal;
     redondeoImporteTotal << fixed << setprecision(2) << getImporteTotal();
-    return to_string(getIdVenta()) + "," + to_string(getIdFuncion()) + "," + to_string(getIdMembresia()) + "," +
-    to_string(getCantidadEntradas()) + "," + getFechaVenta().toString(2) + "," + redondeoImporteTotal.str() +
-    "," + to_string(getEstado());
+
+    ArchivoFuncion archivoFunciones("funciones.dat");
+    ArchivoPelicula archivoPeliculas("peliculas.dat");
+    Funcion funcion = archivoFunciones.Leer(archivoFunciones.Buscar(getIdFuncion()));
+    Pelicula pelicula = archivoPeliculas.Leer(archivoPeliculas.Buscar(funcion.getIdPelicula()));
+    std::string miembro = "Cliente no registrado.";
+    std::string descuento = "0";
+
+    if (getIdMembresia() != 0) {
+        ArchivoMembresia archivoMembresias("membresias.dat");
+        Membresia membresia = archivoMembresias.Leer(archivoMembresias.Buscar(getIdMembresia()));
+        miembro = membresia.getNombreMiembro() + " " + membresia.getApellidoMiembro() + " - " + to_string(membresia.getDniMiembro());
+        descuento = to_string(membresia.getDescuentoMembresia());
+    }
+
+    return "Venta N°" + to_string(getIdVenta()) + "\n" +
+           "Fecha y hora de venta: " + getFechaVenta().toString(2) + "\n" +
+           miembro + "\n" +
+           pelicula.getTitulo() + " - " + funcion.getFechaFuncion().toString(1) + "\n" +
+           "Cantidad de entradas: " + to_string(getCantidadEntradas()) + "\n" +
+           "Importe total: " + redondeoImporteTotal.str() + " - Descuento: " + descuento + "%\n" +
+           "---------------------------------------------------";
 }

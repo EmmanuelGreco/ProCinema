@@ -53,9 +53,10 @@ void Menu::ventas() {
     cout << "---------------- ProCinema Manager ----------------" << endl;
     cout << "---------------------- Ventas ---------------------" << endl;
     cout << "1.  Registrar Venta" << endl;
-    cout << "2.  Listar todas las Ventas" << endl;
-    cout << "3.  Buscar Ventas por..." << endl;
-    cout << "4.  Cancelar Venta" << endl;
+    cout << "2.  Dar de baja una Venta" << endl;
+    cout << "3.  Modificar una Venta" << endl;
+    cout << "4.  Listar todas las Ventas registradas" << endl;
+    cout << "5.  Buscar Ventas por..." << endl;
     cout << "0.  Volver al menú principal... " << endl;
     cout << "---------------------------------------------------" << endl;
     cout << "Ingrese la opción elegida: ";
@@ -224,7 +225,7 @@ void Menu::configuracionMembresias() {
     cout << "-------------- Configurar Membresías --------------" << endl;
     cout << "1.  Listar tipos de Membresías activas" << endl;
     cout << "2.  Agregar un tipo de Membresía" << endl;
-    cout << "3.  Dar de baja / restaurar un tipo de Membresía" << endl;
+    cout << "3.  Dar de baja / Restaurar un tipo de Membresía" << endl;
     cout << "4.  Modificar un tipo de Membresía" << endl;
     cout << "0.  Volver al menú principal... " << endl;
     cout << "---------------------------------------------------" << endl;

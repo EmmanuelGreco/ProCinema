@@ -9,6 +9,8 @@
 #include "Funcion.h"
 #include "ArchivoMembresia.h"
 #include "Membresia.h"
+#include "ArchivoPelicula.h"
+#include "Pelicula.h"
 
 using namespace std;
 
@@ -25,14 +27,29 @@ void ManagerVenta::cargarVenta() {
     int posicion;
     ArchivoFuncion archivoFunciones("funciones.dat");
     ArchivoMembresia archivoMembresias("membresias.dat");
+    Membresia membresia;
+    ArchivoPelicula archivoPeliculas("peliculas.dat");
 
 
 
-    cout << "Id: " << idVenta << endl;
+    cout << "Id de venta: " << idVenta << endl;
     //fecha se obtiene automaticamente
     cout << "Fecha y hora: ";
     fechaVenta.setFechaYHoraActual();
     cout << fechaVenta.toString(2) << endl;
+
+    cout << "Ingrese el id de membresía (si el cliente no es miembro ingrese 0): ";
+    cin >> idMembresia;
+    if (idMembresia != 0) {
+        posicion = archivoMembresias.Buscar(idMembresia);
+        if (posicion == -1) {
+            cout << "Id no encontrado!";
+            return;
+        }
+        membresia = archivoMembresias.Leer(posicion);
+        idMembresia = membresia.getIdMembresia();
+        cout << "Registrando venta para " << membresia.getNombreMiembro() << " " << membresia.getApellidoMiembro() << endl;
+    }
 
     cout << "Ingrese el id de función: ";
     cin >> idFuncion;
@@ -43,28 +60,21 @@ void ManagerVenta::cargarVenta() {
     }
     Funcion funcion = archivoFunciones.Leer(posicion);
     idFuncion = funcion.getIdFuncion();
+    cout << "Película: " << archivoPeliculas.Leer(archivoPeliculas.Buscar(funcion.getIdPelicula())).getTitulo() << endl;
+    cout << "Fecha de la función: " << funcion.getFechaFuncion().toString(1) << endl;
 
 
     cout << "Ingrese la cantidad de entradas: ";
     cin >> cantidadEntradas;
 
-    cout << "Ingrese el id de membresía (si el cliente no es miembro ingrese x (LUEGO ARREGLAMOS ESTA LOGICA)): ";
-    cin >> idMembresia;
-    posicion = archivoMembresias.Buscar(idMembresia);
-    if (posicion == -1) {
-        cout << "Id no encontrado!";
-        return;
-    }
-    Membresia membresia = archivoMembresias.Leer(posicion);
-    idMembresia = membresia.getIdMembresia();
 
     //importe se obtiene de cantidadEntradas * funcion._importeFuncion;
-
     importeTotal = funcion.getImporteFuncion() * cantidadEntradas;
-    cout << "Importe final: " << importeTotal << endl;
-
-    system("pause");
-
+    if(idMembresia != 0) {
+        cout << "Subtotal: " << importeTotal << endl;
+        importeTotal *= (1.00-((float)membresia.getDescuentoMembresia()/100));
+    }
+    cout << "Total: " << importeTotal << endl;
     if(archivoVentas.Guardar(Venta(idVenta, idFuncion, idMembresia, cantidadEntradas,
                                    fechaVenta, importeTotal, estado))) {
         cout << "Se guardo Exitosamente!" << endl;
@@ -84,7 +94,7 @@ void ManagerVenta::listarVentas() {
 void ManagerVenta::modificarVenta() {
     int id, posicion;
 
-    cout << "Ingrese el Id de la Película a Modificar: ";
+    cout << "Ingrese el Id de la Venta a Modificar: ";
     cin >> id;
     posicion = archivoVentas.Buscar(id);
     if (posicion == -1) {
@@ -138,7 +148,7 @@ void ManagerVenta::modificarVenta() {
 void ManagerVenta::cambiarEstadoVenta() {
     int id, posicion;
 
-    cout << "Ingrese el Id de la venta a dar de baja / restaurar: ";
+    cout << "Ingrese el Id de la venta a cancelar: ";
     cin >> id;
     posicion = archivoVentas.Buscar(id);
     if (posicion == -1) {
@@ -146,15 +156,16 @@ void ManagerVenta::cambiarEstadoVenta() {
         return;
     }
     Venta venta = archivoVentas.Leer(posicion);
+    if (venta.getEstado() == 0) {
+        cout << "Esta Venta ya fue dada de baja anteriormente." << endl;
+        return;
+    }
     venta.mostrar();
-    cout << "Actualmente, esta venta se encuentra ";
-    if (venta.getEstado()) cout << "DADA DE ALTA.";
-    else cout << "DADA DE BAJA.";
     cout << endl << "Desea modificar su estado? (Y-N): ";
     char yn;
     cin >> yn;
     if (toupper(yn) == 'Y') {
-        venta.setEstado(!venta.getEstado());
+        venta.setEstado(0);
         archivoVentas.Modificar(venta, posicion);
         cout << "Modificado Exitosamente!";
     } else {
