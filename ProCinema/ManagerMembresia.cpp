@@ -12,18 +12,35 @@ ArchivoMembresia archivoMembresias("membresias.dat");
 
 void ManagerMembresia::cargarMembresia() {
     int idMembresia = archivoMembresias.getUltimoId()+1, tipoMembresia, descuentoMembresia, dniMiembro;
-    string nombreMiembro, apellidoMiembro, emailMiembro;
+    string nombreMembresia, nombreMiembro, apellidoMiembro, emailMiembro;
     bool estado = 1;
 
 
     cout << "Id: " << idMembresia << endl;
 
-    cout << "Ingrese el Tipo de Membresía: ";
-    cin.ignore();
+    cout << "Ingrese el Tipo de Membresía (1-Plus, 2-Premium, 3-VIP): ";
     cin >> tipoMembresia;
+    while (tipoMembresia < 1 || tipoMembresia > 3) {
+        cout << "Tipo de Membresía inválido! Ingrese un número correcto: ";
+        cin >> tipoMembresia;
+    }
 
-    cout << "Ingrese el Descuento de la Membresía: ";
-    cin >> descuentoMembresia;
+    switch(tipoMembresia) {
+    case 1:
+        descuentoMembresia = 10;
+        nombreMembresia = "Plus";
+        break;
+    case 2:
+        descuentoMembresia = 30;
+        nombreMembresia = "Premium";
+        break;
+    case 3:
+        descuentoMembresia = 50;
+        nombreMembresia = "VIP";
+        break;
+    }
+
+    cout << nombreMembresia << ": " << descuentoMembresia << "% OFF." << endl;
 
     cout << "Ingrese el Nombre del Miembro: ";
     cin.ignore();
@@ -39,8 +56,8 @@ void ManagerMembresia::cargarMembresia() {
     cin.ignore();
     getline(cin, emailMiembro);
 
-    if(archivoMembresias.Guardar(Membresia(idMembresia, tipoMembresia, descuentoMembresia, nombreMiembro, apellidoMiembro,
-                                          dniMiembro, emailMiembro, estado))) {
+    if(archivoMembresias.Guardar(Membresia(idMembresia, tipoMembresia, descuentoMembresia, nombreMembresia,
+                                           nombreMiembro, apellidoMiembro, dniMiembro, emailMiembro, estado))) {
         cout << "Se guardo Exitosamente!" << endl;
     } else {
         cout << "Hubo un error inesperado, llame al de sistemas..." << endl;
@@ -66,12 +83,11 @@ void ManagerMembresia::modificarMembresia() {
         return;
     }
     Membresia membresia = archivoMembresias.Leer(posicion);
-    cout << "1. " << membresia.getTipoMembresia() << endl;
-    cout << "2. " << membresia.getDescuentoMembresia() << endl;
-    cout << "3. " << membresia.getNombreMiembro() << endl;
-    cout << "4. " << membresia.getApellidoMiembro() << endl;
-    cout << "5. " << membresia.getDniMiembro() << endl;
-    cout << "6. " << membresia.getEmailMiembro() << endl;
+    cout << "1. " << membresia.getNombreMembresia() << " - " << membresia.getDescuentoMembresia() << "%" << endl;
+    cout << "2. " << membresia.getNombreMiembro() << endl;
+    cout << "3. " << membresia.getApellidoMiembro() << endl;
+    cout << "4. " << membresia.getDniMiembro() << endl;
+    cout << "5. " << membresia.getEmailMiembro() << endl;
     //cout << "0. Volver al menu " << endl;
     cout << "Elija una opción: ";
     int opcion;
@@ -81,33 +97,50 @@ void ManagerMembresia::modificarMembresia() {
     string str;
     switch(opcion) {
     case 1:
-        cout << "Elija el Tipo de Membresía: ";
-        cin >> num;
-        membresia.setTipoMembresia(num);
+        int tipoMembresia;
+        cout << "Ingrese el nuevo Tipo de Membresía (1-Plus, 2-Premium, 3-VIP): ";
+        cin >> tipoMembresia;
+        while (tipoMembresia < 1 || tipoMembresia > 3) {
+            cout << "Tipo de Membresía inválido! Ingrese un número correcto: ";
+            cin >> tipoMembresia;
+        }
+
+        switch(tipoMembresia) {
+        case 1:
+            num = 10;
+            str = "Plus";
+            break;
+        case 2:
+            num = 30;
+            str = "Premium";
+            break;
+        case 3:
+            num = 50;
+            str = "VIP";
+            break;
+        }
+        membresia.setTipoMembresia(tipoMembresia);
+        membresia.setDescuentoMembresia(num);
+        membresia.setNombreMembresia(str);
         break;
     case 2:
-        cout << "Elija el Descuento de Membresía: ";
-        cin >> num;
-        membresia.setDescuentoMembresia(num);
-        break;
-    case 3:
         cout << "Elija el nuevo Nombre del Miembro: ";
         cin.ignore();
         getline(cin, str);
         membresia.setNombreMiembro(str);
         break;
-    case 4:
+    case 3:
         cout << "Elija el nuevo Apellido del Miembro: ";
         cin.ignore();
         getline(cin, str);
         membresia.setApellidoMiembro(str);
         break;
-    case 5:
+    case 4:
         cout << "Elija el nuevo DNI del Miembro: ";
         cin >> num;
         membresia.setDniMiembro(num);
         break;
-    case 6:
+    case 5:
         cout << "Elija el nuevo Email del Miembro: ";
         cin.ignore();
         getline(cin, str);

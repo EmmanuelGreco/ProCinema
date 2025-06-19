@@ -9,6 +9,7 @@ Membresia::Membresia() {
     setIdMembresia(-1);
     setTipoMembresia(-1);
     setDescuentoMembresia(-1);
+    setNombreMembresia("");
     setNombreMiembro("");
     setApellidoMiembro("");
     setDniMiembro(-1);
@@ -17,11 +18,12 @@ Membresia::Membresia() {
 }
 
 
-Membresia::Membresia(int idMembresia, int tipoMembresia, int descuentoMembresia, string nombreMiembro, string apellidoMiembro,
-                     int dniMiembro, string emailMiembro, bool estado) {
+Membresia::Membresia(int idMembresia, int tipoMembresia, int descuentoMembresia, std::string nombreMembresia, std::string nombreMiembro,
+                     std::string apellidoMiembro, int dniMiembro, std::string emailMiembro, bool estado) {
     setIdMembresia(idMembresia);
     setTipoMembresia(tipoMembresia);
     setDescuentoMembresia(descuentoMembresia);
+    setNombreMembresia(nombreMembresia);
     setNombreMiembro(nombreMiembro);
     setApellidoMiembro(apellidoMiembro);
     setDniMiembro(dniMiembro);
@@ -38,6 +40,9 @@ int Membresia::getTipoMembresia() {
 }
 int Membresia::getDescuentoMembresia() {
     return _descuentoMembresia;
+}
+string Membresia::getNombreMembresia() {
+    return _nombreMembresia;
 }
 string Membresia::getNombreMiembro() {
     return _nombreMiembro;
@@ -65,6 +70,9 @@ void Membresia::setTipoMembresia(int tipoMembresia) {
 void Membresia::setDescuentoMembresia(int descuentoMembresia) {
     _descuentoMembresia = descuentoMembresia;
 }
+void Membresia::setNombreMembresia(string nombreMembresia) {
+    strcpy(_nombreMembresia, nombreMembresia.c_str());
+}
 void Membresia::setNombreMiembro(string nombreMiembro) {
     strcpy(_nombreMiembro, nombreMiembro.c_str());
 }
@@ -84,6 +92,6 @@ void Membresia::setEstado(bool estado) {
 
 std::string Membresia::mostrar() {
     return to_string(getIdMembresia()) + "," + to_string(getTipoMembresia()) + "," + to_string(getDescuentoMembresia()) + ","
-            + getNombreMiembro() + "," + getApellidoMiembro() + "," + to_string(getDniMiembro()) + ","
-            + getEmailMiembro() + "," + to_string(getEstado());
+           + getNombreMembresia() + "," + getNombreMiembro() + "," + getApellidoMiembro() + "," + to_string(getDniMiembro()) + ","
+           + getEmailMiembro() + "," + to_string(getEstado());
 }

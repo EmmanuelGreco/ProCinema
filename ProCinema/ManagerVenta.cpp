@@ -48,35 +48,41 @@ void ManagerVenta::cargarVenta() {
         }
         membresia = archivoMembresias.Leer(posicion);
         idMembresia = membresia.getIdMembresia();
-        cout << "Registrando venta para " << membresia.getNombreMiembro() << " " << membresia.getApellidoMiembro() << endl;
+        cout << "Registrando venta para " << membresia.getNombreMiembro() << " " << membresia.getApellidoMiembro() <<
+             " - " << membresia.getNombreMembresia() << endl;
     }
 
-    cout << "Ingrese el id de función: ";
+    cout << endl << "Ingrese el id de función: ";
     cin >> idFuncion;
     posicion = archivoFunciones.Buscar(idFuncion);
     if (posicion == -1) {
         cout << "Id no encontrado!";
         return;
     }
+
     Funcion funcion = archivoFunciones.Leer(posicion);
     idFuncion = funcion.getIdFuncion();
     cout << "Película: " << archivoPeliculas.Leer(archivoPeliculas.Buscar(funcion.getIdPelicula())).getTitulo() << endl;
     cout << "Fecha de la función: " << funcion.getFechaFuncion().toString(1) << endl;
 
 
+    cout << funcion.getButacasDisponibles() << " butacas disponibles." << endl;
     cout << "Ingrese la cantidad de entradas: ";
     cin >> cantidadEntradas;
-
+    if(cantidadEntradas <= funcion.getButacasDisponibles()) cout << "ALCANZAN" << endl;
+    else cout << "NO!" << endl;
+    funcion.setButacasDisponibles(funcion.getButacasDisponibles() - cantidadEntradas);
 
     //importe se obtiene de cantidadEntradas * funcion._importeFuncion;
     importeTotal = funcion.getImporteFuncion() * cantidadEntradas;
     if(idMembresia != 0) {
         cout << "Subtotal: " << importeTotal << endl;
+        cout << "Descuento: " << membresia.getDescuentoMembresia() << "%" << endl;
         importeTotal *= (1.00-((float)membresia.getDescuentoMembresia()/100));
     }
     cout << "Total: " << importeTotal << endl;
-    if(archivoVentas.Guardar(Venta(idVenta, idFuncion, idMembresia, cantidadEntradas,
-                                   fechaVenta, importeTotal, estado))) {
+    if(archivoVentas.Guardar(Venta(idVenta, idFuncion, idMembresia, cantidadEntradas, fechaVenta, importeTotal, estado)) &&
+       archivoFunciones.Modificar(funcion, posicion)) {
         cout << "Se guardo Exitosamente!" << endl;
     } else {
         cout << "Hubo un error inesperado, llame al de sistemas..." << endl;
