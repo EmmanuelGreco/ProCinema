@@ -99,9 +99,10 @@ void ManagerPelicula::modificarPelicula() {
         pelicula.setNombreDirector(str);
         break;
     case 4:
-        cout << "Elija la nueva Fecha de Estreno: " << endl;
-        fechaEstreno.cargar(1);
-        pelicula.setFechaEstreno(fechaEstreno);
+        cout << "Elija el nuevo Apellido del Director: ";
+        cin.ignore();
+        getline(cin, str);
+        pelicula.setApellidoDirector(str);
         break;
     case 5:
         cout << "Elija la nueva Clasificación: ";
@@ -109,10 +110,9 @@ void ManagerPelicula::modificarPelicula() {
         pelicula.setClasificacion(num);
         break;
     case 6:
-        cout << "Elija el nuevo Apellido del Director: ";
-        cin.ignore();
-        getline(cin, str);
-        pelicula.setApellidoDirector(str);
+        cout << "Elija la nueva Fecha de Estreno: " << endl;
+        fechaEstreno.cargar(1);
+        pelicula.setFechaEstreno(fechaEstreno);
         break;
     }
 

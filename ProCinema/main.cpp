@@ -127,7 +127,7 @@ int main() {
                 managerFuncion.cargarFuncion();
                 break;
             case 2:
-                cout << "ELIMINAR FUNCION" << endl;
+                managerFuncion.cambiarEstadoFuncion();
                 break;
             case 3:
                 managerFuncion.modificarFuncion();

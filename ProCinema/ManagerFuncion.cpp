@@ -140,3 +140,31 @@ void ManagerFuncion::modificarFuncion() {
 
     if(archivoFunciones.Modificar(funcion, posicion)) cout << "Modificado Exitosamente!" << endl;
 }
+
+void ManagerFuncion::cambiarEstadoFuncion() {
+    int id, posicion;
+
+    cout << "Ingrese el Id de la Función a Dar de baja / Restaurar: ";
+    cin >> id;
+    posicion = archivoFunciones.Buscar(id);
+    if (posicion == -1) {
+        cout << "Id NO encontrado!";
+        return;
+    }
+    Funcion funcion = archivoFunciones.Leer(posicion);
+    funcion.mostrar();
+    cout << "Actualmente, esta Función se encuentra ";
+    if (funcion.getEstado()) cout << "EN CARTELERA.";
+    else cout << "FUERA DE CARTELERA.";
+    cout << endl << "Desea modificar su estado? (Y-N): ";
+    char yn;
+    cin >> yn;
+    if (toupper(yn) == 'Y') {
+        funcion.setEstado(!funcion.getEstado());
+        archivoFunciones.Modificar(funcion, posicion);
+        cout << "Modificado Exitosamente!";
+    } else {
+        cout << "NO se ha modificado!";
+    }
+    cout << endl;
+}
