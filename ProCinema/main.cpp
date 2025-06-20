@@ -51,19 +51,19 @@ int main() {
                 menu.BuscarVentasPor();
                 switch(menu.getOpcion()) {
                 case 1:
-                    cout << "ID DE VENTA" << endl;
+                    managerVenta.buscarPorId();
                     break;
                 case 2:
-                    cout << "FUNCION" << endl;
+                    managerVenta.buscarPorFuncion();
                     break;
                 case 3:
-                    cout << "DNI" << endl;
+                    managerVenta.buscarPorDNI();
                     break;
                 case 4:
-                    cout << "ID DE MIEMBRO" << endl;
+                    managerVenta.buscarPorMiembro();
                     break;
                 case 5:
-                    cout << "FECHA DE VENTA" << endl;
+                    managerVenta.buscarPorFecha();
                     break;
                 case 0:
                     cout << "VOLVER AL MENU PRINCIPAL" << endl;
@@ -147,7 +147,7 @@ int main() {
                 case 1:
                     managerFuncion.listarFunciones();
                     break;
-                case 2:{
+                case 2: {
                     bool activas = true;
                     managerFuncion.listarFuncionesActivas(activas);
                     break;
@@ -155,7 +155,7 @@ int main() {
                 case 3:
                     managerFuncion.listarFuncionesAgotadas();
                     break;
-                case 4:{
+                case 4: {
                     bool activas = false;
                     managerFuncion.listarFuncionesActivas(activas);
                     break;

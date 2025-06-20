@@ -232,10 +232,113 @@ int ManagerVenta::calcularImporteTotal(int cantidadEntradas, int idFuncion, int 
 
     int importeTotal = funcion.getImporteFuncion() * cantidadEntradas;
     if(idMembresia != 0) {
-        std::cout << "Subtotal: " << importeTotal << std::endl;
-        std::cout << "Descuento: " << membresia.getDescuentoMembresia() << "%" << std::endl;
+        cout << "Subtotal: " << importeTotal << endl;
+        cout << "Descuento: " << membresia.getDescuentoMembresia() << "%" << endl;
         importeTotal = (importeTotal * (100-membresia.getDescuentoMembresia())/ 100);
     }
     cout << "Total: " << importeTotal << endl;
     return importeTotal;
+}
+
+
+///BUSCAR POR...
+
+void ManagerVenta::buscarPorId() {
+    ArchivoVenta archivoVentas("ventas.dat");
+    int idBuscado;
+
+    cout << "Ingrese el id de venta a buscar: ";
+    cin >> idBuscado;
+
+    int cantidadRegistros = archivoVentas.CantidadRegistros();
+    int cantidadEncontrados = 0;
+    for (int i = 0; i < cantidadRegistros; i++) {
+        if (archivoVentas.Leer(i).getIdVenta() == idBuscado) {
+            cout << archivoVentas.Leer(i).mostrar() << endl;
+            cantidadEncontrados++;
+        }
+    }
+    if (cantidadEncontrados == 0) cout << "no se encontro ningun registro con el id de venta " << idBuscado << "." << endl;
+}
+
+void ManagerVenta::buscarPorFuncion() {
+    ArchivoVenta archivoVentas("ventas.dat");
+    int idBuscado;
+
+    cout << "Ingrese el id de funcion a buscar: ";
+    cin >> idBuscado;
+
+    int cantidadRegistros = archivoVentas.CantidadRegistros();
+    int cantidadEncontrados = 0;
+    for (int i = 0; i < cantidadRegistros; i++) {
+        if (archivoVentas.Leer(i).getIdFuncion() == idBuscado) {
+            cout << archivoVentas.Leer(i).mostrar() << endl;
+            cantidadEncontrados++;
+        }
+    }
+    if (cantidadEncontrados == 0) cout << "no se encontro ningun registro con el id de funcion " << idBuscado << "." << endl;
+}
+
+void ManagerVenta::buscarPorDNI() {
+    ArchivoVenta archivoVentas("ventas.dat");
+    ArchivoMembresia archivoMembresias("membresias.dat");
+    int dniBuscado;
+
+    cout << "Ingrese el DNI a buscar: ";
+    cin >> dniBuscado;
+
+    int cantidadRegistros = archivoVentas.CantidadRegistros();
+    int cantidadEncontrados = 0;
+    for (int i = 0; i < cantidadRegistros; i++) {
+        int idMem = archivoVentas.Leer(i).getIdMembresia();
+        if (idMem != 0 && archivoMembresias.Leer(idMem - 1).getDniMiembro() == dniBuscado) {
+            cout << archivoVentas.Leer(i).mostrar() << endl;
+            cantidadEncontrados++;
+        }
+    }
+    if (cantidadEncontrados == 0) cout << "no se encontro ningun registro con DNI " << dniBuscado << "." << endl;
+}
+
+void ManagerVenta::buscarPorMiembro() {
+    ArchivoVenta archivoVentas("ventas.dat");
+    ArchivoMembresia archivoMembresias("membresias.dat");
+    int idBuscado;
+
+    cout << "Ingrese el id de miembro: ";
+    cin >> idBuscado;
+
+    int cantidadRegistros = archivoVentas.CantidadRegistros();
+    int cantidadEncontrados = 0;
+    for (int i = 0; i < cantidadRegistros; i++) {
+        int idMem = archivoVentas.Leer(i).getIdMembresia();
+        if (idMem != 0 && archivoMembresias.Leer(idMem - 1).getIdMembresia() == idBuscado) {
+            cout << archivoVentas.Leer(i).mostrar() << endl;
+            cantidadEncontrados++;
+        } else if (idMem == 0) {
+            cout << archivoVentas.Leer(i).mostrar() << endl;
+            cantidadEncontrados++;
+        }
+    }
+    if (cantidadEncontrados == 0) cout << "no se encontro ningun registro con el id de miembro " << idBuscado << "." << endl;
+}
+
+
+void ManagerVenta::buscarPorFecha() {
+    ArchivoVenta archivoVentas("ventas.dat");
+    Fecha fechaBuscada;
+
+    cout << "Ingrese una fecha a buscar: " << endl;
+    fechaBuscada.cargar(1);
+
+    int cantidadRegistros = archivoVentas.CantidadRegistros();
+    int cantidadEncontrados = 0;
+    for (int i = 0; i < cantidadRegistros; i++) {
+        if (archivoVentas.Leer(i).getFechaVenta().getAnio() == fechaBuscada.getAnio() &&
+                archivoVentas.Leer(i).getFechaVenta().getMes() == fechaBuscada.getMes() &&
+                archivoVentas.Leer(i).getFechaVenta().getDia() == fechaBuscada.getDia()) {
+            cout << archivoVentas.Leer(i).mostrar() << endl;
+            cantidadEncontrados++;
+        }
+    }
+    if (cantidadEncontrados == 0) cout << "no se encontro ningun registro con fecha " << fechaBuscada.toString(1) << "." << endl;
 }
