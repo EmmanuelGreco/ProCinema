@@ -142,12 +142,13 @@ void Menu::ListarFuncionPor() {
     cout << "---------------- ProCinema Manager ----------------" << endl;
     cout << "------------------ Listar Función -----------------" << endl;
     cout << "1.  Todas las Funciones" << endl;
-    cout << "2.  Funciones en Venta" << endl;
+    cout << "2.  Funciones en Cartelera" << endl;
     cout << "3.  Funciones Agotadas" << endl;
+    cout << "4.  Funciones Fuera de Cartelera" << endl;
     cout << "0.  Volver atrás... " << endl;
     cout << "---------------------------------------------------" << endl;
     cout << "Ingrese la opción elegida: ";
-    recibirOpcion(3);
+    recibirOpcion(4);
     system("cls");
 }
 

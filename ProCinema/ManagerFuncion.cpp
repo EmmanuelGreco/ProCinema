@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <sstream>
+#include <iomanip>
 #include "ManagerFuncion.h"
 #include "Funcion.h"
 #include "ArchivoFuncion.h"
@@ -76,6 +78,102 @@ void ManagerFuncion::listarFunciones() {
 
     for (int i = 0; i < cantidadRegistros; i++) {
         cout << archivoFunciones.Leer(i).mostrar() << endl;
+    }
+}
+
+void ManagerFuncion::listarFuncionesActivas(bool activas) {
+    int cantidadRegistros = archivoFunciones.CantidadRegistros();
+    Funcion funcion;
+
+    for (int i = 0; i < cantidadRegistros; i++) {
+        funcion = archivoFunciones.Leer(i);
+
+        if (funcion.getEstado() == activas){
+            // Harcodeado
+            int opcion = funcion.getIdiomaFuncion();
+            string idiomaFuncion;
+            switch(opcion) {
+                case 1:
+                    idiomaFuncion = "Inglés";
+                    break;
+                case 2:
+                    idiomaFuncion = "Castellano";
+                    break;
+                case 3:
+                    idiomaFuncion = "Subtitulado";
+                    break;
+            }
+
+            // Harcodeado
+            string estado;
+            if (activas)
+                estado = "EN CARTELERA";
+            else
+                estado = "FUERA DE CARTELERA";
+
+
+            ostringstream redondeoImporteFuncion;
+            redondeoImporteFuncion << fixed << setprecision(2) << funcion.getImporteFuncion();
+
+            cout <<
+            "  ID de Función N°" + to_string(funcion.getIdFuncion()) + "\n" +
+            "  ID de Película N°" + to_string(funcion.getIdPelicula()) + "\n" +
+            "  ID de Sala N°" + to_string(funcion.getIdSala()) + "\n" +
+            "  Cantidad de Butacas Disponibles: " + to_string(funcion.getButacasDisponibles()) + "\n" +
+            "  Idioma de la Función: " + idiomaFuncion + "\n" +
+            "  Fecha de la Función: " + funcion.getFechaFuncion().toString(1) + "\n" +
+            "  Importe de la Función: $" + redondeoImporteFuncion.str() + "\n" +
+            "  Estado de la Función: " + estado + "\n" +
+            "===================================================" + "\n" ;
+        }
+    }
+}
+
+void ManagerFuncion::listarFuncionesAgotadas() {
+    int cantidadRegistros = archivoFunciones.CantidadRegistros();
+    Funcion funcion;
+
+    for (int i = 0; i < cantidadRegistros; i++) {
+        funcion = archivoFunciones.Leer(i);
+
+        if (funcion.getButacasDisponibles() <= 0){
+            // Harcodeado
+            int opcion = funcion.getIdiomaFuncion();
+            string idiomaFuncion;
+            switch(opcion) {
+                case 1:
+                    idiomaFuncion = "Inglés";
+                    break;
+                case 2:
+                    idiomaFuncion = "Castellano";
+                    break;
+                case 3:
+                    idiomaFuncion = "Subtitulado";
+                    break;
+            }
+
+            // Harcodeado
+            string estado;
+            if (funcion.getEstado())
+                estado = "EN CARTELERA";
+            else
+                estado = "FUERA DE CARTELERA";
+
+
+            ostringstream redondeoImporteFuncion;
+            redondeoImporteFuncion << fixed << setprecision(2) << funcion.getImporteFuncion();
+
+            cout <<
+            "  ID de Función N°" + to_string(funcion.getIdFuncion()) + "\n" +
+            "  ID de Película N°" + to_string(funcion.getIdPelicula()) + "\n" +
+            "  ID de Sala N°" + to_string(funcion.getIdSala()) + "\n" +
+            "  Cantidad de Butacas Disponibles: " + to_string(funcion.getButacasDisponibles()) + "\n" +
+            "  Idioma de la Función: " + idiomaFuncion + "\n" +
+            "  Fecha de la Función: " + funcion.getFechaFuncion().toString(1) + "\n" +
+            "  Importe de la Función: $" + redondeoImporteFuncion.str() + "\n" +
+            "  Estado de la Función: " + estado + "\n" +
+            "===================================================" + "\n" ;
+        }
     }
 }
 

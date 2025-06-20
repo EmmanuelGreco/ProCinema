@@ -147,12 +147,19 @@ int main() {
                 case 1:
                     managerFuncion.listarFunciones();
                     break;
-                case 2:
-                    cout << "FUNCIONES A LA VENTA" << endl;
+                case 2:{
+                    bool activas = true;
+                    managerFuncion.listarFuncionesActivas(activas);
                     break;
+                }
                 case 3:
-                    cout << "FUNCIONES AGOTADAS" << endl;
+                    managerFuncion.listarFuncionesAgotadas();
                     break;
+                case 4:{
+                    bool activas = false;
+                    managerFuncion.listarFuncionesActivas(activas);
+                    break;
+                }
                 case 0:
                     cout << "VOLVER AL MENU PRINCIPAL" << endl;
                     break;
