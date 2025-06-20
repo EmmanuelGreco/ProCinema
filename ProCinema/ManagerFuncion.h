@@ -1,4 +1,5 @@
 #pragma once
+#include "Funcion.h"
 
 
 class ManagerFuncion {
@@ -7,6 +8,7 @@ public:
     void listarFunciones();
     void listarFuncionesActivas(bool activas);
     void listarFuncionesAgotadas();
+    void listarFuncionesImprimir(Funcion funcion);
     void modificarFuncion();
     void cambiarEstadoFuncion();
 };
