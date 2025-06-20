@@ -322,7 +322,6 @@ void ManagerVenta::buscarPorMiembro() {
     if (cantidadEncontrados == 0) cout << "no se encontro ningun registro con el id de miembro " << idBuscado << "." << endl;
 }
 
-
 void ManagerVenta::buscarPorFecha() {
     ArchivoVenta archivoVentas("ventas.dat");
     Fecha fechaBuscada;

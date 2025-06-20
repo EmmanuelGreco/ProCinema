@@ -146,7 +146,7 @@
 	<cstring>
 	<string>
 
-1750437873 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\main.cpp
+1750463427 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\main.cpp
 	<iostream>
 	<locale.h>
 	<windows.h>
@@ -158,9 +158,9 @@
 	"ManagerMembresia.h"
 	"ManagerVenta.h"
 
-1750223859 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerpelicula.h
+1750463294 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerpelicula.h
 
-1750399964 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerpelicula.cpp
+1750463390 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerpelicula.cpp
 	<iostream>
 	<string>
 	"ManagerPelicula.h"
@@ -428,9 +428,9 @@
 	<string>
 	"Fecha.h"
 
-1750374588 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerventa.h
+1750456555 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerventa.h
 
-1750399770 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerventa.cpp
+1750457630 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerventa.cpp
 	<iostream>
 	<string>
 	"ManagerVenta.h"

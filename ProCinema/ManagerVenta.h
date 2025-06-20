@@ -14,5 +14,4 @@ public:
     void buscarPorDNI();
     void buscarPorMiembro();
     void buscarPorFecha();
-
 };

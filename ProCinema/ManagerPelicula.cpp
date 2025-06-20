@@ -146,3 +146,155 @@ void ManagerPelicula::cambiarEstadoPelicula() {
     }
     cout << endl;
 }
+
+
+///BUSCAR POR...
+
+void ManagerPelicula::buscarPorId() {
+    int idBuscado;
+
+    cout << "Ingrese el Id de Película a buscar: ";
+    cin >> idBuscado;
+
+    int cantidadRegistros = archivoPeliculas.CantidadRegistros();
+    int cantidadEncontrados = 0;
+    for (int i = 0; i < cantidadRegistros; i++) {
+        if (archivoPeliculas.Leer(i).getIdPelicula() == idBuscado) {
+            cout << archivoPeliculas.Leer(i).mostrar() << endl;
+            cantidadEncontrados++;
+        }
+    }
+    if (cantidadEncontrados == 0)
+        cout << "NO se encontró ningún registro de la Película con el Id: " << idBuscado << "." << endl;
+}
+
+void ManagerPelicula::buscarPorTitulo() {
+    char tituloBuscado[50];
+
+    cout << "Ingrese el Título de la Película a buscar: ";
+    cin.ignore();
+    cin.getline(tituloBuscado, 50);
+
+    for (int i = 0; tituloBuscado[i] != '\0'; i++) {
+    tituloBuscado[i] = tolower(tituloBuscado[i]);
+    }
+
+    int cantidadRegistros = archivoPeliculas.CantidadRegistros();
+    int cantidadEncontrados = 0;
+
+    for (int i = 0; i < cantidadRegistros; i++) {
+        char tituloActual[50];
+        strcpy(tituloActual, archivoPeliculas.Leer(i).getTitulo().c_str());
+
+        for (int j = 0; tituloActual[j] != '\0'; j++) {
+        tituloActual[j] = tolower(tituloActual[j]);
+        }
+
+        if (strstr(tituloActual, tituloBuscado) != nullptr) {
+        cout << archivoPeliculas.Leer(i).mostrar() << endl;
+        cantidadEncontrados++;
+        }
+    }
+    if (cantidadEncontrados == 0)
+        cout << "NO se encontró ningún registro de la Película con el Título: " << tituloBuscado << "." << endl;
+}
+
+void ManagerPelicula::buscarPorGenero() {
+    char generoBuscado[20];
+
+    cout << "Ingrese el Género de la Película a buscar: ";
+    cin.ignore();
+    cin.getline(generoBuscado, 20);
+
+    for (int i = 0; generoBuscado[i] != '\0'; i++) {
+    generoBuscado[i] = tolower(generoBuscado[i]);
+    }
+
+    int cantidadRegistros = archivoPeliculas.CantidadRegistros();
+    int cantidadEncontrados = 0;
+
+    for (int i = 0; i < cantidadRegistros; i++) {
+        char generoActual[20];
+        strcpy(generoActual, archivoPeliculas.Leer(i).getGenero().c_str());
+
+        for (int j = 0; generoActual[j] != '\0'; j++) {
+        generoActual[j] = tolower(generoActual[j]);
+        }
+
+        if (strstr(generoActual, generoBuscado) != nullptr) {
+        cout << archivoPeliculas.Leer(i).mostrar() << endl;
+        cantidadEncontrados++;
+        }
+    }
+    if (cantidadEncontrados == 0)
+        cout << "NO se encontró ningún registro de la Película con el Género: " << generoBuscado << "." << endl;
+}
+
+void ManagerPelicula::buscarPorApellidoDirector() {
+    char apellidoDirectorBuscado[50];
+
+    cout << "Ingrese el Apellido del Director de la Película a buscar: ";
+    cin.ignore();
+    cin.getline(apellidoDirectorBuscado, 20);
+
+    for (int i = 0; apellidoDirectorBuscado[i] != '\0'; i++) {
+    apellidoDirectorBuscado[i] = tolower(apellidoDirectorBuscado[i]);
+    }
+
+    int cantidadRegistros = archivoPeliculas.CantidadRegistros();
+    int cantidadEncontrados = 0;
+
+    for (int i = 0; i < cantidadRegistros; i++) {
+        char apellidoDirectorActual[50];
+        strcpy(apellidoDirectorActual, archivoPeliculas.Leer(i).getApellidoDirector().c_str());
+
+        for (int j = 0; apellidoDirectorActual[j] != '\0'; j++) {
+        apellidoDirectorActual[j] = tolower(apellidoDirectorActual[j]);
+        }
+
+        if (strstr(apellidoDirectorActual, apellidoDirectorBuscado) != nullptr) {
+        cout << archivoPeliculas.Leer(i).mostrar() << endl;
+        cantidadEncontrados++;
+        }
+    }
+    if (cantidadEncontrados == 0)
+        cout << "NO se encontró ningún registro de la Película con el Apellido del Director: " << apellidoDirectorBuscado << "." << endl;
+}
+
+void ManagerPelicula::buscarPorClasificacion() {
+    int clasificacionBuscada;
+
+    cout << "Ingrese el Tipo de Clasificación de Película a buscar: ";
+    cin >> clasificacionBuscada;
+
+    int cantidadRegistros = archivoPeliculas.CantidadRegistros();
+    int cantidadEncontrados = 0;
+    for (int i = 0; i < cantidadRegistros; i++) {
+        if (archivoPeliculas.Leer(i).getClasificacion() == clasificacionBuscada) {
+            cout << archivoPeliculas.Leer(i).mostrar() << endl;
+            cantidadEncontrados++;
+        }
+    }
+    if (cantidadEncontrados == 0)
+        cout << "NO se encontró ningún registro de la Película con el Tipo de Clasificación: " << clasificacionBuscada << "." << endl;
+}
+
+void ManagerPelicula::buscarPorFechaEstreno() {
+    Fecha fechaEstrenoBuscada;
+
+    cout << "Ingrese la Fecha de Estreno de la Película a buscar: " << endl;
+    fechaEstrenoBuscada.cargar(1);
+
+    int cantidadRegistros = archivoPeliculas.CantidadRegistros();
+    int cantidadEncontrados = 0;
+    for (int i = 0; i < cantidadRegistros; i++) {
+        if (archivoPeliculas.Leer(i).getFechaEstreno().getAnio() == fechaEstrenoBuscada.getAnio() &&
+                archivoPeliculas.Leer(i).getFechaEstreno().getMes() == fechaEstrenoBuscada.getMes() &&
+                archivoPeliculas.Leer(i).getFechaEstreno().getDia() == fechaEstrenoBuscada.getDia()) {
+            cout << archivoPeliculas.Leer(i).mostrar() << endl;
+            cantidadEncontrados++;
+        }
+    }
+    if (cantidadEncontrados == 0)
+        cout << "NO se encontró ningún registro de la Película con la Fecha de Estreno: " << fechaEstrenoBuscada.toString(1) << "." << endl;
+}

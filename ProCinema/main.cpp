@@ -99,22 +99,22 @@ int main() {
                 menu.BuscarPeliculasPor();
                 switch(menu.getOpcion()) {
                 case 1:
-                    cout << "ID DE PELICULAS" << endl;
+                    managerPelicula.buscarPorId();
                     break;
                 case 2:
-                    cout << "TITULO" << endl;
+                    managerPelicula.buscarPorTitulo();
                     break;
                 case 3:
-                    cout << "GENERO" << endl;
+                    managerPelicula.buscarPorGenero();
                     break;
                 case 4:
-                    cout << "APELLIDO DEL DIRECTOR" << endl;
+                    managerPelicula.buscarPorApellidoDirector();
                     break;
                 case 5:
-                    cout << "CLASIFICACIÓN" << endl;
+                    managerPelicula.buscarPorClasificacion();
                     break;
                 case 6:
-                    cout << "FECHA DE ESTRENO" << endl;
+                    managerPelicula.buscarPorFechaEstreno();
                     break;
                 case 0:
                     cout << "VOLVER AL MENU PRINCIPAL" << endl;
