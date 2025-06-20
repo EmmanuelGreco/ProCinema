@@ -195,7 +195,7 @@ void ManagerVenta::cambiarEstadoVenta() {
 
     int id, posicion;
 
-    cout << "Ingrese el Id de la venta a cancelar: ";
+    cout << "Ingrese el Id de la Venta a cancelar: ";
     cin >> id;
     posicion = archivoVentas.Buscar(id);
     if (posicion == -1) {

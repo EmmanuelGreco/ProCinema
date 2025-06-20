@@ -101,11 +101,11 @@ std::string Venta::mostrar() {
         descuento = to_string(membresia.getDescuentoMembresia());
     }
 
-    return "Venta N°" + to_string(getIdVenta()) + "\n" +
-           "Fecha y hora de venta: " + getFechaVenta().toString(2) + "\n" +
-           miembro + "\n" +
-           pelicula.getTitulo() + " - " + funcion.getFechaFuncion().toString(1) + "\n" +
-           "Cantidad de entradas: " + to_string(getCantidadEntradas()) + "\n" +
-           "Importe total: " + redondeoImporteTotal.str() + " - Descuento: " + descuento + "%\n" +
-           "---------------------------------------------------";
+    return "  Venta N°" + to_string(getIdVenta()) + "\n" +
+           "  Fecha y hora de venta: " + getFechaVenta().toString(2) + "\n" +
+           "  " + miembro + "\n" +
+           "  " + pelicula.getTitulo() + " - " + funcion.getFechaFuncion().toString(1) + "\n" +
+           "  Cantidad de entradas: " + to_string(getCantidadEntradas()) + "\n" +
+           "  Importe total: " + redondeoImporteTotal.str() + " - Descuento: " + descuento + "%\n" +
+           "===================================================";
 }

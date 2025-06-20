@@ -92,9 +92,46 @@ Funcion Funcion::operator -=(int cantidadButacas) {
 
 
 std::string Funcion::mostrar() {
+    // Harcodeado
+    int opcion = getIdiomaFuncion();
+    string idiomaFuncion;
+    switch(opcion) {
+        case 1:
+            idiomaFuncion = "Inglés";
+            break;
+        case 2:
+            idiomaFuncion = "Castellano";
+            break;
+        case 3:
+            idiomaFuncion = "Subtitulado";
+            break;
+    }
+
+    // Harcodeado
+    string estado;
+    if (getEstado())
+        estado = "EN CARTELERA";
+    else
+        estado = "FUERA DE CARTELERA";
+
     ostringstream redondeoImporteFuncion;
     redondeoImporteFuncion << fixed << setprecision(2) << getImporteFuncion();
-    return to_string(getIdFuncion()) + "," + to_string(getIdPelicula()) + "," + to_string(getIdSala()) + ","
-           + to_string(getButacasDisponibles()) + "," + to_string(getIdiomaFuncion()) + "," + getFechaFuncion().toString(1) + ","
-           + redondeoImporteFuncion.str() + "," + to_string(getEstado());
+
+    return "  ID de Función N°" + to_string(getIdFuncion()) + "\n" +
+           "  ID de Película N°" + to_string(getIdPelicula()) + "\n" +
+           "  ID de Sala N°" + to_string(getIdSala()) + "\n" +
+           "  Cantidad de Butacas Disponibles: " + to_string(getButacasDisponibles()) + "\n" +
+           "  Idioma de la Función: " + idiomaFuncion + "\n" +
+           "  Fecha de la Función: " + getFechaFuncion().toString(1) + "\n" +
+           "  Importe de la Función: $" + redondeoImporteFuncion.str() + "\n" +
+           "  Estado de la Función: " + estado + "\n" +
+           "===================================================";
 }
+
+//std::string Funcion::mostrarCSV() {
+//    ostringstream redondeoImporteFuncion;
+//    redondeoImporteFuncion << fixed << setprecision(2) << getImporteFuncion();
+//    return to_string(getIdFuncion()) + "," + to_string(getIdPelicula()) + "," + to_string(getIdSala()) + ","
+//           + to_string(getButacasDisponibles()) + "," + to_string(getIdiomaFuncion()) + "," + getFechaFuncion().toString(1) + ","
+//           + redondeoImporteFuncion.str() + "," + to_string(getEstado());
+//}

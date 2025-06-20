@@ -84,10 +84,10 @@ void ManagerSala::cambiarEstadoSala() {
     }
     Sala sala = archivoSalas.Leer(posicion);
     sala.mostrar();
-    cout << "Actualmente, esta Sala se encuentra ";
-    if (sala.getEstado()) cout << "EN FUNCIONAMIENTO.";
-    else cout << "FUERA DE SERVICIO.";
-    cout << endl << "Desea modificar su estado? (Y-N): ";
+    cout << "Actualmente, esta Sala se encuentra: ";
+    if (sala.getEstado()) cout << "EN FUNCIONAMIENTO";
+    else cout << "FUERA DE SERVICIO";
+    cout << endl << "¿Desea modificar su estado? (Y-N): ";
     char yn;
     cin >> yn;
     if (toupper(yn) == 'Y') {

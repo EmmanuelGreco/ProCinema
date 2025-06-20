@@ -153,10 +153,10 @@ void ManagerFuncion::cambiarEstadoFuncion() {
     }
     Funcion funcion = archivoFunciones.Leer(posicion);
     funcion.mostrar();
-    cout << "Actualmente, esta Función se encuentra ";
-    if (funcion.getEstado()) cout << "EN CARTELERA.";
-    else cout << "FUERA DE CARTELERA.";
-    cout << endl << "Desea modificar su estado? (Y-N): ";
+    cout << "Actualmente, esta Función se encuentra: ";
+    if (funcion.getEstado()) cout << "EN CARTELERA";
+    else cout << "FUERA DE CARTELERA";
+    cout << endl << "¿Desea modificar su estado? (Y-N): ";
     char yn;
     cin >> yn;
     if (toupper(yn) == 'Y') {

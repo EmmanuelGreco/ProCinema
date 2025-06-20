@@ -91,7 +91,44 @@ void Membresia::setEstado(bool estado) {
 
 
 std::string Membresia::mostrar() {
-    return to_string(getIdMembresia()) + "," + to_string(getTipoMembresia()) + "," + to_string(getDescuentoMembresia()) + ","
-           + getNombreMembresia() + "," + getNombreMiembro() + "," + getApellidoMiembro() + "," + to_string(getDniMiembro()) + ","
-           + getEmailMiembro() + "," + to_string(getEstado());
+    // Esto estaba Harcodeado
+    /*int opcion = getTipoMembresia(), descuentoMembresia;
+    string tipoMembresia;
+    switch(opcion) {
+        case 1:
+            descuentoMembresia = 10;
+            tipoMembresia = "Plus";
+            break;
+        case 2:
+            descuentoMembresia = 25;
+            tipoMembresia = "Premium";
+            break;
+        case 3:
+            descuentoMembresia = 50;
+            tipoMembresia = "VIP";
+            break;
+    }*/
+
+    string estado;
+    if (getEstado())
+        estado = "ACTIVA";
+    else
+        estado = "PAUSADA";
+
+    return "  ID de Membresía N°" + to_string(getIdMembresia()) + "\n" +
+           "  Tipo de Membresía: " + to_string(getTipoMembresia()) + "\n" +
+           "  Descuento de la Membresía: " + to_string(getDescuentoMembresia()) + "\n" +
+           "  Nombre de la Membresía: " + getNombreMembresia() + "\n" +
+           "  Nombre del Miembro: " + getNombreMiembro() + "\n" +
+           "  Apellido del Miembro: " + getApellidoMiembro() + "\n" +
+           "  DNI del Miembro: " + to_string(getDniMiembro()) + "\n" +
+           "  Email del Miembro: " + getEmailMiembro() + "\n" +
+           "  Estado de la Membresía: " + estado + "\n" +
+           "===================================================";
 }
+
+//std::string Membresia::mostrarCSV() {
+//    return to_string(getIdMembresia()) + "," + to_string(getTipoMembresia()) + "," + to_string(getDescuentoMembresia()) + ","
+//           + getNombreMembresia() + "," + getNombreMiembro() + "," + getApellidoMiembro() + "," + to_string(getDniMiembro()) + ","
+//           + getEmailMiembro() + "," + to_string(getEstado());
+//}

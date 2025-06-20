@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 class Menu {
 private:
@@ -19,6 +20,7 @@ public:
     void configuracion();
     void configuracionSalas();
     void configuracionMembresias();
+    void configuracionOpciones(std::string queMenuEs);
     void recibirOpcion(int maximo);
     bool opcionValida(int opcion, int maximo);
 };

@@ -1,9 +1,6 @@
 #include <iostream>
 #include <locale.h>
 #include "Menu.h"
-//#include "Pelicula.h"
-#include "Sala.h"
-#include "Membresia.h"
 #include "ManagerPelicula.h"
 #include "ManagerFuncion.h"
 #include "ManagerSala.h"

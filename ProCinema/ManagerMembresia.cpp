@@ -164,10 +164,10 @@ void ManagerMembresia::cambiarEstadoMembresia() {
     }
     Membresia membresia = archivoMembresias.Leer(posicion);
     membresia.mostrar();
-    cout << "Actualmente, esta Membresía se encuentra ";
-    if (membresia.getEstado()) cout << "ACTIVA.";
-    else cout << "PAUSADA.";
-    cout << endl << "Desea modificar su estado? (Y-N): ";
+    cout << "Actualmente, esta Membresía se encuentra: ";
+    if (membresia.getEstado()) cout << "ACTIVA";
+    else cout << "PAUSADA";
+    cout << endl << "¿Desea modificar su estado? (Y-N): ";
     char yn;
     cin >> yn;
     if (toupper(yn) == 'Y') {

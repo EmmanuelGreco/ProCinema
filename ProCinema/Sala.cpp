@@ -50,6 +50,42 @@ void Sala::setEstado(bool estado) {
 
 
 std::string Sala::mostrar() {
-    return to_string(getIdSala()) + "," + to_string(getTipoSala()) + ","
-            + to_string(getButacasTotales()) + "," + to_string(getEstado());
+    // Harcodeado
+    int opcion = getTipoSala();
+    string tipoSala;
+    switch(opcion) {
+        case 1:
+            tipoSala = "Standard";
+            break;
+        case 2:
+            tipoSala = "Premium";
+            break;
+        case 3:
+            tipoSala = "3D";
+            break;
+        case 4:
+            tipoSala = "4D";
+            break;
+        case 5:
+            tipoSala = "IMAX";
+            break;
+    }
+
+    // Harcodeado
+    string estado;
+    if (getEstado())
+        estado = "EN FUNCIONAMIENTO";
+    else
+        estado = "FUERA DE SERVICIO";
+
+    return "  ID de Sala N°" + to_string(getIdSala()) + "\n" +
+           "  Tipo de Sala: " + tipoSala + "\n" +
+           "  Cantidad de Butacas Totales: " + to_string(getButacasTotales()) + "\n" +
+           "  Estado de la Sala: " + estado + "\n" +
+           "===================================================";
 }
+
+//std::string Sala::mostrarCSV() {
+//    return to_string(getIdSala()) + "," + to_string(getTipoSala()) + ","
+//            + to_string(getButacasTotales()) + "," + to_string(getEstado());
+//}

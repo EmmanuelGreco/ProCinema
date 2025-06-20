@@ -83,7 +83,26 @@ void Pelicula::setEstado(bool estado) {
 
 
 std::string Pelicula::mostrar() {
-    return to_string(getIdPelicula()) + "," + getTitulo() + "," + getGenero() + "," + getNombreDirector() + ","
-            + getApellidoDirector() + "," + to_string(getClasificacion()) + ","
-            + getFechaEstreno().toString(1) + "," + to_string(getEstado());
+    // Harcodeado
+    string estado;
+    if (getEstado())
+        estado = "EN CARTELERA";
+    else
+        estado = "FUERA DE CARTELERA";
+
+    return "  ID de Película N°" + to_string(getIdPelicula()) + "\n" +
+           "  Título de la Película: " + getTitulo() + "\n" +
+           "  Género de la Película: " + getGenero() + "\n" +
+           "  Nombre del Director: " + getNombreDirector() + "\n" +
+           "  Apellido del Director: " + getApellidoDirector() + "\n" +
+           "  Clasificación de la Película: " + to_string(getClasificacion()) + "\n" +
+           "  Fecha de Estreno: " + getFechaEstreno().toString(1) + "\n" +
+           "  Estado de la Película: " + estado + "\n" +
+           "===================================================";
 }
+
+//std::string Pelicula::mostrarCSV() {
+//    return to_string(getIdPelicula()) + "," + getTitulo() + "," + getGenero() + "," + getNombreDirector() + ","
+//            + getApellidoDirector() + "," + to_string(getClasificacion()) + ","
+//            + getFechaEstreno().toString(1) + "," + to_string(getEstado());
+//}

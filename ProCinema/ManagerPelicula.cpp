@@ -131,10 +131,10 @@ void ManagerPelicula::cambiarEstadoPelicula() {
     }
     Pelicula pelicula = archivoPeliculas.Leer(posicion);
     pelicula.mostrar();
-    cout << "Actualmente, esta Película se encuentra ";
-    if (pelicula.getEstado()) cout << "EN CARTELERA.";
-    else cout << "FUERA DE CARTELERA.";
-    cout << endl << "Desea modificar su estado? (Y-N): ";
+    cout << "Actualmente, esta Película se encuentra: ";
+    if (pelicula.getEstado()) cout << "EN CARTELERA";
+    else cout << "FUERA DE CARTELERA";
+    cout << endl << "¿Desea modificar su estado? (Y-N): ";
     char yn;
     cin >> yn;
     if (toupper(yn) == 'Y') {

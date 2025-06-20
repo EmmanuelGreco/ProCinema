@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "Menu.h"
 
 using namespace std;
@@ -208,13 +209,8 @@ void Menu::configuracionSalas() {
     system("cls");
     cout << "---------------- ProCinema Manager ----------------" << endl;
     cout << "---------------- Configurar Salas -----------------" << endl;
-    cout << "1.  Listar Salas activas" << endl;
-    cout << "2.  Agregar una Sala" << endl;
-    cout << "3.  Dar de baja / Restaurar una Sala" << endl;
-    cout << "4.  Modificar una Sala" << endl;
-    cout << "0.  Volver al menú principal... " << endl;
-    cout << "---------------------------------------------------" << endl;
-    cout << "Ingrese la opción elegida: ";
+    string queMenuEs = "Sala";
+    configuracionOpciones(queMenuEs);
     recibirOpcion(4);
     system("cls");
 }
@@ -223,13 +219,18 @@ void Menu::configuracionMembresias() {
     system("cls");
     cout << "---------------- ProCinema Manager ----------------" << endl;
     cout << "-------------- Configurar Membresías --------------" << endl;
-    cout << "1.  Listar tipos de Membresías activas" << endl;
-    cout << "2.  Agregar un tipo de Membresía" << endl;
-    cout << "3.  Dar de baja / Restaurar un tipo de Membresía" << endl;
-    cout << "4.  Modificar un tipo de Membresía" << endl;
+    string queMenuEs = "Membresía";
+    configuracionOpciones(queMenuEs);
+    recibirOpcion(4);
+    system("cls");
+}
+
+void Menu::configuracionOpciones(string queMenuEs) {
+    cout << "1.  Listar " << queMenuEs << "s activas" << endl;
+    cout << "2.  Agregar una " << queMenuEs << endl;
+    cout << "3.  Dar de baja / Restaurar una " << queMenuEs << endl;
+    cout << "4.  Modificar una " << queMenuEs << endl;
     cout << "0.  Volver al menú principal... " << endl;
     cout << "---------------------------------------------------" << endl;
     cout << "Ingrese la opción elegida: ";
-    recibirOpcion(4);
-    system("cls");
 }
