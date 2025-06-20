@@ -130,7 +130,7 @@
 1749506697 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\manager.h
 	<string>
 
-1750396843 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\menu.cpp
+1750406816 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\menu.cpp
 	<iostream>
 	<string>
 	"Menu.h"
@@ -144,9 +144,11 @@
 	<cstring>
 	<string>
 
-1750395497 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\main.cpp
+1750406765 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\main.cpp
 	<iostream>
 	<locale.h>
+	<windows.h>
+	<stdlib.h>
 	"Menu.h"
 	"ManagerPelicula.h"
 	"ManagerFuncion.h"

@@ -1,5 +1,7 @@
 #include <iostream>
 #include <locale.h>
+#include <windows.h>
+#include <stdlib.h>
 #include "Menu.h"
 #include "ManagerPelicula.h"
 #include "ManagerFuncion.h"
@@ -7,10 +9,18 @@
 #include "ManagerMembresia.h"
 #include "ManagerVenta.h"
 
+#define color SetConsoleTextAttribute
+
 using namespace std;
 
 int main() {
+    SetConsoleCP(65001);
+    SetConsoleOutputCP(65001);
+    //setlocale(LC_ALL, "es_ES.UTF-8");
     setlocale(LC_ALL, "Spanish");
+    SetConsoleTitle("ProCinema - EQUIPO 13");           // Nombre de la consola
+    system("color 0c");                            // Color consola y letras
+
     ManagerPelicula managerPelicula;
     ManagerFuncion managerFuncion;
     ManagerSala managerSala;
@@ -65,6 +75,8 @@ int main() {
                 break;
             }
             break;
+
+
 
 
         ///2. PELICULAS
@@ -270,18 +282,20 @@ int main() {
                 cout << "VOLVER AL MENU PRINCIPAL" << endl;
                 break;
             }
-
-
             break;
+
+        ///0. SALIR
         case 0:
             system("cls");
             cout << "Gracias por usar ProCinema!" << endl << endl;
-            exit(1);
+            return 0;
             break;
         }
+
+        // ????????
+        // cout << "PRUEBAAAAAAAAAAAAAAAAAAA";
         system("pause");
         system("cls");
-
 
     }
     return 0;
