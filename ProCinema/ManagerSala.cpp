@@ -16,7 +16,7 @@ void ManagerSala::cargarSala() {
     cout << "Id: " << idSala << endl;
 
     cout << "Ingrese el tipo de Sala (1-Standard, 2-Premium, 3-3D, 4-4D, 5-IMAX): ";
-    cin.ignore();
+    //cin.ignore();
     cin >> tipoSala;
 
     cout << "Ingrese la cantidad de Bucatas Totales: ";

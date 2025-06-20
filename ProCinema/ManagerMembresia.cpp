@@ -19,6 +19,7 @@ void ManagerMembresia::cargarMembresia() {
     cout << "Id: " << idMembresia << endl;
 
     cout << "Ingrese el Tipo de Membresía (1-Plus, 2-Premium, 3-VIP): ";
+    //cin.ignore();
     cin >> tipoMembresia;
     while (tipoMembresia < 1 || tipoMembresia > 3) {
         cout << "Tipo de Membresía inválido! Ingrese un número correcto: ";
@@ -31,7 +32,7 @@ void ManagerMembresia::cargarMembresia() {
         nombreMembresia = "Plus";
         break;
     case 2:
-        descuentoMembresia = 30;
+        descuentoMembresia = 25;
         nombreMembresia = "Premium";
         break;
     case 3:

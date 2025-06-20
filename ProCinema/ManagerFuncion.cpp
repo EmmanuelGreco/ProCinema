@@ -27,6 +27,7 @@ void ManagerFuncion::cargarFuncion() {
 
     // Me traigo el ID de la Pelicula y lo asigno al idPelicula de la Función
     cout << "Ingrese el ID de la Película: ";
+    //cin.ignore();
     cin >> idPelicula;
     posicion = archivoPeliculas.Buscar(idPelicula);
     if (posicion == -1) {
@@ -54,6 +55,7 @@ void ManagerFuncion::cargarFuncion() {
     cin >> idiomaFuncion;
 
     cout << "Ingrese la Fecha de la Función: " << endl;
+    //cin.ignore();
     fechaFuncion.cargar(1);
 
     // Esto habría que automatizarlo, dependiendo del día y del tipo de sala
@@ -75,4 +77,66 @@ void ManagerFuncion::listarFunciones() {
     for (int i = 0; i < cantidadRegistros; i++) {
         cout << archivoFunciones.Leer(i).mostrar() << endl;
     }
+}
+
+void ManagerFuncion::modificarFuncion() {
+    int id, posicion;
+
+    cout << "Ingrese el Id de la Función a Modificar: ";
+    cin >> id;
+    posicion = archivoFunciones.Buscar(id);
+    if (posicion == -1) {
+        cout << "Id no encontrado!";
+        return;
+    }
+    Funcion funcion = archivoFunciones.Leer(posicion);
+    cout << "1. " << funcion.getIdPelicula() << endl;
+    cout << "2. " << funcion.getIdSala() << endl;
+    cout << "3. " << funcion.getButacasDisponibles() << endl;
+    cout << "4. " << funcion.getIdiomaFuncion() << endl;
+    cout << "5. " << funcion.getFechaFuncion().toString(1) << endl;
+    cout << "6. " << funcion.getImporteFuncion() << endl;
+    //cout << "0. Volver al menu " << endl;
+    cout << "Elija una opción: ";
+    int opcion;
+    cin >> opcion;
+
+    int num;
+    float numFloat;
+    string str;
+    Fecha fechaFuncion;
+    switch(opcion) {
+    case 1:
+        cout << "Elija el nuevo Id de Película: ";
+        cin >> num;
+        funcion.setIdPelicula(num);
+        break;
+    case 2:
+        cout << "Elija el nuevo Id de Sala: ";
+        cin >> num;
+        funcion.setIdSala(num);
+        break;
+    case 3:
+        cout << "Elija la nueva Cantidad de Butacas Disponibles: ";
+        cin >> num;
+        funcion.setButacasDisponibles(num);
+        break;
+    case 4:
+        cout << "Elija el nuevo Idioma de la Función: ";
+        cin >> num;
+        funcion.setIdiomaFuncion(num);
+        break;
+    case 5:
+        cout << "Elija la nueva Fecha de la Función: " << endl;
+        fechaFuncion.cargar(1);
+        funcion.setFechaFuncion(fechaFuncion);
+        break;
+    case 6:
+        cout << "Elija el nuevo Importe de la Función: ";
+        cin >> numFloat;
+        funcion.setImporteFuncion(numFloat);
+        break;
+    }
+
+    if(archivoFunciones.Modificar(funcion, posicion)) cout << "Modificado Exitosamente!" << endl;
 }

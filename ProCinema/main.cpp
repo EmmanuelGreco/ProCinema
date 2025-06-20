@@ -130,7 +130,7 @@ int main() {
                 cout << "ELIMINAR FUNCION" << endl;
                 break;
             case 3:
-                cout << "MODIFICAR FUNCION" << endl;
+                managerFuncion.modificarFuncion();
                 break;
             case 4:
                 menu.ListarFuncionPor();

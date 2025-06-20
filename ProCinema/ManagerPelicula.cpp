@@ -35,6 +35,7 @@ void ManagerPelicula::cargarPelicula() {
     cin >> clasificacion;
 
     cout << "Ingrese la Fecha de Estreno: " << endl;
+    //cin.ignore();
     fechaEstreno.cargar(1);
 
     if(archivoPeliculas.Guardar(Pelicula(idPelicula, titulo, genero, nombreDirector, apellidoDirector,
@@ -77,6 +78,7 @@ void ManagerPelicula::modificarPelicula() {
 
     int num;
     string str;
+    Fecha fechaEstreno;
     switch(opcion) {
     case 1:
         cout << "Elija el nuevo Título: ";
@@ -97,10 +99,9 @@ void ManagerPelicula::modificarPelicula() {
         pelicula.setNombreDirector(str);
         break;
     case 4:
-        cout << "Elija el nuevo Apellido del Director: ";
-        cin.ignore();
-        getline(cin, str);
-        pelicula.setApellidoDirector(str);
+        cout << "Elija la nueva Fecha de Estreno: " << endl;
+        fechaEstreno.cargar(1);
+        pelicula.setFechaEstreno(fechaEstreno);
         break;
     case 5:
         cout << "Elija la nueva Clasificación: ";
@@ -108,10 +109,10 @@ void ManagerPelicula::modificarPelicula() {
         pelicula.setClasificacion(num);
         break;
     case 6:
-        cout << "Elija la nueva Fecha de Estreno: " << endl;
-        Fecha fechaEstreno;
-        fechaEstreno.cargar(1);
-        pelicula.setFechaEstreno(fechaEstreno);
+        cout << "Elija el nuevo Apellido del Director: ";
+        cin.ignore();
+        getline(cin, str);
+        pelicula.setApellidoDirector(str);
         break;
     }
 
