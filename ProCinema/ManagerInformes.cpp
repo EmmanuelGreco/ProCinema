@@ -223,9 +223,10 @@ void ManagerInformes::porcentajeMiembros() {
     int cantidadMembresias = archivoMembresias.CantidadRegistros();
     const int cantidadTiposMembresias = 4;
 
-    int totalesMembresias[cantidadTiposMembresias] {0};
+    int totalesButacas[cantidadTiposMembresias] {0};
+    int totalesRecaudacion[cantidadTiposMembresias] {0};
     int idsMembresias[cantidadTiposMembresias] {0};
-    int totalVentas = 0;
+    int totalButacas = 0, totalRecaudacion = 0;
 
 
 
@@ -246,27 +247,33 @@ void ManagerInformes::porcentajeMiembros() {
             if (venta.getIdMembresia() == 0) tipoAComparar = 0;
             else tipoAComparar = archivoMembresias.Leer(venta.getIdMembresia() - 1).getTipoMembresia();
 
-            if(i == tipoAComparar) {
-                totalesMembresias[i] += venta.getCantidadEntradas();
+            if(i == tipoAComparar && venta.getFechaVenta().getAnio() == anioAConsultar) {
+                totalesButacas[i] += venta.getCantidadEntradas();
+                totalesRecaudacion[i] += venta.getImporteTotal();
             }
         }
     }
 
 
-    for (int i = 0; i < cantidadTiposMembresias; i++) totalVentas += totalesMembresias[i];
+    for (int i = 0; i < cantidadTiposMembresias; i++) {
+            totalButacas += totalesButacas[i];
+            totalRecaudacion += totalesRecaudacion[i];
+    }
 
     for (int i = 0; i < cantidadTiposMembresias; i++) {
         string miembro = "";
-        if (i==0) miembro = "Clientes no registrados";
-        else if (i==1) miembro = "Plus";
-        else if (i==2) miembro = "Premium";
-        else if (i==3) miembro = "VIP";
+        if (i==0) miembro = "0. Clientes no registrados";
+        else if (i==1) miembro = "1. Plus";
+        else if (i==2) miembro = "2. Premium";
+        else if (i==3) miembro = "3. VIP";
 
-        float porcentaje = ((float)totalesMembresias[i] * 100) / totalVentas;
+        float porcentaje = ((float)totalesRecaudacion[i] * 100) / totalRecaudacion;
 
-        cout << miembro << ": " << fixed << setprecision(2) << porcentaje << "% - " << totalesMembresias[i] << endl;
+        cout << miembro << ": " << endl
+        << fixed << setprecision(2) << porcentaje << "% - $"
+        << totalesRecaudacion[i] << " - " << totalesButacas[i] << " butacas" << endl << endl;
     }
-    cout << "Total vendido en el año " << anioAConsultar << ": " << totalVentas << endl;
+    cout << "Total vendido en el año " << anioAConsultar << ": $" << totalRecaudacion << " - " << totalButacas << " butacas" << endl;
 
 }
 
