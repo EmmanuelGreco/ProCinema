@@ -11,6 +11,10 @@
 #include "Venta.h"
 #include "ArchivoFuncion.h"
 #include "Funcion.h"
+#include "ArchivoSala.h"
+#include "Sala.h"
+#include "ArchivoMembresia.h"
+#include "Membresia.h"
 
 
 using namespace std;
@@ -93,8 +97,7 @@ void ManagerInformes::recaudacionPorPelicula() {
     int cantidadVentas = archivoVentas.CantidadRegistros();
     ArchivoFuncion archivoFunciones("funciones.dat");
 
-    ///No se puede hacer un array bidimensional con new. Se harán dos vectores.
-    ///En el primero se guarda el id de la pelicula, en el otro su recaudacion.
+    ///igual que la funcion anterior.
     float *totalesPeliculas = nullptr;
     int *idsPeliculas = nullptr;
     totalesPeliculas = new float[cantidadPeliculas] {0.0};
@@ -123,6 +126,9 @@ void ManagerInformes::recaudacionPorPelicula() {
         cout << archivoPeliculas.Leer(idsPeliculas[i]).getTitulo() << " - ";
         cout << "$" << fixed << setprecision(2) << totalesPeliculas[i] << endl;
     }
+
+    delete []totalesPeliculas;
+    delete []idsPeliculas;
 }
 
 void ManagerInformes::recaudacionAnual() {
@@ -160,3 +166,107 @@ void ManagerInformes::recaudacionAnual() {
         cout << "TOTAL: " << totales[0] << endl;
     }
 }
+
+void ManagerInformes::recaudacionPorSala() {
+    ArchivoVenta archivoVentas("ventas.dat");
+    int cantidadVentas = archivoVentas.CantidadRegistros();
+    ArchivoSala archivoSalas("salas.dat");
+    int cantidadSalas = archivoSalas.CantidadRegistros();
+    ArchivoFuncion archivoFunciones("funciones.dat");
+
+    float *totalesSalas = nullptr;
+    int *idsSalas = nullptr;
+    totalesSalas = new float[cantidadSalas] {0.0};
+    idsSalas = new int[cantidadSalas] {0};
+    if(totalesSalas == nullptr || idsSalas == nullptr) {
+        cout << "No pudo solicitar memoria" << endl;
+        exit(-1);
+    }
+
+    for (int i = 0; i < cantidadSalas; i++) {
+        Sala sala = archivoSalas.Leer(i);
+        idsSalas[i] = sala.getIdSala();
+        for (int j = 0; j < cantidadVentas; j++) {
+            Venta venta = archivoVentas.Leer(j);
+            Funcion funcion = archivoFunciones.Leer(venta.getIdFuncion());
+
+            if (idsSalas[i] == funcion.getIdSala()) totalesSalas[i] += venta.getImporteTotal();
+        }
+    }
+
+
+
+    cout << "Recaudacion por sala:" << endl;
+    for (int i = 0; i < cantidadSalas; i++) {
+        int tipoSala = archivoSalas.Leer(idsSalas[i]).getTipoSala();
+        string nombreSala;
+        ///mas compacto que un switch
+        if (tipoSala == 1) nombreSala = "Standard";
+        else if (tipoSala == 2) nombreSala = "Premium";
+        else if (tipoSala == 3) nombreSala = "3D";
+        else if (tipoSala == 4) nombreSala = "4D";
+        else if (tipoSala == 5) nombreSala = "IMAX";
+
+        cout << "Sala N°" << i + 1 << " - ";
+        cout << nombreSala << " - ";
+        cout << "$" << fixed << setprecision(2) << totalesSalas[i] << endl;
+    }
+
+    delete []totalesSalas;
+    delete []idsSalas;
+}
+
+void ManagerInformes::porcentajeMiembros() {
+    ArchivoVenta archivoVentas("ventas.dat");
+    int cantidadVentas = archivoVentas.CantidadRegistros();
+    ArchivoMembresia archivoMembresias("membresias.dat");
+    int cantidadMembresias = archivoMembresias.CantidadRegistros();
+    const int cantidadTiposMembresias = 4;
+
+    int totalesMembresias[cantidadTiposMembresias] {0};
+    int idsMembresias[cantidadTiposMembresias] {0};
+    int totalVentas = 0;
+
+
+
+    cout << "Ingrese un año para consultar: ";
+    int anioAConsultar;
+    cin >> anioAConsultar;
+    while(anioAConsultar < 0 || anioAConsultar > 9999) {
+        cout << "Ingrese un año valido: ";
+        cin >> anioAConsultar;
+    }
+
+    for (int i = 0; i < cantidadTiposMembresias; i++) {
+        idsMembresias[i] = i;
+        for (int j = 0; j < cantidadVentas; j++) {
+            Venta venta = archivoVentas.Leer(j);
+
+            int tipoAComparar;
+            if (venta.getIdMembresia() == 0) tipoAComparar = 0;
+            else tipoAComparar = archivoMembresias.Leer(venta.getIdMembresia() - 1).getTipoMembresia();
+
+            if(i == tipoAComparar) {
+                totalesMembresias[i] += venta.getCantidadEntradas();
+            }
+        }
+    }
+
+
+    for (int i = 0; i < cantidadTiposMembresias; i++) totalVentas += totalesMembresias[i];
+
+    for (int i = 0; i < cantidadTiposMembresias; i++) {
+        string miembro = "";
+        if (i==0) miembro = "Clientes no registrados";
+        else if (i==1) miembro = "Plus";
+        else if (i==2) miembro = "Premium";
+        else if (i==3) miembro = "VIP";
+
+        float porcentaje = ((float)totalesMembresias[i] * 100) / totalVentas;
+
+        cout << miembro << ": " << fixed << setprecision(2) << porcentaje << "% - " << totalesMembresias[i] << endl;
+    }
+    cout << "Total vendido en el año " << anioAConsultar << ": " << totalVentas << endl;
+
+}
+

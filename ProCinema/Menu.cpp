@@ -192,14 +192,12 @@ void Menu::RecaudacionTotalPor() {
     cout << "---------------- ProCinema Manager ----------------" << endl;
     cout << "----------------- Recaudación por -----------------" << endl;
     cout << "1.  Película" << endl;
-    cout << "2.  Día de la Semana" << endl;
-    cout << "3.  Mes" << endl;
-    cout << "4.  Año" << endl;
-    cout << "5.  Sala" << endl;
+    cout << "2.  Año" << endl;
+    cout << "3.  Sala" << endl;
     cout << "0.  Volver atrás... " << endl;
     cout << "---------------------------------------------------" << endl;
     cout << "Ingrese la opción elegida: ";
-    recibirOpcion(5);
+    recibirOpcion(3);
     system("cls");
 }
 

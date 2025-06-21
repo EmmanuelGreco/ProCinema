@@ -208,16 +208,10 @@ int main() {
                     managerInformes.recaudacionPorPelicula();
                     break;
                 case 2:
-                    cout << "SACALO!!! DIA DE LA SEMANA" << endl;
-                    break;
-                case 3:
-                    cout << "SACALO!!! MES" << endl;
-                    break;
-                case 4:
                     managerInformes.recaudacionAnual();
                     break;
-                case 5:
-                    cout << "SALA" << endl;
+                case 3:
+                    managerInformes.recaudacionPorSala();
                     break;
                 case 0:
                     cout << "VOLVER AL MENU PRINCIPAL" << endl;
@@ -225,7 +219,7 @@ int main() {
                 }
                 break;
             case 3:
-                cout << "PORCENTAJE" << endl;
+                managerInformes.porcentajeMiembros();
                 break;
             case 4:
                 cout << "MIEMBROS MAS FRECUENTES" << endl;

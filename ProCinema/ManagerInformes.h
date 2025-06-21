@@ -6,4 +6,6 @@ public:
     void topCinco();
     void recaudacionPorPelicula();
     void recaudacionAnual();
+    void recaudacionPorSala();
+    void porcentajeMiembros();
 };
