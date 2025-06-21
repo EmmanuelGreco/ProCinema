@@ -37,6 +37,19 @@ void ManagerSala::listarSalas() {
     }
 }
 
+void ManagerSala::listarSalasActivas(bool activas) {
+    int cantidadRegistros = archivoSalas.CantidadRegistros();
+    Sala sala;
+
+    for (int i = 0; i < cantidadRegistros; i++) {
+        sala = archivoSalas.Leer(i);
+
+        if (sala.getEstado() == activas){
+            cout << sala.mostrar() << endl;
+        }
+    }
+}
+
 void ManagerSala::modificarSala() {
     int id, posicion;
 
@@ -87,7 +100,7 @@ void ManagerSala::cambiarEstadoSala() {
     cout << "Actualmente, esta Sala se encuentra: ";
     if (sala.getEstado()) cout << "EN FUNCIONAMIENTO";
     else cout << "FUERA DE SERVICIO";
-    cout << endl << "¿Desea modificar su estado? (Y-N): ";
+    cout << endl << "Desea modificar su estado? (Y-N): ";
     char yn;
     cin >> yn;
     if (toupper(yn) == 'Y') {

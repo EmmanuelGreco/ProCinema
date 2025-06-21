@@ -78,7 +78,7 @@ std::string Sala::mostrar() {
     else
         estado = "FUERA DE SERVICIO";
 
-    return "  ID de Sala N°" + to_string(getIdSala()) + "\n" +
+    return "  ID de Sala N°" + to_string(getIdSala()+1) + "\n" +
            "  Tipo de Sala: " + tipoSala + "\n" +
            "  Cantidad de Butacas Totales: " + to_string(getButacasTotales()) + "\n" +
            "  Estado de la Sala: " + estado + "\n" +

@@ -245,7 +245,25 @@ int main() {
                 menu.configuracionSalas();
                 switch(menu.getOpcion()) {
                 case 1:
-                    managerSala.listarSalas();
+                    menu.listarSalasPor();
+                    switch(menu.getOpcion()) {
+                    case 1:
+                        managerSala.listarSalas();
+                        break;
+                    case 2: {
+                        bool activas = true;
+                        managerSala.listarSalasActivas(activas);
+                        break;
+                    }
+                    case 3: {
+                        bool activas = false;
+                        managerSala.listarSalasActivas(activas);
+                        break;
+                    }
+                    case 0:
+                        cout << "VOLVER AL MENU PRINCIPAL" << endl;
+                        break;
+                    }
                     break;
                 case 2:
                     managerSala.cargarSala();

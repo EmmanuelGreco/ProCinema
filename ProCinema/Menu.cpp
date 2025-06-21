@@ -127,7 +127,7 @@ void Menu::funciones() {
     cout << "1.  Agregar una Función" << endl;
     cout << "2.  Dar de baja / Restaurar una Función" << endl;
     cout << "3.  Modificar una Función" << endl;
-    cout << "4.  Listar Funciones..." << endl;
+    cout << "4.  Listar Funciones por..." << endl;
     cout << "5.  Buscar Funciones por..." << endl;
     cout << "0.  Volver al menú principal... " << endl;
     cout << "---------------------------------------------------" << endl;
@@ -226,6 +226,21 @@ void Menu::configuracionSalas() {
     system("cls");
 }
 
+void Menu::listarSalasPor() {
+    system("cls");
+    cout << endl;
+    cout << "---------------- ProCinema Manager ----------------" << endl;
+    cout << "------------------- Listar Salas ------------------" << endl;
+    cout << "1.  Todas las Salas" << endl;
+    cout << "2.  Salas EN FUNCIONAMIENTO" << endl;
+    cout << "3.  Salas FUERA DE SERVICIO" << endl;
+    cout << "0.  Volver atrás... " << endl;
+    cout << "---------------------------------------------------" << endl;
+    cout << "Ingrese la opción elegida: ";
+    recibirOpcion(3);
+    system("cls");
+}
+
 void Menu::configuracionMembresias() {
     system("cls");
     cout << endl;
@@ -238,7 +253,7 @@ void Menu::configuracionMembresias() {
 }
 
 void Menu::configuracionOpciones(string queMenuEs) {
-    cout << "1.  Listar " << queMenuEs << "s activas" << endl;
+    cout << "1.  Listar " << queMenuEs << "s por..." << endl;
     cout << "2.  Agregar una " << queMenuEs << endl;
     cout << "3.  Dar de baja / Restaurar una " << queMenuEs << endl;
     cout << "4.  Modificar una " << queMenuEs << endl;

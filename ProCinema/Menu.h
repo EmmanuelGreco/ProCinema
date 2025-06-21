@@ -19,6 +19,7 @@ public:
     void RecaudacionTotalPor();
     void configuracion();
     void configuracionSalas();
+    void listarSalasPor();
     void configuracionMembresias();
     void configuracionOpciones(std::string queMenuEs);
     void recibirOpcion(int maximo);

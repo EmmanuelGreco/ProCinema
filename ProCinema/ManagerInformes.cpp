@@ -2,7 +2,6 @@
 #include <string>
 #include <iomanip>
 
-
 #include "ManagerInformes.h"
 
 #include "ArchivoPelicula.h"
