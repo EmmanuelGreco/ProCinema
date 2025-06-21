@@ -145,7 +145,7 @@ void ManagerInformes::recaudacionAnual() {
 
 
     int cantidadEncontrados = 0;
-    int totales[13] {}; //en [0] se guarda el total anual, en los otros los de cada mes.
+    float totales[13] {}; //en [0] se guarda el total anual, en los otros los de cada mes.
     string meses[12] = {"ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"};
 
     for (int i = 0; i < cantidadVentas; i++) {
@@ -160,10 +160,10 @@ void ManagerInformes::recaudacionAnual() {
         cout << "No se encontraron ventas para el año " << anioAConsultar << "!" << endl;
     } else {
         for (int i = 0; i < 13; i++) {
-            if (i==0) cout << "VENTAS DEL AÑO " << anioAConsultar << ":" << endl;
-            else cout << meses[i-1] << ": " << totales[i] << endl;
+            if (i==0) cout << "Ventas del año " << anioAConsultar << ":" << endl;
+            else cout << meses[i-1] << ": $" << fixed << setprecision(2) << totales[i] << endl;
         }
-        cout << "TOTAL: " << totales[0] << endl;
+        cout << "Total: $" << totales[0] << endl;
     }
 }
 
