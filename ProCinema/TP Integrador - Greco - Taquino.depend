@@ -42,7 +42,7 @@
 1750294064 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\hora.cpp
 	"Hora.h"
 
-1750479331 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\main.cpp
+1750485463 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\main.cpp
 	<iostream>
 	<locale.h>
 	<windows.h>
@@ -459,7 +459,7 @@
 	"ArchivoPelicula.h"
 	"Pelicula.h"
 
-1750482263 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerinformes.cpp
+1750485429 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerinformes.cpp
 	<iostream>
 	<string>
 	<iomanip>
@@ -471,5 +471,5 @@
 	"ArchivoFuncion.h"
 	"Funcion.h"
 
-1750479168 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerinformes.h
+1750484530 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerinformes.h
 

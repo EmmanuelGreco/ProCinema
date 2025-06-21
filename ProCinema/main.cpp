@@ -205,16 +205,16 @@ int main() {
                 menu.RecaudacionTotalPor();
                 switch(menu.getOpcion()) {
                 case 1:
-                    cout << "PELICULA" << endl;
+                    managerInformes.recaudacionPorPelicula();
                     break;
                 case 2:
-                    cout << "DIA DE LA SEMANA" << endl;
+                    cout << "SACALO!!! DIA DE LA SEMANA" << endl;
                     break;
                 case 3:
-                    cout << "MES" << endl;
+                    cout << "SACALO!!! MES" << endl;
                     break;
                 case 4:
-                    cout << "AÑO" << endl;
+                    managerInformes.recaudacionAnual();
                     break;
                 case 5:
                     cout << "SALA" << endl;
