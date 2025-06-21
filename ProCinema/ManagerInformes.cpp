@@ -224,9 +224,10 @@ void ManagerInformes::porcentajeMiembros() {
     const int cantidadTiposMembresias = 4;
 
     int totalesButacas[cantidadTiposMembresias] {0};
-    int totalesRecaudacion[cantidadTiposMembresias] {0};
+    float totalesRecaudacion[cantidadTiposMembresias] {0};
     int idsMembresias[cantidadTiposMembresias] {0};
-    int totalButacas = 0, totalRecaudacion = 0;
+    int totalButacas = 0;
+    float totalRecaudacion = 0;
 
 
 
@@ -256,8 +257,8 @@ void ManagerInformes::porcentajeMiembros() {
 
 
     for (int i = 0; i < cantidadTiposMembresias; i++) {
-            totalButacas += totalesButacas[i];
-            totalRecaudacion += totalesRecaudacion[i];
+        totalButacas += totalesButacas[i];
+        totalRecaudacion += totalesRecaudacion[i];
     }
 
     for (int i = 0; i < cantidadTiposMembresias; i++) {
@@ -267,13 +268,19 @@ void ManagerInformes::porcentajeMiembros() {
         else if (i==2) miembro = "2. Premium";
         else if (i==3) miembro = "3. VIP";
 
-        float porcentaje = ((float)totalesRecaudacion[i] * 100) / totalRecaudacion;
+        float porcentajeRecaudacion = (totalesRecaudacion[i] * 100) / totalRecaudacion;
+        float porcentajeButacas = ((float)totalesButacas[i] * 100) / totalButacas;
 
         cout << miembro << ": " << endl
-        << fixed << setprecision(2) << porcentaje << "% - $"
-        << totalesRecaudacion[i] << " - " << totalesButacas[i] << " butacas" << endl << endl;
+             << fixed << setprecision(2) << "$" << totalesRecaudacion[i] << " ("
+             << fixed << setprecision(2) << porcentajeRecaudacion << "%) - "
+             << totalesButacas[i] << " butacas ("
+             << fixed << setprecision(2) << porcentajeButacas << "%)"
+             << endl << endl;
     }
-    cout << "Total vendido en el año " << anioAConsultar << ": $" << totalRecaudacion << " - " << totalButacas << " butacas" << endl;
+    cout << "Total vendido en el año " << anioAConsultar << ": $"
+         << fixed << setprecision(2) << totalRecaudacion << " - "
+         << totalButacas << " butacas" << endl;
 
 }
 
