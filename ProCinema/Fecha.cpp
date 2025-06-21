@@ -143,3 +143,9 @@ void Fecha::setFechaYHoraActual() {
     setAnio(anio);
     setHora(Hora(hora, minuto));
 }
+
+bool Fecha::operator ==(Fecha fechaAComparar) {
+    return getAnio() == fechaAComparar.getAnio() &&
+           getMes() == fechaAComparar.getMes() &&
+           getDia() == fechaAComparar.getDia();
+}

@@ -35,5 +35,7 @@ public:
     std::string toString(int opcion);
     void cargar(int opcion);
     void setFechaYHoraActual();
+
+    bool operator ==(Fecha fechaAComparar);
 };
 

@@ -288,9 +288,7 @@ void ManagerPelicula::buscarPorFechaEstreno() {
     int cantidadRegistros = archivoPeliculas.CantidadRegistros();
     int cantidadEncontrados = 0;
     for (int i = 0; i < cantidadRegistros; i++) {
-        if (archivoPeliculas.Leer(i).getFechaEstreno().getAnio() == fechaEstrenoBuscada.getAnio() &&
-                archivoPeliculas.Leer(i).getFechaEstreno().getMes() == fechaEstrenoBuscada.getMes() &&
-                archivoPeliculas.Leer(i).getFechaEstreno().getDia() == fechaEstrenoBuscada.getDia()) {
+        if (archivoPeliculas.Leer(i).getFechaEstreno() == fechaEstrenoBuscada) {
             cout << archivoPeliculas.Leer(i).mostrar() << endl;
             cantidadEncontrados++;
         }

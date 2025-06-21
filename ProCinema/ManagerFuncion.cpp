@@ -327,9 +327,7 @@ void ManagerFuncion::buscarPorFechaFuncion() {
     int cantidadRegistros = archivoFunciones.CantidadRegistros();
     int cantidadEncontrados = 0;
     for (int i = 0; i < cantidadRegistros; i++) {
-        if (archivoFunciones.Leer(i).getFechaFuncion().getAnio() == fechaFuncionBuscada.getAnio() &&
-                archivoFunciones.Leer(i).getFechaFuncion().getMes() == fechaFuncionBuscada.getMes() &&
-                archivoFunciones.Leer(i).getFechaFuncion().getDia() == fechaFuncionBuscada.getDia()) {
+        if (archivoFunciones.Leer(i).getFechaFuncion() == fechaFuncionBuscada) {
             cout << archivoFunciones.Leer(i).mostrar() << endl;
             cantidadEncontrados++;
         }

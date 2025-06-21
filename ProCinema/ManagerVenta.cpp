@@ -327,9 +327,11 @@ void ManagerVenta::buscarPorFecha() {
     int cantidadRegistros = archivoVentas.CantidadRegistros();
     int cantidadEncontrados = 0;
     for (int i = 0; i < cantidadRegistros; i++) {
-        if (archivoVentas.Leer(i).getFechaVenta().getAnio() == fechaBuscada.getAnio() &&
-                archivoVentas.Leer(i).getFechaVenta().getMes() == fechaBuscada.getMes() &&
-                archivoVentas.Leer(i).getFechaVenta().getDia() == fechaBuscada.getDia()) {
+            ///FORMA VIEJA DE COMPARAR; REEMPLAZADO POR SOBRECARGA DE OPERADOR.
+//        if (archivoVentas.Leer(i).getFechaVenta().getAnio() == fechaBuscada.getAnio() &&
+//                archivoVentas.Leer(i).getFechaVenta().getMes() == fechaBuscada.getMes() &&
+//                archivoVentas.Leer(i).getFechaVenta().getDia() == fechaBuscada.getDia()) {
+        if(archivoVentas.Leer(i).getFechaVenta() == fechaBuscada) {
             cout << archivoVentas.Leer(i).mostrar() << endl;
             cantidadEncontrados++;
         }

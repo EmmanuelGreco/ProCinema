@@ -26,7 +26,7 @@
 1749436100 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06 - tp integrador\código\tp integrador - greco - taquino\hora.cpp
 	"Hora.h"
 
-1750308045 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\fecha.cpp
+1750477271 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\fecha.cpp
 	"Hora.h"
 	"Fecha.h"
 	<iostream>
@@ -34,7 +34,7 @@
 
 1749436084 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\hora.h
 
-1750307117 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\fecha.h
+1750477277 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\fecha.h
 	"Hora.h"
 	<string>
 	<ctime>
@@ -327,7 +327,7 @@
 
 1750294064 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managermembresia.h
 
-1750476199 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerfuncion.cpp
+1750477556 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerfuncion.cpp
 	<iostream>
 	<string>
 	<sstream>
@@ -401,7 +401,7 @@
 
 1750476199 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerventa.h
 
-1750476199 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerventa.cpp
+1750477467 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerventa.cpp
 	<iostream>
 	<string>
 	"ManagerVenta.h"
