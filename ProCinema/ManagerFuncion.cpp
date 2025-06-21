@@ -45,7 +45,7 @@ void ManagerFuncion::cargarFuncion() {
 
     // Me traigo el ID de la Sala y lo asigno al idSala de la Función
     cout << "Ingrese el ID de la Sala: ";
-    cin >> idSala
+    cin >> idSala;
     while (!validarNumero(idSala, 0)) {
         cout << "Ingrese un id válido: ";
         cin >> idSala;
@@ -389,4 +389,24 @@ void ManagerFuncion::buscarPorFechaFuncion() {
     }
     if (cantidadEncontrados == 0)
         cout << "NO se encontró ningún registro de la Función con la Fecha de Función: " << fechaFuncionBuscada.toString(1) << "." << endl;
+}
+
+bool ManagerFuncion::validarNumero(int input, int minimo, int maximo) {
+    if (cin.fail()) {
+        cin.clear();
+        while (cin.get() != '\n');
+        return false;
+    } else {
+        return (input >= minimo && input <= maximo);
+    }
+}
+
+bool ManagerFuncion::validarNumero(int input, int minimo) {
+    if (cin.fail()) {
+        cin.clear();
+        while (cin.get() != '\n');
+        return false;
+    } else {
+        return (input >= minimo);
+    }
 }

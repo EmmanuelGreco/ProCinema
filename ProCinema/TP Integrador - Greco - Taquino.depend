@@ -329,7 +329,7 @@
 
 1750547328 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managermembresia.h
 
-1750541754 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerfuncion.cpp
+1750548672 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerfuncion.cpp
 	<iostream>
 	<string>
 	<sstream>
@@ -343,14 +343,14 @@
 	"Sala.h"
 	"ArchivoSala.h"
 
-1750541754 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managermembresia.cpp
+1750547672 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managermembresia.cpp
 	<iostream>
 	<string>
 	"ManagerMembresia.h"
 	"Membresia.h"
 	"ArchivoMembresia.h"
 
-1750541754 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerpelicula.cpp
+1750546944 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerpelicula.cpp
 	<iostream>
 	<string>
 	"ManagerPelicula.h"
@@ -403,7 +403,7 @@
 
 1750544073 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerventa.h
 
-1750544227 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerventa.cpp
+1750547042 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerventa.cpp
 	<iostream>
 	<string>
 	"ManagerVenta.h"
@@ -460,7 +460,7 @@
 	"ArchivoPelicula.h"
 	"Pelicula.h"
 
-1750541754 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerinformes.cpp
+1750547941 source:c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerinformes.cpp
 	<iostream>
 	<string>
 	<iomanip>
