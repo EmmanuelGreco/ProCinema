@@ -301,7 +301,6 @@ void ManagerVenta::buscarPorDNI() {
 
 void ManagerVenta::buscarPorMiembro() {
     ArchivoVenta archivoVentas("ventas.dat");
-    ArchivoMembresia archivoMembresias("membresias.dat");
     int idBuscado;
 
     cout << "Ingrese el id de miembro: ";
@@ -310,11 +309,7 @@ void ManagerVenta::buscarPorMiembro() {
     int cantidadRegistros = archivoVentas.CantidadRegistros();
     int cantidadEncontrados = 0;
     for (int i = 0; i < cantidadRegistros; i++) {
-        int idMem = archivoVentas.Leer(i).getIdMembresia();
-        if (idMem != 0 && archivoMembresias.Leer(idMem - 1).getIdMembresia() == idBuscado) {
-            cout << archivoVentas.Leer(i).mostrar() << endl;
-            cantidadEncontrados++;
-        } else if (idMem == 0) {
+        if (archivoVentas.Leer(i).getIdMembresia() == idBuscado) {
             cout << archivoVentas.Leer(i).mostrar() << endl;
             cantidadEncontrados++;
         }
