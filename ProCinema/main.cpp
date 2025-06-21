@@ -8,6 +8,7 @@
 #include "ManagerSala.h"
 #include "ManagerMembresia.h"
 #include "ManagerVenta.h"
+#include "ManagerInformes.h"
 
 #define color SetConsoleTextAttribute
 
@@ -26,6 +27,7 @@ int main() {
     ManagerSala managerSala;
     ManagerMembresia managerMembresia;
     ManagerVenta managerVenta;
+    ManagerInformes managerInformes;
     Menu menu;
 
     while(true) {
@@ -197,7 +199,7 @@ int main() {
             menu.informes();
             switch(menu.getOpcion()) {
             case 1:
-                cout << "TOP X PELICULAS" << endl;
+                managerInformes.topCinco();
                 break;
             case 2:
                 menu.RecaudacionTotalPor();
@@ -299,8 +301,7 @@ int main() {
             break;
         }
 
-        // ????????
-        // cout << "PRUEBAAAAAAAAAAAAAAAAAAA";
+
         system("pause");
         system("cls");
 
