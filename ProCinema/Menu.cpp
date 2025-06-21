@@ -92,12 +92,27 @@ void Menu::peliculas() {
     cout << "1.  Agregar Película" << endl;
     cout << "2.  Dar de baja / Restaurar Película" << endl;
     cout << "3.  Modificar una Película" << endl;
-    cout << "4.  Listar todas las Películas en cartelera" << endl;
+    cout << "4.  Listar Películas por..." << endl;
     cout << "5.  Buscar Películas por..." << endl;
     cout << "0.  Volver al menú principal... " << endl;
     cout << "---------------------------------------------------" << endl;
     cout << "Ingrese la opción elegida: ";
     recibirOpcion(5);
+    system("cls");
+}
+
+void Menu::listarPeliculasPor() {
+    system("cls");
+    cout << endl;
+    cout << "---------------- ProCinema Manager ----------------" << endl;
+    cout << "--------------- Listar Películas por ---------------" << endl;
+    cout << "1.  Todas las Películas" << endl;
+    cout << "2.  Películas CARTELERA" << endl;
+    cout << "3.  Películas FUERA DE CARTELERA" << endl;
+    cout << "0.  Volver atrás... " << endl;
+    cout << "---------------------------------------------------" << endl;
+    cout << "Ingrese la opción elegida: ";
+    recibirOpcion(3);
     system("cls");
 }
 
@@ -142,9 +157,9 @@ void Menu::ListarFuncionPor() {
     cout << "---------------- ProCinema Manager ----------------" << endl;
     cout << "------------------ Listar Función -----------------" << endl;
     cout << "1.  Todas las Funciones" << endl;
-    cout << "2.  Funciones en Cartelera" << endl;
-    cout << "3.  Funciones Agotadas" << endl;
-    cout << "4.  Funciones Fuera de Cartelera" << endl;
+    cout << "2.  Funciones en CARTELERA" << endl;
+    cout << "3.  Funciones AGOTADAS" << endl;
+    cout << "4.  Funciones FUERA DE CARTELERA" << endl;
     cout << "0.  Volver atrás... " << endl;
     cout << "---------------------------------------------------" << endl;
     cout << "Ingrese la opción elegida: ";
@@ -230,7 +245,7 @@ void Menu::listarSalasPor() {
     system("cls");
     cout << endl;
     cout << "---------------- ProCinema Manager ----------------" << endl;
-    cout << "------------------- Listar Salas ------------------" << endl;
+    cout << "----------------- Listar Salas por ----------------" << endl;
     cout << "1.  Todas las Salas" << endl;
     cout << "2.  Salas EN FUNCIONAMIENTO" << endl;
     cout << "3.  Salas FUERA DE SERVICIO" << endl;
@@ -256,7 +271,7 @@ void Menu::listarMembresiasPor() {
     system("cls");
     cout << endl;
     cout << "---------------- ProCinema Manager ----------------" << endl;
-    cout << "----------------- Listar Membresías ----------------" << endl;
+    cout << "--------------- Listar Membresías por --------------" << endl;
     cout << "1.  Todas las Membresías" << endl;
     cout << "2.  Membresías ACTIVAS" << endl;
     cout << "3.  Membresías PAUSADAS" << endl;

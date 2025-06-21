@@ -5,6 +5,7 @@ class ManagerPelicula {
 public:
     void cargarPelicula();
     void listarPeliculas();
+    void listarPeliculasActivas(bool activas);
     void modificarPelicula();
     void cambiarEstadoPelicula();
 

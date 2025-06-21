@@ -90,7 +90,7 @@ std::string Pelicula::mostrar() {
     else
         estado = "FUERA DE CARTELERA";
 
-    return "  ID de Película N°" + to_string(getIdPelicula()) + "\n" +
+    return "  ID de Película N°" + to_string(getIdPelicula()+1) + "\n" +
            "  Título de la Película: " + getTitulo() + "\n" +
            "  Género de la Película: " + getGenero() + "\n" +
            "  Nombre del Director: " + getNombreDirector() + "\n" +

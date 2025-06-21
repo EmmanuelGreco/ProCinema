@@ -11,6 +11,7 @@ public:
     void ventas();
     void BuscarVentasPor();
     void peliculas();
+    void listarPeliculasPor();
     void BuscarPeliculasPor();
     void funciones();
     void ListarFuncionPor();

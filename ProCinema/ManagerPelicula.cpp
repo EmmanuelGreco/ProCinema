@@ -54,6 +54,19 @@ void ManagerPelicula::listarPeliculas() {
     }
 }
 
+void ManagerPelicula::listarPeliculasActivas(bool activas) {
+    int cantidadRegistros = archivoPeliculas.CantidadRegistros();
+    Pelicula pelicula;
+
+    for (int i = 0; i < cantidadRegistros; i++) {
+        pelicula = archivoPeliculas.Leer(i);
+
+        if (pelicula.getEstado() == activas){
+            cout << pelicula.mostrar() << endl;
+        }
+    }
+}
+
 void ManagerPelicula::modificarPelicula() {
     int id, posicion;
 

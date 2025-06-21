@@ -95,7 +95,25 @@ int main() {
                 managerPelicula.modificarPelicula();
                 break;
             case 4:
-                managerPelicula.listarPeliculas();
+                menu.listarPeliculasPor();
+                switch(menu.getOpcion()) {
+                    case 1:
+                        managerPelicula.listarPeliculas();
+                        break;
+                    case 2: {
+                        bool activas = true;
+                        managerPelicula.listarPeliculasActivas(activas);
+                        break;
+                    }
+                    case 3: {
+                        bool activas = false;
+                        managerPelicula.listarPeliculasActivas(activas);
+                        break;
+                    }
+                    case 0:
+                        cout << "VOLVER AL MENU PRINCIPAL" << endl;
+                        break;
+                    }
                 break;
             case 5:
                 menu.BuscarPeliculasPor();
