@@ -102,18 +102,38 @@ void Fecha::cargar(int opcion) {
     if (opcion == 1 || opcion == 2) {
         cout << "Ingrese el numero de dia: ";
         cin >> dia;
+        while (!validarNumero(dia, 1, 31)) {
+            cout << "Ingrese un dia válido: ";
+            cin >> dia;
+        }
         cout << "Ingrese el numero de mes: ";
         cin >> mes;
+        while (!validarNumero(mes, 1, 12)) {
+            cout << "Ingrese un mes válido: ";
+            cin >> mes;
+        }
         cout << "Ingrese el año: ";
         cin >> anio;
+        while (!validarNumero(anio, 0, 9999)) {
+            cout << "Ingrese un año válido: ";
+            cin >> anio;
+        }
     }
 
     int hora = 0, minuto = 0;
     if(opcion == 2 || opcion == 3) {
         cout << "Ingrese la hora: ";
         cin >> hora;
+        while (!validarNumero(hora, 0, 23)) {
+            cout << "Ingrese una hora válida: ";
+            cin >> hora;
+        }
         cout << "Ingrese el minuto: ";
         cin >> minuto;
+        while (!validarNumero(minuto, 0, 59)) {
+            cout << "Ingrese un minuto válido: ";
+            cin >> minuto;
+        }
     }
 
 
@@ -123,7 +143,7 @@ void Fecha::cargar(int opcion) {
         setAnio(anio);
         setHora(Hora(hora, minuto));
     } else {
-        cout << "Fecha de estreno inválida! Se debera modificar mas tarde" << endl;
+        cout << "Fecha inválida! Por defecto, se utilizará 01/01/1900" << endl;
     }
 }
 
@@ -149,3 +169,14 @@ bool Fecha::operator ==(Fecha fechaAComparar) {
            getMes() == fechaAComparar.getMes() &&
            getDia() == fechaAComparar.getDia();
 }
+
+bool Fecha::validarNumero(int input, int minimo, int maximo) {
+    if (cin.fail()) {
+        cin.clear();
+        while (cin.get() != '\n');
+        return false;
+    } else {
+        return (input >= minimo && input <= maximo);
+    }
+}
+

@@ -31,6 +31,10 @@ void ManagerFuncion::cargarFuncion() {
     cout << "Ingrese el ID de la Película: ";
     //cin.ignore();
     cin >> idPelicula;
+    while (!validarNumero(idPelicula, 0)) {
+        cout << "Ingrese un id válido: ";
+        cin >> idPelicula;
+    }
     posicion = archivoPeliculas.Buscar(idPelicula);
     if (posicion == -1) {
         cout << "Id no encontrado!";
@@ -41,7 +45,11 @@ void ManagerFuncion::cargarFuncion() {
 
     // Me traigo el ID de la Sala y lo asigno al idSala de la Función
     cout << "Ingrese el ID de la Sala: ";
-    cin >> idSala;
+    cin >> idSala
+    while (!validarNumero(idSala, 0)) {
+        cout << "Ingrese un id válido: ";
+        cin >> idSala;
+    };
     posicion = archivoSalas.Buscar(idSala);
     if (posicion == -1) {
         cout << "Id no encontrado!";
@@ -55,6 +63,10 @@ void ManagerFuncion::cargarFuncion() {
 
     cout << "Ingrese el Idioma de la Función (1-Inglés, 2-Castellano, 3-Subtitulado): ";
     cin >> idiomaFuncion;
+    while (!validarNumero(idiomaFuncion, 1, 3)) {
+        cout << "Ingrese un idioma válido: ";
+        cin >> idiomaFuncion;
+    }
 
     cout << "Ingrese la Fecha de la Función: " << endl;
     //cin.ignore();
@@ -63,10 +75,14 @@ void ManagerFuncion::cargarFuncion() {
     // Esto habría que automatizarlo, dependiendo del día y del tipo de sala
     cout << "Ingrese el importe de la Función: ";
     cin >> importeFuncion;
+    while (!validarNumero(importeFuncion, 0)) {
+        cout << "Ingrese un importe válido: ";
+        cin >> importeFuncion;
+    }
 
 
     if(archivoFunciones.Guardar(Funcion(idFuncion, idPelicula, idSala, butacasDisponibles, idiomaFuncion,
-                                         fechaFuncion, importeFuncion, estado))) {
+                                        fechaFuncion, importeFuncion, estado))) {
         cout << "Se guardo Exitosamente!" << endl;
     } else {
         cout << "Hubo un error inesperado, llame al de sistemas..." << endl;
@@ -88,7 +104,7 @@ void ManagerFuncion::listarFuncionesActivas(bool activas) {
     for (int i = 0; i < cantidadRegistros; i++) {
         funcion = archivoFunciones.Leer(i);
 
-        if (funcion.getEstado() == activas){
+        if (funcion.getEstado() == activas) {
             listarFuncionesImprimir(funcion);
         }
     }
@@ -101,7 +117,7 @@ void ManagerFuncion::listarFuncionesAgotadas() {
     for (int i = 0; i < cantidadRegistros; i++) {
         funcion = archivoFunciones.Leer(i);
 
-        if (funcion.getButacasDisponibles() <= 0){
+        if (funcion.getButacasDisponibles() <= 0) {
             listarFuncionesImprimir(funcion);
         }
     }
@@ -112,15 +128,15 @@ void ManagerFuncion::listarFuncionesImprimir(Funcion funcion) {
     int opcion = funcion.getIdiomaFuncion();
     string idiomaFuncion;
     switch(opcion) {
-        case 1:
-            idiomaFuncion = "Inglés";
-            break;
-        case 2:
-            idiomaFuncion = "Castellano";
-            break;
-        case 3:
-            idiomaFuncion = "Subtitulado";
-            break;
+    case 1:
+        idiomaFuncion = "Inglés";
+        break;
+    case 2:
+        idiomaFuncion = "Castellano";
+        break;
+    case 3:
+        idiomaFuncion = "Subtitulado";
+        break;
     }
 
     // Harcodeado
@@ -135,15 +151,15 @@ void ManagerFuncion::listarFuncionesImprimir(Funcion funcion) {
     redondeoImporteFuncion << fixed << setprecision(2) << funcion.getImporteFuncion();
 
     cout <<
-    "  ID de Función N°" + to_string(funcion.getIdFuncion()) + "\n" +
-    "  ID de Película N°" + to_string(funcion.getIdPelicula()) + "\n" +
-    "  ID de Sala N°" + to_string(funcion.getIdSala()) + "\n" +
-    "  Cantidad de Butacas Disponibles: " + to_string(funcion.getButacasDisponibles()) + "\n" +
-    "  Idioma de la Función: " + idiomaFuncion + "\n" +
-    "  Fecha de la Función: " + funcion.getFechaFuncion().toString(1) + "\n" +
-    "  Importe de la Función: $" + redondeoImporteFuncion.str() + "\n" +
-    "  Estado de la Función: " + estado + "\n" +
-    "===================================================" + "\n" ;
+         "  ID de Función N°" + to_string(funcion.getIdFuncion()) + "\n" +
+         "  ID de Película N°" + to_string(funcion.getIdPelicula()) + "\n" +
+         "  ID de Sala N°" + to_string(funcion.getIdSala()) + "\n" +
+         "  Cantidad de Butacas Disponibles: " + to_string(funcion.getButacasDisponibles()) + "\n" +
+         "  Idioma de la Función: " + idiomaFuncion + "\n" +
+         "  Fecha de la Función: " + funcion.getFechaFuncion().toString(1) + "\n" +
+         "  Importe de la Función: $" + redondeoImporteFuncion.str() + "\n" +
+         "  Estado de la Función: " + estado + "\n" +
+         "===================================================" + "\n" ;
 }
 
 void ManagerFuncion::modificarFuncion() {
@@ -151,6 +167,10 @@ void ManagerFuncion::modificarFuncion() {
 
     cout << "Ingrese el Id de la Función a Modificar: ";
     cin >> id;
+    while (!validarNumero(id, 0)) {
+        cout << "Ingrese un id válido: ";
+        cin >> id;
+    }
     posicion = archivoFunciones.Buscar(id);
     if (posicion == -1) {
         cout << "Id no encontrado!";
@@ -167,7 +187,10 @@ void ManagerFuncion::modificarFuncion() {
     cout << "Elija una opción: ";
     int opcion;
     cin >> opcion;
-
+    while (!validarNumero(opcion, 0)) {
+        cout << "Ingrese una opción válida: ";
+        cin >> opcion;
+    }
     int num;
     float numFloat;
     string str;
@@ -176,21 +199,37 @@ void ManagerFuncion::modificarFuncion() {
     case 1:
         cout << "Elija el nuevo Id de Película: ";
         cin >> num;
+        while (!validarNumero(num, 0)) {
+            cout << "Ingrese un id válido: ";
+            cin >> num;
+        }
         funcion.setIdPelicula(num);
         break;
     case 2:
         cout << "Elija el nuevo Id de Sala: ";
         cin >> num;
+        while (!validarNumero(num, 0)) {
+            cout << "Ingrese un id válido: ";
+            cin >> num;
+        }
         funcion.setIdSala(num);
         break;
     case 3:
         cout << "Elija la nueva Cantidad de Butacas Disponibles: ";
         cin >> num;
+        while (!validarNumero(num, 1)) {
+            cout << "Ingrese una cantidad válida: ";
+            cin >> num;
+        }
         funcion.setButacasDisponibles(num);
         break;
     case 4:
         cout << "Elija el nuevo Idioma de la Función: ";
         cin >> num;
+        while (!validarNumero(num, 1, 3)) {
+            cout << "Ingrese un idioma válido: ";
+            cin >> num;
+        }
         funcion.setIdiomaFuncion(num);
         break;
     case 5:
@@ -201,6 +240,10 @@ void ManagerFuncion::modificarFuncion() {
     case 6:
         cout << "Elija el nuevo Importe de la Función: ";
         cin >> numFloat;
+        while (!validarNumero(numFloat, 0)) {
+            cout << "Ingrese un importe válido: ";
+            cin >> numFloat;
+        }
         funcion.setImporteFuncion(numFloat);
         break;
     }
@@ -213,6 +256,10 @@ void ManagerFuncion::cambiarEstadoFuncion() {
 
     cout << "Ingrese el Id de la Función a Dar de baja / Restaurar: ";
     cin >> id;
+    while (!validarNumero(id, 0)) {
+            cout << "Ingrese un id válido: ";
+            cin >> id;
+        }
     posicion = archivoFunciones.Buscar(id);
     if (posicion == -1) {
         cout << "Id NO encontrado!";
@@ -244,6 +291,10 @@ void ManagerFuncion::buscarPorId() {
 
     cout << "Ingrese el Id de Función a buscar: ";
     cin >> idBuscado;
+    while (!validarNumero(idBuscado, 0)) {
+            cout << "Ingrese un id válido: ";
+            cin >> idBuscado;
+        }
 
     int cantidadRegistros = archivoFunciones.CantidadRegistros();
     int cantidadEncontrados = 0;
@@ -305,6 +356,10 @@ void ManagerFuncion::buscarPorNumeroSala() {
 
     cout << "Ingrese el Número de Sala de Función a buscar: ";
     cin >> idSalaBuscado;
+    while (!validarNumero(idSalaBuscado, 0)) {
+            cout << "Ingrese un id válido: ";
+            cin >> idSalaBuscado;
+        }
 
     int cantidadRegistros = archivoFunciones.CantidadRegistros();
     int cantidadEncontrados = 0;

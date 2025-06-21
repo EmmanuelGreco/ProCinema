@@ -33,6 +33,10 @@ void ManagerPelicula::cargarPelicula() {
 
     cout << "Ingrese la Clasificación: ";
     cin >> clasificacion;
+    while (!validarNumero(clasificacion, 0)) {
+        cout << "Ingrese una clasificación válida: ";
+        cin >> clasificacion;
+    }
 
     cout << "Ingrese la Fecha de Estreno: " << endl;
     //cin.ignore();
@@ -61,7 +65,7 @@ void ManagerPelicula::listarPeliculasActivas(bool activas) {
     for (int i = 0; i < cantidadRegistros; i++) {
         pelicula = archivoPeliculas.Leer(i);
 
-        if (pelicula.getEstado() == activas){
+        if (pelicula.getEstado() == activas) {
             cout << pelicula.mostrar() << endl;
         }
     }
@@ -72,6 +76,10 @@ void ManagerPelicula::modificarPelicula() {
 
     cout << "Ingrese el Id de la Película a Modificar: ";
     cin >> id;
+    while (!validarNumero(id, 0)) {
+        cout << "Ingrese un id válido: ";
+        cin >> id;
+    }
     posicion = archivoPeliculas.Buscar(id);
     if (posicion == -1) {
         cout << "Id no encontrado!";
@@ -84,10 +92,13 @@ void ManagerPelicula::modificarPelicula() {
     cout << "4. " << pelicula.getApellidoDirector() << endl;
     cout << "5. " << pelicula.getClasificacion() << endl;
     cout << "6. " << pelicula.getFechaEstreno().toString(1) << endl;
-    //cout << "0. Volver al menu " << endl;
     cout << "Elija una opción: ";
     int opcion;
     cin >> opcion;
+    while (!validarNumero(opcion, 1, 6)) {
+        cout << "Ingrese una opción válida: ";
+        cin >> opcion;
+    }
 
     int num;
     string str;
@@ -120,6 +131,10 @@ void ManagerPelicula::modificarPelicula() {
     case 5:
         cout << "Elija la nueva Clasificación: ";
         cin >> num;
+        while (!validarNumero(num, 0)) {
+            cout << "Ingrese una clasificación válida: ";
+            cin >> num;
+        }
         pelicula.setClasificacion(num);
         break;
     case 6:
@@ -137,6 +152,10 @@ void ManagerPelicula::cambiarEstadoPelicula() {
 
     cout << "Ingrese el Id de la Película a Dar de baja / Restaurar: ";
     cin >> id;
+    while (!validarNumero(id, 0)) {
+        cout << "Ingrese un id válido: ";
+        cin >> id;
+    }
     posicion = archivoPeliculas.Buscar(id);
     if (posicion == -1) {
         cout << "Id NO encontrado!";
@@ -168,6 +187,10 @@ void ManagerPelicula::buscarPorId() {
 
     cout << "Ingrese el Id de Película a buscar: ";
     cin >> idBuscado;
+    while (!validarNumero(idBuscado, 0)) {
+        cout << "Ingrese un id válido: ";
+        cin >> idBuscado;
+    }
 
     int cantidadRegistros = archivoPeliculas.CantidadRegistros();
     int cantidadEncontrados = 0;
@@ -279,6 +302,10 @@ void ManagerPelicula::buscarPorClasificacion() {
 
     cout << "Ingrese el Tipo de Clasificación de Película a buscar: ";
     cin >> clasificacionBuscada;
+    while (!validarNumero(clasificacionBuscada, 0)) {
+        cout << "Ingrese una clasificación válida: ";
+        cin >> clasificacionBuscada;
+    }
 
     int cantidadRegistros = archivoPeliculas.CantidadRegistros();
     int cantidadEncontrados = 0;
@@ -308,4 +335,24 @@ void ManagerPelicula::buscarPorFechaEstreno() {
     }
     if (cantidadEncontrados == 0)
         cout << "NO se encontró ningún registro de la Película con la Fecha de Estreno: " << fechaEstrenoBuscada.toString(1) << "." << endl;
+}
+
+bool ManagerPelicula::validarNumero(int input, int minimo, int maximo) {
+    if (cin.fail()) {
+        cin.clear();
+        while (cin.get() != '\n');
+        return false;
+    } else {
+        return (input >= minimo && input <= maximo);
+    }
+}
+
+bool ManagerPelicula::validarNumero(int input, int minimo) {
+    if (cin.fail()) {
+        cin.clear();
+        while (cin.get() != '\n');
+        return false;
+    } else {
+        return (input >= minimo);
+    }
 }

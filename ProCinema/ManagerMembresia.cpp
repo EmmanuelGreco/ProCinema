@@ -21,8 +21,8 @@ void ManagerMembresia::cargarMembresia() {
     cout << "Ingrese el Tipo de Membresía (1-Plus, 2-Premium, 3-VIP): ";
     //cin.ignore();
     cin >> tipoMembresia;
-    while (tipoMembresia < 1 || tipoMembresia > 3) {
-        cout << "Tipo de Membresía inválido! Ingrese un número correcto: ";
+    while (!validarNumero(tipoMembresia, 1, 3)) {
+        cout << "Ingrese un tipo de membresía válido: ";
         cin >> tipoMembresia;
     }
 
@@ -52,6 +52,10 @@ void ManagerMembresia::cargarMembresia() {
 
     cout << "Ingrese el DNI del Miembro: ";
     cin >> dniMiembro;
+    while (!validarNumero(dniMiembro, 0)) {
+        cout << "Ingrese un DNI válido: ";
+        cin >> dniMiembro;
+    }
 
     cout << "Ingrese el Email del Miembro: ";
     cin.ignore();
@@ -80,7 +84,7 @@ void ManagerMembresia::listarMembresiasActivas(bool activas) {
     for (int i = 0; i < cantidadRegistros; i++) {
         membresia = archivoMembresias.Leer(i);
 
-        if (membresia.getEstado() == activas){
+        if (membresia.getEstado() == activas) {
             cout << membresia.mostrar() << endl;
         }
     }
@@ -91,6 +95,10 @@ void ManagerMembresia::modificarMembresia() {
 
     cout << "Ingrese el Id de la Membresía a Modificar: ";
     cin >> id;
+    while (!validarNumero(id, 0)) {
+        cout << "Ingrese un id válido: ";
+        cin >> id;
+    }
     posicion = archivoMembresias.Buscar(id);
     if (posicion == -1) {
         cout << "Id no encontrado!";
@@ -106,6 +114,10 @@ void ManagerMembresia::modificarMembresia() {
     cout << "Elija una opción: ";
     int opcion;
     cin >> opcion;
+    while (!validarNumero(opcion, 1, 5)) {
+        cout << "Ingrese una opcion válida: ";
+        cin >> opcion;
+    }
 
     int num;
     string str;
@@ -114,8 +126,8 @@ void ManagerMembresia::modificarMembresia() {
         int tipoMembresia;
         cout << "Ingrese el nuevo Tipo de Membresía (1-Plus, 2-Premium, 3-VIP): ";
         cin >> tipoMembresia;
-        while (tipoMembresia < 1 || tipoMembresia > 3) {
-            cout << "Tipo de Membresía inválido! Ingrese un número correcto: ";
+        while (!validarNumero(tipoMembresia, 1, 3)) {
+            cout << "Ingrese un tipo de membresía válido: ";
             cin >> tipoMembresia;
         }
 
@@ -152,6 +164,10 @@ void ManagerMembresia::modificarMembresia() {
     case 4:
         cout << "Elija el nuevo DNI del Miembro: ";
         cin >> num;
+        while (!validarNumero(num, 0)) {
+            cout << "Ingrese un DNI válido: ";
+            cin >> num;
+        }
         membresia.setDniMiembro(num);
         break;
     case 5:
@@ -170,6 +186,10 @@ void ManagerMembresia::cambiarEstadoMembresia() {
 
     cout << "Ingrese el Id de la Membresía a Dar de baja / Restaurar: ";
     cin >> id;
+    while (!validarNumero(id, 0)) {
+        cout << "Ingrese un id válido: ";
+        cin >> id;
+    }
     posicion = archivoMembresias.Buscar(id);
     if (posicion == -1) {
         cout << "Id NO encontrado!";
@@ -191,4 +211,24 @@ void ManagerMembresia::cambiarEstadoMembresia() {
         cout << "NO se ha modificado!";
     }
     cout << endl;
+}
+
+bool ManagerMembresia::validarNumero(int input, int minimo, int maximo) {
+    if (cin.fail()) {
+        cin.clear();
+        while (cin.get() != '\n');
+        return false;
+    } else {
+        return (input >= minimo && input <= maximo);
+    }
+}
+
+bool ManagerMembresia::validarNumero(int input, int minimo) {
+    if (cin.fail()) {
+        cin.clear();
+        while (cin.get() != '\n');
+        return false;
+    } else {
+        return (input >= minimo);
+    }
 }

@@ -37,5 +37,7 @@ public:
     void setFechaYHoraActual();
 
     bool operator ==(Fecha fechaAComparar);
+
+    bool validarNumero(int input, int minimo, int maximo);
 };
 

@@ -16,4 +16,7 @@ public:
     void buscarPorApellidoDirector();
     void buscarPorClasificacion();
     void buscarPorFechaEstreno();
+
+    bool validarNumero(int input, int minimo, int maximo);
+    bool validarNumero(int input, int minimo);
 };

@@ -14,4 +14,6 @@ public:
     void buscarPorDNI();
     void buscarPorMiembro();
     void buscarPorFecha();
+
+    bool validarNumero(int input, int minimo);
 };

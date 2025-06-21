@@ -137,11 +137,10 @@ void ManagerInformes::recaudacionAnual() {
     cout << "Ingrese un año para consultar: ";
     int anioAConsultar;
     cin >> anioAConsultar;
-    while(anioAConsultar < 0 || anioAConsultar > 9999) {
-        cout << "Ingrese un año valido: ";
+    while (!validarNumero(anioAConsultar, 0, 9999)) {
+        cout << "Ingrese un año válido: ";
         cin >> anioAConsultar;
     }
-
 
     int cantidadEncontrados = 0;
     float totales[13] {}; //en [0] se guarda el total anual, en los otros los de cada mes.
@@ -233,8 +232,8 @@ void ManagerInformes::porcentajeMiembros() {
     cout << "Ingrese un año para consultar: ";
     int anioAConsultar;
     cin >> anioAConsultar;
-    while(anioAConsultar < 0 || anioAConsultar > 9999) {
-        cout << "Ingrese un año valido: ";
+    while (!validarNumero(anioAConsultar, 0, 9999)) {
+        cout << "Ingrese un año válido: ";
         cin >> anioAConsultar;
     }
 
@@ -280,6 +279,15 @@ void ManagerInformes::porcentajeMiembros() {
     cout << "Total vendido en el año " << anioAConsultar << ": $"
          << fixed << setprecision(2) << totalRecaudacion << " - "
          << totalButacas << " butacas" << endl;
+}
 
+bool ManagerInformes::validarNumero(int input, int minimo, int maximo) {
+    if (cin.fail()) {
+        cin.clear();
+        while (cin.get() != '\n');
+        return false;
+    } else {
+        return (input >= minimo && input <= maximo);
+    }
 }
 

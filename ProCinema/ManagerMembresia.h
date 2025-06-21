@@ -8,4 +8,7 @@ public:
     void listarMembresiasActivas(bool activas);
     void modificarMembresia();
     void cambiarEstadoMembresia();
+
+    bool validarNumero(int input, int minimo, int maximo);
+    bool validarNumero(int input, int minimo);
 };

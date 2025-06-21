@@ -15,4 +15,7 @@ public:
     void buscarPorTituloPelicula();
     void buscarPorNumeroSala();
     void buscarPorFechaFuncion();
+
+    bool validarNumero(int input, int minimo, int maximo);
+    bool validarNumero(int input, int minimo);
 };

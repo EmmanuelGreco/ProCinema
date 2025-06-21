@@ -8,4 +8,9 @@ public:
     void listarSalasActivas(bool activas);
     void modificarSala();
     void cambiarEstadoSala();
+
+    bool validarNumero(int input, int minimo, int maximo);
+    bool validarNumero(int input, int minimo);
+
+
 };
