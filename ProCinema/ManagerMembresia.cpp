@@ -73,6 +73,19 @@ void ManagerMembresia::listarMembresias() {
     }
 }
 
+void ManagerMembresia::listarMembresiasActivas(bool activas) {
+    int cantidadRegistros = archivoMembresias.CantidadRegistros();
+    Membresia membresia;
+
+    for (int i = 0; i < cantidadRegistros; i++) {
+        membresia = archivoMembresias.Leer(i);
+
+        if (membresia.getEstado() == activas){
+            cout << membresia.mostrar() << endl;
+        }
+    }
+}
+
 void ManagerMembresia::modificarMembresia() {
     int id, posicion;
 

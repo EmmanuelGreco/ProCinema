@@ -283,7 +283,25 @@ int main() {
                 menu.configuracionMembresias();
                 switch(menu.getOpcion()) {
                 case 1:
-                    managerMembresia.listarMembresias();
+                    menu.listarMembresiasPor();
+                    switch(menu.getOpcion()) {
+                    case 1:
+                        managerMembresia.listarMembresias();
+                        break;
+                    case 2: {
+                        bool activas = true;
+                        managerMembresia.listarMembresiasActivas(activas);
+                        break;
+                    }
+                    case 3: {
+                        bool activas = false;
+                        managerMembresia.listarMembresiasActivas(activas);
+                        break;
+                    }
+                    case 0:
+                        cout << "VOLVER AL MENU PRINCIPAL" << endl;
+                        break;
+                    }
                     break;
                 case 2:
                     managerMembresia.cargarMembresia();

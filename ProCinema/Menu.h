@@ -21,6 +21,7 @@ public:
     void configuracionSalas();
     void listarSalasPor();
     void configuracionMembresias();
+    void listarMembresiasPor();
     void configuracionOpciones(std::string queMenuEs);
     void recibirOpcion(int maximo);
     bool opcionValida(int opcion, int maximo);

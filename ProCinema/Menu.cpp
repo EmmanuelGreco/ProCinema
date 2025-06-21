@@ -252,6 +252,21 @@ void Menu::configuracionMembresias() {
     system("cls");
 }
 
+void Menu::listarMembresiasPor() {
+    system("cls");
+    cout << endl;
+    cout << "---------------- ProCinema Manager ----------------" << endl;
+    cout << "----------------- Listar Membresías ----------------" << endl;
+    cout << "1.  Todas las Membresías" << endl;
+    cout << "2.  Membresías ACTIVAS" << endl;
+    cout << "3.  Membresías PAUSADAS" << endl;
+    cout << "0.  Volver atrás... " << endl;
+    cout << "---------------------------------------------------" << endl;
+    cout << "Ingrese la opción elegida: ";
+    recibirOpcion(3);
+    system("cls");
+}
+
 void Menu::configuracionOpciones(string queMenuEs) {
     cout << "1.  Listar " << queMenuEs << "s por..." << endl;
     cout << "2.  Agregar una " << queMenuEs << endl;
