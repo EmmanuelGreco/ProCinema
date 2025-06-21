@@ -176,7 +176,7 @@ void ManagerPelicula::buscarPorTitulo() {
     cin.getline(tituloBuscado, 50);
 
     for (int i = 0; tituloBuscado[i] != '\0'; i++) {
-    tituloBuscado[i] = tolower(tituloBuscado[i]);
+        tituloBuscado[i] = tolower(tituloBuscado[i]);
     }
 
     int cantidadRegistros = archivoPeliculas.CantidadRegistros();
@@ -187,12 +187,12 @@ void ManagerPelicula::buscarPorTitulo() {
         strcpy(tituloActual, archivoPeliculas.Leer(i).getTitulo().c_str());
 
         for (int j = 0; tituloActual[j] != '\0'; j++) {
-        tituloActual[j] = tolower(tituloActual[j]);
+            tituloActual[j] = tolower(tituloActual[j]);
         }
 
         if (strstr(tituloActual, tituloBuscado) != nullptr) {
-        cout << archivoPeliculas.Leer(i).mostrar() << endl;
-        cantidadEncontrados++;
+            cout << archivoPeliculas.Leer(i).mostrar() << endl;
+            cantidadEncontrados++;
         }
     }
     if (cantidadEncontrados == 0)
@@ -207,7 +207,7 @@ void ManagerPelicula::buscarPorGenero() {
     cin.getline(generoBuscado, 20);
 
     for (int i = 0; generoBuscado[i] != '\0'; i++) {
-    generoBuscado[i] = tolower(generoBuscado[i]);
+        generoBuscado[i] = tolower(generoBuscado[i]);
     }
 
     int cantidadRegistros = archivoPeliculas.CantidadRegistros();
@@ -218,12 +218,12 @@ void ManagerPelicula::buscarPorGenero() {
         strcpy(generoActual, archivoPeliculas.Leer(i).getGenero().c_str());
 
         for (int j = 0; generoActual[j] != '\0'; j++) {
-        generoActual[j] = tolower(generoActual[j]);
+            generoActual[j] = tolower(generoActual[j]);
         }
 
         if (strstr(generoActual, generoBuscado) != nullptr) {
-        cout << archivoPeliculas.Leer(i).mostrar() << endl;
-        cantidadEncontrados++;
+            cout << archivoPeliculas.Leer(i).mostrar() << endl;
+            cantidadEncontrados++;
         }
     }
     if (cantidadEncontrados == 0)
@@ -238,7 +238,7 @@ void ManagerPelicula::buscarPorApellidoDirector() {
     cin.getline(apellidoDirectorBuscado, 20);
 
     for (int i = 0; apellidoDirectorBuscado[i] != '\0'; i++) {
-    apellidoDirectorBuscado[i] = tolower(apellidoDirectorBuscado[i]);
+        apellidoDirectorBuscado[i] = tolower(apellidoDirectorBuscado[i]);
     }
 
     int cantidadRegistros = archivoPeliculas.CantidadRegistros();
@@ -249,12 +249,12 @@ void ManagerPelicula::buscarPorApellidoDirector() {
         strcpy(apellidoDirectorActual, archivoPeliculas.Leer(i).getApellidoDirector().c_str());
 
         for (int j = 0; apellidoDirectorActual[j] != '\0'; j++) {
-        apellidoDirectorActual[j] = tolower(apellidoDirectorActual[j]);
+            apellidoDirectorActual[j] = tolower(apellidoDirectorActual[j]);
         }
 
         if (strstr(apellidoDirectorActual, apellidoDirectorBuscado) != nullptr) {
-        cout << archivoPeliculas.Leer(i).mostrar() << endl;
-        cantidadEncontrados++;
+            cout << archivoPeliculas.Leer(i).mostrar() << endl;
+            cantidadEncontrados++;
         }
     }
     if (cantidadEncontrados == 0)

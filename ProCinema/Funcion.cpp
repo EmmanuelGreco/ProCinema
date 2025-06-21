@@ -117,9 +117,9 @@ std::string Funcion::mostrar() {
     ostringstream redondeoImporteFuncion;
     redondeoImporteFuncion << fixed << setprecision(2) << getImporteFuncion();
 
-    return "  ID de Función N°" + to_string(getIdFuncion()) + "\n" +
-           "  ID de Película N°" + to_string(getIdPelicula()) + "\n" +
-           "  ID de Sala N°" + to_string(getIdSala()) + "\n" +
+    return "  ID de Función N°" + to_string(getIdFuncion()+1) + "\n" +
+           "  ID de Película N°" + to_string(getIdPelicula()+1) + "\n" +
+           "  ID de Sala N°" + to_string(getIdSala()+1) + "\n" +
            "  Cantidad de Butacas Disponibles: " + to_string(getButacasDisponibles()) + "\n" +
            "  Idioma de la Función: " + idiomaFuncion + "\n" +
            "  Fecha de la Función: " + getFechaFuncion().toString(1) + "\n" +

@@ -235,3 +235,105 @@ void ManagerFuncion::cambiarEstadoFuncion() {
     }
     cout << endl;
 }
+
+
+///BUSCAR POR...
+
+void ManagerFuncion::buscarPorId() {
+    int idBuscado;
+
+    cout << "Ingrese el Id de Función a buscar: ";
+    cin >> idBuscado;
+
+    int cantidadRegistros = archivoFunciones.CantidadRegistros();
+    int cantidadEncontrados = 0;
+    for (int i = 0; i < cantidadRegistros; i++) {
+        if (archivoFunciones.Leer(i).getIdFuncion() == idBuscado) {
+            cout << archivoFunciones.Leer(i).mostrar() << endl;
+            cantidadEncontrados++;
+        }
+    }
+    if (cantidadEncontrados == 0)
+        cout << "NO se encontró ningún registro de la Función con el Id: " << idBuscado << "." << endl;
+}
+
+void ManagerFuncion::buscarPorTituloPelicula() {
+    ArchivoPelicula archivoPeliculas("peliculas.dat");
+
+    char tituloPeliculaBuscado[50];
+
+    cout << "Ingrese el Título de la Película a buscar en la Función: ";
+    cin.ignore();
+    cin.getline(tituloPeliculaBuscado, 50);
+
+    for (int i = 0; tituloPeliculaBuscado[i] != '\0'; i++) {
+        tituloPeliculaBuscado[i] = tolower(tituloPeliculaBuscado[i]);
+    }
+
+    int cantidadFunciones = archivoFunciones.CantidadRegistros();
+    int cantidadPeliculas = archivoPeliculas.CantidadRegistros();
+    int cantidadEncontrados = 0;
+
+    for (int i = 0; i < cantidadFunciones; i++) {
+        int idPelicula = archivoFunciones.Leer(i).getIdPelicula();
+
+        for (int j = 0; j < cantidadPeliculas; j++) {
+            if (archivoPeliculas.Leer(j).getIdPelicula() == idPelicula) {
+                char tituloActual[50];
+                strncpy(tituloActual, archivoPeliculas.Leer(j).getTitulo().c_str(), sizeof(tituloActual));
+                tituloActual[sizeof(tituloActual) - 1] = '\0';
+
+                for (int k = 0; tituloActual[k] != '\0'; k++) {
+                    tituloActual[k] = tolower(tituloActual[k]);
+                }
+
+                if (strstr(tituloActual, tituloPeliculaBuscado) != nullptr) {
+                    cout << archivoFunciones.Leer(i).mostrar() << endl;
+                    cantidadEncontrados++;
+                }
+
+                break;
+            }
+        }
+    }
+    if (cantidadEncontrados == 0)
+        cout << "NO se encontró ningún registro de la Función con el Título de la Película: " << tituloPeliculaBuscado << "." << endl;
+}
+
+void ManagerFuncion::buscarPorNumeroSala() {
+    int idSalaBuscado;
+
+    cout << "Ingrese el Número de Sala de Función a buscar: ";
+    cin >> idSalaBuscado;
+
+    int cantidadRegistros = archivoFunciones.CantidadRegistros();
+    int cantidadEncontrados = 0;
+    for (int i = 0; i < cantidadRegistros; i++) {
+        if (archivoFunciones.Leer(i).getIdSala() == idSalaBuscado-1) {
+            cout << archivoFunciones.Leer(i).mostrar() << endl;
+            cantidadEncontrados++;
+        }
+    }
+    if (cantidadEncontrados == 0)
+        cout << "NO se encontró ningún registro de la Función con el Número de Sala: " << idSalaBuscado << "." << endl;
+}
+
+void ManagerFuncion::buscarPorFechaFuncion() {
+    Fecha fechaFuncionBuscada;
+
+    cout << "Ingrese la Fecha de Función a buscar: " << endl;
+    fechaFuncionBuscada.cargar(1);
+
+    int cantidadRegistros = archivoFunciones.CantidadRegistros();
+    int cantidadEncontrados = 0;
+    for (int i = 0; i < cantidadRegistros; i++) {
+        if (archivoFunciones.Leer(i).getFechaFuncion().getAnio() == fechaFuncionBuscada.getAnio() &&
+                archivoFunciones.Leer(i).getFechaFuncion().getMes() == fechaFuncionBuscada.getMes() &&
+                archivoFunciones.Leer(i).getFechaFuncion().getDia() == fechaFuncionBuscada.getDia()) {
+            cout << archivoFunciones.Leer(i).mostrar() << endl;
+            cantidadEncontrados++;
+        }
+    }
+    if (cantidadEncontrados == 0)
+        cout << "NO se encontró ningún registro de la Función con la Fecha de Función: " << fechaFuncionBuscada.toString(1) << "." << endl;
+}

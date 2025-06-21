@@ -169,16 +169,16 @@ int main() {
                 menu.BuscarFuncionPor();
                 switch(menu.getOpcion()) {
                 case 1:
-                    cout << "ID DE FUNCION" << endl;
+                    managerFuncion.buscarPorId();
                     break;
                 case 2:
-                    cout << "TITULO DE PELICULA" << endl;
+                    managerFuncion.buscarPorTituloPelicula();
                     break;
                 case 3:
-                    cout << "NUMERO DE SALA" << endl;
+                    managerFuncion.buscarPorNumeroSala();
                     break;
                 case 4:
-                    cout << "FECHA" << endl;
+                    managerFuncion.buscarPorFechaFuncion();
                     break;
                 case 0:
                     cout << "VOLVER AL MENU PRINCIPAL" << endl;

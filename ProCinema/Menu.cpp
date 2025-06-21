@@ -157,10 +157,10 @@ void Menu::BuscarFuncionPor() {
     cout << endl;
     cout << "---------------- ProCinema Manager ----------------" << endl;
     cout << "---------------- Buscar Función por ---------------" << endl;
-    cout << "1.  ID de Función" << endl;
+    cout << "1.  ID de la Función" << endl;
     cout << "2.  Título de Película" << endl;
     cout << "3.  Número de Sala" << endl;
-    cout << "4.  Fecha" << endl;
+    cout << "4.  Fecha de la Función" << endl;
     cout << "0.  Volver atrás... " << endl;
     cout << "---------------------------------------------------" << endl;
     cout << "Ingrese la opción elegida: ";
