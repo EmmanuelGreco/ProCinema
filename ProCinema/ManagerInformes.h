@@ -10,6 +10,7 @@ public:
     void porcentajeMiembros();
     //void miembrosMasFrecuentes();
     void ocupacionPromedioSala();
+    void ocupacionMenorFunciones();
 
     bool validarNumero(int input, int minimo, int maximo);
 };

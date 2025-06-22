@@ -133,7 +133,7 @@
 1749506697 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\manager.h
 	<string>
 
-1750567543 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\menu.cpp
+1750609682 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\menu.cpp
 	<iostream>
 	<string>
 	"Menu.h"
@@ -147,7 +147,7 @@
 	<cstring>
 	<string>
 
-1750574580 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\main.cpp
+1750611780 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\main.cpp
 	<iostream>
 	<locale.h>
 	<windows.h>
@@ -250,7 +250,7 @@
 	<sstream>
 	<iomanip>
 
-1750575960 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerfuncion.cpp
+1750576348 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerfuncion.cpp
 	<iostream>
 	<string>
 	<sstream>
@@ -478,9 +478,9 @@
 
 1750547936 c:\users\ptaqu\onedrive\documents\pedro\utn\2c\programación ii\06b - github\procinema\managerinformes.h
 
-1750567306 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerinformes.h
+1750611679 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerinformes.h
 
-1750575175 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerinformes.cpp
+1750612143 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerinformes.cpp
 	<iostream>
 	<string>
 	<iomanip>

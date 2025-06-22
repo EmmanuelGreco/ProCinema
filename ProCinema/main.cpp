@@ -246,7 +246,7 @@ int main() {
                 managerInformes.ocupacionPromedioSala();
                 break;
             case 6:
-                cout << "FUNCIONES CON MENOR OCUPACION" << endl;
+                managerInformes.ocupacionMenorFunciones();
                 break;
             case 0:
                 cout << "VOLVER AL MENU PRINCIPAL" << endl;

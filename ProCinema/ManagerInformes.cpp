@@ -178,7 +178,7 @@ void ManagerInformes::recaudacionPorSala() {
     totalesSalas = new float[cantidadSalas] {0.0};
     idsSalas = new int[cantidadSalas] {0};
     if(totalesSalas == nullptr || idsSalas == nullptr) {
-        cout << "No pudo solicitar memoria" << endl;
+        cout << "No se pudo solicitar memoria" << endl;
         exit(-1);
     }
 
@@ -287,7 +287,9 @@ void ManagerInformes::porcentajeMiembros() {
 
 void ManagerInformes::ocupacionPromedioSala() {
     ArchivoSala archivoSalas("salas.dat");
+    int cantidadSalas = archivoSalas.CantidadRegistros();
     ArchivoFuncion archivoFunciones("funciones.dat");
+    int cantidadFunciones = archivoFunciones.CantidadRegistros();
 
     cout << "Ingrese un año para consultar: ";
     int anioAConsultar;
@@ -298,19 +300,18 @@ void ManagerInformes::ocupacionPromedioSala() {
     }
     cout << endl;
 
-    int cantidadSalas = archivoSalas.CantidadRegistros();
 
     for (int i = 0; i < cantidadSalas; i++) {
         Sala sala = archivoSalas.Leer(i);
-
         int idSala = sala.getIdSala();
         int butacasTotales = sala.getButacasTotales();
 
         int totalButacasOcupadas = 0;
         int cantidadFuncionesSala = 0;
 
-        for (int j = 0; j < archivoFunciones.CantidadRegistros(); j++) {
+        for (int j = 0; j < cantidadFunciones; j++) {
             Funcion funcion = archivoFunciones.Leer(j);
+
             if (funcion.getIdSala() == idSala && funcion.getFechaFuncion().getAnio() == anioAConsultar) {
 
                 totalButacasOcupadas += (butacasTotales - funcion.getButacasDisponibles());
@@ -326,6 +327,74 @@ void ManagerInformes::ocupacionPromedioSala() {
             cout << "Sala " << idSala << ": Sin funciones en el año " << anioAConsultar << endl;
         }
     }
+}
+
+void ManagerInformes::ocupacionMenorFunciones() {
+    ArchivoSala archivoSalas("salas.dat");
+    int cantidadSalas = archivoSalas.CantidadRegistros();
+    ArchivoFuncion archivoFunciones("funciones.dat");
+    int cantidadFunciones = archivoFunciones.CantidadRegistros();
+
+    cout << "Ingrese un año para consultar: ";
+    int anioAConsultar;
+    cin >> anioAConsultar;
+    while (!validarNumero(anioAConsultar, 0, 9999)) {
+        cout << "Ingrese un año válido: ";
+        cin >> anioAConsultar;
+    }
+    cout << endl;
+
+    int *idFunMenorOcupacion = nullptr;
+    float *porcenFunMenorOcupacion = nullptr;
+    idFunMenorOcupacion = new int[cantidadFunciones] {0};
+    porcenFunMenorOcupacion = new float[cantidadFunciones] {0.0};
+
+    if(idFunMenorOcupacion == nullptr || porcenFunMenorOcupacion == nullptr) {
+        cout << "No se pudo solicitar memoria!" << endl;
+        exit(-1);
+    }
+
+    int cantFunMenorOcupacion = 0;
+
+    for (int i = 0; i < cantidadFunciones; i++) {
+        Funcion funcion = archivoFunciones.Leer(i);
+        int anioFuncion = funcion.getFechaFuncion().getAnio();
+
+        if (anioFuncion == anioAConsultar) {
+            int idSala = funcion.getIdSala();
+            Sala sala = archivoSalas.Leer(idSala);
+
+            int butacasTotales = sala.getButacasTotales();
+            int butacasDisponibles = funcion.getButacasDisponibles();
+
+            if (butacasTotales > 0) {
+                float porcentajeOcupacion = ((float)(butacasTotales - butacasDisponibles) / butacasTotales) * 100;
+
+                if (porcentajeOcupacion < 50.0f) {
+                    idFunMenorOcupacion[cantFunMenorOcupacion] = funcion.getIdFuncion();
+                    porcenFunMenorOcupacion[cantFunMenorOcupacion] = porcentajeOcupacion;
+                    cantFunMenorOcupacion++;
+                }
+            }
+        }
+    }
+
+
+    if (cantFunMenorOcupacion == 0){
+        cout << "No hay Funciones con Ocupación menor al 50%, en el año " << anioAConsultar << endl;
+    } else {
+        for (int i = 0; i < cantFunMenorOcupacion; i++) {
+            Funcion funcion = archivoFunciones.Leer(idFunMenorOcupacion[i]);
+
+            cout << " ID Función: " << funcion.getIdFuncion()
+                 << " - ID Sala: " << funcion.getIdSala()
+                 << " - Porcentaje Ocupación: " << fixed << setprecision(2) << porcenFunMenorOcupacion[i] << "%" << endl;
+            cout << "--------------------------------------------------" << endl;
+        }
+    }
+
+    delete []idFunMenorOcupacion;
+    delete []porcenFunMenorOcupacion;
 }
 
 bool ManagerInformes::validarNumero(int input, int minimo, int maximo) {

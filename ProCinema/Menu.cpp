@@ -193,7 +193,7 @@ void Menu::informes() {
     cout << "3.  Porcentaje de Compras de Tipos de Membresías" << endl;
     cout << "4.  Miembros más Frecuentes" << endl;
     cout << "5.  Ocupación Promedio por Sala" << endl;
-    cout << "6.  Funciones con Menor Ocupación" << endl;
+    cout << "6.  Funciones con Ocupación Menor al 50%" << endl;
     cout << "0.  Volver al menú principal... " << endl;
     cout << "---------------------------------------------------" << endl;
     cout << "Ingrese la opción elegida: ";
