@@ -141,6 +141,7 @@ void ManagerInformes::recaudacionAnual() {
         cout << "Ingrese un año válido: ";
         cin >> anioAConsultar;
     }
+    cout << endl;
 
     int cantidadEncontrados = 0;
     float totales[13] {}; //en [0] se guarda el total anual, en los otros los de cada mes.
@@ -158,7 +159,7 @@ void ManagerInformes::recaudacionAnual() {
         cout << "No se encontraron ventas para el año " << anioAConsultar << "!" << endl;
     } else {
         for (int i = 0; i < 13; i++) {
-            if (i==0) cout << "Ventas del año " << anioAConsultar << ":" << endl;
+            if (i==0) cout << "Ventas del año " << anioAConsultar << ":" << endl << endl;
             else cout << meses[i-1] << ": $" << fixed << setprecision(2) << totales[i] << endl;
         }
         cout << "Total: $" << totales[0] << endl;
@@ -195,6 +196,7 @@ void ManagerInformes::recaudacionPorSala() {
 
 
     cout << "Recaudacion por sala:" << endl;
+    cout << endl;
     for (int i = 0; i < cantidadSalas; i++) {
         int tipoSala = archivoSalas.Leer(idsSalas[i]).getTipoSala();
         string nombreSala;
@@ -219,6 +221,7 @@ void ManagerInformes::porcentajeMiembros() {
     int cantidadVentas = archivoVentas.CantidadRegistros();
     ArchivoMembresia archivoMembresias("membresias.dat");
     int cantidadMembresias = archivoMembresias.CantidadRegistros();
+    // Hardcodeado
     const int cantidadTiposMembresias = 4;
 
     int totalesButacas[cantidadTiposMembresias] {0};
@@ -236,6 +239,7 @@ void ManagerInformes::porcentajeMiembros() {
         cout << "Ingrese un año válido: ";
         cin >> anioAConsultar;
     }
+    cout << endl;
 
     for (int i = 0; i < cantidadTiposMembresias; i++) {
         idsMembresias[i] = i;
@@ -279,6 +283,49 @@ void ManagerInformes::porcentajeMiembros() {
     cout << "Total vendido en el año " << anioAConsultar << ": $"
          << fixed << setprecision(2) << totalRecaudacion << " - "
          << totalButacas << " butacas" << endl;
+}
+
+void ManagerInformes::ocupacionPromedioSala() {
+    ArchivoSala archivoSalas("salas.dat");
+    ArchivoFuncion archivoFunciones("funciones.dat");
+
+    cout << "Ingrese un año para consultar: ";
+    int anioAConsultar;
+    cin >> anioAConsultar;
+    while (!validarNumero(anioAConsultar, 0, 9999)) {
+        cout << "Ingrese un año válido: ";
+        cin >> anioAConsultar;
+    }
+    cout << endl;
+
+    int cantidadSalas = archivoSalas.CantidadRegistros();
+
+    for (int i = 0; i < cantidadSalas; i++) {
+        Sala sala = archivoSalas.Leer(i);
+
+        int idSala = sala.getIdSala();
+        int butacasTotales = sala.getButacasTotales();
+
+        int totalButacasOcupadas = 0;
+        int cantidadFuncionesSala = 0;
+
+        for (int j = 0; j < archivoFunciones.CantidadRegistros(); j++) {
+            Funcion funcion = archivoFunciones.Leer(j);
+            if (funcion.getIdSala() == idSala && funcion.getFechaFuncion().getAnio() == anioAConsultar) {
+
+                totalButacasOcupadas += (butacasTotales - funcion.getButacasDisponibles());
+                cantidadFuncionesSala++;
+            }
+        }
+
+        if (cantidadFuncionesSala > 0) {
+            float porcentajeOcupacionSala = ((float)totalButacasOcupadas /
+                                             (cantidadFuncionesSala * butacasTotales)) * 100;
+            cout << "Sala " << idSala << ": " << fixed << setprecision(2) << porcentajeOcupacionSala << "%" << endl;
+        } else {
+            cout << "Sala " << idSala << ": Sin funciones en el año " << anioAConsultar << endl;
+        }
+    }
 }
 
 bool ManagerInformes::validarNumero(int input, int minimo, int maximo) {

@@ -8,6 +8,8 @@ public:
     void recaudacionAnual();
     void recaudacionPorSala();
     void porcentajeMiembros();
+    //void miembrosMasFrecuentes();
+    void ocupacionPromedioSala();
 
     bool validarNumero(int input, int minimo, int maximo);
 };

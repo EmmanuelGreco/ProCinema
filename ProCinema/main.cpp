@@ -243,7 +243,7 @@ int main() {
                 cout << "MIEMBROS MAS FRECUENTES" << endl;
                 break;
             case 5:
-                cout << "OCUPACION PROMEDIO" << endl;
+                managerInformes.ocupacionPromedioSala();
                 break;
             case 6:
                 cout << "FUNCIONES CON MENOR OCUPACION" << endl;
@@ -349,7 +349,7 @@ int main() {
             break;
         }
 
-
+        cout << endl;
         system("pause");
         system("cls");
 

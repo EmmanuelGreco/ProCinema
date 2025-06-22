@@ -190,7 +190,7 @@ void Menu::informes() {
     cout << "--------------------- Informes --------------------" << endl;
     cout << "1.  Top X Películas del Año" << endl;
     cout << "2.  Recaudación Total..." << endl;
-    cout << "3.  Porcentaje de Compras de Miembros" << endl;
+    cout << "3.  Porcentaje de Compras de Tipos de Membresías" << endl;
     cout << "4.  Miembros más Frecuentes" << endl;
     cout << "5.  Ocupación Promedio por Sala" << endl;
     cout << "6.  Funciones con Menor Ocupación" << endl;
