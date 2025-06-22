@@ -17,7 +17,7 @@ void Menu::recibirOpcion(int maximo) {
     cin >> input;
 
     while (!opcionValida(input, maximo)) {
-        cout << "Ingrese una opción válida: ";
+        cout << "Error! Ingrese una Opción válida: ";
         cin >> input;
     }
     setOpcion(input);
@@ -45,7 +45,7 @@ void Menu::principal() {
     cout << "5.  Configuración..." << endl;
     cout << "0.  Salir del programa... " << endl;
     cout << "---------------------------------------------------" << endl;
-    cout << "Ingrese la opción elegida: ";
+    cout << "Ingrese la Opción elegida: ";
     recibirOpcion(5);
     system("cls");
 }
@@ -62,7 +62,7 @@ void Menu::ventas() {
     cout << "5.  Buscar Ventas por..." << endl;
     cout << "0.  Volver al menú principal... " << endl;
     cout << "---------------------------------------------------" << endl;
-    cout << "Ingrese la opción elegida: ";
+    cout << "Ingrese la Opción elegida: ";
     recibirOpcion(5);
     system("cls");
 }
@@ -79,7 +79,7 @@ void Menu::BuscarVentasPor() {
     cout << "5.  Fecha de Venta" << endl;
     cout << "0.  Volver atrás... " << endl;
     cout << "---------------------------------------------------" << endl;
-    cout << "Ingrese la opción elegida: ";
+    cout << "Ingrese la Opción elegida: ";
     recibirOpcion(5);
     system("cls");
 }
@@ -96,7 +96,7 @@ void Menu::peliculas() {
     cout << "5.  Buscar Películas por..." << endl;
     cout << "0.  Volver al menú principal... " << endl;
     cout << "---------------------------------------------------" << endl;
-    cout << "Ingrese la opción elegida: ";
+    cout << "Ingrese la Opción elegida: ";
     recibirOpcion(5);
     system("cls");
 }
@@ -111,7 +111,7 @@ void Menu::listarPeliculasPor() {
     cout << "3.  Películas FUERA DE CARTELERA" << endl;
     cout << "0.  Volver atrás... " << endl;
     cout << "---------------------------------------------------" << endl;
-    cout << "Ingrese la opción elegida: ";
+    cout << "Ingrese la Opción elegida: ";
     recibirOpcion(3);
     system("cls");
 }
@@ -129,7 +129,7 @@ void Menu::BuscarPeliculasPor() {
     cout << "6.  Fecha de Estreno" << endl;
     cout << "0.  Volver atrás... " << endl;
     cout << "---------------------------------------------------" << endl;
-    cout << "Ingrese la opción elegida: ";
+    cout << "Ingrese la Opción elegida: ";
     recibirOpcion(6);
     system("cls");
 }
@@ -146,7 +146,7 @@ void Menu::funciones() {
     cout << "5.  Buscar Funciones por..." << endl;
     cout << "0.  Volver al menú principal... " << endl;
     cout << "---------------------------------------------------" << endl;
-    cout << "Ingrese la opción elegida: ";
+    cout << "Ingrese la Opción elegida: ";
     recibirOpcion(5);
     system("cls");
 }
@@ -162,7 +162,7 @@ void Menu::ListarFuncionPor() {
     cout << "4.  Funciones FUERA DE CARTELERA" << endl;
     cout << "0.  Volver atrás... " << endl;
     cout << "---------------------------------------------------" << endl;
-    cout << "Ingrese la opción elegida: ";
+    cout << "Ingrese la Opción elegida: ";
     recibirOpcion(4);
     system("cls");
 }
@@ -178,7 +178,7 @@ void Menu::BuscarFuncionPor() {
     cout << "4.  Fecha de la Función" << endl;
     cout << "0.  Volver atrás... " << endl;
     cout << "---------------------------------------------------" << endl;
-    cout << "Ingrese la opción elegida: ";
+    cout << "Ingrese la Opción elegida: ";
     recibirOpcion(4);
     system("cls");
 }
@@ -196,7 +196,7 @@ void Menu::informes() {
     cout << "6.  Funciones con Ocupación Menor al 50%" << endl;
     cout << "0.  Volver al menú principal... " << endl;
     cout << "---------------------------------------------------" << endl;
-    cout << "Ingrese la opción elegida: ";
+    cout << "Ingrese la Opción elegida: ";
     recibirOpcion(6);
     system("cls");
 }
@@ -211,7 +211,7 @@ void Menu::RecaudacionTotalPor() {
     cout << "3.  Sala" << endl;
     cout << "0.  Volver atrás... " << endl;
     cout << "---------------------------------------------------" << endl;
-    cout << "Ingrese la opción elegida: ";
+    cout << "Ingrese la Opción elegida: ";
     recibirOpcion(3);
     system("cls");
 }
@@ -225,7 +225,7 @@ void Menu::configuracion() {
     cout << "2.  Membresías..." << endl;
     cout << "0.  Volver al menú principal... " << endl;
     cout << "---------------------------------------------------" << endl;
-    cout << "Ingrese la opción elegida: ";
+    cout << "Ingrese la Opción elegida: ";
     recibirOpcion(2);
     system("cls");
 }
@@ -251,7 +251,7 @@ void Menu::listarSalasPor() {
     cout << "3.  Salas FUERA DE SERVICIO" << endl;
     cout << "0.  Volver atrás... " << endl;
     cout << "---------------------------------------------------" << endl;
-    cout << "Ingrese la opción elegida: ";
+    cout << "Ingrese la Opción elegida: ";
     recibirOpcion(3);
     system("cls");
 }
@@ -277,7 +277,7 @@ void Menu::listarMembresiasPor() {
     cout << "3.  Membresías PAUSADAS" << endl;
     cout << "0.  Volver atrás... " << endl;
     cout << "---------------------------------------------------" << endl;
-    cout << "Ingrese la opción elegida: ";
+    cout << "Ingrese la Opción elegida: ";
     recibirOpcion(3);
     system("cls");
 }
@@ -289,5 +289,5 @@ void Menu::configuracionOpciones(string queMenuEs) {
     cout << "4.  Modificar una " << queMenuEs << endl;
     cout << "0.  Volver atrás... " << endl;
     cout << "---------------------------------------------------" << endl;
-    cout << "Ingrese la opción elegida: ";
+    cout << "Ingrese la Opción elegida: ";
 }

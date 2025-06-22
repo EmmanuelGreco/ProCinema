@@ -67,7 +67,7 @@ void ManagerInformes::topCinco() {
     }
 
 
-    cout << "Top 5 peliculas mas taquilleras de la historia:" << endl;
+    cout << "Top 5 peliculas mas taquilleras de la historia:" << endl << endl;
     if (cantidadPeliculas < 5) {
         for (int i = 0; i < cantidadPeliculas; i++) {
             cout << i + 1 << ". ";
@@ -119,7 +119,7 @@ void ManagerInformes::recaudacionPorPelicula() {
         }
     }
 
-    cout << "Recaudacion por pelicula:" << endl;
+    cout << "Recaudacion por pelicula:" << endl << endl;
     for (int i = 0; i < cantidadPeliculas; i++) {
         cout << "ID: " << i + 1 << " - ";
         cout << archivoPeliculas.Leer(idsPeliculas[i]).getTitulo() << " - ";
@@ -320,11 +320,11 @@ void ManagerInformes::ocupacionPromedioSala() {
         }
 
         if (cantidadFuncionesSala > 0) {
-            float porcentajeOcupacionSala = ((float)totalButacasOcupadas /
-                                             (cantidadFuncionesSala * butacasTotales)) * 100;
-            cout << "Sala " << idSala << ": " << fixed << setprecision(2) << porcentajeOcupacionSala << "%" << endl;
+            float porcentajeOcupacionSala = ((float)totalButacasOcupadas * 100) /
+                                             (cantidadFuncionesSala * butacasTotales);
+            cout << "Sala " << idSala+1 << ": " << fixed << setprecision(2) << porcentajeOcupacionSala << "%" << endl;
         } else {
-            cout << "Sala " << idSala << ": Sin funciones en el año " << anioAConsultar << endl;
+            cout << "Sala " << idSala+1 << ": Sin funciones en el año " << anioAConsultar << endl;
         }
     }
 }
@@ -368,9 +368,9 @@ void ManagerInformes::ocupacionMenorFunciones() {
             int butacasDisponibles = funcion.getButacasDisponibles();
 
             if (butacasTotales > 0) {
-                float porcentajeOcupacion = ((float)(butacasTotales - butacasDisponibles) / butacasTotales) * 100;
+                float porcentajeOcupacion = ((float)(butacasTotales - butacasDisponibles) *100)/ butacasTotales;
 
-                if (porcentajeOcupacion < 50.0f) {
+                if (porcentajeOcupacion < 50) {
                     idFunMenorOcupacion[cantFunMenorOcupacion] = funcion.getIdFuncion();
                     porcenFunMenorOcupacion[cantFunMenorOcupacion] = porcentajeOcupacion;
                     cantFunMenorOcupacion++;

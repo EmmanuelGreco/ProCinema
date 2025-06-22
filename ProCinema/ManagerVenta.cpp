@@ -140,7 +140,7 @@ void ManagerVenta::modificarVenta() {
         return;
     }
     venta = archivoVentas.Leer(posicionAModificar);
-    cout << "1. Modificar ID de función: " << venta.getIdFuncion() << endl;
+    cout << "1. Modificar ID de función: " << venta.getIdFuncion()+1 << endl;
     cout << "2. Modificar ID de miembro: " << venta.getIdMembresia() << endl;
     cout << "3. Modificar Cantidad de Entradas: " << venta.getCantidadEntradas() << endl;
     cout << "Elija una Opción: ";

@@ -32,314 +32,323 @@ int main() {
 
     while(true) {
         menu.principal();
+
         switch(menu.getOpcion()) {
         ///1. VENTAS
-        case 1:
-            menu.ventas();
-            switch(menu.getOpcion()) {
-            case 1:
-                managerVenta.cargarVenta();
-                break;
-            case 2:
-                managerVenta.cambiarEstadoVenta();
-                break;
-            case 3:
-                managerVenta.modificarVenta();
-                break;
-            case 4:
-                managerVenta.listarVentas();
-                break;
-            case 5:
-                menu.BuscarVentasPor();
-                switch(menu.getOpcion()) {
-                case 1:
-                    managerVenta.buscarPorId();
+        case 1: {
+        int opcionVentas, opcionBuscarVentas;
+
+            while(true) {
+                menu.ventas();
+                opcionVentas = menu.getOpcion();
+
+                switch(opcionVentas) {
+                case 1: managerVenta.cargarVenta(); system("pause");
                     break;
-                case 2:
-                    managerVenta.buscarPorFuncion();
+                case 2: managerVenta.cambiarEstadoVenta(); system("pause");
                     break;
-                case 3:
-                    managerVenta.buscarPorDNI();
+                case 3: managerVenta.modificarVenta(); system("pause");
                     break;
-                case 4:
-                    managerVenta.buscarPorMiembro();
+                case 4: managerVenta.listarVentas(); system("pause");
                     break;
                 case 5:
-                    managerVenta.buscarPorFecha();
+                    menu.BuscarVentasPor();
+                    opcionBuscarVentas = menu.getOpcion();
+
+                    switch(opcionBuscarVentas) {
+                    case 1: managerVenta.buscarPorId(); system("pause");
+                        break;
+                    case 2: managerVenta.buscarPorFuncion(); system("pause");
+                        break;
+                    case 3: managerVenta.buscarPorDNI(); system("pause");
+                        break;
+                    case 4: managerVenta.buscarPorMiembro(); system("pause");
+                        break;
+                    case 5: managerVenta.buscarPorFecha(); system("pause");
+                        break;
+                    case 0: // "VOLVER AL MENU VENTAS"
+                        break;
+                    }
                     break;
-                case 0:
-                    cout << "VOLVER AL MENU PRINCIPAL" << endl;
+                case 0: // "VOLVER AL MENU PRINCIPAL"
                     break;
                 }
-                break;
-            case 0:
-                cout << "VOLVER AL MENU PRINCIPAL" << endl;
-                break;
+                if(opcionVentas == 0) break;
             }
             break;
+        }
 
 
+        ///2. PELÍCULAS
+        case 2: {
+            int opcionPeliculas, opcionBuscarPeliculas, opcionListarPeliculas;
+            while(true) {
+                menu.peliculas();
+                opcionPeliculas = menu.getOpcion();
 
+                switch(opcionPeliculas) {
+                case 1: managerPelicula.cargarPelicula(); system("pause");
+                    break;
+                case 2: managerPelicula.cambiarEstadoPelicula(); system("pause");
+                    break;
+                case 3: managerPelicula.modificarPelicula(); system("pause");
+                    break;
+                case 4:
+                    menu.listarPeliculasPor();
+                    opcionListarPeliculas = menu.getOpcion();
 
-        ///2. PELICULAS
-        case 2:
-            menu.peliculas();
-            switch(menu.getOpcion()) {
-            case 1:
-                managerPelicula.cargarPelicula();
-                break;
-            case 2:
-                managerPelicula.cambiarEstadoPelicula();
-                break;
-            case 3:
-                managerPelicula.modificarPelicula();
-                break;
-            case 4:
-                menu.listarPeliculasPor();
-                switch(menu.getOpcion()) {
-                    case 1:
-                        managerPelicula.listarPeliculas();
+                    switch(opcionListarPeliculas) {
+                    case 1: managerPelicula.listarPeliculas(); system("pause");
                         break;
                     case 2: {
                         bool activas = true;
-                        managerPelicula.listarPeliculasActivas(activas);
+                        managerPelicula.listarPeliculasActivas(activas); system("pause");
                         break;
                     }
                     case 3: {
                         bool activas = false;
-                        managerPelicula.listarPeliculasActivas(activas);
+                        managerPelicula.listarPeliculasActivas(activas); system("pause");
                         break;
                     }
-                    case 0:
-                        cout << "VOLVER AL MENU PRINCIPAL" << endl;
+                    case 0: // "VOLVER AL MENU PELÍCULAS"
                         break;
                     }
-                break;
-            case 5:
-                menu.BuscarPeliculasPor();
-                switch(menu.getOpcion()) {
-                case 1:
-                    managerPelicula.buscarPorId();
-                    break;
-                case 2:
-                    managerPelicula.buscarPorTitulo();
-                    break;
-                case 3:
-                    managerPelicula.buscarPorGenero();
-                    break;
-                case 4:
-                    managerPelicula.buscarPorApellidoDirector();
                     break;
                 case 5:
-                    managerPelicula.buscarPorClasificacion();
+                    menu.BuscarPeliculasPor();
+                    opcionBuscarPeliculas = menu.getOpcion();
+
+                    switch(opcionListarPeliculas) {
+                    case 1: managerPelicula.buscarPorId(); system("pause");
+                        break;
+                    case 2: managerPelicula.buscarPorTitulo(); system("pause");
+                        break;
+                    case 3: managerPelicula.buscarPorGenero(); system("pause");
+                        break;
+                    case 4: managerPelicula.buscarPorApellidoDirector(); system("pause");
+                        break;
+                    case 5: managerPelicula.buscarPorClasificacion(); system("pause");
+                        break;
+                    case 6: managerPelicula.buscarPorFechaEstreno(); system("pause");
+                        break;
+                    case 0: // "VOLVER AL MENU PELÍCULAS"
+                        break;
+                    }
                     break;
-                case 6:
-                    managerPelicula.buscarPorFechaEstreno();
-                    break;
-                case 0:
-                    cout << "VOLVER AL MENU PRINCIPAL" << endl;
+                case 0: // "VOLVER AL MENU PRINCIPAL"
                     break;
                 }
-                break;
-            case 0:
-                cout << "VOLVER AL MENU PRINCIPAL" << endl;
-                break;
+                if(opcionPeliculas == 0) break;
             }
             break;
+        }
 
 
         ///3. FUNCIONES
-        case 3:
-            menu.funciones();
-            switch(menu.getOpcion()) {
-            case 1:
-                managerFuncion.cargarFuncion();
-                break;
-            case 2:
-                managerFuncion.cambiarEstadoFuncion();
-                break;
-            case 3:
-                managerFuncion.modificarFuncion();
-                break;
-            case 4:
-                menu.ListarFuncionPor();
-                switch(menu.getOpcion()) {
-                case 1:
-                    managerFuncion.listarFunciones();
+        case 3: {
+            int opcionFunciones, opcionBuscarFunciones, opcionListarFunciones;
+
+            while(true) {
+                menu.funciones();
+                opcionFunciones = menu.getOpcion();
+
+                switch(opcionFunciones) {
+                case 1: managerFuncion.cargarFuncion(); system("pause");
                     break;
-                case 2: {
-                    bool activas = true;
-                    managerFuncion.listarFuncionesActivas(activas);
+                case 2: managerFuncion.cambiarEstadoFuncion(); system("pause");
                     break;
-                }
-                case 3:
-                    managerFuncion.listarFuncionesAgotadas();
-                    break;
-                case 4: {
-                    bool activas = false;
-                    managerFuncion.listarFuncionesActivas(activas);
-                    break;
-                }
-                case 0:
-                    cout << "VOLVER AL MENU PRINCIPAL" << endl;
-                    break;
-                }
-                break;
-            case 5:
-                menu.BuscarFuncionPor();
-                switch(menu.getOpcion()) {
-                case 1:
-                    managerFuncion.buscarPorId();
-                    break;
-                case 2:
-                    managerFuncion.buscarPorTituloPelicula();
-                    break;
-                case 3:
-                    managerFuncion.buscarPorNumeroSala();
+                case 3: managerFuncion.modificarFuncion(); system("pause");
                     break;
                 case 4:
-                    managerFuncion.buscarPorFechaFuncion();
+                    menu.ListarFuncionPor();
+                    opcionListarFunciones = menu.getOpcion();
+
+                    switch(opcionListarFunciones) {
+                    case 1: managerFuncion.listarFunciones(); system("pause");
+                        break;
+                    case 2: {
+                        bool activas = true;
+                        managerFuncion.listarFuncionesActivas(activas); system("pause");
+                        break;
+                    }
+                    case 3: managerFuncion.listarFuncionesAgotadas(); system("pause");
+                        break;
+                    case 4: {
+                        bool activas = false;
+                        managerFuncion.listarFuncionesActivas(activas); system("pause");
+                        break;
+                    }
+                    case 0: // "VOLVER AL MENU FUNCIONES"
+                        break;
+                    }
                     break;
-                case 0:
-                    cout << "VOLVER AL MENU PRINCIPAL" << endl;
+                case 5:
+                    menu.BuscarFuncionPor();
+                    opcionBuscarFunciones = menu.getOpcion();
+
+                    switch(opcionBuscarFunciones) {
+                    case 1: managerFuncion.buscarPorId(); system("pause");
+                        break;
+                    case 2: managerFuncion.buscarPorTituloPelicula(); system("pause");
+                        break;
+                    case 3: managerFuncion.buscarPorNumeroSala(); system("pause");
+                        break;
+                    case 4: managerFuncion.buscarPorFechaFuncion(); system("pause");
+                        break;
+                    case 0: // "VOLVER AL MENU FUNCIONES"
+                        break;
+                    }
+                    break;
+                case 0: // "VOLVER AL MENU PRINCIPAL"
                     break;
                 }
-                break;
-            case 0:
-                cout << "VOLVER AL MENU PRINCIPAL" << endl;
-                break;
+                if(opcionFunciones == 0) break;
             }
             break;
+        }
 
 
         ///4. INFORMES
-        case 4:
-            menu.informes();
-            switch(menu.getOpcion()) {
-            case 1:
-                managerInformes.topCinco();
-                break;
-            case 2:
-                menu.RecaudacionTotalPor();
-                switch(menu.getOpcion()) {
-                case 1:
-                    managerInformes.recaudacionPorPelicula();
+        case 4: {
+            int opcionInformes, opcionInformesRecaudacion;
+
+            while(true) {
+                menu.informes();
+                opcionInformes = menu.getOpcion();
+
+                switch(opcionInformes) {
+                case 1: managerInformes.topCinco(); system("pause");
                     break;
                 case 2:
-                    managerInformes.recaudacionAnual();
+                    menu.RecaudacionTotalPor();
+                    opcionInformesRecaudacion = menu.getOpcion();
+
+                    switch(opcionInformesRecaudacion) {
+                    case 1: managerInformes.recaudacionPorPelicula(); system("pause");
+                        break;
+                    case 2: managerInformes.recaudacionAnual(); system("pause");
+                        break;
+                    case 3: managerInformes.recaudacionPorSala(); system("pause");
+                        break;
+                    case 0: // "VOLVER AL MENU INFORMES"
+                        break;
+                    }
                     break;
-                case 3:
-                    managerInformes.recaudacionPorSala();
+                case 3: managerInformes.porcentajeMiembros(); system("pause");
                     break;
-                case 0:
-                    cout << "VOLVER AL MENU PRINCIPAL" << endl;
+                case 4: cout << "MIEMBROS MAS FRECUENTES" << endl;
+                    break;
+                case 5: managerInformes.ocupacionPromedioSala(); system("pause");
+                    break;
+                case 6: managerInformes.ocupacionMenorFunciones(); system("pause");
+                    break;
+                case 0: // "VOLVER AL MENU PRINCIPAL"
                     break;
                 }
-                break;
-            case 3:
-                managerInformes.porcentajeMiembros();
-                break;
-            case 4:
-                cout << "MIEMBROS MAS FRECUENTES" << endl;
-                break;
-            case 5:
-                managerInformes.ocupacionPromedioSala();
-                break;
-            case 6:
-                managerInformes.ocupacionMenorFunciones();
-                break;
-            case 0:
-                cout << "VOLVER AL MENU PRINCIPAL" << endl;
-                break;
+                if(opcionInformes == 0) break;
             }
             break;
+        }
 
 
         ///5. CONFIG
-        case 5:
-            menu.configuracion();
-            switch(menu.getOpcion()) {
-            case 1:
-                menu.configuracionSalas();
-                switch(menu.getOpcion()) {
+        case 5: {
+            int opcionConfig;
+
+            while(true) {
+                menu.configuracion();
+                opcionConfig = menu.getOpcion();
+
+                int opcionSalas, opcionListarSalas;
+                switch(opcionConfig) {
                 case 1:
-                    menu.listarSalasPor();
-                    switch(menu.getOpcion()) {
-                    case 1:
-                        managerSala.listarSalas();
-                        break;
-                    case 2: {
-                        bool activas = true;
-                        managerSala.listarSalasActivas(activas);
-                        break;
-                    }
-                    case 3: {
-                        bool activas = false;
-                        managerSala.listarSalasActivas(activas);
-                        break;
-                    }
-                    case 0:
-                        cout << "VOLVER AL MENU PRINCIPAL" << endl;
-                        break;
+                    while(true) {
+                        menu.configuracionSalas();
+                        opcionSalas = menu.getOpcion();
+
+                        switch(opcionSalas) {
+                        case 1:
+                            menu.listarSalasPor();
+                            opcionListarSalas = menu.getOpcion();
+
+                            switch(opcionListarSalas) {
+                            case 1: managerSala.listarSalas(); system("pause");
+                                break;
+                            case 2: {
+                                bool activas = true;
+                                managerSala.listarSalasActivas(activas); system("pause");
+                                break;
+                            }
+                            case 3: {
+                                bool activas = false;
+                                managerSala.listarSalasActivas(activas); system("pause");
+                                break;
+                            }
+                            case 0: // "VOLVER AL MENU SALAS"
+                                break;
+                            }
+                            break;
+                        case 2: managerSala.cargarSala(); system("pause");
+                            break;
+                        case 3: managerSala.cambiarEstadoSala(); system("pause");
+                            break;
+                        case 4: managerSala.modificarSala(); system("pause");
+                            break;
+                        case 0: // "VOLVER AL MENU CONFIGURACION"
+                            break;
+                        }
+                        if(opcionSalas == 0) break;
                     }
                     break;
+
+                int opcionMembresias, opcionListarMembresias;
                 case 2:
-                    managerSala.cargarSala();
+                    while(true) {
+                        menu.configuracionMembresias();
+                        opcionMembresias = menu.getOpcion();
+
+                        switch(opcionMembresias) {
+                        case 1:
+                            menu.listarMembresiasPor();
+                            opcionListarMembresias = menu.getOpcion();
+
+                            switch(opcionListarMembresias) {
+                            case 1: managerMembresia.listarMembresias(); system("pause");
+                                break;
+                            case 2: {
+                                bool activas = true;
+                                managerMembresia.listarMembresiasActivas(activas); system("pause");
+                                break;
+                            }
+                            case 3: {
+                                bool activas = false;
+                                managerMembresia.listarMembresiasActivas(activas); system("pause");
+                                break;
+                            }
+                            case 0: // "VOLVER AL MENU SALAS"
+                                break;
+                            }
+                            break;
+                        case 2: managerMembresia.cargarMembresia(); system("pause");
+                            break;
+                        case 3: managerMembresia.cambiarEstadoMembresia(); system("pause");
+                            break;
+                        case 4: managerMembresia.modificarMembresia(); system("pause");
+                            break;
+                        case 0: // "VOLVER AL MENU CONFIGURACION"
+                            break;
+                        }
+                        if(opcionMembresias == 0) break;
+                    }
                     break;
-                case 3:
-                    managerSala.cambiarEstadoSala();
-                    break;
-                case 4:
-                    managerSala.modificarSala();
-                    break;
-                case 0:
-                    cout << "VOLVER AL MENU PRINCIPAL" << endl;
+                case 0: // "VOLVER AL MENU PRINCIPAL"
                     break;
                 }
-                break;
-            case 2:
-                menu.configuracionMembresias();
-                switch(menu.getOpcion()) {
-                case 1:
-                    menu.listarMembresiasPor();
-                    switch(menu.getOpcion()) {
-                    case 1:
-                        managerMembresia.listarMembresias();
-                        break;
-                    case 2: {
-                        bool activas = true;
-                        managerMembresia.listarMembresiasActivas(activas);
-                        break;
-                    }
-                    case 3: {
-                        bool activas = false;
-                        managerMembresia.listarMembresiasActivas(activas);
-                        break;
-                    }
-                    case 0:
-                        cout << "VOLVER AL MENU PRINCIPAL" << endl;
-                        break;
-                    }
-                    break;
-                case 2:
-                    managerMembresia.cargarMembresia();
-                    break;
-                case 3:
-                    managerMembresia.cambiarEstadoMembresia();
-                    break;
-                case 4:
-                    managerMembresia.modificarMembresia();
-                    break;
-                case 0:
-                    cout << "VOLVER AL MENU PRINCIPAL" << endl;
-                    break;
-                }
-                break;
-            case 0:
-                cout << "VOLVER AL MENU PRINCIPAL" << endl;
-                break;
+                if(opcionConfig == 0) break;
             }
             break;
+        }
+
 
         ///0. SALIR
         case 0:
@@ -350,7 +359,7 @@ int main() {
         }
 
         cout << endl;
-        system("pause");
+        //system("pause");
         system("cls");
 
     }

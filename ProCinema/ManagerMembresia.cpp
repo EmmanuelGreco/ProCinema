@@ -95,11 +95,11 @@ void ManagerMembresia::modificarMembresia() {
 
     cout << "Ingrese el ID de la Membresía a Modificar: ";
     cin >> idMembresia;
-    idMembresia -= 1;
+    //idMembresia -= 1;
     while (!validarNumero(idMembresia, 0)) {
         cout << "Error! Ingrese un ID válido: ";
         cin >> idMembresia;
-        idMembresia -= 1;
+        //idMembresia -= 1;
     }
     posicion = archivoMembresias.Buscar(idMembresia);
     if (posicion == -1) {
@@ -188,10 +188,11 @@ void ManagerMembresia::cambiarEstadoMembresia() {
 
     cout << "Ingrese el ID de la Membresía a Dar de baja / Restaurar: ";
     cin >> idMembresia;
-    idMembresia -= 1;
+    //idMembresia -= 1;
     while (!validarNumero(idMembresia, 0)) {
         cout << "Error! Ingrese un ID válido: ";
         cin >> idMembresia;
+        //idMembresia -= 1;
     }
     posicion = archivoMembresias.Buscar(idMembresia);
     if (posicion == -1) {

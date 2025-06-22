@@ -115,7 +115,7 @@ std::string Membresia::mostrar() {
     else
         estado = "PAUSADA";
 
-    return "  ID de Membresía N°" + to_string(getIdMembresia()+1) + "\n" +
+    return "  ID de Membresía N°" + to_string(getIdMembresia()) + "\n" +
            "  Tipo de Membresía: " + to_string(getTipoMembresia()) + "\n" +
            "  Descuento de la Membresía: " + to_string(getDescuentoMembresia()) + "\n" +
            "  Nombre de la Membresía: " + getNombreMembresia() + "\n" +
