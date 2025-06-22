@@ -7,7 +7,7 @@ public:
     void listarFunciones();
     void listarFuncionesActivas(bool activas);
     void listarFuncionesAgotadas();
-    void listarFuncionesImprimir(Funcion funcion);
+    //void listarFuncionesImprimir(Funcion funcion);
     void modificarFuncion();
     void cambiarEstadoFuncion();
 

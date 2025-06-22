@@ -105,7 +105,7 @@ void ManagerFuncion::listarFuncionesActivas(bool activas) {
         funcion = archivoFunciones.Leer(i);
 
         if (funcion.getEstado() == activas) {
-            listarFuncionesImprimir(funcion);
+            cout << funcion.mostrar() << endl;
         }
     }
 }
@@ -118,12 +118,12 @@ void ManagerFuncion::listarFuncionesAgotadas() {
         funcion = archivoFunciones.Leer(i);
 
         if (funcion.getButacasDisponibles() <= 0) {
-            listarFuncionesImprimir(funcion);
+            cout << funcion.mostrar() << endl;
         }
     }
 }
 
-void ManagerFuncion::listarFuncionesImprimir(Funcion funcion) {
+/*void ManagerFuncion::listarFuncionesImprimir(Funcion funcion) {
     // Harcodeado
     int opcion = funcion.getIdiomaFuncion();
     string idiomaFuncion;
@@ -160,7 +160,7 @@ void ManagerFuncion::listarFuncionesImprimir(Funcion funcion) {
          "  Importe de la Función: $" + redondeoImporteFuncion.str() + "\n" +
          "  Estado de la Función: " + estado + "\n" +
          "===================================================" + "\n" ;
-}
+}*/
 
 void ManagerFuncion::modificarFuncion() {
     int id, posicion;
