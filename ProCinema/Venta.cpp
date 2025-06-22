@@ -101,7 +101,7 @@ std::string Venta::mostrar() {
         descuento = to_string(membresia.getDescuentoMembresia());
     }
 
-    return "  Venta N°" + to_string(getIdVenta()) + "\n" +
+    return "  Venta N°" + to_string(getIdVenta()+1) + "\n" +
            "  Fecha y hora de venta: " + getFechaVenta().toString(2) + "\n" +
            "  " + miembro + "\n" +
            "  " + pelicula.getTitulo() + " - " + funcion.getFechaFuncion().toString(1) + "\n" +

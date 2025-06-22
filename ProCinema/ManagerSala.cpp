@@ -13,19 +13,19 @@ void ManagerSala::cargarSala() {
     int idSala = archivoSalas.getUltimoId()+1, tipoSala, butacasTotales;
     bool estado = 1;
 
-    cout << "Id: " << idSala << endl;
+    cout << "ID: " << idSala << endl;
 
     cout << "Ingrese el tipo de Sala (1-Standard, 2-Premium, 3-3D, 4-4D, 5-IMAX): ";
     cin >> tipoSala;
     while (!validarNumero(tipoSala, 1, 5)) {
-        cout << "Ingrese un id válido: ";
+        cout << "Error! Ingrese un ID válido: ";
         cin >> tipoSala;
     }
 
     cout << "Ingrese la cantidad de Bucatas Totales: ";
     cin >> butacasTotales;
     while (!validarNumero(butacasTotales, 1)) {
-        cout << "Ingrese una cantidad válida: ";
+        cout << "Error! Ingrese una cantidad de Butacas válida: ";
         cin >> butacasTotales;
     }
 
@@ -58,47 +58,49 @@ void ManagerSala::listarSalasActivas(bool activas) {
 }
 
 void ManagerSala::modificarSala() {
-    int id, posicion;
+    int idSala, posicion;
 
-    cout << "Ingrese el Id de la Sala a Modificar: ";
-    cin >> id;
-    while (!validarNumero(id, 0)) {
-        cout << "Ingrese un id válido: ";
-        cin >> id;
+    cout << "Ingrese el ID de la Sala a Modificar: ";
+    cin >> idSala;
+    idSala -= 1;
+    while (!validarNumero(idSala, 0)) {
+        cout << "Error! Ingrese un ID válido: ";
+        cin >> idSala;
+        idSala -= 1;
     }
-    posicion = archivoSalas.Buscar(id);
+    posicion = archivoSalas.Buscar(idSala);
     if (posicion == -1) {
-        cout << "Id NO encontrado!";
+        cout << "ID NO encontrado!";
         return;
     }
     Sala sala = archivoSalas.Leer(posicion);
     cout << "1. " << sala.getTipoSala() << endl;
     cout << "2. " << sala.getButacasTotales() << endl;
     //cout << "0. Volver al menu " << endl;
-    cout << "Elija una opción: ";
+    cout << "Elija una Opción: ";
     int opcion;
     cin >> opcion;
     while (!validarNumero(opcion, 0)) {
-        cout << "Ingrese una opción válida: ";
+        cout << "Ingrese una Opción válida: ";
         cin >> opcion;
     }
 
     int num;
     switch(opcion) {
     case 1:
-        cout << "Elija el nuevo Tipo de Sala: ";
+        cout << "Elija el nuevo Tipo de Sala: (1-Standard, 2-Premium, 3-3D, 4-4D, 5-IMAX): ";
         cin >> num;
-        while (!validarNumero(num, 0)) {
-            cout << "Ingrese una opción válida: ";
+        while (!validarNumero(num, 1, 5)) {
+            cout << "Error! Ingrese una Opción válida (1-Standard, 2-Premium, 3-3D, 4-4D, 5-IMAX): : ";
             cin >> num;
         }
         sala.setTipoSala(num);
         break;
     case 2:
-        cout << "Elija la nueva Cantidad de Butacas: ";
+        cout << "Elija la nueva cantidad de Butacas: ";
         cin >> num;
         while (!validarNumero(num, 0)) {
-            cout << "Ingrese una cantidad válida: ";
+            cout << "Error! Ingrese una cantidad de Butacas válida: ";
             cin >> num;
         }
         sala.setButacasTotales(num);
@@ -109,15 +111,17 @@ void ManagerSala::modificarSala() {
 }
 
 void ManagerSala::cambiarEstadoSala() {
-    int id, posicion;
+    int idSala, posicion;
 
-    cout << "Ingrese el Id de la Sala a Dar de baja / Restaurar: ";
-    cin >> id;
-    while (!validarNumero(id, 0)) {
-        cout << "Ingrese un id válido: ";
-        cin >> id;
+    cout << "Ingrese el ID de la Sala a Dar de baja / Restaurar: ";
+    cin >> idSala;
+    idSala -= 1;
+    while (!validarNumero(idSala, 0)) {
+        cout << "Error! Ingrese un ID válido: ";
+        cin >> idSala;
+        idSala -= 1;
     }
-    posicion = archivoSalas.Buscar(id);
+    posicion = archivoSalas.Buscar(idSala);
     if (posicion == -1) {
         cout << "Id NO encontrado!";
         return;
@@ -135,7 +139,7 @@ void ManagerSala::cambiarEstadoSala() {
         archivoSalas.Modificar(sala, posicion);
         cout << "Modificado Exitosamente!";
     } else {
-        cout << "NO se ha modificado!";
+        cout << "NO se ha podido modificar!";
     }
     cout << endl;
 }

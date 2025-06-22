@@ -16,13 +16,13 @@ void ManagerMembresia::cargarMembresia() {
     bool estado = 1;
 
 
-    cout << "Id: " << idMembresia << endl;
+    cout << "ID: " << idMembresia << endl;
 
     cout << "Ingrese el Tipo de Membresía (1-Plus, 2-Premium, 3-VIP): ";
     //cin.ignore();
     cin >> tipoMembresia;
     while (!validarNumero(tipoMembresia, 1, 3)) {
-        cout << "Ingrese un tipo de membresía válido: ";
+        cout << "Error! Ingrese un tipo de Membresía válido: ";
         cin >> tipoMembresia;
     }
 
@@ -53,7 +53,7 @@ void ManagerMembresia::cargarMembresia() {
     cout << "Ingrese el DNI del Miembro: ";
     cin >> dniMiembro;
     while (!validarNumero(dniMiembro, 0)) {
-        cout << "Ingrese un DNI válido: ";
+        cout << "Error! Ingrese un DNI válido: ";
         cin >> dniMiembro;
     }
 
@@ -91,17 +91,19 @@ void ManagerMembresia::listarMembresiasActivas(bool activas) {
 }
 
 void ManagerMembresia::modificarMembresia() {
-    int id, posicion;
+    int idMembresia, posicion;
 
-    cout << "Ingrese el Id de la Membresía a Modificar: ";
-    cin >> id;
-    while (!validarNumero(id, 0)) {
-        cout << "Ingrese un id válido: ";
-        cin >> id;
+    cout << "Ingrese el ID de la Membresía a Modificar: ";
+    cin >> idMembresia;
+    idMembresia -= 1;
+    while (!validarNumero(idMembresia, 0)) {
+        cout << "Error! Ingrese un ID válido: ";
+        cin >> idMembresia;
+        idMembresia -= 1;
     }
-    posicion = archivoMembresias.Buscar(id);
+    posicion = archivoMembresias.Buscar(idMembresia);
     if (posicion == -1) {
-        cout << "Id no encontrado!";
+        cout << "ID NO encontrado!";
         return;
     }
     Membresia membresia = archivoMembresias.Leer(posicion);
@@ -111,11 +113,11 @@ void ManagerMembresia::modificarMembresia() {
     cout << "4. " << membresia.getDniMiembro() << endl;
     cout << "5. " << membresia.getEmailMiembro() << endl;
     //cout << "0. Volver al menu " << endl;
-    cout << "Elija una opción: ";
+    cout << "Elija una Opción: ";
     int opcion;
     cin >> opcion;
     while (!validarNumero(opcion, 1, 5)) {
-        cout << "Ingrese una opcion válida: ";
+        cout << "Error! Ingrese una Opcion válida: ";
         cin >> opcion;
     }
 
@@ -127,7 +129,7 @@ void ManagerMembresia::modificarMembresia() {
         cout << "Ingrese el nuevo Tipo de Membresía (1-Plus, 2-Premium, 3-VIP): ";
         cin >> tipoMembresia;
         while (!validarNumero(tipoMembresia, 1, 3)) {
-            cout << "Ingrese un tipo de membresía válido: ";
+            cout << "Error! Ingrese un tipo de membresía válido: ";
             cin >> tipoMembresia;
         }
 
@@ -165,7 +167,7 @@ void ManagerMembresia::modificarMembresia() {
         cout << "Elija el nuevo DNI del Miembro: ";
         cin >> num;
         while (!validarNumero(num, 0)) {
-            cout << "Ingrese un DNI válido: ";
+            cout << "Error! Ingrese un DNI válido: ";
             cin >> num;
         }
         membresia.setDniMiembro(num);
@@ -182,17 +184,18 @@ void ManagerMembresia::modificarMembresia() {
 }
 
 void ManagerMembresia::cambiarEstadoMembresia() {
-    int id, posicion;
+    int idMembresia, posicion;
 
-    cout << "Ingrese el Id de la Membresía a Dar de baja / Restaurar: ";
-    cin >> id;
-    while (!validarNumero(id, 0)) {
-        cout << "Ingrese un id válido: ";
-        cin >> id;
+    cout << "Ingrese el ID de la Membresía a Dar de baja / Restaurar: ";
+    cin >> idMembresia;
+    idMembresia -= 1;
+    while (!validarNumero(idMembresia, 0)) {
+        cout << "Error! Ingrese un ID válido: ";
+        cin >> idMembresia;
     }
-    posicion = archivoMembresias.Buscar(id);
+    posicion = archivoMembresias.Buscar(idMembresia);
     if (posicion == -1) {
-        cout << "Id NO encontrado!";
+        cout << "ID NO encontrado!";
         return;
     }
     Membresia membresia = archivoMembresias.Leer(posicion);
@@ -208,7 +211,7 @@ void ManagerMembresia::cambiarEstadoMembresia() {
         archivoMembresias.Modificar(membresia, posicion);
         cout << "Modificado Exitosamente!";
     } else {
-        cout << "NO se ha modificado!";
+        cout << "NO se ha podido modificar!";
     }
     cout << endl;
 }
