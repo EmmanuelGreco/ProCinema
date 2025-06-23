@@ -425,44 +425,44 @@ int main() {
                                     break;
                                 }
                                 break;
-                            case 3:
-                                menu.archivosCSVBackUp();
-                                opcionArchivosCSV = menu.getOpcion();
-
-                                switch(opcionArchivosCSV) {
-                                case 1: managerArchivoCSV.backupPeliculasCSV(); system("pause");
-                                    break;
-                                case 2: managerArchivoCSV.backupSalasCSV(); system("pause");
-                                    break;
-                                case 3: managerArchivoCSV.backupFuncionesCSV(); system("pause");
-                                    break;
-                                case 4: managerArchivoCSV.backupMembresiasCSV(); system("pause");
-                                    break;
-                                case 5: managerArchivoCSV.backupVentasCSV(); system("pause");
-                                    break;
-                                case 0: // "VOLVER AL MENU ARCHIVOS CSV"
-                                    break;
-                                }
-                                break;
-                            case 4:
-                                menu.archivosCSVRestaurar();
-                                opcionArchivosCSV = menu.getOpcion();
-
-                                switch(opcionArchivosCSV) {
-                                case 1: managerArchivoCSV.restaurarPeliculasCSV(); system("pause");
-                                    break;
-                                case 2: managerArchivoCSV.restaurarSalasCSV(); system("pause");
-                                    break;
-                                case 3: managerArchivoCSV.restaurarFuncionesCSV(); system("pause");
-                                    break;
-                                case 4: managerArchivoCSV.restaurarMembresiasCSV(); system("pause");
-                                    break;
-                                case 5: managerArchivoCSV.restaurarVentasCSV(); system("pause");
-                                    break;
-                                case 0: // "VOLVER AL MENU ARCHIVOS CSV"
-                                    break;
-                                }
-                                break;
+//                            case 3:
+//                                menu.archivosCSVBackUp();
+//                                opcionArchivosCSV = menu.getOpcion();
+//
+//                                switch(opcionArchivosCSV) {
+//                                case 1: managerArchivoCSV.backupPeliculasCSV(); system("pause");
+//                                    break;
+//                                case 2: managerArchivoCSV.backupSalasCSV(); system("pause");
+//                                    break;
+//                                case 3: managerArchivoCSV.backupFuncionesCSV(); system("pause");
+//                                    break;
+//                                case 4: managerArchivoCSV.backupMembresiasCSV(); system("pause");
+//                                    break;
+//                                case 5: managerArchivoCSV.backupVentasCSV(); system("pause");
+//                                    break;
+//                                case 0: // "VOLVER AL MENU ARCHIVOS CSV"
+//                                    break;
+//                                }
+//                                break;
+//                            case 4:
+//                                menu.archivosCSVRestaurar();
+//                                opcionArchivosCSV = menu.getOpcion();
+//
+//                                switch(opcionArchivosCSV) {
+//                                case 1: managerArchivoCSV.restaurarPeliculasCSV(); system("pause");
+//                                    break;
+//                                case 2: managerArchivoCSV.restaurarSalasCSV(); system("pause");
+//                                    break;
+//                                case 3: managerArchivoCSV.restaurarFuncionesCSV(); system("pause");
+//                                    break;
+//                                case 4: managerArchivoCSV.restaurarMembresiasCSV(); system("pause");
+//                                    break;
+//                                case 5: managerArchivoCSV.restaurarVentasCSV(); system("pause");
+//                                    break;
+//                                case 0: // "VOLVER AL MENU ARCHIVOS CSV"
+//                                    break;
+//                                }
+//                                break;
                             case 0: // "VOLVER AL MENU CONFIGURACIÓN"
                                 break;
                             }

@@ -75,13 +75,6 @@ void ManagerArchivoCSV::cargarPeliculasCSV() {
     }
 }
 
-void ManagerArchivoCSV::backupPeliculasCSV() {
-}
-
-void ManagerArchivoCSV::restaurarPeliculasCSV() {
-}
-
-
 void ManagerArchivoCSV::leerSalasCSV() {
     ArchivoSala archivoSalas("salas.dat");
     int cantidadRegistros = archivoSalas.CantidadRegistros();
@@ -124,13 +117,6 @@ void ManagerArchivoCSV::cargarSalasCSV() {
         }
     }
 }
-
-void ManagerArchivoCSV::backupSalasCSV() {
-}
-
-void ManagerArchivoCSV::restaurarSalasCSV() {
-}
-
 
 void ManagerArchivoCSV::leerFuncionesCSV() {
     ArchivoFuncion archivoFunciones("funciones.dat");
@@ -202,14 +188,6 @@ void ManagerArchivoCSV::cargarFuncionesCSV() {
     }
 }
 
-
-void ManagerArchivoCSV::backupFuncionesCSV() {
-}
-
-void ManagerArchivoCSV::restaurarFuncionesCSV() {
-}
-
-
 void ManagerArchivoCSV::leerMembresiasCSV() {
     ArchivoMembresia archivoMembresias("membresias.dat");
     int cantidadRegistros = archivoMembresias.CantidadRegistros();
@@ -255,13 +233,6 @@ void ManagerArchivoCSV::cargarMembresiasCSV() {
         }
     }
 }
-
-void ManagerArchivoCSV::backupMembresiasCSV() {
-}
-
-void ManagerArchivoCSV::restaurarMembresiasCSV() {
-}
-
 
 void ManagerArchivoCSV::leerVentasCSV() {
     ArchivoVenta archivoVentas("ventas.dat");
@@ -329,10 +300,4 @@ void ManagerArchivoCSV::cargarVentasCSV() {
             cout << "Hubo un error inesperado, llame al de sistemas..." << endl;
         }
     }
-}
-
-void ManagerArchivoCSV::backupVentasCSV() {
-}
-
-void ManagerArchivoCSV::restaurarVentasCSV() {
 }
