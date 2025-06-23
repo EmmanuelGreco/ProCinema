@@ -100,38 +100,38 @@ string Fecha::toString(int opcion) {
 void Fecha::cargar(int opcion) {
     int dia = 1, mes = 1, anio = 1900;
     if (opcion == 1 || opcion == 2) {
-        cout << "Ingrese el Número de Día: ";
+        cout << "  Ingrese el Número de Día: ";
         cin >> dia;
         while (!validarNumero(dia, 1, 31)) {
-            cout << "Error! Ingrese un Número de Día válido: ";
+            cout << "  Error! Ingrese un Número de Día válido: ";
             cin >> dia;
         }
-        cout << "Ingrese el Número de Mes: ";
+        cout << "  Ingrese el Número de Mes: ";
         cin >> mes;
         while (!validarNumero(mes, 1, 12)) {
-            cout << "Error! Ingrese un Número de Mes válido: ";
+            cout << "  Error! Ingrese un Número de Mes válido: ";
             cin >> mes;
         }
-        cout << "Ingrese el Año: ";
+        cout << "  Ingrese el Año: ";
         cin >> anio;
         while (!validarNumero(anio, 0, 9999)) {
-            cout << "Error! Ingrese un Año válido: ";
+            cout << "  Error! Ingrese un Año válido: ";
             cin >> anio;
         }
     }
 
     int hora = 0, minuto = 0;
     if(opcion == 2 || opcion == 3) {
-        cout << "Ingrese la Hora: ";
+        cout << "  Ingrese la Hora: ";
         cin >> hora;
         while (!validarNumero(hora, 0, 23)) {
-            cout << "Error! Ingrese una Hora válida: ";
+            cout << "  Error! Ingrese una Hora válida: ";
             cin >> hora;
         }
-        cout << "Ingrese el Minuto: ";
+        cout << "  Ingrese el Minuto: ";
         cin >> minuto;
         while (!validarNumero(minuto, 0, 59)) {
-            cout << "Error! Ingrese un Minuto válido: ";
+            cout << "  Error! Ingrese un Minuto válido: ";
             cin >> minuto;
         }
     }
@@ -143,7 +143,7 @@ void Fecha::cargar(int opcion) {
         setAnio(anio);
         setHora(Hora(hora, minuto));
     } else {
-        cout << "Fecha inválida! Por defecto, se utilizará 01/01/1900" << endl;
+        cout << "  Fecha inválida! Por defecto, se utilizará 01/01/1900" << endl;
     }
 }
 

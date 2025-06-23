@@ -15,38 +15,41 @@ void ManagerPelicula::cargarPelicula() {
     bool estado = 1;
     Fecha fechaEstreno;
 
-    cout << "ID: " << idPelicula << endl;
+    cout << "  ID: " << idPelicula << endl;
 
-    cout << "Ingrese el Título: ";
+    cout << "  Ingrese el Título: ";
     cin.ignore();
     getline(cin, titulo);
 
-    cout << "Ingrese el Género: ";
+    cout << "  Ingrese el Género: ";
     getline(cin, genero);
 
-    cout << "Ingrese el Nombre del Director: ";
+    cout << "  Ingrese el Nombre del Director: ";
     getline(cin, nombreDirector);
 
-    cout << "Ingrese el Apellido del Director: ";
+    cout << "  Ingrese el Apellido del Director: ";
     getline(cin, apellidoDirector);
 
-    cout << "Ingrese la Clasificación: ";
+    cout << "  Ingrese la Clasificación: ";
     cin >> clasificacion;
     while (!validarNumero(clasificacion, 0)) {
-        cout << "Error! Ingrese una Clasificación válida: ";
+        cout << "  Error! Ingrese una Clasificación válida: ";
         cin >> clasificacion;
     }
 
-    cout << "Ingrese la Fecha de Estreno: " << endl;
+    cout << endl;
+    cout << "  Ingrese la Fecha de Estreno: " << endl;
     //cin.ignore();
     fechaEstreno.cargar(1);
 
+    cout << endl;
     if(archivoPeliculas.Guardar(Pelicula(idPelicula, titulo, genero, nombreDirector, apellidoDirector,
                                          clasificacion, fechaEstreno, estado))) {
-        cout << "Se guardo Exitosamente!" << endl;
+        cout << "  Se guardo Exitosamente!" << endl;
     } else {
-        cout << "Hubo un error inesperado, llame al de sistemas..." << endl;
+        cout << "  Hubo un error inesperado, llame al de sistemas..." << endl;
     }
+    cout << endl;
 }
 
 void ManagerPelicula::listarPeliculas() {
@@ -58,7 +61,7 @@ void ManagerPelicula::listarPeliculas() {
     }
 }
 
-void ManagerPelicula::listarPeliculasActivas(bool activas) {
+void ManagerPelicula::listarPeliculas(bool activas) {
     ArchivoPelicula archivoPeliculas("peliculas.dat");
     int cantidadRegistros = archivoPeliculas.CantidadRegistros();
     Pelicula pelicula;
@@ -76,27 +79,29 @@ void ManagerPelicula::modificarPelicula() {
     ArchivoPelicula archivoPeliculas("peliculas.dat");
     int idPelicula, posicion;
 
-    cout << "Ingrese el ID de la Película a Modificar: ";
+    cout << "  Ingrese el ID de la Película a Modificar: ";
     cin >> idPelicula;
     idPelicula -= 1;
     while (!validarNumero(idPelicula, 0)) {
-        cout << "Error! Ingrese un ID válido: ";
+        cout << "  Error! Ingrese un ID válido: ";
         cin >> idPelicula;
         idPelicula -= 1;
     }
     posicion = archivoPeliculas.Buscar(idPelicula);
     if (posicion == -1) {
-        cout << "ID NO encontrado!";
+        cout << "  ID NO encontrado!";
         return;
     }
     Pelicula pelicula = archivoPeliculas.Leer(posicion);
-    cout << "1. " << pelicula.getTitulo() << endl;
-    cout << "2. " << pelicula.getGenero() << endl;
-    cout << "3. " << pelicula.getNombreDirector() << endl;
-    cout << "4. " << pelicula.getApellidoDirector() << endl;
-    cout << "5. " << pelicula.getClasificacion() << endl;
-    cout << "6. " << pelicula.getFechaEstreno().toString(1) << endl;
-    cout << "Elija una Opción: ";
+    cout << endl;
+    cout << "  1. Título: " << pelicula.getTitulo() << endl;
+    cout << "  2. Género: " << pelicula.getGenero() << endl;
+    cout << "  3. Nombre del Director: " << pelicula.getNombreDirector() << endl;
+    cout << "  4. Apellido del Director: " << pelicula.getApellidoDirector() << endl;
+    cout << "  5. Clasifiación: " << pelicula.getClasificacion() << endl;
+    cout << "  6. Fecha de Estreno: " << pelicula.getFechaEstreno().toString(1) << endl;
+    cout << endl;
+    cout << "  Elija una Opción: ";
     int opcion;
     cin >> opcion;
     while (!validarNumero(opcion, 1, 6)) {
@@ -109,80 +114,87 @@ void ManagerPelicula::modificarPelicula() {
     Fecha fechaEstreno;
     switch(opcion) {
     case 1:
-        cout << "Elija el nuevo Título: ";
+        cout << "  Elija el nuevo Título: ";
         cin.ignore();
         getline(cin, str);
         pelicula.setTitulo(str);
         break;
     case 2:
-        cout << "Elija el nuevo Género: ";
+        cout << "  Elija el nuevo Género: ";
         cin.ignore();
         getline(cin, str);
         pelicula.setGenero(str);
         break;
     case 3:
-        cout << "Elija el nuevo Nombre del Director: ";
+        cout << "  Elija el nuevo Nombre del Director: ";
         cin.ignore();
         getline(cin, str);
         pelicula.setNombreDirector(str);
         break;
     case 4:
-        cout << "Elija el nuevo Apellido del Director: ";
+        cout << "  Elija el nuevo Apellido del Director: ";
         cin.ignore();
         getline(cin, str);
         pelicula.setApellidoDirector(str);
         break;
     case 5:
-        cout << "Elija la nueva Clasificación: ";
+        cout << "  Elija la nueva Clasificación: ";
         cin >> num;
         while (!validarNumero(num, 0)) {
-            cout << "Error! Ingrese una Clasificación válida: ";
+            cout << "  Error! Ingrese una Clasificación válida: ";
             cin >> num;
         }
         pelicula.setClasificacion(num);
         break;
     case 6:
-        cout << "Elija la nueva Fecha de Estreno: " << endl;
+        cout << "  Elija la nueva Fecha de Estreno: " << endl;
         fechaEstreno.cargar(1);
         pelicula.setFechaEstreno(fechaEstreno);
         break;
     }
 
-    if(archivoPeliculas.Modificar(pelicula, posicion)) cout << "Modificado Exitosamente!" << endl;
+    cout << endl;
+    if(archivoPeliculas.Modificar(pelicula, posicion)) cout << "  Modificado Exitosamente!" << endl;
+    cout << endl;
 }
 
 void ManagerPelicula::cambiarEstadoPelicula() {
     ArchivoPelicula archivoPeliculas("peliculas.dat");
     int idPelicula, posicion;
 
-    cout << "Ingrese el ID de la Película a Dar de baja / Restaurar: ";
+    cout << "  Ingrese el ID de la Película a Dar de baja / Restaurar: ";
     cin >> idPelicula;
     idPelicula -= 1;
     while (!validarNumero(idPelicula, 0)) {
-        cout << "Error! Ingrese un ID válido: ";
+        cout << "  Error! Ingrese un ID válido: ";
         cin >> idPelicula;
         idPelicula -= 1;
     }
     posicion = archivoPeliculas.Buscar(idPelicula);
     if (posicion == -1) {
-        cout << "ID NO encontrado!";
+        cout << "  ID NO encontrado!";
         return;
     }
     Pelicula pelicula = archivoPeliculas.Leer(posicion);
     pelicula.mostrar();
-    cout << "Actualmente, esta Película se encuentra: ";
+
+    cout << endl;
+    cout << "  Actualmente, esta Película se encuentra: ";
     if (pelicula.getEstado()) cout << "EN CARTELERA";
     else cout << "FUERA DE CARTELERA";
-    cout << endl << "Desea modificar su estado? (Y-N): ";
+    cout << endl << "  Desea modificar su estado? (Y-N): ";
     char yn;
     cin >> yn;
+
+    cout << endl;
     if (toupper(yn) == 'Y') {
         pelicula.setEstado(!pelicula.getEstado());
         archivoPeliculas.Modificar(pelicula, posicion);
-        cout << "Modificado Exitosamente!";
+        cout << "  Modificado Exitosamente!";
     } else {
-        cout << "NO se ha podido Modificar!";
+        cout << "  NO se ha podido Modificar!";
     }
+    cout << endl;
     cout << endl;
 }
 
@@ -193,11 +205,11 @@ void ManagerPelicula::buscarPorId() {
     ArchivoPelicula archivoPeliculas("peliculas.dat");
     int idBuscado;
 
-    cout << "Ingrese el ID de Película a Buscar: ";
+    cout << "  Ingrese el ID de Película a Buscar: ";
     cin >> idBuscado;
     idBuscado -= 1;
     while (!validarNumero(idBuscado, 0)) {
-        cout << "Error! Ingrese un ID válido: ";
+        cout << "  Error! Ingrese un ID válido: ";
         cin >> idBuscado;
         idBuscado -= 1;
     }
@@ -211,14 +223,14 @@ void ManagerPelicula::buscarPorId() {
         }
     }
     if (cantidadEncontrados == 0)
-        cout << endl << "NO se encontró ningún registro con el ID: " << idBuscado+1 << "." << endl;
+        cout << endl << "  NO se encontró ningún registro con el ID: " << idBuscado+1 << "." << endl;
 }
 
 void ManagerPelicula::buscarPorTitulo() {
     ArchivoPelicula archivoPeliculas("peliculas.dat");
     char tituloBuscado[50];
 
-    cout << "Ingrese el Título de la Película a Buscar: ";
+    cout << "  Ingrese el Título de la Película a Buscar: ";
     cin.ignore();
     cin.getline(tituloBuscado, 50);
 
@@ -243,14 +255,14 @@ void ManagerPelicula::buscarPorTitulo() {
         }
     }
     if (cantidadEncontrados == 0)
-        cout << endl << "NO se encontró ningún registro con el Título: " << tituloBuscado << "." << endl;
+        cout << endl << "  NO se encontró ningún registro con el Título: " << tituloBuscado << "." << endl;
 }
 
 void ManagerPelicula::buscarPorGenero() {
     ArchivoPelicula archivoPeliculas("peliculas.dat");
     char generoBuscado[20];
 
-    cout << "Ingrese el Género de la Película a Buscar: ";
+    cout << "  Ingrese el Género de la Película a Buscar: ";
     cin.ignore();
     cin.getline(generoBuscado, 20);
 
@@ -275,14 +287,14 @@ void ManagerPelicula::buscarPorGenero() {
         }
     }
     if (cantidadEncontrados == 0)
-        cout << endl << "NO se encontró ningún registro con el Género: " << generoBuscado << "." << endl;
+        cout << endl << "  NO se encontró ningún registro con el Género: " << generoBuscado << "." << endl;
 }
 
 void ManagerPelicula::buscarPorApellidoDirector() {
     ArchivoPelicula archivoPeliculas("peliculas.dat");
     char apellidoDirectorBuscado[50];
 
-    cout << "Ingrese el Apellido del Director de la Película a Buscar: ";
+    cout << "  Ingrese el Apellido del Director de la Película a Buscar: ";
     cin.ignore();
     cin.getline(apellidoDirectorBuscado, 20);
 
@@ -307,17 +319,17 @@ void ManagerPelicula::buscarPorApellidoDirector() {
         }
     }
     if (cantidadEncontrados == 0)
-        cout << endl << "NO se encontró ningún registro con el Apellido del Director: " << apellidoDirectorBuscado << "." << endl;
+        cout << endl << "  NO se encontró ningún registro con el Apellido del Director: " << apellidoDirectorBuscado << "." << endl;
 }
 
 void ManagerPelicula::buscarPorClasificacion() {
     ArchivoPelicula archivoPeliculas("peliculas.dat");
     int clasificacionBuscada;
 
-    cout << "Ingrese el Tipo de Clasificación de Película a Buscar: ";
+    cout << "  Ingrese el Tipo de Clasificación de Película a Buscar: ";
     cin >> clasificacionBuscada;
     while (!validarNumero(clasificacionBuscada, 0)) {
-        cout << "Error! Ingrese una Clasificación válida: ";
+        cout << "  Error! Ingrese una Clasificación válida: ";
         cin >> clasificacionBuscada;
     }
 
@@ -330,14 +342,14 @@ void ManagerPelicula::buscarPorClasificacion() {
         }
     }
     if (cantidadEncontrados == 0)
-        cout << endl << "NO se encontró ningún registro con el Tipo de Clasificación: " << clasificacionBuscada << "." << endl;
+        cout << endl << "  NO se encontró ningún registro con el Tipo de Clasificación: " << clasificacionBuscada << "." << endl;
 }
 
 void ManagerPelicula::buscarPorFechaEstreno() {
     ArchivoPelicula archivoPeliculas("peliculas.dat");
     Fecha fechaEstrenoBuscada;
 
-    cout << "Ingrese la Fecha de Estreno de la Película a Buscar: " << endl;
+    cout << "  Ingrese la Fecha de Estreno de la Película a Buscar: " << endl;
     fechaEstrenoBuscada.cargar(1);
 
     int cantidadRegistros = archivoPeliculas.CantidadRegistros();
@@ -349,7 +361,7 @@ void ManagerPelicula::buscarPorFechaEstreno() {
         }
     }
     if (cantidadEncontrados == 0)
-        cout << endl << "NO se encontró ningún registro con la Fecha de Estreno: " << fechaEstrenoBuscada.toString(1) << "." << endl;
+        cout << endl << "  NO se encontró ningún registro con la Fecha de Estreno: " << fechaEstrenoBuscada.toString(1) << "." << endl;
 }
 
 bool ManagerPelicula::validarNumero(int input, int minimo, int maximo) {

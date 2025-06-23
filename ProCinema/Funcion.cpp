@@ -5,6 +5,9 @@
 #include <sstream>
 #include <iomanip>
 
+#include "ArchivoPelicula.h"
+#include "Pelicula.h"
+
 using namespace std;
 
 Funcion::Funcion() {
@@ -117,9 +120,13 @@ std::string Funcion::mostrar() {
     ostringstream redondeoImporteFuncion;
     redondeoImporteFuncion << fixed << setprecision(2) << getImporteFuncion();
 
+    //ArchivoPelicula archivoPeliculas("peliculas.dat");
+    //Pelicula pelicula = archivoPeliculas.Leer(archivoPeliculas.Buscar(pelicula.getIdPelicula));
+
     return "  ID de Función N°" + to_string(getIdFuncion()+1) + "\n" +
            "  ID de Película N°" + to_string(getIdPelicula()+1) + "\n" +
            "  ID de Sala N°" + to_string(getIdSala()+1) + "\n" +
+           //"  ACA VA EL NOMBRE DE PELICULA" + + "\n" +
            "  Cantidad de Butacas Disponibles: " + to_string(getButacasDisponibles()) + "\n" +
            "  Idioma de la Función: " + idiomaFuncion + "\n" +
            "  Fecha de la Función: " + getFechaFuncion().toString(2) + "\n" +

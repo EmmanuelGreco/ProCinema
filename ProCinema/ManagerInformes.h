@@ -4,10 +4,11 @@
 class ManagerInformes {
 public:
     void topCinco();
+    void topCincoAnual();
     void recaudacionPorPelicula();
     void recaudacionAnual();
     void recaudacionPorSala();
-    void porcentajeMiembros();
+    void porcentajeMembresias();
     //void miembrosMasFrecuentes();
     void ocupacionPromedioSala();
     void ocupacionMenorFunciones();

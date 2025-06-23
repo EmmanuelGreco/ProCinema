@@ -269,16 +269,16 @@ void Menu::informes() {
     cout << endl;
     cout << "---------------- ProCinema Manager ----------------" << endl;
     cout << "--------------------- Informes --------------------" << endl;
-    cout << "1.  Top X Películas del Año" << endl;
+    //cout << "1.  Top 5 Películas del Año" << endl;
+    cout << "1.  Top 5 Películas Históricas" << endl;
     cout << "2.  Recaudación Total..." << endl;
     cout << "3.  Porcentaje de Compras de Tipos de Membresías" << endl;
-    cout << "4.  Miembros más Frecuentes" << endl;
-    cout << "5.  Ocupación Promedio por Sala" << endl;
-    cout << "6.  Funciones con Ocupación Menor al 50%" << endl;
+    cout << "4.  Ocupación Promedio por Sala" << endl;
+    cout << "5.  Funciones con Ocupación Menor al 50%" << endl;
     cout << "0.  Volver al menú principal... " << endl;
     cout << "---------------------------------------------------" << endl;
     cout << "Ingrese la Opción elegida: ";
-    recibirOpcion(6);
+    recibirOpcion(5);
     system("cls");
 }
 

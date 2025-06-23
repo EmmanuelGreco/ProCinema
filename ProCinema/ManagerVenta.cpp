@@ -30,60 +30,60 @@ void ManagerVenta::cargarVenta() {
     Membresia membresia;
 
     ///automáticamente seteo id de venta, y fecha y hora.
-    cout << "ID de Venta: " << idVenta << endl;
-    cout << "Fecha y Hora: ";                           ///fecha se obtiene automaticamente
+    cout << "  ID de Venta: " << idVenta << endl;
+    cout << "  Fecha y Hora: ";                           ///fecha se obtiene automaticamente
     fechaVenta.setFechaYHoraActual();
     cout << fechaVenta.toString(2) << endl;
 
     ///se pide el id del miembro y se valida
-    cout << "Ingrese el ID de Membresía (Si el cliente no es Miembro, Ingrese 0): ";
+    cout << "  Ingrese el ID de Membresía (Si el cliente no es Miembro, Ingrese 0): ";
     cin >> idMembresia;
     while (!validarNumero(idMembresia, 0)) {
-        cout << "Error! Ingrese un ID de Membresía válido: ";
+        cout << "  Error! Ingrese un ID de Membresía válido: ";
         cin >> idMembresia;
     }
 
     if (idMembresia != 0) {
         posicion = archivoMembresias.Buscar(idMembresia);
         if (posicion == -1) {
-            cout << "ID NO encontrado!" << endl;
+            cout << "  ID NO encontrado!" << endl;
             return;
         }
         membresia = archivoMembresias.Leer(posicion);
         idMembresia = membresia.getIdMembresia();
-        cout << "Registrando Venta para " << membresia.getNombreMiembro() << " " << membresia.getApellidoMiembro() <<
+        cout << "  Registrando Venta para " << membresia.getNombreMiembro() << " " << membresia.getApellidoMiembro() <<
              " - " << membresia.getNombreMembresia() << endl;
     } else {
-        cout << "Cliente NO registrado!" << endl;
+        cout << "  Cliente NO registrado!" << endl;
     }
 
     ///se pide el id de la funcion y se valida
-    cout << endl << "Ingrese el ID de la Función: ";
+    cout << endl << "  Ingrese el ID de la Función: ";
     cin >> idFuncion;
     idFuncion -= 1;
     while (!validarNumero(idFuncion, 0)) {
-        cout << "ERROR! Ingrese un ID válido: ";
+        cout << "  ERROR! Ingrese un ID válido: ";
         cin >> idFuncion;
         idFuncion -= 1;
     }
     posicion = archivoFunciones.Buscar(idFuncion);
     if (posicion == -1) {
-        cout << "ID NO encontrado!" << endl;
+        cout << "  ID NO encontrado!" << endl;
         return;
     }
     Funcion funcion = archivoFunciones.Leer(posicion);
     idFuncion = funcion.getIdFuncion();
 
     ///se muestra la pelicula y fecha correspondiente a esta función
-    cout << "Película: " << archivoPeliculas.Leer(archivoPeliculas.Buscar(funcion.getIdPelicula())).getTitulo() << endl;
-    cout << "Fecha de la Función: " << funcion.getFechaFuncion().toString(1) << endl;
+    cout << "  Película: " << archivoPeliculas.Leer(archivoPeliculas.Buscar(funcion.getIdPelicula())).getTitulo() << endl;
+    cout << "  Fecha de la Función: " << funcion.getFechaFuncion().toString(1) << endl;
 
     ///se muestra cantidad de butacas libres, y se pide ingresar la cantidad a comprar.
-    cout << funcion.getButacasDisponibles() << " butacas disponibles." << endl;
-    cout << "Ingrese la Cantidad de Entradas: ";
+    cout << "  " << funcion.getButacasDisponibles() << " butacas disponibles." << endl;
+    cout << "  Ingrese la Cantidad de Entradas: ";
     cin >> cantidadEntradas;
     while (!validarNumero(cantidadEntradas, 0)) {
-        cout << "Error! Ingrese una Cantidad de Entradas válida: ";
+        cout << "  Error! Ingrese una Cantidad de Entradas válida: ";
         cin >> cantidadEntradas;
     }
 
@@ -91,7 +91,7 @@ void ManagerVenta::cargarVenta() {
     if(cantidadEntradas <= funcion.getButacasDisponibles()) {
         funcion -= cantidadEntradas;                                //funcion.setButacasDisponibles(funcion.getButacasDisponibles() - cantidadEntradas);
     } else {
-        cout << "Ups... No hay suficientes Butacas Disponibles!" << endl;
+        cout << "  Ups... No hay suficientes Butacas Disponibles!" << endl;
         return;
     }
     ///se calcula el total llamando a la función correspondiente.
@@ -100,9 +100,9 @@ void ManagerVenta::cargarVenta() {
     ///si se guardó bien, notificarlo.
     if(archivoVentas.Guardar(Venta(idVenta, idFuncion, idMembresia, cantidadEntradas, fechaVenta, importeTotal, estado)) &&
             archivoFunciones.Modificar(funcion, posicion)) {
-        cout << "Se guardo Exitosamente!" << endl;
+        cout << "  Se guardo Exitosamente!" << endl;
     } else {
-        cout << "Hubo un error inesperado, llame al de sistemas..." << endl;
+        cout << "  Hubo un error inesperado, llame al de sistemas..." << endl;
     }
 }
 
@@ -127,28 +127,30 @@ void ManagerVenta::modificarVenta() {
 
     int idVenta, posicionAModificar;
 
-    cout << "Ingrese el ID de la Venta a Modificar: ";
+    cout << "  Ingrese el ID de la Venta a Modificar: ";
     cin >> idVenta;
     idVenta -= 1;
     while (!validarNumero(idVenta, 0)) {
-        cout << "Error! Ingrese un ID válido: ";
+        cout << "  Error! Ingrese un ID válido: ";
         cin >> idVenta;
         idVenta -= 1;
     }
     posicionAModificar = archivoVentas.Buscar(idVenta);
     if (posicionAModificar == -1) {
-        cout << "ID NO encontrado!" << endl;
+        cout << "  ID NO encontrado!" << endl;
         return;
     }
     venta = archivoVentas.Leer(posicionAModificar);
-    cout << "1. Modificar ID de función: " << venta.getIdFuncion()+1 << endl;
-    cout << "2. Modificar ID de miembro: " << venta.getIdMembresia() << endl;
-    cout << "3. Modificar Cantidad de Entradas: " << venta.getCantidadEntradas() << endl;
-    cout << "Elija una Opción: ";
+    cout << endl;
+    cout << "  1. Modificar ID de función: " << venta.getIdFuncion()+1 << endl;
+    cout << "  2. Modificar ID de miembro: " << venta.getIdMembresia() << endl;
+    cout << "  3. Modificar Cantidad de Entradas: " << venta.getCantidadEntradas() << endl;
+    cout << endl;
+    cout << "  Elija una Opción: ";
     int opcion;
     cin >> opcion;
     while (!validarNumero(opcion, 0)) {
-        cout << "Error! Ingrese una Opción válida: ";
+        cout << "  Error! Ingrese una Opción válida: ";
         cin >> opcion;
     }
 
@@ -157,17 +159,17 @@ void ManagerVenta::modificarVenta() {
         nuevaCantidad;
     switch(opcion) {
     case 1:
-        cout << endl << "Ingrese el nuevo ID de la Función: ";
+        cout << endl << "  Ingrese el nuevo ID de la Función: ";
         cin >> nuevoIdFuncion;
         nuevoIdFuncion -= 1;
         while (!validarNumero(nuevoIdFuncion, 0)) {
-            cout << "Error! Ingrese un ID válido: ";
+            cout << "  Error! Ingrese un ID válido: ";
             cin >> nuevoIdFuncion;
             nuevoIdFuncion -= 1;
         }
         posicionFuncion = archivoFunciones.Buscar(nuevoIdFuncion);
         if (posicionFuncion == -1) {
-            cout << "ID NO encontrado!" << endl;
+            cout << "  ID NO encontrado!" << endl;
             return;
         }
         funcion = archivoFunciones.Leer(archivoFunciones.Buscar(venta.getIdFuncion()));
@@ -185,15 +187,15 @@ void ManagerVenta::modificarVenta() {
         archivoVentas.Modificar(venta, posicionAModificar);
         break;
     case 2:
-        cout << endl << "Ingrese el nuevo ID de Miembro: ";
+        cout << endl << "  Ingrese el nuevo ID de Miembro: ";
         cin >> nuevoIdMembresia;
         while (!validarNumero(nuevoIdMembresia, 0)) {
-            cout << "Ingrese un ID Válido: ";
+            cout << "  Ingrese un ID Válido: ";
             cin >> nuevoIdMembresia;
         }
         posicionMembresia = archivoMembresias.Buscar(nuevoIdMembresia);
         if (posicionMembresia == -1) {
-            cout << "ID NO encontrado!" << endl;
+            cout << "  ID NO encontrado!" << endl;
             return;
         }
         importeTotal = calcularImporteTotal(venta.getCantidadEntradas(), venta.getIdFuncion(), nuevoIdMembresia);
@@ -203,15 +205,15 @@ void ManagerVenta::modificarVenta() {
         archivoVentas.Modificar(venta, posicionAModificar);
         break;
     case 3:
-        cout << endl << "Ingrese la nueva Cantidad de Entradas: ";
+        cout << endl << "  Ingrese la nueva Cantidad de Entradas: ";
         cin >> nuevaCantidad;
         while (!validarNumero(nuevaCantidad, 0)) {
-            cout << "Error! Ingrese una Cantidad Válida: ";
+            cout << "  Error! Ingrese una Cantidad Válida: ";
             cin >> nuevaCantidad;
         }
         posicionFuncion = archivoFunciones.Buscar(venta.getIdFuncion());
         if (posicionFuncion == -1) {
-            cout << "ID NO encontrado!" << endl;
+            cout << "  ID NO encontrado!" << endl;
             return;
         }
 
@@ -227,7 +229,7 @@ void ManagerVenta::modificarVenta() {
         break;
     }
 
-    if(archivoVentas.Modificar(venta, posicionAModificar)) cout << "Modificado Exitosamente!" << endl;
+    if(archivoVentas.Modificar(venta, posicionAModificar)) cout << "  Modificado Exitosamente!" << endl;
 }
 
 void ManagerVenta::cambiarEstadoVenta() {
@@ -237,28 +239,30 @@ void ManagerVenta::cambiarEstadoVenta() {
 
     int idVenta, posicion;
 
-    cout << "Ingrese el ID de la Venta a Cancelar: ";
+    cout << "  Ingrese el ID de la Venta a Cancelar: ";
     cin >> idVenta;
     idVenta -= 1;
     while (!validarNumero(idVenta, 0)) {
-        cout << "Error! Ingrese un ID válido: ";
+        cout << "  Error! Ingrese un ID válido: ";
         cin >> idVenta;
         idVenta -= 1;
     }
     posicion = archivoVentas.Buscar(idVenta);
     if (posicion == -1) {
-        cout << "ID NO encontrado!" << endl;
+        cout << "  ID NO encontrado!" << endl;
         return;
     }
     Venta venta = archivoVentas.Leer(posicion);
     if (venta.getEstado() == 0) {
-        cout << "Esta Venta ya fue dada de baja anteriormente." << endl;
+        cout << "  Esta Venta ya fue dada de baja anteriormente." << endl;
         return;
     }
     venta.mostrar();
-    cout << endl << "Desea modificar su estado? (Y-N): ";
+    cout << endl << "  Desea modificar su estado? (Y-N): ";
     char yn;
     cin >> yn;
+
+    cout << endl;
     if (toupper(yn) == 'Y') {
         funcion = archivoFunciones.Leer(archivoFunciones.Buscar(venta.getIdFuncion()));
         funcion.setButacasDisponibles(funcion.getButacasDisponibles() + venta.getCantidadEntradas());
@@ -280,11 +284,11 @@ float ManagerVenta::calcularImporteTotal(int cantidadEntradas, int idFuncion, in
 
     int importeTotal = funcion.getImporteFuncion() * cantidadEntradas;
     if(idMembresia != 0) {
-        cout << "Subtotal: " << importeTotal << endl;
-        cout << "Descuento: " << membresia.getDescuentoMembresia() << "%" << endl;
+        cout << "  Subtotal: " << importeTotal << endl;
+        cout << "  Descuento: " << membresia.getDescuentoMembresia() << "%" << endl;
         importeTotal = (importeTotal * (100-membresia.getDescuentoMembresia())/ 100);
     }
-    cout << "Total: " << importeTotal << endl;
+    cout << "  Total: " << importeTotal << endl;
     return importeTotal;
 }
 
@@ -295,11 +299,11 @@ void ManagerVenta::buscarPorId() {
     ArchivoVenta archivoVentas("ventas.dat");
     int idBuscado;
 
-    cout << "Ingrese el ID de Venta a Buscar: ";
+    cout << "  Ingrese el ID de Venta a Buscar: ";
     cin >> idBuscado;
     idBuscado -= 1;
     while (!validarNumero(idBuscado, 0)) {
-        cout << "Error! Ingrese un ID válido: ";
+        cout << "  Error! Ingrese un ID válido: ";
         cin >> idBuscado;
         idBuscado -= 1;
     }
@@ -313,18 +317,18 @@ void ManagerVenta::buscarPorId() {
         }
     }
     if (cantidadEncontrados == 0)
-        cout << endl << "NO se encontró ningún registro con el ID de Venta: " << idBuscado+1 << "." << endl;
+        cout << endl << "  NO se encontró ningún registro con el ID de Venta: " << idBuscado+1 << "." << endl;
 }
 
 void ManagerVenta::buscarPorFuncion() {
     ArchivoVenta archivoVentas("ventas.dat");
     int idBuscado;
 
-    cout << "Ingrese el ID de la Función a Buscar: ";
+    cout << "  Ingrese el ID de la Función a Buscar: ";
     cin >> idBuscado;
     idBuscado -= 1;
     while (!validarNumero(idBuscado, 0)) {
-        cout << "Error! Ingrese un ID válido: ";
+        cout << "  Error! Ingrese un ID válido: ";
         cin >> idBuscado;
         idBuscado -= 1;
     }
@@ -338,7 +342,7 @@ void ManagerVenta::buscarPorFuncion() {
         }
     }
     if (cantidadEncontrados == 0)
-        cout << endl << "NO se encontró ningún registro con el ID de Función: " << idBuscado+1 << "." << endl;
+        cout << endl << "  NO se encontró ningún registro con el ID de Función: " << idBuscado+1 << "." << endl;
 }
 
 void ManagerVenta::buscarPorDNI() {
@@ -346,10 +350,10 @@ void ManagerVenta::buscarPorDNI() {
     ArchivoMembresia archivoMembresias("membresias.dat");
     int dniBuscado;
 
-    cout << "Ingrese el DNI a Buscar: ";
+    cout << "  Ingrese el DNI a Buscar: ";
     cin >> dniBuscado;
     while (!validarNumero(dniBuscado, 0)) {
-        cout << "Error! Ingrese un DNI válido: ";
+        cout << "  Error! Ingrese un DNI válido: ";
         cin >> dniBuscado;
     }
 
@@ -363,17 +367,17 @@ void ManagerVenta::buscarPorDNI() {
         }
     }
     if (cantidadEncontrados == 0)
-        cout << endl << "NO se encontró ningún registro con el DNI de Miembro: " << dniBuscado << "." << endl;
+        cout << endl << "  NO se encontró ningún registro con el DNI de Miembro: " << dniBuscado << "." << endl;
 }
 
 void ManagerVenta::buscarPorMiembro() {
     ArchivoVenta archivoVentas("ventas.dat");
     int idBuscado;
 
-    cout << "Ingrese el ID de Miembro a buscar: ";
+    cout << "  Ingrese el ID de Miembro a buscar: ";
     cin >> idBuscado;
     while (!validarNumero(idBuscado, 0)) {
-        cout << "Error! Ingrese un ID válido: ";
+        cout << "  Error! Ingrese un ID válido: ";
         cin >> idBuscado;
     }
 
@@ -386,14 +390,14 @@ void ManagerVenta::buscarPorMiembro() {
         }
     }
     if (cantidadEncontrados == 0)
-        cout << endl << "NO se encontró ningún registro con el ID de Miembro: " << idBuscado << "." << endl;
+        cout << endl << "  NO se encontró ningún registro con el ID de Miembro: " << idBuscado << "." << endl;
 }
 
 void ManagerVenta::buscarPorFecha() {
     ArchivoVenta archivoVentas("ventas.dat");
     Fecha fechaBuscada;
 
-    cout << "Ingrese una Fecha de Venta a Buscar: " << endl;
+    cout << "  Ingrese una Fecha de Venta a Buscar: " << endl;
     fechaBuscada.cargar(1);
 
     int cantidadRegistros = archivoVentas.CantidadRegistros();
@@ -409,7 +413,7 @@ void ManagerVenta::buscarPorFecha() {
         }
     }
     if (cantidadEncontrados == 0)
-        cout << endl << "NO se encontró ningún registro con la Fecha de Venta: " << fechaBuscada.toString(1) << endl;
+        cout << endl << "  NO se encontró ningún registro con la Fecha de Venta: " << fechaBuscada.toString(1) << endl;
 }
 
 

@@ -5,7 +5,7 @@ class ManagerMembresia {
 public:
     void cargarMembresia();
     void listarMembresias();
-    void listarMembresiasActivas(bool activas);
+    void listarMembresias(bool activas);
     void modificarMembresia();
     void cambiarEstadoMembresia();
 

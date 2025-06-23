@@ -107,12 +107,12 @@ int main() {
                         break;
                     case 2: {
                         bool activas = true;
-                        managerPelicula.listarPeliculasActivas(activas); system("pause");
+                        managerPelicula.listarPeliculas(activas); system("pause");
                         break;
                     }
                     case 3: {
                         bool activas = false;
-                        managerPelicula.listarPeliculasActivas(activas); system("pause");
+                        managerPelicula.listarPeliculas(activas); system("pause");
                         break;
                     }
                     case 0: // "VOLVER AL MENU PELÍCULAS"
@@ -123,7 +123,7 @@ int main() {
                     menu.buscarPeliculasPor();
                     opcionBuscarPeliculas = menu.getOpcion();
 
-                    switch(opcionListarPeliculas) {
+                    switch(opcionBuscarPeliculas) {
                     case 1: managerPelicula.buscarPorId(); system("pause");
                         break;
                     case 2: managerPelicula.buscarPorTitulo(); system("pause");
@@ -173,14 +173,14 @@ int main() {
                         break;
                     case 2: {
                         bool activas = true;
-                        managerFuncion.listarFuncionesActivas(activas); system("pause");
+                        managerFuncion.listarFunciones(activas); system("pause");
                         break;
                     }
                     case 3: managerFuncion.listarFuncionesAgotadas(); system("pause");
                         break;
                     case 4: {
                         bool activas = false;
-                        managerFuncion.listarFuncionesActivas(activas); system("pause");
+                        managerFuncion.listarFunciones(activas); system("pause");
                         break;
                     }
                     case 0: // "VOLVER AL MENU FUNCIONES"
@@ -237,12 +237,12 @@ int main() {
                         break;
                     case 2: {
                         bool activas = true;
-                        managerMembresia.listarMembresiasActivas(activas); system("pause");
+                        managerMembresia.listarMembresias(activas); system("pause");
                         break;
                     }
                     case 3: {
                         bool activas = false;
-                        managerMembresia.listarMembresiasActivas(activas); system("pause");
+                        managerMembresia.listarMembresias(activas); system("pause");
                         break;
                     }
                     case 0: // "VOLVER AL MENU MEMBRESÍAS"
@@ -297,13 +297,11 @@ int main() {
                         break;
                     }
                     break;
-                case 3: managerInformes.porcentajeMiembros(); system("pause");
+                case 3: managerInformes.porcentajeMembresias(); system("pause");
                     break;
-                case 4: cout << "MIEMBROS MAS FRECUENTES" << endl;
+                case 4: managerInformes.ocupacionPromedioSala(); system("pause");
                     break;
-                case 5: managerInformes.ocupacionPromedioSala(); system("pause");
-                    break;
-                case 6: managerInformes.ocupacionMenorFunciones(); system("pause");
+                case 5: managerInformes.ocupacionMenorFunciones(); system("pause");
                     break;
                 case 0: // "VOLVER AL MENU PRINCIPAL"
                     break;
@@ -363,12 +361,12 @@ int main() {
                                     break;
                                 case 2: {
                                     bool activas = true;
-                                    managerSala.listarSalasActivas(activas); system("pause");
+                                    managerSala.listarSalas(activas); system("pause");
                                     break;
                                 }
                                 case 3: {
                                     bool activas = false;
-                                    managerSala.listarSalasActivas(activas); system("pause");
+                                    managerSala.listarSalas(activas); system("pause");
                                     break;
                                 }
                                 case 0: // "VOLVER AL MENU SALAS"

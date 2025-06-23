@@ -5,7 +5,7 @@ class ManagerFuncion {
 public:
     void cargarFuncion();
     void listarFunciones();
-    void listarFuncionesActivas(bool activas);
+    void listarFunciones(bool activas);
     void listarFuncionesAgotadas();
     //void listarFuncionesImprimir(Funcion funcion);
     void modificarFuncion();

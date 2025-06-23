@@ -5,7 +5,7 @@ class ManagerSala {
 public:
     void cargarSala();
     void listarSalas();
-    void listarSalasActivas(bool activas);
+    void listarSalas(bool activas);
     void modificarSala();
     void cambiarEstadoSala();
 

@@ -24,36 +24,36 @@ void ManagerFuncion::cargarFuncion() {
     ArchivoPelicula archivoPeliculas("peliculas.dat");
     ArchivoSala archivoSalas("salas.dat");
 
-    cout << "ID: " << idFuncion << endl;
+    cout << "  ID: " << idFuncion << endl;
 
     // Me traigo el ID de la Pelicula y lo asigno al idPelicula de la Función
-    cout << "Ingrese el ID de la Película: ";
+    cout << "  Ingrese el ID de la Película: ";
     //cin.ignore();
     cin >> idPelicula;
     while (!validarNumero(idPelicula, 0)) {
-        cout << "Error! Ingrese un ID válido: ";
+        cout << "  Error! Ingrese un ID válido: ";
         cin >> idPelicula;
     }
     posicion = archivoPeliculas.Buscar(idPelicula);
     if (posicion == -1) {
-        cout << "ID NO encontrado!";
+        cout << "  ID NO encontrado!";
         return;
     }
     Pelicula pelicula = archivoPeliculas.Leer(posicion);
     idPelicula = pelicula.getIdPelicula();
 
     // Me traigo el ID de la Sala y lo asigno al idSala de la Función
-    cout << "Ingrese el ID de la Sala: ";
+    cout << "  Ingrese el ID de la Sala: ";
     cin >> idSala;
     idSala -= 1;
     while (!validarNumero(idSala, 0)) {
-        cout << "Error! Ingrese un ID válido: ";
+        cout << "  Error! Ingrese un ID válido: ";
         cin >> idSala;
         idSala -= 1;
     };
     posicion = archivoSalas.Buscar(idSala);
     if (posicion == -1) {
-        cout << "ID no encontrado!";
+        cout << "  ID no encontrado!";
         return;
     }
     Sala sala = archivoSalas.Leer(posicion);
@@ -62,32 +62,36 @@ void ManagerFuncion::cargarFuncion() {
     // Por ahora asigna la cantidad de butacas de la sala, se le debe restar las ventas
     butacasDisponibles = sala.getButacasTotales();
 
-    cout << "Ingrese el Idioma de la Función (1-Inglés, 2-Castellano, 3-Subtitulado): ";
+    cout << "  Ingrese el Idioma de la Función (1-Inglés, 2-Castellano, 3-Subtitulado): ";
     cin >> idiomaFuncion;
     while (!validarNumero(idiomaFuncion, 1, 3)) {
-        cout << "Error! Ingrese un Idioma válido (1-Inglés, 2-Castellano, 3-Subtitulado): ";
+        cout << "  Error! Ingrese un Idioma válido (1-Inglés, 2-Castellano, 3-Subtitulado): ";
         cin >> idiomaFuncion;
     }
 
-    cout << "Ingrese la Fecha de la Función: " << endl;
+    cout << endl;
+    cout << "  Ingrese la Fecha de la Función: " << endl;
     //cin.ignore();
     fechaFuncion.cargar(2);
 
     // Esto habría que automatizarlo, dependiendo del día y del tipo de sala
-    cout << "Ingrese el importe de la Función: ";
+    cout << endl;
+    cout << "  Ingrese el importe de la Función: ";
     cin >> importeFuncion;
     while (!validarNumero(importeFuncion, 0)) {
-        cout << "Ingrese un importe válido: ";
+        cout << "  Ingrese un importe válido: ";
         cin >> importeFuncion;
     }
 
 
+    cout << endl;
     if(archivoFunciones.Guardar(Funcion(idFuncion, idPelicula, idSala, butacasDisponibles, idiomaFuncion,
                                         fechaFuncion, importeFuncion, estado))) {
-        cout << "Se guardo Exitosamente!" << endl;
+        cout << " Se guardo Exitosamente!" << endl;
     } else {
-        cout << "Hubo un error inesperado, llame al de sistemas..." << endl;
+        cout << "  Hubo un error inesperado, llame al de sistemas..." << endl;
     }
+    cout << endl;
 }
 
 void ManagerFuncion::listarFunciones() {
@@ -99,7 +103,7 @@ void ManagerFuncion::listarFunciones() {
     }
 }
 
-void ManagerFuncion::listarFuncionesActivas(bool activas) {
+void ManagerFuncion::listarFunciones(bool activas) {
     ArchivoFuncion archivoFunciones("funciones.dat");
     int cantidadRegistros = archivoFunciones.CantidadRegistros();
     Funcion funcion;
@@ -171,11 +175,11 @@ void ManagerFuncion::modificarFuncion() {
     ArchivoFuncion archivoFunciones("funciones.dat");
     int idFuncion, posicion;
 
-    cout << "Ingrese el ID de la Función a Modificar: ";
+    cout << "  Ingrese el ID de la Función a Modificar: ";
     cin >> idFuncion;
     idFuncion -= 1;
     while (!validarNumero(idFuncion, 0)) {
-        cout << "Error! Ingrese un ID válido: ";
+        cout << "  Error! Ingrese un ID válido: ";
         cin >> idFuncion;
         idFuncion -= 1;
     }
@@ -185,18 +189,20 @@ void ManagerFuncion::modificarFuncion() {
         return;
     }
     Funcion funcion = archivoFunciones.Leer(posicion);
-    cout << "1. ID Película: " << funcion.getIdPelicula() << endl;
-    cout << "2. Nº Sala: " << funcion.getIdSala() << endl;
-    //cout << "3. " << funcion.getButacasDisponibles() << endl;
-    cout << "3. Idioma de la Función: " << funcion.getIdiomaFuncion() << endl;
-    cout << "4. Fecha de la Función: " << funcion.getFechaFuncion().toString(2) << endl;
-    cout << "5. Importe de la Función: " << funcion.getImporteFuncion() << endl;
-    //cout << "0. Volver al menu " << endl;
-    cout << "Elija una Opción: ";
+    cout << endl;
+    cout << "  1. ID Película: " << funcion.getIdPelicula() << endl;
+    cout << "  2. Nº Sala: " << funcion.getIdSala() << endl;
+    //cout << "  3. " << funcion.getButacasDisponibles() << endl;
+    cout << "  3. Idioma de la Función: " << funcion.getIdiomaFuncion() << endl;
+    cout << "  4. Fecha de la Función: " << funcion.getFechaFuncion().toString(2) << endl;
+    cout << "  5. Importe de la Función: " << funcion.getImporteFuncion() << endl;
+    //cout << "  0. Volver al menu " << endl;
+    cout << endl;
+    cout << "  Elija una Opción: ";
     int opcion;
     cin >> opcion;
     while (!validarNumero(opcion, 1, 5)) {
-        cout << "Error! Ingrese una Opción válida: ";
+        cout << "  Error! Ingrese una Opción válida: ";
         cin >> opcion;
     }
     int num;
@@ -205,22 +211,22 @@ void ManagerFuncion::modificarFuncion() {
     Fecha fechaFuncion;
     switch(opcion) {
     case 1:
-        cout << "Elija el nuevo ID de Película: ";
+        cout << "  Elija el nuevo ID de Película: ";
         cin >> num;
         num -= 1;
         while (!validarNumero(num, 0)) {
-            cout << "Error! Ingrese un ID válido: ";
+            cout << "  Error! Ingrese un ID válido: ";
             cin >> num;
             num -= 1;
         }
         funcion.setIdPelicula(num);
         break;
     case 2:
-        cout << "Elija el nuevo ID de la Sala: ";
+        cout << "  Elija el nuevo ID de la Sala: ";
         cin >> num;
         num -= 1;
         while (!validarNumero(num, 0)) {
-            cout << "Error! Ingrese un ID de la Sala válido: ";
+            cout << "  Error! Ingrese un ID de la Sala válido: ";
             cin >> num;
             num -= 1;
         }
@@ -236,65 +242,72 @@ void ManagerFuncion::modificarFuncion() {
         funcion.setButacasDisponibles(num);
         break;*/
     case 3:
-        cout << "Elija el nuevo Idioma de la Función (1-Inglés, 2-Castellano, 3-Subtitulado): ";
+        cout << "  Elija el nuevo Idioma de la Función (1-Inglés, 2-Castellano, 3-Subtitulado): ";
         cin >> num;
         while (!validarNumero(num, 1, 3)) {
-            cout << "Error! Ingrese un Idioma válido (1-Inglés, 2-Castellano, 3-Subtitulado): ";
+            cout << "  Error! Ingrese un Idioma válido (1-Inglés, 2-Castellano, 3-Subtitulado): ";
             cin >> num;
         }
         funcion.setIdiomaFuncion(num);
         break;
     case 4:
-        cout << "Elija la nueva Fecha de la Función: " << endl;
+        cout << "  Elija la nueva Fecha de la Función: " << endl;
         fechaFuncion.cargar(2);
         funcion.setFechaFuncion(fechaFuncion);
         break;
     case 5:
-        cout << "Elija el nuevo Importe de la Función: ";
+        cout << "  Elija el nuevo Importe de la Función: ";
         cin >> numFloat;
         while (!validarNumero(numFloat, 0)) {
-            cout << "Error! Ingrese un Importe válido: ";
+            cout << "  Error! Ingrese un Importe válido: ";
             cin >> numFloat;
         }
         funcion.setImporteFuncion(numFloat);
         break;
     }
 
+    cout << endl;
     if(archivoFunciones.Modificar(funcion, posicion)) cout << "Modificado Exitosamente!" << endl;
+    cout << endl;
 }
 
 void ManagerFuncion::cambiarEstadoFuncion() {
     ArchivoFuncion archivoFunciones("funciones.dat");
     int idFuncion, posicion;
 
-    cout << "Ingrese el ID de la Función a Dar de baja / Restaurar: ";
+    cout << "  Ingrese el ID de la Función a Dar de baja / Restaurar: ";
     cin >> idFuncion;
     idFuncion -= 1;
     while (!validarNumero(idFuncion, 0)) {
-            cout << "Error! Ingrese un ID válido: ";
+            cout << "  Error! Ingrese un ID válido: ";
             cin >> idFuncion;
             idFuncion -= 1;
         }
     posicion = archivoFunciones.Buscar(idFuncion);
     if (posicion == -1) {
-        cout << "ID NO encontrado!";
+        cout << "  ID NO encontrado!";
         return;
     }
     Funcion funcion = archivoFunciones.Leer(posicion);
     funcion.mostrar();
-    cout << "Actualmente, esta Función se encuentra: ";
+
+    cout << endl;
+    cout << "  Actualmente, esta Función se encuentra: ";
     if (funcion.getEstado()) cout << "EN CARTELERA";
     else cout << "FUERA DE CARTELERA";
-    cout << endl << "Desea modificar su estado? (Y-N): ";
+    cout << endl << "  Desea modificar su estado? (Y-N): ";
     char yn;
+
+    cout << endl;
     cin >> yn;
     if (toupper(yn) == 'Y') {
         funcion.setEstado(!funcion.getEstado());
         archivoFunciones.Modificar(funcion, posicion);
-        cout << "Modificado Exitosamente!";
+        cout << "  Modificado Exitosamente!";
     } else {
-        cout << "NO se ha podido Modificar!";
+        cout << "  NO se ha podido Modificar!";
     }
+    cout << endl;
     cout << endl;
 }
 
@@ -305,11 +318,11 @@ void ManagerFuncion::buscarPorId() {
     ArchivoFuncion archivoFunciones("funciones.dat");
     int idBuscado;
 
-    cout << "Ingrese el ID de Función a Buscar: ";
+    cout << "  Ingrese el ID de Función a Buscar: ";
     cin >> idBuscado;
     idBuscado -= 1;
     while (!validarNumero(idBuscado, 0)) {
-            cout << "Error! Ingrese un ID válido: ";
+            cout << "  Error! Ingrese un ID válido: ";
             cin >> idBuscado;
             idBuscado -= 1;
         }
@@ -323,7 +336,7 @@ void ManagerFuncion::buscarPorId() {
         }
     }
     if (cantidadEncontrados == 0)
-        cout << endl << "NO se encontró ningún registro con el ID: " << idBuscado+1 << "." << endl;
+        cout << endl << "  NO se encontró ningún registro con el ID: " << idBuscado+1 << "." << endl;
 }
 
 void ManagerFuncion::buscarPorTituloPelicula() {
@@ -332,7 +345,7 @@ void ManagerFuncion::buscarPorTituloPelicula() {
 
     char tituloPeliculaBuscado[50];
 
-    cout << "Ingrese el Título de la Película a Buscar en la Función: ";
+    cout << "  Ingrese el Título de la Película a Buscar en la Función: ";
     cin.ignore();
     cin.getline(tituloPeliculaBuscado, 50);
 
@@ -367,18 +380,18 @@ void ManagerFuncion::buscarPorTituloPelicula() {
         }
     }
     if (cantidadEncontrados == 0)
-        cout << endl << "NO se encontró ningún registro con el Título de la Película: " << tituloPeliculaBuscado << "." << endl;
+        cout << endl << "  NO se encontró ningún registro con el Título de la Película: " << tituloPeliculaBuscado << "." << endl;
 }
 
 void ManagerFuncion::buscarPorNumeroSala() {
     ArchivoFuncion archivoFunciones("funciones.dat");
     int idSalaBuscado;
 
-    cout << "Ingrese el Nº de Sala de Función a Buscar: ";
+    cout << "  Ingrese el Nº de Sala de Función a Buscar: ";
     cin >> idSalaBuscado;
     idSalaBuscado -= 1;
     while (!validarNumero(idSalaBuscado, 0)) {
-            cout << "Error! Ingrese un Nº de Sala válido: ";
+            cout << "  Error! Ingrese un Nº de Sala válido: ";
             cin >> idSalaBuscado;
             idSalaBuscado -= 1;
         }
@@ -392,14 +405,14 @@ void ManagerFuncion::buscarPorNumeroSala() {
         }
     }
     if (cantidadEncontrados == 0)
-        cout << endl << "NO se encontró ningún registro con el Nº de Sala: " << idSalaBuscado+1 << "." << endl;
+        cout << endl << "  NO se encontró ningún registro con el Nº de Sala: " << idSalaBuscado+1 << "." << endl;
 }
 
 void ManagerFuncion::buscarPorFechaFuncion() {
     ArchivoFuncion archivoFunciones("funciones.dat");
     Fecha fechaFuncionBuscada;
 
-    cout << "Ingrese la Fecha de Función a Buscar: " << endl;
+    cout << "  Ingrese la Fecha de Función a Buscar: " << endl;
     fechaFuncionBuscada.cargar(2);
 
     int cantidadRegistros = archivoFunciones.CantidadRegistros();
@@ -411,7 +424,7 @@ void ManagerFuncion::buscarPorFechaFuncion() {
         }
     }
     if (cantidadEncontrados == 0)
-        cout << endl << "NO se encontró ningún registro con la Fecha de la Función: " << fechaFuncionBuscada.toString(2) << "." << endl;
+        cout << endl << "  NO se encontró ningún registro con la Fecha de la Función: " << fechaFuncionBuscada.toString(2) << "." << endl;
 }
 
 bool ManagerFuncion::validarNumero(int input, int minimo, int maximo) {
