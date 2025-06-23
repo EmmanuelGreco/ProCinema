@@ -6,16 +6,15 @@
 
 using namespace std;
 
-ArchivoSala archivoSalas("salas.dat");
-
 
 void ManagerSala::cargarSala() {
+    ArchivoSala archivoSalas("salas.dat");
     int idSala = archivoSalas.getUltimoId()+1, tipoSala, butacasTotales;
     bool estado = 1;
 
     cout << "ID: " << idSala << endl;
 
-    cout << "Ingrese el tipo de Sala (1-Standard, 2-Premium, 3-3D, 4-4D, 5-IMAX): ";
+    cout << "Ingrese el Tipo de Sala (1-Standard, 2-Premium, 3-3D, 4-4D, 5-IMAX): ";
     cin >> tipoSala;
     while (!validarNumero(tipoSala, 1, 5)) {
         cout << "Error! Ingrese un ID válido: ";
@@ -37,6 +36,7 @@ void ManagerSala::cargarSala() {
 }
 
 void ManagerSala::listarSalas() {
+    ArchivoSala archivoSalas("salas.dat");
     int cantidadRegistros = archivoSalas.CantidadRegistros();
 
     for (int i = 0; i < cantidadRegistros; i++) {
@@ -45,6 +45,7 @@ void ManagerSala::listarSalas() {
 }
 
 void ManagerSala::listarSalasActivas(bool activas) {
+    ArchivoSala archivoSalas("salas.dat");
     int cantidadRegistros = archivoSalas.CantidadRegistros();
     Sala sala;
 
@@ -58,6 +59,7 @@ void ManagerSala::listarSalasActivas(bool activas) {
 }
 
 void ManagerSala::modificarSala() {
+    ArchivoSala archivoSalas("salas.dat");
     int idSala, posicion;
 
     cout << "Ingrese el ID de la Sala a Modificar: ";
@@ -111,6 +113,7 @@ void ManagerSala::modificarSala() {
 }
 
 void ManagerSala::cambiarEstadoSala() {
+    ArchivoSala archivoSalas("salas.dat");
     int idSala, posicion;
 
     cout << "Ingrese el ID de la Sala a Dar de baja / Restaurar: ";

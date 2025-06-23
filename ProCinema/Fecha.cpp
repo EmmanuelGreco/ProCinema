@@ -100,38 +100,38 @@ string Fecha::toString(int opcion) {
 void Fecha::cargar(int opcion) {
     int dia = 1, mes = 1, anio = 1900;
     if (opcion == 1 || opcion == 2) {
-        cout << "Ingrese el numero de dia: ";
+        cout << "Ingrese el Número de Día: ";
         cin >> dia;
         while (!validarNumero(dia, 1, 31)) {
-            cout << "Ingrese un dia válido: ";
+            cout << "Error! Ingrese un Número de Día válido: ";
             cin >> dia;
         }
-        cout << "Ingrese el numero de mes: ";
+        cout << "Ingrese el Número de Mes: ";
         cin >> mes;
         while (!validarNumero(mes, 1, 12)) {
-            cout << "Ingrese un mes válido: ";
+            cout << "Error! Ingrese un Número de Mes válido: ";
             cin >> mes;
         }
-        cout << "Ingrese el año: ";
+        cout << "Ingrese el Año: ";
         cin >> anio;
         while (!validarNumero(anio, 0, 9999)) {
-            cout << "Ingrese un año válido: ";
+            cout << "Error! Ingrese un Año válido: ";
             cin >> anio;
         }
     }
 
     int hora = 0, minuto = 0;
     if(opcion == 2 || opcion == 3) {
-        cout << "Ingrese la hora: ";
+        cout << "Error! Ingrese la Hora: ";
         cin >> hora;
         while (!validarNumero(hora, 0, 23)) {
-            cout << "Ingrese una hora válida: ";
+            cout << "Error! Ingrese una Hora válida: ";
             cin >> hora;
         }
-        cout << "Ingrese el minuto: ";
+        cout << "Ingrese el Minuto: ";
         cin >> minuto;
         while (!validarNumero(minuto, 0, 59)) {
-            cout << "Ingrese un minuto válido: ";
+            cout << "Error! Ingrese un Minuto válido: ";
             cin >> minuto;
         }
     }

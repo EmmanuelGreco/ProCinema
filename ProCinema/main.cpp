@@ -32,8 +32,8 @@ int main() {
     ManagerArchivoCSV managerArchivoCSV;
     Menu menu;
 
-    menu.menuBienvendidaImprimir();
-    system("pause");
+    //menu.menuBienvendidaImprimir();
+    //system("pause");
 
     while(true) {
         menu.principal();
