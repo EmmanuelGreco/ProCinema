@@ -122,7 +122,7 @@ void Fecha::cargar(int opcion) {
 
     int hora = 0, minuto = 0;
     if(opcion == 2 || opcion == 3) {
-        cout << "Error! Ingrese la Hora: ";
+        cout << "Ingrese la Hora: ";
         cin >> hora;
         while (!validarNumero(hora, 0, 23)) {
             cout << "Error! Ingrese una Hora válida: ";

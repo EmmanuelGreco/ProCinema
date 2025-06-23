@@ -1,17 +1,26 @@
 #include <iostream>
 #include <string>
+#include <sstream>                  //para procesar csv
+#include <algorithm>                //para poder convertir floats
+
 #include "ManagerArchivoCSV.h"
 #include "ArchivoPelicula.h"
+#include "Pelicula.h"
 #include "ArchivoSala.h"
+#include "Sala.h"
 #include "ArchivoFuncion.h"
+#include "Funcion.h"
 #include "ArchivoMembresia.h"
+#include "Membresia.h"
 #include "ArchivoVenta.h"
+#include "Venta.h"
+#include "Fecha.h"
 
 using namespace std;
 
 
 void ManagerArchivoCSV::leerPeliculasCSV() {
-ArchivoPelicula archivoPeliculas("peliculas.dat");
+    ArchivoPelicula archivoPeliculas("peliculas.dat");
     int cantidadRegistros = archivoPeliculas.CantidadRegistros();
 
     for (int i = 0; i < cantidadRegistros; i++) {
@@ -21,42 +30,48 @@ ArchivoPelicula archivoPeliculas("peliculas.dat");
 
 void ManagerArchivoCSV::cargarPeliculasCSV() {
     ArchivoPelicula archivoPeliculas("peliculas.dat");
-    int idPelicula = archivoPeliculas.getUltimoId()+1, clasificacion;
-    string titulo, genero, nombreDirector, apellidoDirector;
-    bool estado;
-    Fecha fechaEstreno;
+    int idPelicula;
+//    clasificacion, dia, mes, anio;
+//    string titulo, genero, nombreDirector, apellidoDirector;
+//    bool estado;
+//    Fecha fechaEstreno;
 
-    cout << "ID: " << idPelicula << endl;
+    string csv;
+    string parseado[9];
 
-    cout << "Ingrese el Título: ";
+    cout << "Ingrese la cadena CSV (o escriba \"0\" para finalizar la carga): " << endl;
     cin.ignore();
-    getline(cin, titulo);
 
-    cout << "Ingrese el Género: ";
-    getline(cin, genero);
+    while (getline(cin, csv)) {
+        if (csv == "0" || csv == "") break;
+        idPelicula = archivoPeliculas.getUltimoId()+1;
+        cout << "ID: " << idPelicula + 1 << endl;
 
-    cout << "Ingrese el Nombre del Director: ";
-    getline(cin, nombreDirector);
+        stringstream ss(csv);
+        string campo;
 
-    cout << "Ingrese el Apellido del Director: ";
-    getline(cin, apellidoDirector);
+        int indice = 0;
+        while (getline(ss, campo, ',')) {
+            if (indice == 5) {
+                stringstream fecha(campo);
+                string campo_fecha;
+                while (getline(fecha, campo_fecha, '/')) {
+                    parseado[indice] = campo_fecha;
+                    indice++;
+                }
+            } else {
+                parseado[indice] = campo;
+                indice++;
+            }
+        }
 
-    cout << "Ingrese la Clasificación: ";
-    cin >> clasificacion;
 
-    cout << "Ingrese la Fecha de Estreno: " << endl;
-    //cin.ignore();
-    fechaEstreno.cargar(1);
-
-    cout << "Ingrese el Estado: ";
-    cin >> estado;
-
-
-    if(archivoPeliculas.Guardar(Pelicula(idPelicula, titulo, genero, nombreDirector, apellidoDirector,
-                                         clasificacion, fechaEstreno, estado))) {
-        cout << "Se guardo Exitosamente!" << endl;
-    } else {
-        cout << "Hubo un error inesperado, llame al de sistemas..." << endl;
+        if(archivoPeliculas.Guardar(Pelicula(idPelicula, parseado[0], parseado[1], parseado[2], parseado[3], stoi(parseado[4]),
+                                             Fecha(stoi(parseado[5]), stoi(parseado[6]), stoi(parseado[7])), stoi(parseado[8])))) {
+            cout << "La película \"" << parseado[0] << "\" se guardo Exitosamente!" << endl << endl;
+        } else {
+            cout << "Hubo un error inesperado, llame al de sistemas..." << endl;
+        }
     }
 }
 
@@ -78,24 +93,35 @@ void ManagerArchivoCSV::leerSalasCSV() {
 
 void ManagerArchivoCSV::cargarSalasCSV() {
     ArchivoSala archivoSalas("salas.dat");
-    int idSala = archivoSalas.getUltimoId()+1, tipoSala, butacasTotales;
-    bool estado;
+    int idSala;
+//    tipoSala, butacasTotales;
+//    bool estado;
 
-    cout << "ID: " << idSala << endl;
+    string csv;
+    int parseado[3];
 
-    cout << "Ingrese el Tipo de Sala (1-Standard, 2-Premium, 3-3D, 4-4D, 5-IMAX): ";
-    cin >> tipoSala;
+    cout << "Ingrese la cadena CSV (o escriba \"0\" para finalizar la carga): " << endl;
+    cin.ignore();
 
-    cout << "Ingrese la cantidad de Bucatas Totales: ";
-    cin >> butacasTotales;
+    while (getline(cin, csv)) {
+        if (csv == "0" || csv == "") break;
+        idSala = archivoSalas.getUltimoId()+1;
+        cout << "ID: " << idSala + 1<< endl;
 
-    cout << "Ingrese el Estado: ";
-    cin >> estado;
+        stringstream ss(csv);
+        string campo;
 
-    if(archivoSalas.Guardar(Sala(idSala, tipoSala, butacasTotales, estado))) {
-        cout << "Se guardo Exitosamente!" << endl;
-    } else {
-        cout << "Hubo un error inesperado, llame al de sistemas..." << endl;
+        int indice = 0;
+        while (getline(ss, campo, ',')) {
+            parseado[indice] = stoi(campo);
+            indice++;
+        }
+
+        if(archivoSalas.Guardar(Sala(idSala, parseado[0], parseado[1], parseado[2]))) {
+            cout << "Se guardo Exitosamente!" << endl;
+        } else {
+            cout << "Hubo un error inesperado, llame al de sistemas..." << endl;
+        }
     }
 }
 
@@ -117,43 +143,65 @@ void ManagerArchivoCSV::leerFuncionesCSV() {
 
 void ManagerArchivoCSV::cargarFuncionesCSV() {
     ArchivoFuncion archivoFunciones("funciones.dat");
-    int idFuncion = archivoFunciones.getUltimoId()+1, idPelicula, idSala, butacasDisponibles, idiomaFuncion;
-    float importeFuncion;
-    bool estado;
-    Fecha fechaFuncion;
+    int idFuncion;
+//    idPelicula, idSala, butacasDisponibles, idiomaFuncion;
+//    float importeFuncion;
+//    bool estado;
+//    Fecha fechaFuncion;
 
-    cout << "ID: " << idFuncion << endl;
 
-    cout << "Ingrese el ID de la Película: ";
-    //cin.ignore();
-    cin >> idPelicula;
+    string csv;
+    string parseado[11];
 
-    cout << "Ingrese el ID de la Sala: ";
-    cin >> idSala;
+    cout << "Ingrese la cadena CSV (o escriba \"0\" para finalizar la carga): " << endl;
+    cin.ignore();
 
-    cout << "Ingrese las Butacas Disponibles de la Sala: ";
-    cin >> butacasDisponibles;
+    while (getline(cin, csv)) {
+        if (csv == "0" || csv == "") break;
+        idFuncion = archivoFunciones.getUltimoId()+1;
+        cout << "ID: " << idFuncion + 1 << endl;
 
-    cout << "Ingrese el Idioma de la Función (1-Inglés, 2-Castellano, 3-Subtitulado): ";
-    cin >> idiomaFuncion;
+        stringstream ss(csv);
+        string campo;
 
-    cout << "Ingrese la Fecha de la Función: " << endl;
-    //cin.ignore();
-    fechaFuncion.cargar(1);
+        int indice = 0;
+        while (getline(ss, campo, ',')) {
+            if (indice == 4) {
+                stringstream fecha(campo);
+                string campo_fecha;
+                while (getline(fecha, campo_fecha, '/')) {
+                    if (indice == 6) {
+                        ///2026 - 00:00
+                        ///[2026] - [00]:[00]
+                        parseado[6] = campo_fecha.substr(0, 4);
+                        parseado[7] = campo_fecha.substr(7, 2);
+                        parseado[8] = campo_fecha.substr(10, 2);
+                        indice += 2;
+                    } else {
+                        parseado[indice] = campo_fecha;
+                    }
+                    indice++;
+                }
+            } else {
+                parseado[indice] = campo;
+                indice++;
+            }
+        }
+        replace(parseado[9].begin(), parseado[9].end(), '.', ',');      //permite parsear el float con stof();
 
-    cout << "Ingrese el importe de la Función: ";
-    cin >> importeFuncion;
 
-    cout << "Ingrese el Estado: ";
-    cin >> estado;
 
-    if(archivoFunciones.Guardar(Funcion(idFuncion, idPelicula, idSala, butacasDisponibles, idiomaFuncion,
-                                        fechaFuncion, importeFuncion, estado))) {
-        cout << "Se guardo Exitosamente!" << endl;
-    } else {
-        cout << "Hubo un error inesperado, llame al de sistemas..." << endl;
+        if(archivoFunciones.Guardar(Funcion(idFuncion, stoi(parseado[0]), stoi(parseado[1]), stoi(parseado[2]), stoi(parseado[3]),
+                                            Fecha(stoi(parseado[4]), stoi(parseado[5]), stoi(parseado[6]),
+                                                    stoi(parseado[7]), stoi(parseado[8])),
+                                            stof(parseado[9]), stoi(parseado[10])))) {
+            cout << "Se guardo Exitosamente!" << endl;
+        } else {
+            cout << "Hubo un error inesperado, llame al de sistemas..." << endl;
+        }
     }
 }
+
 
 void ManagerArchivoCSV::backupFuncionesCSV() {
 }
@@ -173,44 +221,38 @@ void ManagerArchivoCSV::leerMembresiasCSV() {
 
 void ManagerArchivoCSV::cargarMembresiasCSV() {
     ArchivoMembresia archivoMembresias("membresias.dat");
-    int idMembresia = archivoMembresias.getUltimoId()+1, tipoMembresia, descuentoMembresia, dniMiembro;
-    string nombreMembresia, nombreMiembro, apellidoMiembro, emailMiembro;
-    bool estado;
+    int idMembresia;
+//    , tipoMembresia, descuentoMembresia, dniMiembro;
+//    string nombreMembresia, nombreMiembro, apellidoMiembro, emailMiembro;
+//    bool estado;
 
-    cout << "ID: " << idMembresia << endl;
 
-    cout << "Ingrese el Tipo de Membresía (1-Plus, 2-Premium, 3-VIP): ";
-    //cin.ignore();
-    cin >> tipoMembresia;
+    string csv;
+    string parseado[7];
 
-    cout << "Ingrese el Descuento de Membresía";
-    cin >> descuentoMembresia;
-
-    cout << "Ingrese el Nombre de Membresía";
+    cout << "Ingrese la cadena CSV (o escriba \"0\" para finalizar la carga): " << endl;
     cin.ignore();
-    getline(cin, nombreMembresia);
 
-    cout << "Ingrese el Nombre del Miembro: ";
-    getline(cin, nombreMiembro);
+    while (getline(cin, csv)) {
+        if (csv == "0" || csv == "") break;
+        idMembresia = archivoMembresias.getUltimoId()+1;
+        cout << "ID: " << idMembresia + 1 << endl;
 
-    cout << "Ingrese el Apellido del Miembro: ";
-    getline(cin, apellidoMiembro);
+        stringstream ss(csv);
+        string campo;
 
-    cout << "Ingrese el DNI del Miembro: ";
-    cin >> dniMiembro;
+        int indice = 0;
+        while (getline(ss, campo, ',')) {
+            parseado[indice] = campo;
+            indice++;
+        }
 
-    cout << "Ingrese el Email del Miembro: ";
-    cin.ignore();
-    getline(cin, emailMiembro);
-
-    cout << "Ingrese el Estado: ";
-    cin >> estado;
-
-    if(archivoMembresias.Guardar(Membresia(idMembresia, tipoMembresia, descuentoMembresia, nombreMembresia,
-                                           nombreMiembro, apellidoMiembro, dniMiembro, emailMiembro, estado))) {
-        cout << "Se guardo Exitosamente!" << endl;
-    } else {
-        cout << "Hubo un error inesperado, llame al de sistemas..." << endl;
+        if(archivoMembresias.Guardar(Membresia(idMembresia, stoi(parseado[0]), stoi(parseado[1]), parseado[2], parseado[3],
+                                               parseado[4], stoi(parseado[5]), parseado[6], stoi(parseado[7])))) {
+            cout << "Se guardo Exitosamente!" << endl;
+        } else {
+            cout << "Hubo un error inesperado, llame al de sistemas..." << endl;
+        }
     }
 }
 
@@ -232,36 +274,60 @@ void ManagerArchivoCSV::leerVentasCSV() {
 
 void ManagerArchivoCSV::cargarVentasCSV() {
     ArchivoVenta archivoVentas("ventas.dat");
-    int idVenta = archivoVentas.getUltimoId()+1, idFuncion, idMembresia, cantidadEntradas;
-    float importeTotal;
-    bool estado;
-    Fecha fechaVenta;
+    int idVenta;
+//    idFuncion, idMembresia, cantidadEntradas;
+//    float importeTotal;
+//    bool estado;
+//    Fecha fechaVenta;
 
-    cout << "ID de Venta: " << idVenta << endl;
+    string csv;
+    string parseado[10];
 
-    cout << "Ingrese el ID de la Función: ";
-    cin >> idFuncion;
+    cout << "Ingrese la cadena CSV (o escriba \"0\" para finalizar la carga): " << endl;
+    cin.ignore();
 
-    cout << "Ingrese el ID de Membresía (Si el cliente no es Miembro, Ingrese 0): ";
-    cin >> idMembresia;
+    while (getline(cin, csv)) {
+        if (csv == "0" || csv == "") break;
+        idVenta = archivoVentas.getUltimoId()+1;
+        cout << "ID: " << idVenta + 1 << endl;
 
-    cout << "Ingrese la Cantidad de Entradas: ";
-    cin >> cantidadEntradas;
+        stringstream ss(csv);
+        string campo;
 
-    cout << "Ingrese la Fecha de la Función: " << endl;
-    //cin.ignore();
-    fechaVenta.cargar(1);
+        int indice = 0;
+        while (getline(ss, campo, ',')) {
+            if (indice == 3) {
+                stringstream fecha(campo);
+                string campo_fecha;
+                while (getline(fecha, campo_fecha, '/')) {
+                    if (indice == 5) {
+                        ///2026 - 00:00
+                        ///[2026] - [00]:[00]
+                        parseado[5] = campo_fecha.substr(0, 4);
+                        parseado[6] = campo_fecha.substr(7, 2);
+                        parseado[7] = campo_fecha.substr(10, 2);
+                        indice += 2;
+                    } else {
+                        parseado[indice] = campo_fecha;
+                    }
+                    indice++;
+                }
+            } else {
+                parseado[indice] = campo;
+                indice++;
+            }
+        }
 
-    cout << "Ingrese el Importe Total: ";
-    cin >> importeTotal;
+        replace(parseado[8].begin(), parseado[8].end(), '.', ',');      //permite parsear el float con stof();
 
-    cout << "Ingrese el Estado: ";
-    cin >> estado;
 
-    if(archivoVentas.Guardar(Venta(idVenta, idFuncion, idMembresia, cantidadEntradas, fechaVenta, importeTotal, estado))) {
-        cout << "Se guardo Exitosamente!" << endl;
-    } else {
-        cout << "Hubo un error inesperado, llame al de sistemas..." << endl;
+        if(archivoVentas.Guardar(Venta(idVenta, stoi(parseado[0]), stoi(parseado[1]), stoi(parseado[2]),
+                                       Fecha(stoi(parseado[3]), stoi(parseado[4]), stoi(parseado[5]), stoi(parseado[6]), stoi(parseado[7])),
+                                       stof(parseado[8]), stoi(parseado[9])))) {
+            cout << "Se guardo Exitosamente!" << endl;
+        } else {
+            cout << "Hubo un error inesperado, llame al de sistemas..." << endl;
+        }
     }
 }
 

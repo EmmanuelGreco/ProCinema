@@ -71,7 +71,7 @@ void ManagerFuncion::cargarFuncion() {
 
     cout << "Ingrese la Fecha de la Función: " << endl;
     //cin.ignore();
-    fechaFuncion.cargar(1);
+    fechaFuncion.cargar(2);
 
     // Esto habría que automatizarlo, dependiendo del día y del tipo de sala
     cout << "Ingrese el importe de la Función: ";
@@ -189,7 +189,7 @@ void ManagerFuncion::modificarFuncion() {
     cout << "2. Nº Sala: " << funcion.getIdSala() << endl;
     //cout << "3. " << funcion.getButacasDisponibles() << endl;
     cout << "3. Idioma de la Función: " << funcion.getIdiomaFuncion() << endl;
-    cout << "4. Fecha de la Función: " << funcion.getFechaFuncion().toString(1) << endl;
+    cout << "4. Fecha de la Función: " << funcion.getFechaFuncion().toString(2) << endl;
     cout << "5. Importe de la Función: " << funcion.getImporteFuncion() << endl;
     //cout << "0. Volver al menu " << endl;
     cout << "Elija una Opción: ";
@@ -246,7 +246,7 @@ void ManagerFuncion::modificarFuncion() {
         break;
     case 4:
         cout << "Elija la nueva Fecha de la Función: " << endl;
-        fechaFuncion.cargar(1);
+        fechaFuncion.cargar(2);
         funcion.setFechaFuncion(fechaFuncion);
         break;
     case 5:
@@ -400,7 +400,7 @@ void ManagerFuncion::buscarPorFechaFuncion() {
     Fecha fechaFuncionBuscada;
 
     cout << "Ingrese la Fecha de Función a Buscar: " << endl;
-    fechaFuncionBuscada.cargar(1);
+    fechaFuncionBuscada.cargar(2);
 
     int cantidadRegistros = archivoFunciones.CantidadRegistros();
     int cantidadEncontrados = 0;
@@ -411,7 +411,7 @@ void ManagerFuncion::buscarPorFechaFuncion() {
         }
     }
     if (cantidadEncontrados == 0)
-        cout << endl << "NO se encontró ningún registro con la Fecha de la Función: " << fechaFuncionBuscada.toString(1) << "." << endl;
+        cout << endl << "NO se encontró ningún registro con la Fecha de la Función: " << fechaFuncionBuscada.toString(2) << "." << endl;
 }
 
 bool ManagerFuncion::validarNumero(int input, int minimo, int maximo) {

@@ -122,7 +122,7 @@ std::string Funcion::mostrar() {
            "  ID de Sala N°" + to_string(getIdSala()+1) + "\n" +
            "  Cantidad de Butacas Disponibles: " + to_string(getButacasDisponibles()) + "\n" +
            "  Idioma de la Función: " + idiomaFuncion + "\n" +
-           "  Fecha de la Función: " + getFechaFuncion().toString(1) + "\n" +
+           "  Fecha de la Función: " + getFechaFuncion().toString(2) + "\n" +
            "  Importe de la Función: $" + redondeoImporteFuncion.str() + "\n" +
            "  Estado de la Función: " + estado + "\n" +
            "===================================================";
@@ -131,7 +131,7 @@ std::string Funcion::mostrar() {
 std::string Funcion::mostrarCSV() {
     ostringstream redondeoImporteFuncion;
     redondeoImporteFuncion << fixed << setprecision(2) << getImporteFuncion();
-    return to_string(getIdFuncion()) + "," + to_string(getIdPelicula()) + "," + to_string(getIdSala()) + ","
-            + to_string(getButacasDisponibles()) + "," + to_string(getIdiomaFuncion()) + "," + getFechaFuncion().toString(1) + ","
+    return to_string(getIdPelicula()) + "," + to_string(getIdSala()) + ","
+            + to_string(getButacasDisponibles()) + "," + to_string(getIdiomaFuncion()) + "," + getFechaFuncion().toString(2) + ","
             + redondeoImporteFuncion.str() + "," + to_string(getEstado());
 }

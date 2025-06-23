@@ -272,7 +272,7 @@ void ManagerVenta::cambiarEstadoVenta() {
     cout << endl;
 }
 
-int ManagerVenta::calcularImporteTotal(int cantidadEntradas, int idFuncion, int idMembresia) {
+float ManagerVenta::calcularImporteTotal(int cantidadEntradas, int idFuncion, int idMembresia) {
     ArchivoFuncion archivoFunciones("funciones.dat");
     Funcion funcion = archivoFunciones.Leer(archivoFunciones.Buscar(idFuncion));
     ArchivoMembresia archivoMembresias("membresias.dat");

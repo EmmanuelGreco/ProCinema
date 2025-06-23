@@ -128,7 +128,7 @@ std::string Membresia::mostrar() {
 }
 
 std::string Membresia::mostrarCSV() {
-    return to_string(getIdMembresia()) + "," + to_string(getTipoMembresia()) + "," + to_string(getDescuentoMembresia()) + ","
+    return to_string(getTipoMembresia()) + "," + to_string(getDescuentoMembresia()) + ","
             + getNombreMembresia() + "," + getNombreMiembro() + "," + getApellidoMiembro() + "," + to_string(getDniMiembro()) + ","
             + getEmailMiembro() + "," + to_string(getEstado());
 }
