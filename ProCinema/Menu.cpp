@@ -261,9 +261,15 @@ void Menu::configuracionMembresias() {
     cout << endl;
     cout << "---------------- ProCinema Manager ----------------" << endl;
     cout << "-------------- Configurar Membresías --------------" << endl;
-    string queMenuEs = "Membresía";
-    configuracionOpciones(queMenuEs);
-    recibirOpcion(4);
+    cout << "1.  Agregar una Membresía" << endl;
+    cout << "2.  Pausar / Renovar una Membresía" << endl;
+    cout << "3.  Modificar una Membresía" << endl;
+    cout << "4.  Listar Membresías por..." << endl;
+    cout << "5.  Buscar Membresías por..." << endl;
+    cout << "0.  Volver atrás... " << endl;
+    cout << "---------------------------------------------------" << endl;
+    cout << "Ingrese la Opción elegida: ";
+    recibirOpcion(5);
     system("cls");
 }
 
@@ -282,11 +288,25 @@ void Menu::listarMembresiasPor() {
     system("cls");
 }
 
+void Menu::buscarMembresiasPor() {
+    system("cls");
+    cout << endl;
+    cout << "---------------- ProCinema Manager ----------------" << endl;
+    cout << "-------------- Buscar Membresías por --------------" << endl;
+    cout << "1.  ID de la Membresía" << endl;
+    cout << "2.  DNI del Miembro" << endl;
+    cout << "0.  Volver atrás... " << endl;
+    cout << "---------------------------------------------------" << endl;
+    cout << "Ingrese la Opción elegida: ";
+    recibirOpcion(2);
+    system("cls");
+}
+
 void Menu::configuracionOpciones(string queMenuEs) {
-    cout << "1.  Listar " << queMenuEs << "s por..." << endl;
-    cout << "2.  Agregar una " << queMenuEs << endl;
-    cout << "3.  Dar de baja / Restaurar una " << queMenuEs << endl;
-    cout << "4.  Modificar una " << queMenuEs << endl;
+    cout << "1.  Agregar una " << queMenuEs << endl;
+    cout << "2.  Dar de baja / Restaurar una " << queMenuEs << endl;
+    cout << "3.  Modificar una " << queMenuEs << endl;
+    cout << "4.  Listar " << queMenuEs << "s por..." << endl;
     cout << "0.  Volver atrás... " << endl;
     cout << "---------------------------------------------------" << endl;
     cout << "Ingrese la Opción elegida: ";

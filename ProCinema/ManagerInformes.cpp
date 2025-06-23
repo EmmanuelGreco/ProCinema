@@ -368,7 +368,7 @@ void ManagerInformes::ocupacionMenorFunciones() {
             int butacasDisponibles = funcion.getButacasDisponibles();
 
             if (butacasTotales > 0) {
-                float porcentajeOcupacion = ((float)(butacasTotales - butacasDisponibles) *100)/ butacasTotales;
+                float porcentajeOcupacion = ((float)(butacasTotales - butacasDisponibles) *100) / butacasTotales;
 
                 if (porcentajeOcupacion < 50) {
                     idFunMenorOcupacion[cantFunMenorOcupacion] = funcion.getIdFuncion();

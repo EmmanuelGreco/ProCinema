@@ -133,12 +133,12 @@
 1749506697 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\manager.h
 	<string>
 
-1750632414 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\menu.cpp
+1750638391 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\menu.cpp
 	<iostream>
 	<string>
 	"Menu.h"
 
-1750535024 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\menu.h
+1750638335 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\menu.h
 	<string>
 
 1750535448 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\pelicula.cpp
@@ -147,7 +147,7 @@
 	<cstring>
 	<string>
 
-1750633545 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\main.cpp
+1750638660 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\main.cpp
 	<iostream>
 	<locale.h>
 	<windows.h>
@@ -160,7 +160,7 @@
 	"ManagerVenta.h"
 	"ManagerInformes.h"
 
-1750566706 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerpelicula.h
+1750638186 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerpelicula.h
 
 1750623972 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerpelicula.cpp
 	<iostream>
@@ -207,7 +207,7 @@
 	<cstring>
 	<string>
 
-1750624990 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managermembresia.cpp
+1750638173 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managermembresia.cpp
 	<iostream>
 	<string>
 	"ManagerMembresia.h"
@@ -219,7 +219,7 @@
 	<cstring>
 	<string>
 
-1750566706 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managermembresia.h
+1750638054 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managermembresia.h
 
 1750227088 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\archivopelicula.cpp
 	"ArchivoPelicula.h"
@@ -480,7 +480,7 @@
 
 1750611679 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerinformes.h
 
-1750636671 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerinformes.cpp
+1750637273 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerinformes.cpp
 	<iostream>
 	<string>
 	<iomanip>

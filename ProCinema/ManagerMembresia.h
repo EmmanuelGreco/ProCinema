@@ -9,6 +9,9 @@ public:
     void modificarMembresia();
     void cambiarEstadoMembresia();
 
+    void buscarPorId();
+    void buscarPorDNI();
+
     bool validarNumero(int input, int minimo, int maximo);
     bool validarNumero(int input, int minimo);
 };

@@ -251,7 +251,7 @@ int main() {
         }
 
 
-        ///5. CONFIG
+        ///5. CONFIGURACIÓN
         case 5: {
             int opcionConfig;
 
@@ -267,7 +267,13 @@ int main() {
                         opcionSalas = menu.getOpcion();
 
                         switch(opcionSalas) {
-                        case 1:
+                        case 1: managerSala.cargarSala(); system("pause");
+                            break;
+                        case 2: managerSala.cambiarEstadoSala(); system("pause");
+                            break;
+                        case 3: managerSala.modificarSala(); system("pause");
+                            break;
+                        case 4:
                             menu.listarSalasPor();
                             opcionListarSalas = menu.getOpcion();
 
@@ -288,27 +294,27 @@ int main() {
                                 break;
                             }
                             break;
-                        case 2: managerSala.cargarSala(); system("pause");
-                            break;
-                        case 3: managerSala.cambiarEstadoSala(); system("pause");
-                            break;
-                        case 4: managerSala.modificarSala(); system("pause");
-                            break;
-                        case 0: // "VOLVER AL MENU CONFIGURACION"
+                        case 0: // "VOLVER AL MENU CONFIGURACIÓN"
                             break;
                         }
                         if(opcionSalas == 0) break;
                     }
                     break;
 
-                int opcionMembresias, opcionListarMembresias;
+                int opcionMembresias, opcionListarMembresias, opcionBuscarMembresias;
                 case 2:
                     while(true) {
                         menu.configuracionMembresias();
                         opcionMembresias = menu.getOpcion();
 
                         switch(opcionMembresias) {
-                        case 1:
+                        case 1: managerMembresia.cargarMembresia(); system("pause");
+                            break;
+                        case 2: managerMembresia.cambiarEstadoMembresia(); system("pause");
+                            break;
+                        case 3: managerMembresia.modificarMembresia(); system("pause");
+                            break;
+                        case 4:
                             menu.listarMembresiasPor();
                             opcionListarMembresias = menu.getOpcion();
 
@@ -325,17 +331,24 @@ int main() {
                                 managerMembresia.listarMembresiasActivas(activas); system("pause");
                                 break;
                             }
-                            case 0: // "VOLVER AL MENU SALAS"
+                            case 0: // "VOLVER AL MENU MEMBRESÍAS"
                                 break;
                             }
                             break;
-                        case 2: managerMembresia.cargarMembresia(); system("pause");
+                        case 5:
+                            menu.buscarMembresiasPor();
+                            opcionBuscarMembresias = menu.getOpcion();
+
+                            switch(opcionBuscarMembresias) {
+                            case 1: managerMembresia.buscarPorId(); system("pause");
+                                break;
+                            case 2: managerMembresia.buscarPorDNI(); system("pause");
+                                break;
+                            case 0: // "VOLVER AL MENU MEMBRESÍAS"
+                                break;
+                            }
                             break;
-                        case 3: managerMembresia.cambiarEstadoMembresia(); system("pause");
-                            break;
-                        case 4: managerMembresia.modificarMembresia(); system("pause");
-                            break;
-                        case 0: // "VOLVER AL MENU CONFIGURACION"
+                        case 0: // "VOLVER AL MENU CONFIGURACIÓN"
                             break;
                         }
                         if(opcionMembresias == 0) break;

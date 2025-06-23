@@ -9,7 +9,6 @@ public:
     void modificarPelicula();
     void cambiarEstadoPelicula();
 
-
     void buscarPorId();
     void buscarPorTitulo();
     void buscarPorGenero();

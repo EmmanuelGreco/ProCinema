@@ -186,7 +186,7 @@ void ManagerMembresia::modificarMembresia() {
 void ManagerMembresia::cambiarEstadoMembresia() {
     int idMembresia, posicion;
 
-    cout << "Ingrese el ID de la Membresía a Dar de baja / Restaurar: ";
+    cout << "Ingrese el ID de la Membresía a Pausar / Renovar: ";
     cin >> idMembresia;
     //idMembresia -= 1;
     while (!validarNumero(idMembresia, 0)) {
@@ -215,6 +215,55 @@ void ManagerMembresia::cambiarEstadoMembresia() {
         cout << "NO se ha podido modificar!";
     }
     cout << endl;
+}
+
+
+///BUSCAR POR...
+
+void ManagerMembresia::buscarPorId() {
+    int idBuscado;
+
+    cout << "Ingrese el ID de la Membresia a Buscar: ";
+    cin >> idBuscado;
+    //idBuscado -= 1;
+    while (!validarNumero(idBuscado, 0)) {
+        cout << "Error! Ingrese un ID válido: ";
+        cin >> idBuscado;
+        //idBuscado -= 1;
+    }
+
+    int cantidadRegistros = archivoMembresias.CantidadRegistros();
+    int cantidadEncontrados = 0;
+    for (int i = 0; i < cantidadRegistros; i++) {
+        if (archivoMembresias.Leer(i).getIdMembresia() == idBuscado) {
+            cout << archivoMembresias.Leer(i).mostrar() << endl;
+            cantidadEncontrados++;
+        }
+    }
+    if (cantidadEncontrados == 0)
+        cout << endl << "NO se encontró ningún registro con el ID: " << idBuscado << "." << endl;
+}
+
+void ManagerMembresia::buscarPorDNI() {
+    int dniBuscado;
+
+    cout << "Ingrese el DNI de la Membresia a Buscar: ";
+    cin >> dniBuscado;
+    while (!validarNumero(dniBuscado, 0)) {
+        cout << "Error! Ingrese un DNI válido: ";
+        cin >> dniBuscado;
+    }
+
+    int cantidadRegistros = archivoMembresias.CantidadRegistros();
+    int cantidadEncontrados = 0;
+    for (int i = 0; i < cantidadRegistros; i++) {
+        if (archivoMembresias.Leer(i).getDniMiembro() == dniBuscado) {
+            cout << archivoMembresias.Leer(i).mostrar() << endl;
+            cantidadEncontrados++;
+        }
+    }
+    if (cantidadEncontrados == 0)
+        cout << endl << "NO se encontró ningún registro con el DNI: " << dniBuscado << "." << endl;
 }
 
 bool ManagerMembresia::validarNumero(int input, int minimo, int maximo) {
