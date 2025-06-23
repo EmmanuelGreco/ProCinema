@@ -43,44 +43,44 @@ bool Menu::opcionValida(int input, int maximo) {//no le asigné un minimo xq asum
     }
 }
 
-void Menu::menuPrincipal() {
-    menuBienvendidaImprimir();
-    system("pause");
-
-    while(true) {
-        principal();
-        switch(getOpcion()) {
-        case 1:
-            menuVentas();
-            break;
-        case 2:
-            menuPeliculas();
-            break;
-        case 3:
-            menuFunciones();
-            break;
-        case 4:
-            menuMembresia();
-            break;
-        case 5:
-            menuInformes();
-            break;
-        case 6:
-            menuConfiguracion();
-            break;
-        case 7:
-            menuCreditos();
-            break;
-        case 0:
-            system("cls");
-            cout << "Gracias por usar ProCinema!" << endl << endl;
-            return;
-            break;
-        }
-        cout << endl;
-        system("cls");
-    }
-}
+//void Menu::menuPrincipal() {
+//    menuBienvendidaImprimir();
+//    system("pause");
+//
+//    while(true) {
+//        principal();
+//        switch(getOpcion()) {
+//        case 1:
+//            menuVentas();
+//            break;
+//        case 2:
+//            menuPeliculas();
+//            break;
+//        case 3:
+//            menuFunciones();
+//            break;
+//        case 4:
+//            menuMembresia();
+//            break;
+//        case 5:
+//            menuInformes();
+//            break;
+//        case 6:
+//            menuConfiguracion();
+//            break;
+//        case 7:
+//            menuCreditos();
+//            break;
+//        case 0:
+//            system("cls");
+//            cout << "Gracias por usar ProCinema!" << endl << endl;
+//            return;
+//            break;
+//        }
+//        cout << endl;
+//        system("cls");
+//    }
+//}
 
 void Menu::menuVentas() {
     ManagerVenta managerVenta;

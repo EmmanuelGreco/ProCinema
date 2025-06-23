@@ -5,7 +5,7 @@ class Menu {
 private:
     int _opcion;
 public:
-    void menuPrincipal();
+    //void menuPrincipal();
     void menuVentas();
     void menuPeliculas();
     void menuFunciones();
