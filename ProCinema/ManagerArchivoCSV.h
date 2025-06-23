@@ -4,17 +4,27 @@
 class ManagerArchivoCSV {
 public:
     void cargarPeliculasCSV();
-    void listarPeliculasCSV();
+    void leerPeliculasCSV();
+    void backupPeliculasCSV();
+    void restaurarPeliculasCSV();
 
     void cargarSalasCSV();
-    void listarSalasCSV();
+    void leerSalasCSV();
+    void backupSalasCSV();
+    void restaurarSalasCSV();
 
     void cargarFuncionesCSV();
-    void listarFuncionesCSV();
+    void leerFuncionesCSV();
+    void backupFuncionesCSV();
+    void restaurarFuncionesCSV();
 
     void cargarMembresiasCSV();
-    void listarMembresiasCSV();
+    void leerMembresiasCSV();
+    void backupMembresiasCSV();
+    void restaurarMembresiasCSV();
 
     void cargarVentasCSV();
-    void listarVentasCSV();
+    void leerVentasCSV();
+    void backupVentasCSV();
+    void restaurarVentasCSV();
 };

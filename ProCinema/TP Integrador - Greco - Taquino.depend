@@ -133,13 +133,13 @@
 1749506697 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\manager.h
 	<string>
 
-1750650986 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\menu.cpp
+1750681402 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\menu.cpp
 	<iostream>
 	<string>
 	"Menu.h"
 	<windows.h>
 
-1750649052 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\menu.h
+1750681041 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\menu.h
 	<string>
 
 1750644494 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\pelicula.cpp
@@ -148,7 +148,7 @@
 	<cstring>
 	<string>
 
-1750651939 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\main.cpp
+1750681266 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\main.cpp
 	<iostream>
 	<locale.h>
 	<windows.h>
@@ -434,7 +434,7 @@
 
 1750566706 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerventa.h
 
-1750645808 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerventa.cpp
+1750655389 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerventa.cpp
 	<iostream>
 	<string>
 	"ManagerVenta.h"
@@ -510,7 +510,7 @@
 
 1750641627 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerarchivoscsv.h
 
-1750655322 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerarchivocsv.cpp
+1750681514 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerarchivocsv.cpp
 	<iostream>
 	<string>
 	"ManagerArchivoCSV.h"
@@ -520,5 +520,5 @@
 	"ArchivoMembresia.h"
 	"ArchivoVenta.h"
 
-1750642561 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerarchivocsv.h
+1750681486 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerarchivocsv.h
 

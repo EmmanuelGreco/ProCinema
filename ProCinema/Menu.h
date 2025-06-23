@@ -28,7 +28,11 @@ public:
     void configuracionSalas();
     void listarSalasPor();
     void configuracionCSV();
-    void archivosCSV();
+    void archivosCSVLeer();
+    void archivosCSVCargar();
+    void archivosCSVBackUp();
+    void archivosCSVRestaurar();
+    void imprimirOpcionesCSV();
     bool verificarContrasena(const std::string& contrasenaIngresada);
     //void configuracionOpciones(std::string queMenuEs);
 };

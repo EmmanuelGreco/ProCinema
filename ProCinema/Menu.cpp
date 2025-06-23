@@ -349,18 +349,56 @@ void Menu::configuracionCSV() {
     cout << "------------------ Archivos CSV -------------------" << endl;
     cout << "1.  Leer CSV..." << endl;
     cout << "2.  Cargar CSV..." << endl;
+    cout << "3.  BackUP CSV..." << endl;
+    cout << "4.  Restaurar CSV..." << endl;
     cout << "0.  Volver atrás... " << endl;
     cout << "---------------------------------------------------" << endl;
     cout << "Ingrese la Opción elegida: ";
-    recibirOpcion(2);
+    recibirOpcion(4);
     system("cls");
 }
 
-void Menu::archivosCSV() {
+void Menu::archivosCSVLeer() {
     system("cls");
     cout << endl;
     cout << "---------------- ProCinema Manager ----------------" << endl;
-    cout << "------------------ Archivos CSV -------------------" << endl;
+    cout << "---------------- Archivos CSV Leer -----------------" << endl;
+    imprimirOpcionesCSV();
+    recibirOpcion(5);
+    system("cls");
+}
+
+void Menu::archivosCSVCargar() {
+    system("cls");
+    cout << endl;
+    cout << "---------------- ProCinema Manager ----------------" << endl;
+    cout << "--------------- Archivos CSV Cargar ----------------" << endl;
+    imprimirOpcionesCSV();
+    recibirOpcion(5);
+    system("cls");
+}
+
+void Menu::archivosCSVBackUp() {
+    system("cls");
+    cout << endl;
+    cout << "---------------- ProCinema Manager ----------------" << endl;
+    cout << "--------------- Archivos CSV BackUp ----------------" << endl;
+    imprimirOpcionesCSV();
+    recibirOpcion(5);
+    system("cls");
+}
+
+void Menu::archivosCSVRestaurar() {
+    system("cls");
+    cout << endl;
+    cout << "---------------- ProCinema Manager ----------------" << endl;
+    cout << "------------- Archivos CSV Restaurar --------------" << endl;
+    imprimirOpcionesCSV();
+    recibirOpcion(5);
+    system("cls");
+}
+
+void Menu::imprimirOpcionesCSV() {
     cout << "1.  Películas" << endl;
     cout << "2.  Salas" << endl;
     cout << "3.  Funciones" << endl;
@@ -369,8 +407,6 @@ void Menu::archivosCSV() {
     cout << "0.  Volver atrás... " << endl;
     cout << "---------------------------------------------------" << endl;
     cout << "Ingrese la Opción elegida: ";
-    recibirOpcion(5);
-    system("cls");
 }
 
 bool Menu::verificarContrasena(const string& contrasenaIngresada) {

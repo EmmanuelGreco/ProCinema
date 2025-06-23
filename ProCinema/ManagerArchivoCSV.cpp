@@ -10,7 +10,7 @@
 using namespace std;
 
 
-void ManagerArchivoCSV::listarPeliculasCSV() {
+void ManagerArchivoCSV::leerPeliculasCSV() {
 ArchivoPelicula archivoPeliculas("peliculas.dat");
     int cantidadRegistros = archivoPeliculas.CantidadRegistros();
 
@@ -60,8 +60,14 @@ void ManagerArchivoCSV::cargarPeliculasCSV() {
     }
 }
 
+void ManagerArchivoCSV::backupPeliculasCSV() {
+}
 
-void ManagerArchivoCSV::listarSalasCSV() {
+void ManagerArchivoCSV::restaurarPeliculasCSV() {
+}
+
+
+void ManagerArchivoCSV::leerSalasCSV() {
     ArchivoSala archivoSalas("salas.dat");
     int cantidadRegistros = archivoSalas.CantidadRegistros();
 
@@ -93,8 +99,14 @@ void ManagerArchivoCSV::cargarSalasCSV() {
     }
 }
 
+void ManagerArchivoCSV::backupSalasCSV() {
+}
 
-void ManagerArchivoCSV::listarFuncionesCSV() {
+void ManagerArchivoCSV::restaurarSalasCSV() {
+}
+
+
+void ManagerArchivoCSV::leerFuncionesCSV() {
     ArchivoFuncion archivoFunciones("funciones.dat");
     int cantidadRegistros = archivoFunciones.CantidadRegistros();
 
@@ -143,8 +155,14 @@ void ManagerArchivoCSV::cargarFuncionesCSV() {
     }
 }
 
+void ManagerArchivoCSV::backupFuncionesCSV() {
+}
 
-void ManagerArchivoCSV::listarMembresiasCSV() {
+void ManagerArchivoCSV::restaurarFuncionesCSV() {
+}
+
+
+void ManagerArchivoCSV::leerMembresiasCSV() {
     ArchivoMembresia archivoMembresias("membresias.dat");
     int cantidadRegistros = archivoMembresias.CantidadRegistros();
 
@@ -196,8 +214,14 @@ void ManagerArchivoCSV::cargarMembresiasCSV() {
     }
 }
 
+void ManagerArchivoCSV::backupMembresiasCSV() {
+}
 
-void ManagerArchivoCSV::listarVentasCSV() {
+void ManagerArchivoCSV::restaurarMembresiasCSV() {
+}
+
+
+void ManagerArchivoCSV::leerVentasCSV() {
     ArchivoVenta archivoVentas("ventas.dat");
     int cantidadRegistros = archivoVentas.CantidadRegistros();
 
@@ -239,4 +263,10 @@ void ManagerArchivoCSV::cargarVentasCSV() {
     } else {
         cout << "Hubo un error inesperado, llame al de sistemas..." << endl;
     }
+}
+
+void ManagerArchivoCSV::backupVentasCSV() {
+}
+
+void ManagerArchivoCSV::restaurarVentasCSV() {
 }

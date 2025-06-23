@@ -318,9 +318,10 @@ int main() {
         case 6: {
             int opcionConfig;
             string contrasena;
-            bool accesoPermitido = false;
+            bool accesoPermitido = true;
 
-            while(contrasena != "0") {
+            // Validacion para acceder a Menu Configuracion
+            /*while(contrasena != "0") {
                 cout << endl;
                 cout << "  Por favor, ingrese la contraseña para acceder al menú de configuración (Ingrese 0 para cancelar): ";
                 cin >> contrasena;
@@ -332,7 +333,7 @@ int main() {
                 } else {
                     cout << "  Contraseña Incorrecta! Intente nuevamente!" << endl;
                 }
-            }
+            }*/
 
             if(accesoPermitido) {
                 while(true) {
@@ -389,26 +390,26 @@ int main() {
 
                             switch(opcionCSV) {
                             case 1:
-                                menu.archivosCSV();
+                                menu.archivosCSVLeer();
                                 opcionArchivosCSV = menu.getOpcion();
 
                                 switch(opcionArchivosCSV) {
-                                case 1: managerArchivoCSV.listarPeliculasCSV(); system("pause");
+                                case 1: managerArchivoCSV.leerPeliculasCSV(); system("pause");
                                     break;
-                                case 2: managerArchivoCSV.listarSalasCSV(); system("pause");
+                                case 2: managerArchivoCSV.leerSalasCSV(); system("pause");
                                     break;
-                                case 3: managerArchivoCSV.listarFuncionesCSV(); system("pause");
+                                case 3: managerArchivoCSV.leerFuncionesCSV(); system("pause");
                                     break;
-                                case 4: managerArchivoCSV.listarMembresiasCSV(); system("pause");
+                                case 4: managerArchivoCSV.leerMembresiasCSV(); system("pause");
                                     break;
-                                case 5: managerArchivoCSV.listarVentasCSV(); system("pause");
+                                case 5: managerArchivoCSV.leerVentasCSV(); system("pause");
                                     break;
                                 case 0: // "VOLVER AL MENU ARCHIVOS CSV"
                                     break;
                                 }
                                 break;
                             case 2:
-                                menu.archivosCSV();
+                                menu.archivosCSVCargar();
                                 opcionArchivosCSV = menu.getOpcion();
 
                                 switch(opcionArchivosCSV) {
@@ -421,6 +422,44 @@ int main() {
                                 case 4: managerArchivoCSV.cargarMembresiasCSV(); system("pause");
                                     break;
                                 case 5: managerArchivoCSV.cargarVentasCSV(); system("pause");
+                                    break;
+                                case 0: // "VOLVER AL MENU ARCHIVOS CSV"
+                                    break;
+                                }
+                                break;
+                            case 3:
+                                menu.archivosCSVBackUp();
+                                opcionArchivosCSV = menu.getOpcion();
+
+                                switch(opcionArchivosCSV) {
+                                case 1: managerArchivoCSV.backupPeliculasCSV(); system("pause");
+                                    break;
+                                case 2: managerArchivoCSV.backupSalasCSV(); system("pause");
+                                    break;
+                                case 3: managerArchivoCSV.backupFuncionesCSV(); system("pause");
+                                    break;
+                                case 4: managerArchivoCSV.backupMembresiasCSV(); system("pause");
+                                    break;
+                                case 5: managerArchivoCSV.backupVentasCSV(); system("pause");
+                                    break;
+                                case 0: // "VOLVER AL MENU ARCHIVOS CSV"
+                                    break;
+                                }
+                                break;
+                            case 4:
+                                menu.archivosCSVRestaurar();
+                                opcionArchivosCSV = menu.getOpcion();
+
+                                switch(opcionArchivosCSV) {
+                                case 1: managerArchivoCSV.restaurarPeliculasCSV(); system("pause");
+                                    break;
+                                case 2: managerArchivoCSV.restaurarSalasCSV(); system("pause");
+                                    break;
+                                case 3: managerArchivoCSV.restaurarFuncionesCSV(); system("pause");
+                                    break;
+                                case 4: managerArchivoCSV.restaurarMembresiasCSV(); system("pause");
+                                    break;
+                                case 5: managerArchivoCSV.restaurarVentasCSV(); system("pause");
                                     break;
                                 case 0: // "VOLVER AL MENU ARCHIVOS CSV"
                                     break;
