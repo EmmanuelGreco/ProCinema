@@ -30,9 +30,8 @@ public:
     void configuracionCSV();
     void archivosCSVLeer();
     void archivosCSVCargar();
-    void archivosCSVBackUp();
-    void archivosCSVRestaurar();
     void imprimirOpcionesCSV();
-    bool verificarContrasena(const std::string& contrasenaIngresada);
+    void creditosImprimir();
+    bool verificarContrasena(const std::string &contrasenaIngresada);
     //void configuracionOpciones(std::string queMenuEs);
 };

@@ -39,21 +39,21 @@ bool Menu::opcionValida(int input, int maximo) {//no le asigné un minimo xq asum
 void Menu::menuBienvendidaImprimir() {
     HANDLE hConsole = GetStdHandle( STD_OUTPUT_HANDLE );
     cout << endl;
-    cout << "                           By LOS VECTORES®                          " << endl;
+    cout << "                                       By LOS VECTORES®                          " << endl;
     cout << endl;
-    cout << "                       Bienvenido a...........                       " << endl;
+    cout << "                                   Bienvenido a...........                       " << endl;
     cout << endl;
     color(hConsole, 14);
-    cout << "          =================================================          " << endl;
-    cout << "  $$$$$$$                        $$$$$$   $$                                              " << endl;
-    cout << "  $$  __$$                      $$  __$$   __|                                            " << endl;
-    cout << "  $$ |  $$ | $$$$$$    $$$$$$   $$     __|$$  $$$$$$$    $$$$$$   $$$$$$ $$$$    $$$$$$   " << endl;
-    cout << "  $$$$$$$  |$$  __$$  $$  __$$  $$ |      $$ |$$  __$$  $$  __$$  $$  _$$  _$$    ____$$  " << endl;
-    cout << "  $$  ____  $$ |   __|$$    $$ |$$ |      $$ |$$ |  $$ |$$$$$$$$ |$$   $$   $$ | $$$$$$$ |" << endl;
-    cout << "  $$ |      $$ |      $$ |  $$ |$$ |  $$  $$ |$$ |  $$ |$$   ____|$$ | $$ | $$ |$$  __$$ |" << endl;
-    cout << "  $$ |      $$ |       $$$$$$  | $$$$$$  |$$ |$$ |  $$ | $$$$$$$  $$ | $$ | $$ | $$$$$$$ |" << endl;
-    cout << "   __|       __|        ______    ______   __| __|   __|  _______| __|  __|  __|  _______ " << endl;
-    cout << "          =================================================          " << endl;
+    cout << "          ==============================================================          " << endl;
+    cout << "  $$$$$$$                     $$$$$$  $$                                          " << endl;
+    cout << "  $$  __$$                   $$  __$$  __                                         " << endl;
+    cout << "  $$ |  $$  $$$$$$   $$$$$$  $$     __$$ $$$$$$$   $$$$$$  $$$$$$ $$$$   $$$$$$   " << endl;
+    cout << "  $$$$$$$  $$  __$$ $$  __$$ $$ |     $$ $$  __$$ $$  __$$ $$  _$$  _$$   ____$$  " << endl;
+    cout << "  $$  ____ $$ |   _|$$    $$ $$ |     $$ $$ |  $$ $$$$$$$$|$$   $$   $$  $$$$$$$ |" << endl;
+    cout << "  $$ |     $$ |     $$ |  $$ $$ |  $$ $$ $$ |  $$ $$   ___|$$ | $$ | $$ $$  __$$ |" << endl;
+    cout << "  $$ |     $$ |      $$$$$$   $$$$$$  $$ $$ |  $$  $$$$$$$ $$ | $$ | $$  $$$$$$$ |" << endl;
+    cout << "   __|      __|       ______   ______  __ __|   __  ______| __|  __|  __  _______ " << endl;
+    cout << "          ==============================================================          " << endl;
     color(hConsole, 12);
     cout << endl;
     cout << endl;
@@ -78,10 +78,11 @@ void Menu::principal() {
     cout << "4.  Membresías..." << endl;
     cout << "5.  Informes..." << endl;
     cout << "6.  Configuración..." << endl;
+    cout << "7.  Créditos..." << endl;
     cout << "0.  Salir del programa... " << endl;
     cout << "---------------------------------------------------" << endl;
     cout << "Ingrese la Opción elegida: ";
-    recibirOpcion(6);
+    recibirOpcion(7);
     system("cls");
 }
 
@@ -271,7 +272,7 @@ void Menu::informes() {
     cout << "--------------------- Informes --------------------" << endl;
     //cout << "1.  Top 5 Películas del Año" << endl;
     cout << "1.  Top 5 Películas Históricas" << endl;
-    cout << "2.  Recaudación Total..." << endl;
+    cout << "2.  Recaudación Total por..." << endl;
     cout << "3.  Porcentaje de Compras de Tipos de Membresías" << endl;
     cout << "4.  Ocupación Promedio por Sala" << endl;
     cout << "5.  Funciones con Ocupación Menor al 50%" << endl;
@@ -349,12 +350,10 @@ void Menu::configuracionCSV() {
     cout << "------------------ Archivos CSV -------------------" << endl;
     cout << "1.  Leer CSV..." << endl;
     cout << "2.  Cargar CSV..." << endl;
-    cout << "3.  BackUP CSV..." << endl;
-    cout << "4.  Restaurar CSV..." << endl;
     cout << "0.  Volver atrás... " << endl;
     cout << "---------------------------------------------------" << endl;
     cout << "Ingrese la Opción elegida: ";
-    recibirOpcion(4);
+    recibirOpcion(2);
     system("cls");
 }
 
@@ -378,26 +377,6 @@ void Menu::archivosCSVCargar() {
     system("cls");
 }
 
-void Menu::archivosCSVBackUp() {
-    system("cls");
-    cout << endl;
-    cout << "---------------- ProCinema Manager ----------------" << endl;
-    cout << "--------------- Archivos CSV BackUp ----------------" << endl;
-    imprimirOpcionesCSV();
-    recibirOpcion(5);
-    system("cls");
-}
-
-void Menu::archivosCSVRestaurar() {
-    system("cls");
-    cout << endl;
-    cout << "---------------- ProCinema Manager ----------------" << endl;
-    cout << "------------- Archivos CSV Restaurar --------------" << endl;
-    imprimirOpcionesCSV();
-    recibirOpcion(5);
-    system("cls");
-}
-
 void Menu::imprimirOpcionesCSV() {
     cout << "1.  Películas" << endl;
     cout << "2.  Salas" << endl;
@@ -409,7 +388,24 @@ void Menu::imprimirOpcionesCSV() {
     cout << "Ingrese la Opción elegida: ";
 }
 
-bool Menu::verificarContrasena(const string& contrasenaIngresada) {
+void Menu::creditosImprimir() {
+    system("cls");
+    cout << endl;
+    cout << "                           By LOS VECTORES®                          " << endl;
+    cout << endl;
+    cout << "          =================================================          " << endl;
+    cout << "                              EQUIPO 13                              " << endl;
+    cout << "          =================================================          " << endl;
+    cout << endl;
+    cout << "  Legajo   | Apellido, Nombres" << endl;
+    cout << "—————————————————————————————————————————————————————————————————————" << endl;
+    cout << "  31714    | Greco, Emmanuel Antonio" << endl;
+    cout << "  31768    | Taquino, Pedro" << endl;
+    cout << "—————————————————————————————————————————————————————————————————————" << endl;
+    cout << endl;
+}
+
+bool Menu::verificarContrasena(const string &contrasenaIngresada) {
     const string contrasenaCorrecta = "admin1234";
     return contrasenaIngresada == contrasenaCorrecta;
 }

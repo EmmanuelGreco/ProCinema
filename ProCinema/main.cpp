@@ -16,9 +16,9 @@
 using namespace std;
 
 int main() {
-    SetConsoleCP(65001);
-    SetConsoleOutputCP(65001);
-    //setlocale(LC_ALL, "es_ES.UTF-8");
+    //SetConsoleCP(65001);
+    //SetConsoleOutputCP(65001);
+    setlocale(LC_ALL, "es_ES.UTF-8");
     setlocale(LC_ALL, "Spanish");
     SetConsoleTitle("ProCinema - EQUIPO 13");           // Nombre de la consola
     system("color 0c");                            // Color consola y letras
@@ -32,8 +32,8 @@ int main() {
     ManagerArchivoCSV managerArchivoCSV;
     Menu menu;
 
-    //menu.menuBienvendidaImprimir();
-    //system("pause");
+    menu.menuBienvendidaImprimir();
+    system("pause");
 
     while(true) {
         menu.principal();
@@ -316,10 +316,10 @@ int main() {
         case 6: {
             int opcionConfig;
             string contrasena;
-            bool accesoPermitido = true;
+            bool accesoPermitido = false;
 
             // Validacion para acceder a Menu Configuracion
-            /*while(contrasena != "0") {
+            while(contrasena != "0") {
                 cout << endl;
                 cout << "  Por favor, ingrese la contraseña para acceder al menú de configuración (Ingrese 0 para cancelar): ";
                 cin >> contrasena;
@@ -331,7 +331,7 @@ int main() {
                 } else {
                     cout << "  Contraseña Incorrecta! Intente nuevamente!" << endl;
                 }
-            }*/
+            }
 
             if(accesoPermitido) {
                 while(true) {
@@ -425,44 +425,6 @@ int main() {
                                     break;
                                 }
                                 break;
-//                            case 3:
-//                                menu.archivosCSVBackUp();
-//                                opcionArchivosCSV = menu.getOpcion();
-//
-//                                switch(opcionArchivosCSV) {
-//                                case 1: managerArchivoCSV.backupPeliculasCSV(); system("pause");
-//                                    break;
-//                                case 2: managerArchivoCSV.backupSalasCSV(); system("pause");
-//                                    break;
-//                                case 3: managerArchivoCSV.backupFuncionesCSV(); system("pause");
-//                                    break;
-//                                case 4: managerArchivoCSV.backupMembresiasCSV(); system("pause");
-//                                    break;
-//                                case 5: managerArchivoCSV.backupVentasCSV(); system("pause");
-//                                    break;
-//                                case 0: // "VOLVER AL MENU ARCHIVOS CSV"
-//                                    break;
-//                                }
-//                                break;
-//                            case 4:
-//                                menu.archivosCSVRestaurar();
-//                                opcionArchivosCSV = menu.getOpcion();
-//
-//                                switch(opcionArchivosCSV) {
-//                                case 1: managerArchivoCSV.restaurarPeliculasCSV(); system("pause");
-//                                    break;
-//                                case 2: managerArchivoCSV.restaurarSalasCSV(); system("pause");
-//                                    break;
-//                                case 3: managerArchivoCSV.restaurarFuncionesCSV(); system("pause");
-//                                    break;
-//                                case 4: managerArchivoCSV.restaurarMembresiasCSV(); system("pause");
-//                                    break;
-//                                case 5: managerArchivoCSV.restaurarVentasCSV(); system("pause");
-//                                    break;
-//                                case 0: // "VOLVER AL MENU ARCHIVOS CSV"
-//                                    break;
-//                                }
-//                                break;
                             case 0: // "VOLVER AL MENU CONFIGURACIÓN"
                                 break;
                             }
@@ -477,6 +439,12 @@ int main() {
             }
             break;
         }
+
+        ///7. CREDITOS
+        case 7:
+            menu.creditosImprimir();
+            system("pause");
+            break;
 
 
         ///0. SALIR
