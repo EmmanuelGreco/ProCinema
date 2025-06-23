@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 #include "Menu.h"
+#include <windows.h>
+
+#define color SetConsoleTextAttribute
 
 using namespace std;
 
@@ -31,6 +34,37 @@ bool Menu::opcionValida(int input, int maximo) {//no le asigné un minimo xq asum
     } else {
         return (input >= 0 && input <= maximo);
     }
+}
+
+void Menu::menuBienvendidaImprimir() {
+    HANDLE hConsole = GetStdHandle( STD_OUTPUT_HANDLE );
+    cout << endl;
+    cout << "                           By LOS VECTORES®                          " << endl;
+    cout << endl;
+    cout << "                       Bienvenido a...........                       " << endl;
+    cout << endl;
+    color(hConsole, 14);
+    cout << "          =================================================          " << endl;
+    cout << "  $$$$$$$                        $$$$$$   $$                                              " << endl;
+    cout << "  $$  __$$                      $$  __$$   __|                                            " << endl;
+    cout << "  $$ |  $$ | $$$$$$    $$$$$$   $$     __|$$  $$$$$$$    $$$$$$   $$$$$$ $$$$    $$$$$$   " << endl;
+    cout << "  $$$$$$$  |$$  __$$  $$  __$$  $$ |      $$ |$$  __$$  $$  __$$  $$  _$$  _$$    ____$$  " << endl;
+    cout << "  $$  ____  $$ |   __|$$    $$ |$$ |      $$ |$$ |  $$ |$$$$$$$$ |$$   $$   $$ | $$$$$$$ |" << endl;
+    cout << "  $$ |      $$ |      $$ |  $$ |$$ |  $$  $$ |$$ |  $$ |$$   ____|$$ | $$ | $$ |$$  __$$ |" << endl;
+    cout << "  $$ |      $$ |       $$$$$$  | $$$$$$  |$$ |$$ |  $$ | $$$$$$$  $$ | $$ | $$ | $$$$$$$ |" << endl;
+    cout << "   __|       __|        ______    ______   __| __|   __|  _______| __|  __|  __|  _______ " << endl;
+    cout << "          =================================================          " << endl;
+    color(hConsole, 12);
+    cout << endl;
+    cout << endl;
+    cout << "  UTN|FRGP" << endl;
+    cout << endl;
+    cout << "  PROGRAMACION II - TUP - 2025 - 1C" << endl;
+    cout << "  NOCHE - VIRTUAL - COMISION 102" << endl;
+    cout << endl << endl;
+    cout << "                             ~ INGRESAR ~                            " << endl;
+    cout << endl << endl;
+
 }
 
 void Menu::principal() {
@@ -337,6 +371,11 @@ void Menu::archivosCSV() {
     cout << "Ingrese la Opción elegida: ";
     recibirOpcion(5);
     system("cls");
+}
+
+bool Menu::verificarContrasena(const string& contrasenaIngresada) {
+    const string contrasenaCorrecta = "admin1234";
+    return contrasenaIngresada == contrasenaCorrecta;
 }
 
 /*void Menu::configuracionOpciones(string queMenuEs) {

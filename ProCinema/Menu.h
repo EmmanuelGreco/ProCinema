@@ -7,6 +7,9 @@ private:
 public:
     void setOpcion(int opcion);
     int getOpcion();
+    void recibirOpcion(int maximo);
+    bool opcionValida(int opcion, int maximo);
+    void menuBienvendidaImprimir();
     void principal();
     void ventas();
     void buscarVentasPor();
@@ -26,7 +29,6 @@ public:
     void listarSalasPor();
     void configuracionCSV();
     void archivosCSV();
+    bool verificarContrasena(const std::string& contrasenaIngresada);
     //void configuracionOpciones(std::string queMenuEs);
-    void recibirOpcion(int maximo);
-    bool opcionValida(int opcion, int maximo);
 };
