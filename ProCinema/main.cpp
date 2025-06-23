@@ -22,50 +22,13 @@ void menuMembresia();
 void menuInformes();
 void menuConfiguracion();
 void menuCreditos();
-
+void menuPrincipal();
 
 int main() {
     setlocale(LC_ALL, "Spanish");
     SetConsoleTitle("ProCinema - EQUIPO 13");           // Nombre de la consola
     system("color 0c");                            // Color consola y letras
-    Menu menu;
-
-    menu.menuBienvendidaImprimir();
-    system("pause");
-
-    while(true) {
-        menu.principal();
-        switch(menu.getOpcion()) {
-        case 1:
-            menuVentas();
-            break;
-        case 2:
-            menuPeliculas();
-            break;
-        case 3:
-            menuFunciones();
-            break;
-        case 4:
-            menuMembresia();
-            break;
-        case 5:
-            menuInformes();
-            break;
-        case 6:
-            menuConfiguracion();
-            break;
-        case 7:
-            menuCreditos();
-            break;
-        case 0:
-            system("cls");
-            cout << "Gracias por usar ProCinema!" << endl << endl;
-            return 0;
-            break;
-        }
-        cout << endl;
-        system("cls");
-    }
+    menuPrincipal();
     return 0;
 }
 
@@ -585,4 +548,43 @@ void menuCreditos() {
     Menu menu;
     menu.creditosImprimir();
     system("pause");
+}
+
+void menuPrincipal() {
+    Menu menu;
+    menu.menuBienvendidaImprimir();
+    system("pause");
+
+    while(true) {
+        menu.principal();
+        switch(menu.getOpcion()) {
+        case 1:
+            menuVentas();
+            break;
+        case 2:
+            menuPeliculas();
+            break;
+        case 3:
+            menuFunciones();
+            break;
+        case 4:
+            menuMembresia();
+            break;
+        case 5:
+            menuInformes();
+            break;
+        case 6:
+            menuConfiguracion();
+            break;
+        case 7:
+            menuCreditos();
+            break;
+        case 0:
+            system("cls");
+            cout << "Gracias por usar ProCinema!" << endl << endl;
+            break;
+        }
+        cout << endl;
+        system("cls");
+    }
 }
