@@ -178,7 +178,7 @@
 	<cstring>
 	<string>
 
-1750708629 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managersala.cpp
+1750714650 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managersala.cpp
 	<iostream>
 	"ManagerSala.h"
 	"Sala.h"
@@ -256,7 +256,7 @@
 	"ArchivoPelicula.h"
 	"Pelicula.h"
 
-1750708629 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerfuncion.cpp
+1750714858 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerfuncion.cpp
 	<iostream>
 	<string>
 	<sstream>

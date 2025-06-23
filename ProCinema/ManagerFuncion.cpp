@@ -188,8 +188,8 @@ void ManagerFuncion::modificarFuncion() {
     }
     Funcion funcion = archivoFunciones.Leer(posicion);
     cout << endl;
-    cout << "  1. ID Película: " << funcion.getIdPelicula() << endl;
-    cout << "  2. Nº Sala: " << funcion.getIdSala() << endl;
+    cout << "  1. ID Película: " << funcion.getIdPelicula()+1 << endl;
+    cout << "  2. Nº Sala: " << funcion.getIdSala()+1 << endl;
     //cout << "  3. " << funcion.getButacasDisponibles() << endl;
     cout << "  3. Idioma de la Función: " << funcion.getIdiomaFuncion() << endl;
     cout << "  4. Fecha de la Función: " << funcion.getFechaFuncion().toString(2) << endl;
