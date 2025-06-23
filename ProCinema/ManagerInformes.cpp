@@ -352,8 +352,12 @@ void ManagerInformes::porcentajeMembresias() {
         else if (i==2) miembro = "2. Premium";
         else if (i==3) miembro = "3. VIP";
 
-        float porcentajeRecaudacion = (totalesRecaudacion[i] * 100) / totalRecaudacion;
-        float porcentajeButacas = ((float)totalesButacas[i] * 100) / totalButacas;
+
+        float porcentajeRecaudacion, porcentajeButacas;
+        porcentajeRecaudacion = (totalesRecaudacion[i] * 100) / totalRecaudacion;
+        porcentajeButacas = ((float)totalesButacas[i] * 100) / totalButacas;
+        if (totalRecaudacion == 0) porcentajeRecaudacion = 0;
+        if (totalButacas == 0) porcentajeButacas = 0;                               ///NO DIVIDAS POR CERO!!!
 
         cout << miembro << ": " << endl
              << fixed << setprecision(2) << "$" << totalesRecaudacion[i] << " ("
