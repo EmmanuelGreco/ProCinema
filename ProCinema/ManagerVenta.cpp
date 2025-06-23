@@ -95,15 +95,18 @@ void ManagerVenta::cargarVenta() {
         return;
     }
     ///se calcula el total llamando a la función correspondiente.
+    cout << endl;
     importeTotal = calcularImporteTotal(cantidadEntradas, idFuncion, idMembresia);
 
     ///si se guardó bien, notificarlo.
+    cout << endl;
     if(archivoVentas.Guardar(Venta(idVenta, idFuncion, idMembresia, cantidadEntradas, fechaVenta, importeTotal, estado)) &&
             archivoFunciones.Modificar(funcion, posicion)) {
         cout << "  Se guardo Exitosamente!" << endl;
     } else {
         cout << "  Hubo un error inesperado, llame al de sistemas..." << endl;
     }
+    cout << endl;
 }
 
 void ManagerVenta::listarVentas() {
