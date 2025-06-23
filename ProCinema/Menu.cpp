@@ -41,12 +41,13 @@ void Menu::principal() {
     cout << "1.  Ventas..." << endl;
     cout << "2.  Películas..." << endl;
     cout << "3.  Funciones..." << endl;
-    cout << "4.  Informes..." << endl;
-    cout << "5.  Configuración..." << endl;
+    cout << "4.  Membresías..." << endl;
+    cout << "5.  Informes..." << endl;
+    cout << "6.  Configuración..." << endl;
     cout << "0.  Salir del programa... " << endl;
     cout << "---------------------------------------------------" << endl;
     cout << "Ingrese la Opción elegida: ";
-    recibirOpcion(5);
+    recibirOpcion(6);
     system("cls");
 }
 
@@ -67,7 +68,7 @@ void Menu::ventas() {
     system("cls");
 }
 
-void Menu::BuscarVentasPor() {
+void Menu::buscarVentasPor() {
     system("cls");
     cout << endl;
     cout << "---------------- ProCinema Manager ----------------" << endl;
@@ -116,7 +117,7 @@ void Menu::listarPeliculasPor() {
     system("cls");
 }
 
-void Menu::BuscarPeliculasPor() {
+void Menu::buscarPeliculasPor() {
     system("cls");
     cout << endl;
     cout << "---------------- ProCinema Manager ----------------" << endl;
@@ -151,7 +152,7 @@ void Menu::funciones() {
     system("cls");
 }
 
-void Menu::ListarFuncionPor() {
+void Menu::listarFuncionPor() {
     system("cls");
     cout << endl;
     cout << "---------------- ProCinema Manager ----------------" << endl;
@@ -167,7 +168,7 @@ void Menu::ListarFuncionPor() {
     system("cls");
 }
 
-void Menu::BuscarFuncionPor() {
+void Menu::buscarFuncionPor() {
     system("cls");
     cout << endl;
     cout << "---------------- ProCinema Manager ----------------" << endl;
@@ -183,80 +184,7 @@ void Menu::BuscarFuncionPor() {
     system("cls");
 }
 
-void Menu::informes() {
-    system("cls");
-    cout << endl;
-    cout << "---------------- ProCinema Manager ----------------" << endl;
-    cout << "--------------------- Informes --------------------" << endl;
-    cout << "1.  Top X Películas del Año" << endl;
-    cout << "2.  Recaudación Total..." << endl;
-    cout << "3.  Porcentaje de Compras de Tipos de Membresías" << endl;
-    cout << "4.  Miembros más Frecuentes" << endl;
-    cout << "5.  Ocupación Promedio por Sala" << endl;
-    cout << "6.  Funciones con Ocupación Menor al 50%" << endl;
-    cout << "0.  Volver al menú principal... " << endl;
-    cout << "---------------------------------------------------" << endl;
-    cout << "Ingrese la Opción elegida: ";
-    recibirOpcion(6);
-    system("cls");
-}
-
-void Menu::RecaudacionTotalPor() {
-    system("cls");
-    cout << endl;
-    cout << "---------------- ProCinema Manager ----------------" << endl;
-    cout << "----------------- Recaudación por -----------------" << endl;
-    cout << "1.  Película" << endl;
-    cout << "2.  Año" << endl;
-    cout << "3.  Sala" << endl;
-    cout << "0.  Volver atrás... " << endl;
-    cout << "---------------------------------------------------" << endl;
-    cout << "Ingrese la Opción elegida: ";
-    recibirOpcion(3);
-    system("cls");
-}
-
-void Menu::configuracion() {
-    system("cls");
-    cout << endl;
-    cout << "---------------- ProCinema Manager ----------------" << endl;
-    cout << "------------------ Configuración ------------------" << endl;
-    cout << "1.  Salas..." << endl;
-    cout << "2.  Membresías..." << endl;
-    cout << "0.  Volver al menú principal... " << endl;
-    cout << "---------------------------------------------------" << endl;
-    cout << "Ingrese la Opción elegida: ";
-    recibirOpcion(2);
-    system("cls");
-}
-
-void Menu::configuracionSalas() {
-    system("cls");
-    cout << endl;
-    cout << "---------------- ProCinema Manager ----------------" << endl;
-    cout << "---------------- Configurar Salas -----------------" << endl;
-    string queMenuEs = "Sala";
-    configuracionOpciones(queMenuEs);
-    recibirOpcion(4);
-    system("cls");
-}
-
-void Menu::listarSalasPor() {
-    system("cls");
-    cout << endl;
-    cout << "---------------- ProCinema Manager ----------------" << endl;
-    cout << "----------------- Listar Salas por ----------------" << endl;
-    cout << "1.  Todas las Salas" << endl;
-    cout << "2.  Salas EN FUNCIONAMIENTO" << endl;
-    cout << "3.  Salas FUERA DE SERVICIO" << endl;
-    cout << "0.  Volver atrás... " << endl;
-    cout << "---------------------------------------------------" << endl;
-    cout << "Ingrese la Opción elegida: ";
-    recibirOpcion(3);
-    system("cls");
-}
-
-void Menu::configuracionMembresias() {
+void Menu::membresias() {
     system("cls");
     cout << endl;
     cout << "---------------- ProCinema Manager ----------------" << endl;
@@ -302,7 +230,116 @@ void Menu::buscarMembresiasPor() {
     system("cls");
 }
 
-void Menu::configuracionOpciones(string queMenuEs) {
+void Menu::informes() {
+    system("cls");
+    cout << endl;
+    cout << "---------------- ProCinema Manager ----------------" << endl;
+    cout << "--------------------- Informes --------------------" << endl;
+    cout << "1.  Top X Películas del Año" << endl;
+    cout << "2.  Recaudación Total..." << endl;
+    cout << "3.  Porcentaje de Compras de Tipos de Membresías" << endl;
+    cout << "4.  Miembros más Frecuentes" << endl;
+    cout << "5.  Ocupación Promedio por Sala" << endl;
+    cout << "6.  Funciones con Ocupación Menor al 50%" << endl;
+    cout << "0.  Volver al menú principal... " << endl;
+    cout << "---------------------------------------------------" << endl;
+    cout << "Ingrese la Opción elegida: ";
+    recibirOpcion(6);
+    system("cls");
+}
+
+void Menu::recaudacionTotalPor() {
+    system("cls");
+    cout << endl;
+    cout << "---------------- ProCinema Manager ----------------" << endl;
+    cout << "----------------- Recaudación por -----------------" << endl;
+    cout << "1.  Película" << endl;
+    cout << "2.  Año" << endl;
+    cout << "3.  Sala" << endl;
+    cout << "0.  Volver atrás... " << endl;
+    cout << "---------------------------------------------------" << endl;
+    cout << "Ingrese la Opción elegida: ";
+    recibirOpcion(3);
+    system("cls");
+}
+
+void Menu::configuracion() {
+    system("cls");
+    cout << endl;
+    cout << "---------------- ProCinema Manager ----------------" << endl;
+    cout << "------------------ Configuración ------------------" << endl;
+    cout << "1.  Salas..." << endl;
+    cout << "2.  Archivos CSV..." << endl;
+    cout << "0.  Volver al menú principal... " << endl;
+    cout << "---------------------------------------------------" << endl;
+    cout << "Ingrese la Opción elegida: ";
+    recibirOpcion(2);
+    system("cls");
+}
+
+void Menu::configuracionSalas() {
+    system("cls");
+    cout << endl;
+    cout << "---------------- ProCinema Manager ----------------" << endl;
+    cout << "---------------- Configurar Salas -----------------" << endl;
+    cout << "1.  Agregar una Sala" << endl;
+    cout << "2.  Dar de baja / Restaurar una Sala" << endl;
+    cout << "3.  Modificar una Sala" << endl;
+    cout << "4.  Listar Salas por..." << endl;
+    cout << "0.  Volver atrás... " << endl;
+    cout << "---------------------------------------------------" << endl;
+    cout << "Ingrese la Opción elegida: ";
+    recibirOpcion(4);
+    system("cls");
+}
+
+void Menu::listarSalasPor() {
+    system("cls");
+    cout << endl;
+    cout << "---------------- ProCinema Manager ----------------" << endl;
+    cout << "----------------- Listar Salas por ----------------" << endl;
+    cout << "1.  Todas las Salas" << endl;
+    cout << "2.  Salas EN FUNCIONAMIENTO" << endl;
+    cout << "3.  Salas FUERA DE SERVICIO" << endl;
+    cout << "0.  Volver atrás... " << endl;
+    cout << "---------------------------------------------------" << endl;
+    cout << "Ingrese la Opción elegida: ";
+    recibirOpcion(3);
+    system("cls");
+}
+
+void Menu::configuracionCSV() {
+    system("cls");
+    cout << endl;
+    cout << "---------------- ProCinema Manager ----------------" << endl;
+    cout << "------------------ Archivos CSV -------------------" << endl;
+    cout << "1.  Leer CSV..." << endl;
+    cout << "2.  Cargar CSV..." << endl;
+    cout << "0.  Volver atrás... " << endl;
+    cout << "---------------------------------------------------" << endl;
+    cout << "Ingrese la Opción elegida: ";
+    recibirOpcion(2);
+    system("cls");
+}
+
+void Menu::archivosCSV() {
+    system("cls");
+    cout << endl;
+    cout << "---------------- ProCinema Manager ----------------" << endl;
+    cout << "------------------ Archivos CSV -------------------" << endl;
+    cout << "1.  Películas" << endl;
+    cout << "2.  Salas" << endl;
+    cout << "3.  Funciones" << endl;
+    cout << "4.  Membresías" << endl;
+    cout << "5.  Ventas" << endl;
+    cout << "0.  Volver atrás... " << endl;
+    cout << "---------------------------------------------------" << endl;
+    cout << "Ingrese la Opción elegida: ";
+    recibirOpcion(5);
+    system("cls");
+}
+
+/*void Menu::configuracionOpciones(string queMenuEs) {
     cout << "1.  Agregar una " << queMenuEs << endl;
     cout << "2.  Dar de baja / Restaurar una " << queMenuEs << endl;
     cout << "3.  Modificar una " << queMenuEs << endl;
@@ -310,4 +347,4 @@ void Menu::configuracionOpciones(string queMenuEs) {
     cout << "0.  Volver atrás... " << endl;
     cout << "---------------------------------------------------" << endl;
     cout << "Ingrese la Opción elegida: ";
-}
+}*/

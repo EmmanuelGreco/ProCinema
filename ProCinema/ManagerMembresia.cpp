@@ -7,10 +7,9 @@
 
 using namespace std;
 
-ArchivoMembresia archivoMembresias("membresias.dat");
-
 
 void ManagerMembresia::cargarMembresia() {
+    ArchivoMembresia archivoMembresias("membresias.dat");
     int idMembresia = archivoMembresias.getUltimoId()+1, tipoMembresia, descuentoMembresia, dniMiembro;
     string nombreMembresia, nombreMiembro, apellidoMiembro, emailMiembro;
     bool estado = 1;
@@ -70,6 +69,7 @@ void ManagerMembresia::cargarMembresia() {
 }
 
 void ManagerMembresia::listarMembresias() {
+    ArchivoMembresia archivoMembresias("membresias.dat");
     int cantidadRegistros = archivoMembresias.CantidadRegistros();
 
     for (int i = 0; i < cantidadRegistros; i++) {
@@ -78,6 +78,7 @@ void ManagerMembresia::listarMembresias() {
 }
 
 void ManagerMembresia::listarMembresiasActivas(bool activas) {
+    ArchivoMembresia archivoMembresias("membresias.dat");
     int cantidadRegistros = archivoMembresias.CantidadRegistros();
     Membresia membresia;
 
@@ -91,6 +92,7 @@ void ManagerMembresia::listarMembresiasActivas(bool activas) {
 }
 
 void ManagerMembresia::modificarMembresia() {
+    ArchivoMembresia archivoMembresias("membresias.dat");
     int idMembresia, posicion;
 
     cout << "Ingrese el ID de la Membresía a Modificar: ";
@@ -184,6 +186,7 @@ void ManagerMembresia::modificarMembresia() {
 }
 
 void ManagerMembresia::cambiarEstadoMembresia() {
+    ArchivoMembresia archivoMembresias("membresias.dat");
     int idMembresia, posicion;
 
     cout << "Ingrese el ID de la Membresía a Pausar / Renovar: ";
@@ -221,6 +224,7 @@ void ManagerMembresia::cambiarEstadoMembresia() {
 ///BUSCAR POR...
 
 void ManagerMembresia::buscarPorId() {
+    ArchivoMembresia archivoMembresias("membresias.dat");
     int idBuscado;
 
     cout << "Ingrese el ID de la Membresia a Buscar: ";
@@ -245,6 +249,7 @@ void ManagerMembresia::buscarPorId() {
 }
 
 void ManagerMembresia::buscarPorDNI() {
+    ArchivoMembresia archivoMembresias("membresias.dat");
     int dniBuscado;
 
     cout << "Ingrese el DNI de la Membresia a Buscar: ";

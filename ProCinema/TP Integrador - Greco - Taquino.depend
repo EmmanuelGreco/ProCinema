@@ -97,7 +97,7 @@
 	"Archivos.h"
 	"Pelicula.h"
 
-1750282379 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\pelicula.h
+1750645014 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\pelicula.h
 	<cstring>
 	<string>
 	"Fecha.h"
@@ -133,36 +133,37 @@
 1749506697 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\manager.h
 	<string>
 
-1750638391 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\menu.cpp
+1750644454 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\menu.cpp
 	<iostream>
 	<string>
 	"Menu.h"
 
-1750638335 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\menu.h
+1750641030 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\menu.h
 	<string>
 
-1750535448 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\pelicula.cpp
+1750644494 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\pelicula.cpp
 	"Fecha.h"
 	"Pelicula.h"
 	<cstring>
 	<string>
 
-1750638660 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\main.cpp
+1750644315 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\main.cpp
 	<iostream>
 	<locale.h>
 	<windows.h>
 	<stdlib.h>
 	"Menu.h"
+	"ManagerVenta.h"
 	"ManagerPelicula.h"
 	"ManagerFuncion.h"
-	"ManagerSala.h"
 	"ManagerMembresia.h"
-	"ManagerVenta.h"
 	"ManagerInformes.h"
+	"ManagerSala.h"
+	"ManagerArchivoCSV.h"
 
 1750638186 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerpelicula.h
 
-1750623972 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerpelicula.cpp
+1750645898 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerpelicula.cpp
 	<iostream>
 	<string>
 	"ManagerPelicula.h"
@@ -170,7 +171,7 @@
 	"ArchivoPelicula.h"
 	"Fecha.h"
 
-1749712769 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\sala.h
+1750645040 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\sala.h
 	<cstring>
 	<string>
 
@@ -182,7 +183,7 @@
 
 1750566706 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managersala.h
 
-1750533289 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\sala.cpp
+1750645392 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\sala.cpp
 	"Sala.h"
 	<cstring>
 	<string>
@@ -203,18 +204,18 @@
 	<string>
 	"Membresia.h"
 
-1750374588 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\membresia.h
+1750645140 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\membresia.h
 	<cstring>
 	<string>
 
-1750638173 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managermembresia.cpp
+1750645941 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managermembresia.cpp
 	<iostream>
 	<string>
 	"ManagerMembresia.h"
 	"Membresia.h"
 	"ArchivoMembresia.h"
 
-1750634295 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\membresia.cpp
+1750645405 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\membresia.cpp
 	"Membresia.h"
 	<cstring>
 	<string>
@@ -237,12 +238,12 @@
 	<string>
 	"Funcion.h"
 
-1750374588 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\funcion.h
+1750645051 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\funcion.h
 	<cstring>
 	<string>
 	"Fecha.h"
 
-1750471226 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\funcion.cpp
+1750645392 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\funcion.cpp
 	"Fecha.h"
 	"Funcion.h"
 	<cstring>
@@ -250,7 +251,7 @@
 	<sstream>
 	<iomanip>
 
-1750623948 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerfuncion.cpp
+1750645995 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerfuncion.cpp
 	<iostream>
 	<string>
 	<sstream>
@@ -425,14 +426,14 @@
 	<string>
 	"Venta.h"
 
-1750374588 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\venta.h
+1750645116 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\venta.h
 	<cstring>
 	<string>
 	"Fecha.h"
 
 1750566706 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerventa.h
 
-1750633267 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerventa.cpp
+1750645808 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerventa.cpp
 	<iostream>
 	<string>
 	"ManagerVenta.h"
@@ -446,7 +447,7 @@
 	"ArchivoPelicula.h"
 	"Pelicula.h"
 
-1750617240 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\venta.cpp
+1750645623 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\venta.cpp
 	"Fecha.h"
 	"Venta.h"
 	<cstring>
@@ -480,7 +481,7 @@
 
 1750611679 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerinformes.h
 
-1750637273 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerinformes.cpp
+1750639565 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerinformes.cpp
 	<iostream>
 	<string>
 	<iomanip>
@@ -495,4 +496,28 @@
 	"Sala.h"
 	"ArchivoMembresia.h"
 	"Membresia.h"
+
+1750642214 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerarchivoscsv.cpp
+	<iostream>
+	<string>
+	"ManagerArchivosCSV.h"
+	"ArchivoPelicula.h"
+	"ArchivoSala.h"
+	"ArchivoFuncion.h"
+	"ArchivoMembresia.h"
+	"ArchivoVenta.h"
+
+1750641627 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerarchivoscsv.h
+
+1750645686 source:c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerarchivocsv.cpp
+	<iostream>
+	<string>
+	"ManagerArchivoCSV.h"
+	"ArchivoPelicula.h"
+	"ArchivoSala.h"
+	"ArchivoFuncion.h"
+	"ArchivoMembresia.h"
+	"ArchivoVenta.h"
+
+1750642561 c:\users\emma\downloads\utn\cpp\programacion ii\integrador-equipo13\procinema\managerarchivocsv.h
 

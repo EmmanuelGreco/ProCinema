@@ -85,7 +85,7 @@ std::string Sala::mostrar() {
            "===================================================";
 }
 
-//std::string Sala::mostrarCSV() {
-//    return to_string(getIdSala()) + "," + to_string(getTipoSala()) + ","
-//            + to_string(getButacasTotales()) + "," + to_string(getEstado());
-//}
+std::string Sala::mostrarCSV() {
+    return to_string(getIdSala()) + "," + to_string(getTipoSala()) + ","
+            + to_string(getButacasTotales()) + "," + to_string(getEstado());
+}

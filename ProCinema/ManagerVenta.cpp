@@ -116,7 +116,6 @@ void ManagerVenta::listarVentas() {
 }
 
 void ManagerVenta::modificarVenta() {
-    int idVenta, posicionAModificar;
     ArchivoVenta archivoVentas("ventas.dat");
     Venta venta;
     ArchivoFuncion archivoFunciones("funciones.dat");
@@ -125,6 +124,8 @@ void ManagerVenta::modificarVenta() {
     Membresia membresia;
     ArchivoPelicula archivoPeliculas("peliculas.dat");
     Pelicula pelicula;
+
+    int idVenta, posicionAModificar;
 
     cout << "Ingrese el ID de la Venta a Modificar: ";
     cin >> idVenta;

@@ -41,4 +41,5 @@ class Membresia {
         void setEstado(bool estado);
 
         std::string mostrar();
+        std::string mostrarCSV();
 };

@@ -54,6 +54,10 @@
 		<Unit filename="Funcion.h" />
 		<Unit filename="Hora.cpp" />
 		<Unit filename="Hora.h" />
+		<Unit filename="ManagerArchivoCSV.cpp" />
+		<Unit filename="ManagerArchivoCSV.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="ManagerFuncion.cpp" />
 		<Unit filename="ManagerFuncion.h">
 			<Option target="&lt;{~None~}&gt;" />

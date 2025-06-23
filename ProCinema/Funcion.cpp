@@ -128,10 +128,10 @@ std::string Funcion::mostrar() {
            "===================================================";
 }
 
-//std::string Funcion::mostrarCSV() {
-//    ostringstream redondeoImporteFuncion;
-//    redondeoImporteFuncion << fixed << setprecision(2) << getImporteFuncion();
-//    return to_string(getIdFuncion()) + "," + to_string(getIdPelicula()) + "," + to_string(getIdSala()) + ","
-//           + to_string(getButacasDisponibles()) + "," + to_string(getIdiomaFuncion()) + "," + getFechaFuncion().toString(1) + ","
-//           + redondeoImporteFuncion.str() + "," + to_string(getEstado());
-//}
+std::string Funcion::mostrarCSV() {
+    ostringstream redondeoImporteFuncion;
+    redondeoImporteFuncion << fixed << setprecision(2) << getImporteFuncion();
+    return to_string(getIdFuncion()) + "," + to_string(getIdPelicula()) + "," + to_string(getIdSala()) + ","
+            + to_string(getButacasDisponibles()) + "," + to_string(getIdiomaFuncion()) + "," + getFechaFuncion().toString(1) + ","
+            + redondeoImporteFuncion.str() + "," + to_string(getEstado());
+}

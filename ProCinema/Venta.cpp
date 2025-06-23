@@ -109,3 +109,11 @@ std::string Venta::mostrar() {
            "  Importe total: " + redondeoImporteTotal.str() + " - Descuento: " + descuento + "%\n" +
            "===================================================";
 }
+
+std::string Venta::mostrarCSV() {
+    ostringstream redondeoImporteTotal;
+    redondeoImporteTotal << fixed << setprecision(2) << getImporteTotal();
+    return to_string(getIdVenta()) + "," + to_string(getIdFuncion()) + "," + to_string(getIdMembresia()) + ","
+            + to_string(getCantidadEntradas()) + "," + getFechaVenta().toString(2) + ","
+            + redondeoImporteTotal.str() + "," + to_string(getEstado());
+}

@@ -101,8 +101,8 @@ std::string Pelicula::mostrar() {
            "===================================================";
 }
 
-//std::string Pelicula::mostrarCSV() {
-//    return to_string(getIdPelicula()) + "," + getTitulo() + "," + getGenero() + "," + getNombreDirector() + ","
-//            + getApellidoDirector() + "," + to_string(getClasificacion()) + ","
-//            + getFechaEstreno().toString(1) + "," + to_string(getEstado());
-//}
+std::string Pelicula::mostrarCSV() {
+    return to_string(getIdPelicula()) + "," + getTitulo() + "," + getGenero() + "," + getNombreDirector() + ","
+            + getApellidoDirector() + "," + to_string(getClasificacion()) + ","
+            + getFechaEstreno().toString(1) + "," + to_string(getEstado());
+}

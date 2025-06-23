@@ -7,10 +7,9 @@
 
 using namespace std;
 
-ArchivoPelicula archivoPeliculas("peliculas.dat");
-
 
 void ManagerPelicula::cargarPelicula() {
+    ArchivoPelicula archivoPeliculas("peliculas.dat");
     int idPelicula = archivoPeliculas.getUltimoId()+1, clasificacion;
     string titulo, genero, nombreDirector, apellidoDirector;
     bool estado = 1;
@@ -51,6 +50,7 @@ void ManagerPelicula::cargarPelicula() {
 }
 
 void ManagerPelicula::listarPeliculas() {
+    ArchivoPelicula archivoPeliculas("peliculas.dat");
     int cantidadRegistros = archivoPeliculas.CantidadRegistros();
 
     for (int i = 0; i < cantidadRegistros; i++) {
@@ -59,6 +59,7 @@ void ManagerPelicula::listarPeliculas() {
 }
 
 void ManagerPelicula::listarPeliculasActivas(bool activas) {
+    ArchivoPelicula archivoPeliculas("peliculas.dat");
     int cantidadRegistros = archivoPeliculas.CantidadRegistros();
     Pelicula pelicula;
 
@@ -72,6 +73,7 @@ void ManagerPelicula::listarPeliculasActivas(bool activas) {
 }
 
 void ManagerPelicula::modificarPelicula() {
+    ArchivoPelicula archivoPeliculas("peliculas.dat");
     int idPelicula, posicion;
 
     cout << "Ingrese el ID de la Película a Modificar: ";
@@ -150,6 +152,7 @@ void ManagerPelicula::modificarPelicula() {
 }
 
 void ManagerPelicula::cambiarEstadoPelicula() {
+    ArchivoPelicula archivoPeliculas("peliculas.dat");
     int idPelicula, posicion;
 
     cout << "Ingrese el ID de la Película a Dar de baja / Restaurar: ";
@@ -187,6 +190,7 @@ void ManagerPelicula::cambiarEstadoPelicula() {
 ///BUSCAR POR...
 
 void ManagerPelicula::buscarPorId() {
+    ArchivoPelicula archivoPeliculas("peliculas.dat");
     int idBuscado;
 
     cout << "Ingrese el ID de Película a Buscar: ";
@@ -211,6 +215,7 @@ void ManagerPelicula::buscarPorId() {
 }
 
 void ManagerPelicula::buscarPorTitulo() {
+    ArchivoPelicula archivoPeliculas("peliculas.dat");
     char tituloBuscado[50];
 
     cout << "Ingrese el Título de la Película a Buscar: ";
@@ -242,6 +247,7 @@ void ManagerPelicula::buscarPorTitulo() {
 }
 
 void ManagerPelicula::buscarPorGenero() {
+    ArchivoPelicula archivoPeliculas("peliculas.dat");
     char generoBuscado[20];
 
     cout << "Ingrese el Género de la Película a Buscar: ";
@@ -273,6 +279,7 @@ void ManagerPelicula::buscarPorGenero() {
 }
 
 void ManagerPelicula::buscarPorApellidoDirector() {
+    ArchivoPelicula archivoPeliculas("peliculas.dat");
     char apellidoDirectorBuscado[50];
 
     cout << "Ingrese el Apellido del Director de la Película a Buscar: ";
@@ -304,6 +311,7 @@ void ManagerPelicula::buscarPorApellidoDirector() {
 }
 
 void ManagerPelicula::buscarPorClasificacion() {
+    ArchivoPelicula archivoPeliculas("peliculas.dat");
     int clasificacionBuscada;
 
     cout << "Ingrese el Tipo de Clasificación de Película a Buscar: ";
@@ -326,6 +334,7 @@ void ManagerPelicula::buscarPorClasificacion() {
 }
 
 void ManagerPelicula::buscarPorFechaEstreno() {
+    ArchivoPelicula archivoPeliculas("peliculas.dat");
     Fecha fechaEstrenoBuscada;
 
     cout << "Ingrese la Fecha de Estreno de la Película a Buscar: " << endl;

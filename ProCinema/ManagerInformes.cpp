@@ -222,11 +222,11 @@ void ManagerInformes::porcentajeMiembros() {
     ArchivoMembresia archivoMembresias("membresias.dat");
     int cantidadMembresias = archivoMembresias.CantidadRegistros();
     // Hardcodeado
-    const int cantidadTiposMembresias = 4;
+    const int CANT_TIPO_MEMBRESIAS = 4;
 
-    int totalesButacas[cantidadTiposMembresias] {0};
-    float totalesRecaudacion[cantidadTiposMembresias] {0};
-    int idsMembresias[cantidadTiposMembresias] {0};
+    int totalesButacas[CANT_TIPO_MEMBRESIAS] {0};
+    float totalesRecaudacion[CANT_TIPO_MEMBRESIAS] {0};
+    int idsMembresias[CANT_TIPO_MEMBRESIAS] {0};
     int totalButacas = 0;
     float totalRecaudacion = 0;
 
@@ -241,7 +241,7 @@ void ManagerInformes::porcentajeMiembros() {
     }
     cout << endl;
 
-    for (int i = 0; i < cantidadTiposMembresias; i++) {
+    for (int i = 0; i < CANT_TIPO_MEMBRESIAS; i++) {
         idsMembresias[i] = i;
         for (int j = 0; j < cantidadVentas; j++) {
             Venta venta = archivoVentas.Leer(j);
@@ -258,12 +258,12 @@ void ManagerInformes::porcentajeMiembros() {
     }
 
 
-    for (int i = 0; i < cantidadTiposMembresias; i++) {
+    for (int i = 0; i < CANT_TIPO_MEMBRESIAS; i++) {
         totalButacas += totalesButacas[i];
         totalRecaudacion += totalesRecaudacion[i];
     }
 
-    for (int i = 0; i < cantidadTiposMembresias; i++) {
+    for (int i = 0; i < CANT_TIPO_MEMBRESIAS; i++) {
         string miembro = "";
         if (i==0) miembro = "0. Clientes no registrados";
         else if (i==1) miembro = "1. Plus";

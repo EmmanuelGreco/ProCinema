@@ -25,4 +25,5 @@ class Sala {
         void setEstado(bool estado);
 
         std::string mostrar();
+        std::string mostrarCSV();
 };

@@ -41,4 +41,5 @@ class Funcion {
         Funcion operator -=(int cantidadButacas);
 
         std::string mostrar();
+        std::string mostrarCSV();
 };

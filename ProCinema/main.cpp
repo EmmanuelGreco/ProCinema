@@ -3,12 +3,13 @@
 #include <windows.h>
 #include <stdlib.h>
 #include "Menu.h"
+#include "ManagerVenta.h"
 #include "ManagerPelicula.h"
 #include "ManagerFuncion.h"
-#include "ManagerSala.h"
 #include "ManagerMembresia.h"
-#include "ManagerVenta.h"
 #include "ManagerInformes.h"
+#include "ManagerSala.h"
+#include "ManagerArchivoCSV.h"
 
 #define color SetConsoleTextAttribute
 
@@ -22,12 +23,13 @@ int main() {
     SetConsoleTitle("ProCinema - EQUIPO 13");           // Nombre de la consola
     system("color 0c");                            // Color consola y letras
 
+    ManagerVenta managerVenta;
     ManagerPelicula managerPelicula;
     ManagerFuncion managerFuncion;
-    ManagerSala managerSala;
     ManagerMembresia managerMembresia;
-    ManagerVenta managerVenta;
     ManagerInformes managerInformes;
+    ManagerSala managerSala;
+    ManagerArchivoCSV managerArchivoCSV;
     Menu menu;
 
     while(true) {
@@ -52,7 +54,7 @@ int main() {
                 case 4: managerVenta.listarVentas(); system("pause");
                     break;
                 case 5:
-                    menu.BuscarVentasPor();
+                    menu.buscarVentasPor();
                     opcionBuscarVentas = menu.getOpcion();
 
                     switch(opcionBuscarVentas) {
@@ -115,7 +117,7 @@ int main() {
                     }
                     break;
                 case 5:
-                    menu.BuscarPeliculasPor();
+                    menu.buscarPeliculasPor();
                     opcionBuscarPeliculas = menu.getOpcion();
 
                     switch(opcionListarPeliculas) {
@@ -160,7 +162,7 @@ int main() {
                 case 3: managerFuncion.modificarFuncion(); system("pause");
                     break;
                 case 4:
-                    menu.ListarFuncionPor();
+                    menu.listarFuncionPor();
                     opcionListarFunciones = menu.getOpcion();
 
                     switch(opcionListarFunciones) {
@@ -183,7 +185,7 @@ int main() {
                     }
                     break;
                 case 5:
-                    menu.BuscarFuncionPor();
+                    menu.buscarFuncionPor();
                     opcionBuscarFunciones = menu.getOpcion();
 
                     switch(opcionBuscarFunciones) {
@@ -208,8 +210,66 @@ int main() {
         }
 
 
-        ///4. INFORMES
+        ///4. MEMBRESÍAS
         case 4: {
+            int opcionMembresias, opcionListarMembresias, opcionBuscarMembresias;
+
+            while(true) {
+                menu.membresias();
+                opcionMembresias = menu.getOpcion();
+
+                switch(opcionMembresias) {
+                case 1: managerMembresia.cargarMembresia(); system("pause");
+                    break;
+                case 2: managerMembresia.cambiarEstadoMembresia(); system("pause");
+                    break;
+                case 3: managerMembresia.modificarMembresia(); system("pause");
+                    break;
+                case 4:
+                    menu.listarMembresiasPor();
+                    opcionListarMembresias = menu.getOpcion();
+
+                    switch(opcionListarMembresias) {
+                    case 1: managerMembresia.listarMembresias(); system("pause");
+                        break;
+                    case 2: {
+                        bool activas = true;
+                        managerMembresia.listarMembresiasActivas(activas); system("pause");
+                        break;
+                    }
+                    case 3: {
+                        bool activas = false;
+                        managerMembresia.listarMembresiasActivas(activas); system("pause");
+                        break;
+                    }
+                    case 0: // "VOLVER AL MENU MEMBRESÍAS"
+                        break;
+                    }
+                    break;
+                case 5:
+                    menu.buscarMembresiasPor();
+                    opcionBuscarMembresias = menu.getOpcion();
+
+                    switch(opcionBuscarMembresias) {
+                    case 1: managerMembresia.buscarPorId(); system("pause");
+                        break;
+                    case 2: managerMembresia.buscarPorDNI(); system("pause");
+                        break;
+                    case 0: // "VOLVER AL MENU MEMBRESÍAS"
+                        break;
+                    }
+                    break;
+                case 0: // "VOLVER AL MENU PRINCIPAL"
+                    break;
+                }
+                if(opcionMembresias == 0) break;
+            }
+            break;
+        }
+
+
+        ///4. INFORMES
+        case 5: {
             int opcionInformes, opcionInformesRecaudacion;
 
             while(true) {
@@ -220,7 +280,7 @@ int main() {
                 case 1: managerInformes.topCinco(); system("pause");
                     break;
                 case 2:
-                    menu.RecaudacionTotalPor();
+                    menu.recaudacionTotalPor();
                     opcionInformesRecaudacion = menu.getOpcion();
 
                     switch(opcionInformesRecaudacion) {
@@ -252,7 +312,7 @@ int main() {
 
 
         ///5. CONFIGURACIÓN
-        case 5: {
+        case 6: {
             int opcionConfig;
 
             while(true) {
@@ -301,57 +361,55 @@ int main() {
                     }
                     break;
 
-                int opcionMembresias, opcionListarMembresias, opcionBuscarMembresias;
+                int opcionCSV, opcionArchivosCSV;
                 case 2:
                     while(true) {
-                        menu.configuracionMembresias();
-                        opcionMembresias = menu.getOpcion();
+                        menu.configuracionCSV();
+                        opcionCSV = menu.getOpcion();
 
-                        switch(opcionMembresias) {
-                        case 1: managerMembresia.cargarMembresia(); system("pause");
-                            break;
-                        case 2: managerMembresia.cambiarEstadoMembresia(); system("pause");
-                            break;
-                        case 3: managerMembresia.modificarMembresia(); system("pause");
-                            break;
-                        case 4:
-                            menu.listarMembresiasPor();
-                            opcionListarMembresias = menu.getOpcion();
+                        switch(opcionCSV) {
+                        case 1:
+                            menu.archivosCSV();
+                            opcionArchivosCSV = menu.getOpcion();
 
-                            switch(opcionListarMembresias) {
-                            case 1: managerMembresia.listarMembresias(); system("pause");
+                            switch(opcionArchivosCSV) {
+                            case 1: managerArchivoCSV.listarPeliculasCSV(); system("pause");
                                 break;
-                            case 2: {
-                                bool activas = true;
-                                managerMembresia.listarMembresiasActivas(activas); system("pause");
+                            case 2: managerArchivoCSV.listarSalasCSV(); system("pause");
                                 break;
-                            }
-                            case 3: {
-                                bool activas = false;
-                                managerMembresia.listarMembresiasActivas(activas); system("pause");
+                            case 3: managerArchivoCSV.listarFuncionesCSV(); system("pause");
                                 break;
-                            }
-                            case 0: // "VOLVER AL MENU MEMBRESÍAS"
+                            case 4: managerArchivoCSV.listarMembresiasCSV(); system("pause");
+                                break;
+                            case 5: managerArchivoCSV.listarVentasCSV(); system("pause");
+                                break;
+                            case 0: // "VOLVER AL MENU ARCHIVOS CSV"
                                 break;
                             }
                             break;
-                        case 5:
-                            menu.buscarMembresiasPor();
-                            opcionBuscarMembresias = menu.getOpcion();
+                        case 2:
+                            menu.archivosCSV();
+                            opcionArchivosCSV = menu.getOpcion();
 
-                            switch(opcionBuscarMembresias) {
-                            case 1: managerMembresia.buscarPorId(); system("pause");
+                            switch(opcionArchivosCSV) {
+                            case 1: managerArchivoCSV.cargarPeliculasCSV(); system("pause");
                                 break;
-                            case 2: managerMembresia.buscarPorDNI(); system("pause");
+                            case 2: managerArchivoCSV.cargarSalasCSV(); system("pause");
                                 break;
-                            case 0: // "VOLVER AL MENU MEMBRESÍAS"
+                            case 3: managerArchivoCSV.cargarFuncionesCSV(); system("pause");
+                                break;
+                            case 4: managerArchivoCSV.cargarMembresiasCSV(); system("pause");
+                                break;
+                            case 5: managerArchivoCSV.cargarVentasCSV(); system("pause");
+                                break;
+                            case 0: // "VOLVER AL MENU ARCHIVOS CSV"
                                 break;
                             }
                             break;
                         case 0: // "VOLVER AL MENU CONFIGURACIÓN"
                             break;
                         }
-                        if(opcionMembresias == 0) break;
+                        if(opcionCSV == 0) break;
                     }
                     break;
                 case 0: // "VOLVER AL MENU PRINCIPAL"

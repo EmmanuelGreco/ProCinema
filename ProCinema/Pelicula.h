@@ -38,4 +38,5 @@ class Pelicula {
         void setEstado(bool estado);
 
         std::string mostrar();
+        std::string mostrarCSV();
 };
