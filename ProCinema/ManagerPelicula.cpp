@@ -15,7 +15,7 @@ void ManagerPelicula::cargarPelicula() {
     bool estado = 1;
     Fecha fechaEstreno;
 
-    cout << "  ID: " << idPelicula << endl;
+    cout << "  ID: " << idPelicula + 1<< endl;
 
     cout << "  Ingrese el Título: ";
     cin.ignore();

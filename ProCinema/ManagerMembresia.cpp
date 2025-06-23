@@ -40,7 +40,7 @@ void ManagerMembresia::cargarMembresia() {
         break;
     }
 
-    cout << nombreMembresia << ": " << descuentoMembresia << "% OFF." << endl;
+    cout << "  " << nombreMembresia << ": " << descuentoMembresia << "% OFF." << endl;
 
     cout << "  Ingrese el Nombre del Miembro: ";
     cin.ignore();

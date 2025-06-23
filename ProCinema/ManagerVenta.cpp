@@ -30,7 +30,7 @@ void ManagerVenta::cargarVenta() {
     Membresia membresia;
 
     ///automáticamente seteo id de venta, y fecha y hora.
-    cout << "  ID de Venta: " << idVenta << endl;
+    cout << "  ID de Venta: " << idVenta + 1<< endl;
     cout << "  Fecha y Hora: ";                           ///fecha se obtiene automaticamente
     fechaVenta.setFechaYHoraActual();
     cout << fechaVenta.toString(2) << endl;
@@ -91,7 +91,7 @@ void ManagerVenta::cargarVenta() {
     if(cantidadEntradas <= funcion.getButacasDisponibles()) {
         funcion -= cantidadEntradas;                                //funcion.setButacasDisponibles(funcion.getButacasDisponibles() - cantidadEntradas);
     } else {
-        cout << "  Ups... No hay suficientes Butacas Disponibles!" << endl;
+        cout << "  No hay suficientes Butacas Disponibles!" << endl;
         return;
     }
     ///se calcula el total llamando a la función correspondiente.
@@ -111,7 +111,7 @@ void ManagerVenta::listarVentas() {
     int cantidadRegistros = archivoVentas.CantidadRegistros();
 
     for (int i = 0; i < cantidadRegistros; i++) {
-        cout << archivoVentas.Leer(i).mostrar() << endl;
+        if(archivoVentas.Leer(i).getEstado()) cout << archivoVentas.Leer(i).mostrar() << endl;
     }
 }
 
@@ -141,6 +141,10 @@ void ManagerVenta::modificarVenta() {
         return;
     }
     venta = archivoVentas.Leer(posicionAModificar);
+    if (!venta.getEstado()) {
+            cout << "  Esta Venta fue dada de baja anteriormente." << endl;
+            return;
+    }
     cout << endl;
     cout << "  1. Modificar ID de función: " << venta.getIdFuncion()+1 << endl;
     cout << "  2. Modificar ID de miembro: " << venta.getIdMembresia() << endl;
@@ -284,11 +288,11 @@ float ManagerVenta::calcularImporteTotal(int cantidadEntradas, int idFuncion, in
 
     int importeTotal = funcion.getImporteFuncion() * cantidadEntradas;
     if(idMembresia != 0) {
-        cout << "  Subtotal: " << importeTotal << endl;
+        cout << "  Subtotal: $" << importeTotal << endl;
         cout << "  Descuento: " << membresia.getDescuentoMembresia() << "%" << endl;
         importeTotal = (importeTotal * (100-membresia.getDescuentoMembresia())/ 100);
     }
-    cout << "  Total: " << importeTotal << endl;
+    cout << "  Total: $" << importeTotal << endl;
     return importeTotal;
 }
 
@@ -311,7 +315,7 @@ void ManagerVenta::buscarPorId() {
     int cantidadRegistros = archivoVentas.CantidadRegistros();
     int cantidadEncontrados = 0;
     for (int i = 0; i < cantidadRegistros; i++) {
-        if (archivoVentas.Leer(i).getIdVenta() == idBuscado) {
+        if (archivoVentas.Leer(i).getIdVenta() == idBuscado && archivoVentas.Leer(i).getEstado()) {
             cout << archivoVentas.Leer(i).mostrar() << endl;
             cantidadEncontrados++;
         }
@@ -336,7 +340,7 @@ void ManagerVenta::buscarPorFuncion() {
     int cantidadRegistros = archivoVentas.CantidadRegistros();
     int cantidadEncontrados = 0;
     for (int i = 0; i < cantidadRegistros; i++) {
-        if (archivoVentas.Leer(i).getIdFuncion() == idBuscado) {
+        if (archivoVentas.Leer(i).getIdFuncion() == idBuscado && archivoVentas.Leer(i).getEstado()) {
             cout << archivoVentas.Leer(i).mostrar() << endl;
             cantidadEncontrados++;
         }
@@ -361,7 +365,7 @@ void ManagerVenta::buscarPorDNI() {
     int cantidadEncontrados = 0;
     for (int i = 0; i < cantidadRegistros; i++) {
         int idMem = archivoVentas.Leer(i).getIdMembresia();
-        if (idMem != 0 && archivoMembresias.Leer(idMem - 1).getDniMiembro() == dniBuscado) {
+        if (idMem != 0 && archivoMembresias.Leer(idMem - 1).getDniMiembro() == dniBuscado && archivoVentas.Leer(i).getEstado()) {
             cout << archivoVentas.Leer(i).mostrar() << endl;
             cantidadEncontrados++;
         }
@@ -384,7 +388,7 @@ void ManagerVenta::buscarPorMiembro() {
     int cantidadRegistros = archivoVentas.CantidadRegistros();
     int cantidadEncontrados = 0;
     for (int i = 0; i < cantidadRegistros; i++) {
-        if (archivoVentas.Leer(i).getIdMembresia() == idBuscado) {
+        if (archivoVentas.Leer(i).getIdMembresia() == idBuscado && archivoVentas.Leer(i).getEstado()) {
             cout << archivoVentas.Leer(i).mostrar() << endl;
             cantidadEncontrados++;
         }
@@ -407,7 +411,7 @@ void ManagerVenta::buscarPorFecha() {
 //        if (archivoVentas.Leer(i).getFechaVenta().getAnio() == fechaBuscada.getAnio() &&
 //                archivoVentas.Leer(i).getFechaVenta().getMes() == fechaBuscada.getMes() &&
 //                archivoVentas.Leer(i).getFechaVenta().getDia() == fechaBuscada.getDia()) {
-        if(archivoVentas.Leer(i).getFechaVenta() == fechaBuscada) {
+        if(archivoVentas.Leer(i).getFechaVenta() == fechaBuscada && archivoVentas.Leer(i).getEstado()) {
             cout << archivoVentas.Leer(i).mostrar() << endl;
             cantidadEncontrados++;
         }

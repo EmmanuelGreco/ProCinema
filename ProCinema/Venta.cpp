@@ -106,7 +106,7 @@ std::string Venta::mostrar() {
            "  " + miembro + "\n" +
            "  " + pelicula.getTitulo() + " - " + funcion.getFechaFuncion().toString(1) + "\n" +
            "  Cantidad de entradas: " + to_string(getCantidadEntradas()) + "\n" +
-           "  Importe total: " + redondeoImporteTotal.str() + " - Descuento: " + descuento + "%\n" +
+           "  Importe total: $" + redondeoImporteTotal.str() + " - Descuento: " + descuento + "%\n" +
            "===================================================";
 }
 

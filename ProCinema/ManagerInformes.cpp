@@ -25,6 +25,10 @@ void ManagerInformes::topCinco() {
     ArchivoVenta archivoVentas("ventas.dat");
     int cantidadVentas = archivoVentas.CantidadRegistros();
     ArchivoFuncion archivoFunciones("funciones.dat");
+    if (cantidadPeliculas == 0 || cantidadVentas == 0) {
+        cout << "No hay suficiente información para completar la solicitud." << endl;
+        return;
+    }
 
     ///No se puede hacer un array bidimensional con new. Se harán dos vectores.
     ///En el primero se guarda el id de la pelicula, en el otro su recaudacion.
@@ -37,6 +41,7 @@ void ManagerInformes::topCinco() {
         exit(-1);
     }
 
+
     ///para cada película
     for (int i = 0; i < cantidadPeliculas; i++) {
         Pelicula pelicula = archivoPeliculas.Leer(i);
@@ -46,7 +51,7 @@ void ManagerInformes::topCinco() {
             Venta venta = archivoVentas.Leer(j);
             Funcion funcion = archivoFunciones.Leer(venta.getIdFuncion());
 
-            if (idsPeliculas[i] == funcion.getIdPelicula()) totalesPeliculas[i] += venta.getImporteTotal();
+            if (idsPeliculas[i] == funcion.getIdPelicula() && venta.getEstado()) totalesPeliculas[i] += venta.getImporteTotal();
         }
     }
 
@@ -95,6 +100,11 @@ void ManagerInformes::topCincoAnual() {
     ArchivoVenta archivoVentas("ventas.dat");
     int cantidadVentas = archivoVentas.CantidadRegistros();
     ArchivoFuncion archivoFunciones("funciones.dat");
+    if (cantidadPeliculas == 0 || cantidadVentas == 0) {
+        cout << "No hay suficiente información para completar la solicitud." << endl;
+        return;
+    }
+
 
     ///No se puede hacer un array bidimensional con new. Se harán dos vectores.
     ///En el primero se guarda el id de la pelicula, en el otro su recaudacion.
@@ -125,9 +135,9 @@ void ManagerInformes::topCincoAnual() {
             Venta venta = archivoVentas.Leer(j);
 
             if (venta.getFechaVenta().getAnio() == anioAConsultar) {
-            Funcion funcion = archivoFunciones.Leer(venta.getIdFuncion());
+                Funcion funcion = archivoFunciones.Leer(venta.getIdFuncion());
 
-            if (idsPeliculas[i] == funcion.getIdPelicula()) totalesPeliculas[i] += venta.getImporteTotal();
+                if (idsPeliculas[i] == funcion.getIdPelicula() && venta.getEstado()) totalesPeliculas[i] += venta.getImporteTotal();
             }
         }
     }
@@ -177,6 +187,10 @@ void ManagerInformes::recaudacionPorPelicula() {
     ArchivoVenta archivoVentas("ventas.dat");
     int cantidadVentas = archivoVentas.CantidadRegistros();
     ArchivoFuncion archivoFunciones("funciones.dat");
+    if (cantidadPeliculas == 0 || cantidadVentas == 0) {
+        cout << "No hay suficiente información para completar la solicitud." << endl;
+        return;
+    }
 
     ///igual que la funcion anterior.
     float *totalesPeliculas = nullptr;
@@ -197,7 +211,7 @@ void ManagerInformes::recaudacionPorPelicula() {
             Venta venta = archivoVentas.Leer(j);
             Funcion funcion = archivoFunciones.Leer(venta.getIdFuncion());
 
-            if (idsPeliculas[i] == funcion.getIdPelicula()) totalesPeliculas[i] += venta.getImporteTotal();
+            if (idsPeliculas[i] == funcion.getIdPelicula() && venta.getEstado()) totalesPeliculas[i] += venta.getImporteTotal();
         }
     }
 
@@ -215,6 +229,11 @@ void ManagerInformes::recaudacionPorPelicula() {
 void ManagerInformes::recaudacionAnual() {
     ArchivoVenta archivoVentas("ventas.dat");
     int cantidadVentas = archivoVentas.CantidadRegistros();
+    if (cantidadVentas == 0) {
+        cout << "No hay suficiente información para completar la solicitud." << endl;
+        return;
+    }
+
 
     cout << "Ingrese un año para consultar: ";
     int anioAConsultar;
@@ -231,7 +250,7 @@ void ManagerInformes::recaudacionAnual() {
 
     for (int i = 0; i < cantidadVentas; i++) {
         Venta venta = archivoVentas.Leer(i);
-        if (venta.getFechaVenta().getAnio() == anioAConsultar) {
+        if (venta.getFechaVenta().getAnio() == anioAConsultar && venta.getEstado()) {
             totales[0] += venta.getImporteTotal();
             totales[venta.getFechaVenta().getMes()] += venta.getImporteTotal();
             cantidadEncontrados++;
@@ -254,6 +273,10 @@ void ManagerInformes::recaudacionPorSala() {
     ArchivoSala archivoSalas("salas.dat");
     int cantidadSalas = archivoSalas.CantidadRegistros();
     ArchivoFuncion archivoFunciones("funciones.dat");
+    if (cantidadVentas == 0 || cantidadSalas == 0) {
+        cout << "No hay suficiente información para completar la solicitud." << endl;
+        return;
+    }
 
     float *totalesSalas = nullptr;
     int *idsSalas = nullptr;
@@ -271,7 +294,7 @@ void ManagerInformes::recaudacionPorSala() {
             Venta venta = archivoVentas.Leer(j);
             Funcion funcion = archivoFunciones.Leer(venta.getIdFuncion());
 
-            if (idsSalas[i] == funcion.getIdSala()) totalesSalas[i] += venta.getImporteTotal();
+            if (idsSalas[i] == funcion.getIdSala()&& venta.getEstado()) totalesSalas[i] += venta.getImporteTotal();
         }
     }
 
@@ -303,6 +326,10 @@ void ManagerInformes::porcentajeMembresias() {
     int cantidadVentas = archivoVentas.CantidadRegistros();
     ArchivoMembresia archivoMembresias("membresias.dat");
     int cantidadMembresias = archivoMembresias.CantidadRegistros();
+    if (cantidadVentas == 0 || cantidadMembresias == 0) {
+        cout << "No hay suficiente información para completar la solicitud." << endl;
+        return;
+    }
     // Hardcodeado
     const int CANT_TIPO_MEMBRESIAS = 4;
 
@@ -332,7 +359,7 @@ void ManagerInformes::porcentajeMembresias() {
             if (venta.getIdMembresia() == 0) tipoAComparar = 0;
             else tipoAComparar = archivoMembresias.Leer(venta.getIdMembresia() - 1).getTipoMembresia();
 
-            if(i == tipoAComparar && venta.getFechaVenta().getAnio() == anioAConsultar) {
+            if(i == tipoAComparar && venta.getFechaVenta().getAnio() == anioAConsultar && venta.getEstado()) {
                 totalesButacas[i] += venta.getCantidadEntradas();
                 totalesRecaudacion[i] += venta.getImporteTotal();
             }
@@ -376,6 +403,10 @@ void ManagerInformes::ocupacionPromedioSala() {
     int cantidadSalas = archivoSalas.CantidadRegistros();
     ArchivoFuncion archivoFunciones("funciones.dat");
     int cantidadFunciones = archivoFunciones.CantidadRegistros();
+    if (cantidadSalas == 0 || cantidadFunciones == 0) {
+        cout << "No hay suficiente información para completar la solicitud." << endl;
+        return;
+    }
 
     cout << "Ingrese un año para consultar: ";
     int anioAConsultar;
@@ -407,7 +438,7 @@ void ManagerInformes::ocupacionPromedioSala() {
 
         if (cantidadFuncionesSala > 0) {
             float porcentajeOcupacionSala = ((float)totalButacasOcupadas * 100) /
-                                             (cantidadFuncionesSala * butacasTotales);
+                                            (cantidadFuncionesSala * butacasTotales);
             cout << "Sala " << idSala+1 << ": " << fixed << setprecision(2) << porcentajeOcupacionSala << "%" << endl;
         } else {
             cout << "Sala " << idSala+1 << ": Sin funciones en el año " << anioAConsultar << endl;
@@ -420,6 +451,10 @@ void ManagerInformes::ocupacionMenorFunciones() {
     int cantidadSalas = archivoSalas.CantidadRegistros();
     ArchivoFuncion archivoFunciones("funciones.dat");
     int cantidadFunciones = archivoFunciones.CantidadRegistros();
+    if (cantidadSalas == 0 || cantidadFunciones == 0) {
+        cout << "No hay suficiente información para completar la solicitud." << endl;
+        return;
+    }
 
     cout << "Ingrese un año para consultar: ";
     int anioAConsultar;
@@ -466,14 +501,14 @@ void ManagerInformes::ocupacionMenorFunciones() {
     }
 
 
-    if (cantFunMenorOcupacion == 0){
+    if (cantFunMenorOcupacion == 0) {
         cout << "No hay Funciones con Ocupación menor al 50%, en el año " << anioAConsultar << endl;
     } else {
         for (int i = 0; i < cantFunMenorOcupacion; i++) {
             Funcion funcion = archivoFunciones.Leer(idFunMenorOcupacion[i]);
 
-            cout << " ID Función: " << funcion.getIdFuncion()
-                 << " - ID Sala: " << funcion.getIdSala()
+            cout << " ID Función: " << funcion.getIdFuncion() + 1
+                 << " - ID Sala: " << funcion.getIdSala() + 1
                  << " - Porcentaje Ocupación: " << fixed << setprecision(2) << porcenFunMenorOcupacion[i] << "%" << endl;
             cout << "--------------------------------------------------" << endl;
         }

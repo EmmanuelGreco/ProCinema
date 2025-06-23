@@ -12,7 +12,7 @@ void ManagerSala::cargarSala() {
     int idSala = archivoSalas.getUltimoId()+1, tipoSala, butacasTotales;
     bool estado = 1;
 
-    cout << "  ID: " << idSala << endl;
+    cout << "  ID: " << idSala + 1<< endl;
 
     cout << "  Ingrese el Tipo de Sala (1-Standard, 2-Premium, 3-3D, 4-4D, 5-IMAX): ";
     cin >> tipoSala;

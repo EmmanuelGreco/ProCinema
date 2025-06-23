@@ -24,17 +24,17 @@ void ManagerFuncion::cargarFuncion() {
     ArchivoPelicula archivoPeliculas("peliculas.dat");
     ArchivoSala archivoSalas("salas.dat");
 
-    cout << "  ID: " << idFuncion << endl;
+    cout << "  ID: " << idFuncion + 1 << endl;
 
     // Me traigo el ID de la Pelicula y lo asigno al idPelicula de la Función
     cout << "  Ingrese el ID de la Película: ";
     //cin.ignore();
     cin >> idPelicula;
-    while (!validarNumero(idPelicula, 0)) {
+    while (!validarNumero(idPelicula, 1)) {
         cout << "  Error! Ingrese un ID válido: ";
         cin >> idPelicula;
     }
-    posicion = archivoPeliculas.Buscar(idPelicula);
+    posicion = archivoPeliculas.Buscar(idPelicula-1);
     if (posicion == -1) {
         cout << "  ID NO encontrado!";
         return;
@@ -45,13 +45,11 @@ void ManagerFuncion::cargarFuncion() {
     // Me traigo el ID de la Sala y lo asigno al idSala de la Función
     cout << "  Ingrese el ID de la Sala: ";
     cin >> idSala;
-    idSala -= 1;
-    while (!validarNumero(idSala, 0)) {
+    while (!validarNumero(idSala, 1)) {
         cout << "  Error! Ingrese un ID válido: ";
         cin >> idSala;
-        idSala -= 1;
     };
-    posicion = archivoSalas.Buscar(idSala);
+    posicion = archivoSalas.Buscar(idSala-1);
     if (posicion == -1) {
         cout << "  ID no encontrado!";
         return;
