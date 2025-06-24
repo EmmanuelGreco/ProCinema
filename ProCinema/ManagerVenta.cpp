@@ -50,6 +50,10 @@ void ManagerVenta::cargarVenta() {
             return;
         }
         membresia = archivoMembresias.Leer(posicion);
+        if (!membresia.getEstado()){
+            cout << endl << "  Membresía PAUSADA!" << endl << endl;
+            return;
+        }
         idMembresia = membresia.getIdMembresia();
         cout << "  Registrando Venta para " << membresia.getNombreMiembro() << " " << membresia.getApellidoMiembro() <<
              " - " << membresia.getNombreMembresia() << endl;
@@ -72,6 +76,10 @@ void ManagerVenta::cargarVenta() {
         return;
     }
     Funcion funcion = archivoFunciones.Leer(posicion);
+    if (!funcion.getEstado()){
+        cout << endl << "  Función FUERA DE CARTELERA!" << endl << endl;
+        return;
+    }
     idFuncion = funcion.getIdFuncion();
 
     ///se muestra la pelicula y fecha correspondiente a esta función
