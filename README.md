@@ -14,4 +14,4 @@
 
 ### Autor del Proyecto
 - Greco, Emmanuel Antonio [LinkedIn](https://www.linkedin.com/in/emmanuel-antonio-greco-689691b7)
-- Taquin, Pedro [LinkedIn](https://ar.linkedin.com/in/pedro-taquino-737853225)
+- Taquino, Pedro [LinkedIn](https://ar.linkedin.com/in/pedro-taquino-737853225)
